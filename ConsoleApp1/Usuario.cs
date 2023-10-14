@@ -16,31 +16,16 @@ namespace ConsoleApp1
             this.Email = Console.ReadLine();
 
             Console.WriteLine("Digite sua senha");
-            this.Password = Console.ReadLine();
+            (this.PasswordHash, this.PasswordSalt) = PasswordHasher.HashPassword(Console.ReadLine());
 
         }
 
-        private string Email;
-        private string PasswordSalt;
-        private string Password
-        {
-            get
-            {
-                return this.Password;
-            }
-            set
-            {
-                this.Password = HashPassword(value);
-            }
-        }
-        private string Nome;
-        private long Telefone;
-        private string Endereco;
+        private string Email { get; set; }
+        private string PasswordHash { get;set; }
+        private string PasswordSalt { get; set; }
+        private string Nome { get; set; }
+        private long Telefone { get; set; }
+        private string Endereco { get; set; }
 
-        private string HashPassword(string password)
-        {
-            //ToDo: Implementar sistema de hash para a senha.
-            return password;
-        }
     }
 }
