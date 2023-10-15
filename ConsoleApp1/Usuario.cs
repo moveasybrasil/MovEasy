@@ -12,6 +12,7 @@ namespace ConsoleApp1
     {
         public Usuario() 
         {
+            Console.Clear();
             Console.WriteLine("Digite o email.");
             this.email = Console.ReadLine();
 
@@ -22,6 +23,7 @@ namespace ConsoleApp1
 
         public void Atualizar()
         {
+            Console.Clear();
             Console.WriteLine($"Digite o novo email <{email}>");
             this.email = Console.ReadLine();
 
