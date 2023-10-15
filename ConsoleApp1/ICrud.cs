@@ -8,9 +8,9 @@ namespace ConsoleApp1
 {
     public interface ICrud
     {
-        public void Create();
-        public void Read();
-        public void Update();
-        public void Delete();
+        public static void Create() { }
+        public static void Read() { }
+        public static void Update() { }
+        public static void Delete() { }
     }
 }
