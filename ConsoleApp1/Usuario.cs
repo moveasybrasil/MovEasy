@@ -13,34 +13,42 @@ namespace ConsoleApp1
         public Usuario() 
         {
             Console.WriteLine("Digite o email.");
-            this.Email = Console.ReadLine();
+            this.email = Console.ReadLine();
 
             Console.WriteLine("Digite sua senha");
-            this.Password = Console.ReadLine();
+            (this.passwordHash, this.passwordSalt) = PasswordHasher.HashPassword(Console.ReadLine());
 
         }
 
-        private string Email;
-        private string PasswordSalt;
-        private string Password
+        public void Atualizar()
         {
-            get
-            {
-                return this.Password;
-            }
-            set
-            {
-                this.Password = HashPassword(value);
-            }
-        }
-        private string Nome;
-        private long Telefone;
-        private string Endereco;
+            Console.WriteLine($"Digite o novo email <{email}>");
+            this.email = Console.ReadLine();
 
-        private string HashPassword(string password)
-        {
-            //ToDo: Implementar sistema de hash para a senha.
-            return password;
+            Console.WriteLine($"Digite uma nova senha.");
+            (this.passwordHash, this.passwordSalt) = PasswordHasher.HashPassword(Console.ReadLine());
+
         }
+        public void Mostrar()
+        {
+            Console.WriteLine($"{nome} - {email} - {telefone} - {endereco}");
+        }
+
+        public static string DatabaseName = "USUARIO";
+        public static string DatabaseValues = 
+            "email = @email, " +
+            "passwordHash = @passwordHash, " +
+            "passwordSalt = @passwordSalt, " +
+            "nome = @nome, " +
+            "telefone = @telefone, " +
+            "endereco = @endereco";
+
+        public string email { get; set; }
+        public string passwordHash { get;set; }
+        public string passwordSalt { get; set; }
+        public string nome { get; set; }
+        public string telefone { get; set; }
+        public string endereco { get; set; }
+
     }
 }
