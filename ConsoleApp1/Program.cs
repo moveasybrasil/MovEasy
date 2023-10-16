@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            UsuarioModel.Setup();
+
             while (true)
             {
                 switch(Menu.MostrarMenuCrud("Usuario"))
