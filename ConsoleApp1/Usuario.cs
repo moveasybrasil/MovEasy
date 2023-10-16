@@ -10,47 +10,48 @@ namespace ConsoleApp1
 {
     internal class Usuario
     {
-        public Usuario() 
+
+        public void Popular ()
         {
             Console.Clear();
             Console.WriteLine("Digite o email.");
-            this.email = Console.ReadLine();
+            this.EMAIL = Console.ReadLine();
 
             Console.WriteLine("Digite sua senha");
-            (this.passwordHash, this.passwordSalt) = PasswordHasher.HashPassword(Console.ReadLine());
-
+            (this.PASSWORDHASH, this.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
         }
 
         public void Atualizar()
         {
             Console.Clear();
-            Console.WriteLine($"Digite o novo email <{email}>");
-            this.email = Console.ReadLine();
+            Console.WriteLine($"Digite o novo email <{EMAIL}>");
+            this.EMAIL = Console.ReadLine();
 
             Console.WriteLine($"Digite uma nova senha.");
-            (this.passwordHash, this.passwordSalt) = PasswordHasher.HashPassword(Console.ReadLine());
+            (this.PASSWORDHASH, this.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
 
         }
         public void Mostrar()
         {
-            Console.WriteLine($"{nome} - {email} - {telefone} - {endereco}");
+            Console.WriteLine($"[{ID}] {NOME} - {EMAIL} - {TELEFONE} - {ENDERECO}");
         }
 
         public static string DatabaseName = "USUARIO";
-        public static string DatabaseValues = 
-            "email = @email, " +
-            "passwordHash = @passwordHash, " +
-            "passwordSalt = @passwordSalt, " +
-            "nome = @nome, " +
-            "telefone = @telefone, " +
-            "endereco = @endereco";
+        public static string DatabaseValues =
+            "EMAIL = @EMAIL, " +
+            "PASSWORDHASH = @PASSWORDHASH, " +
+            "PASSWORDSALT = @PASSWORDSALT, " +
+            "NOME = @NOME, " +
+            "TELEFONE = @TELEFONE, " +
+            "ENDERECO = @ENDERECO";
 
-        public string email { get; set; }
-        public string passwordHash { get;set; }
-        public string passwordSalt { get; set; }
-        public string nome { get; set; }
-        public string telefone { get; set; }
-        public string endereco { get; set; }
+        public string ID { get; set; }
+        public string EMAIL { get; set; }
+        public string PASSWORDHASH { get;set; }
+        public string PASSWORDSALT { get; set; }
+        public string NOME { get; set; }
+        public string TELEFONE { get; set; }
+        public string ENDERECO { get; set; }
 
     }
 }
