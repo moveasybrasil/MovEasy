@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Helpers
 {
     internal class Menu
     {
@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Console.Clear();
             Console.WriteLine($" Menu: {menuName}");
             Console.WriteLine("-----------------------------------------------");
-            string[] options = {"Criar", "Ler", "Atualizar", "Deletar" };
+            string[] options = { "Criar", "Ler", "Atualizar", "Deletar" };
             for (int k = 0; k < options.Length; k++)
             {
                 if (k == i) Console.Write("----> ");

@@ -1,4 +1,7 @@
-﻿using Dapper;
+﻿using ConsoleApp1.Entity;
+using ConsoleApp1.Helpers;
+using ConsoleApp1.Interface;
+using Dapper;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -6,21 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Model
 {
-    internal class UsuarioModel : ICrud
+    internal class UsuarioModel : Database, ICrud
     {
         public static void Setup()
         {
-            using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "DROP TABLE IF EXISTS " + Usuario.DatabaseName; ;
+                string sql = "DROP TABLE IF EXISTS " + UsuarioEntity.DatabaseName; ;
                 con.Execute(sql);
             }
 
-            using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "CREATE TABLE " + Usuario.DatabaseName +
+                string sql = "CREATE TABLE " + UsuarioEntity.DatabaseName +
                     " ( " +
                         "ID INT NOT NULL AUTO_INCREMENT, " +
                         "EMAIL VARCHAR(255) NOT NULL, " +
@@ -37,12 +40,12 @@ namespace ConsoleApp1
 
         public static void Create()
         {
-            Usuario user = new Usuario();
+            UsuarioEntity user = new UsuarioEntity();
             user.Popular();
 
-            using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "INSERT INTO "+Usuario.DatabaseName+" SET " + Usuario.DatabaseValues;
+                string sql = "INSERT INTO " + UsuarioEntity.DatabaseName + " SET " + UsuarioEntity.DatabaseValues;
                 con.Execute(sql, user);
             }
         }
@@ -53,20 +56,21 @@ namespace ConsoleApp1
             {
                 MostrarUsuarios();
 
-            int ID = GetID("Digite o ID para exclusão: ");
+                int ID = GetID("Digite o ID para exclusão: ");
 
-            using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
-            {
-                string sql = "DELETE FROM " + Usuario.DatabaseName + " WHERE ID = @ID";
-                var parameters = new { ID = ID };
-                con.Execute(sql, parameters);
+                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
+                {
+                    string sql = "DELETE FROM " + UsuarioEntity.DatabaseName + " WHERE ID = @ID";
+                    var parameters = new { ID };
+                    con.Execute(sql, parameters);
+
+                }
+
+                Console.WriteLine("Usuario Deletado! Pressione uma tecla para continuar.");
+                Console.ReadLine();
 
             }
-
-            Console.WriteLine("Usuario Deletado! Pressione uma tecla para continuar.");
-            Console.ReadLine();
-            
-            } catch (Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Erro: {ex.Message}");
                 Console.ReadLine();
@@ -89,27 +93,28 @@ namespace ConsoleApp1
 
                 int ID = GetID("Digite o ID para atualizar: ");
 
-                Usuario user;
+                UsuarioEntity user;
 
-                using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
                 {
-                    string sql = "SELECT * FROM " + Usuario.DatabaseName + " WHERE ID = @ID";
-                    var parameters = new { ID = ID };
-                    user = con.QueryFirst<Usuario>(sql, parameters);
+                    string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName + " WHERE ID = @ID";
+                    var parameters = new { ID };
+                    user = con.QueryFirst<UsuarioEntity>(sql, parameters);
                 }
 
                 user.Atualizar();
 
-                using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
                 {
-                    string sql = "UPDATE "+Usuario.DatabaseName+" SET "+Usuario.DatabaseValues+" WHERE ID = @ID";
+                    string sql = "UPDATE " + UsuarioEntity.DatabaseName + " SET " + UsuarioEntity.DatabaseValues + " WHERE ID = @ID";
                     con.Execute(sql, user);
                 }
 
                 Console.WriteLine("Usuario Atualizado! Pressione uma tecla para continuar.");
                 Console.ReadLine();
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"ID Inválido! Pressione uma tecla para continuar.");
                 Console.ReadLine();
@@ -133,12 +138,12 @@ namespace ConsoleApp1
 
         public static int MostrarUsuarios()
         {
-            using (MySqlConnection con = new MySqlConnection(Database.GetConnectionString()))
+            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "SELECT * FROM " + Usuario.DatabaseName;
-                IEnumerable<Usuario> usuarios = con.Query<Usuario>(sql);
+                string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName;
+                IEnumerable<UsuarioEntity> usuarios = con.Query<UsuarioEntity>(sql);
 
-                foreach (Usuario user in usuarios)
+                foreach (UsuarioEntity user in usuarios)
                 {
                     user.Mostrar();
                 }

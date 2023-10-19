@@ -5,30 +5,31 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1.Helpers;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Entity
 {
-    internal class Usuario
+    internal class UsuarioEntity
     {
 
-        public void Popular ()
+        public void Popular()
         {
             Console.Clear();
             Console.WriteLine("Digite o email.");
-            this.EMAIL = Console.ReadLine();
+            EMAIL = Console.ReadLine();
 
             Console.WriteLine("Digite sua senha");
-            (this.PASSWORDHASH, this.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
+            (PASSWORDHASH, PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
         }
 
         public void Atualizar()
         {
             Console.Clear();
             Console.WriteLine($"Digite o novo email <{EMAIL}>");
-            this.EMAIL = Console.ReadLine();
+            EMAIL = Console.ReadLine();
 
             Console.WriteLine($"Digite uma nova senha.");
-            (this.PASSWORDHASH, this.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
+            (PASSWORDHASH, PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
 
         }
         public void Mostrar()
@@ -47,7 +48,7 @@ namespace ConsoleApp1
 
         public string ID { get; set; }
         public string EMAIL { get; set; }
-        public string PASSWORDHASH { get;set; }
+        public string PASSWORDHASH { get; set; }
         public string PASSWORDSALT { get; set; }
         public string NOME { get; set; }
         public string TELEFONE { get; set; }
