@@ -13,20 +13,41 @@ namespace ConsoleApp1.Entity
     {
         public static string DatabaseName = "USUARIO";
         public static string DatabaseValues =
-         $@"EMAIL = @EMAIL, 
-            PASSWORDHASH = @PASSWORDHASH, 
-            PASSWORDSALT = @PASSWORDSALT, 
+         $@"DOCUMENTO = @DOCUMENTO, 
+            TELEFONE1 = @TELEFONE1, 
+            TELEFONE2 = @TELEFONE2,
             NOME = @NOME, 
-            TELEFONE = @TELEFONE, 
-            ENDERECO = @ENDERECO";
+            SOBRENOME = @SOBRENOME, 
+            EMAIL = @EMAIL, 
+            PASSWORDHASH = @PASSWORDHASH,
+            TIPO = @TIPO, 
+            CNH = @CNH,
+            FOTO = @FOTO";
 
         public string ID { get; set; }
+        public string DOCUMENTO { get; set; }
+        public string TELEFONE1 { get; set; }
+        public string TELEFONE2 { get; set; }
+        public string NOME { get; set; }
+        public string SOBRENOME { get; set; }
         public string EMAIL { get; set; }
         public string PASSWORDHASH { get; set; }
-        public string PASSWORDSALT { get; set; }
-        public string NOME { get; set; }
-        public string TELEFONE { get; set; }
-        public string ENDERECO { get; set; }
+        public int TIPO { get; set; }
+        public string CNH { get; set; }
+        public string FOTO { get; set; }
+
+        public string SENHA 
+        {
+            get 
+            {
+                return PASSWORDHASH;
+            }
+            set
+            {
+                PASSWORDHASH = PasswordHasher.HashPassword(value);
+            }
+        }
+        protected string PASSWORDSALT { get; set; }
 
     }
 }

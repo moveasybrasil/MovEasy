@@ -33,7 +33,7 @@ namespace ConsoleApp1.Helpers
             }
         }
 
-        protected static int SQLExecute(string sql, object parameters)
+        protected static int SQLExecute(string sql, object parameters = null)
         {
             return SQLConnection().Execute(sql, parameters);
         }

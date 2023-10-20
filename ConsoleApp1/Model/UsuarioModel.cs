@@ -24,13 +24,17 @@ namespace ConsoleApp1.Model
             using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
                 string sql = $@"CREATE TABLE {UsuarioEntity.DatabaseName} ( 
-                        ID INT NOT NULL AUTO_INCREMENT, 
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        DOCUMENTO VARCHAR(45) NOT NULL,
+                        TELEFONE1 VARCHAR(11) NOT NULL,
+                        TELEFONE2 VARCHAR(11),
+                        NOME VARCHAR(255) NOT NULL,
+                        SOBRENOME VARCHAR(255) NOT NULL,
                         EMAIL VARCHAR(255) NOT NULL,
                         PASSWORDHASH VARCHAR(255) NOT NULL,
-                        PASSWORDSALT VARCHAR(255) NOT NULL,
-                        NOME VARCHAR(255),
-                        TELEFONE VARCHAR(255),
-                        ENDERECO VARCHAR(255),
+                        TIPO INT NOT NULL,
+                        CNH VARCHAR(45),
+                        FOTO VARCHAR(255),
                         PRIMARY KEY (ID)
                 )";
                 con.Execute(sql);
@@ -39,20 +43,57 @@ namespace ConsoleApp1.Model
 
         public static void Create()
         {
-            UsuarioEntity user = new UsuarioEntity();
-
-            Console.Clear();
-            Console.WriteLine("Digite o email.");
-            user.EMAIL = Console.ReadLine();
-
-            Console.WriteLine("Digite sua senha");
-            (user.PASSWORDHASH, user.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
+            UsuarioEntity user = EditUser(new UsuarioEntity());
 
             SQLExecute(
                 $"INSERT INTO {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues}",
                 user
             );
 
+        }
+
+        public static void Read()
+        {
+            int quantidade = MostrarUsuarios();
+
+            Menu.GetInput($"Mostrando {quantidade} usuário(s). Pressione uma tecla para continuar.");
+        }
+
+        public static void Update()
+        {
+            try
+            {
+                MostrarUsuarios();
+
+                int ID = GetID("Digite o ID para atualizar: ");
+
+                UsuarioEntity user;
+
+                string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID";
+                var parameters = new { ID };
+
+                user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
+
+                Console.Clear();
+                Console.WriteLine($"Digite o novo email <{user.EMAIL}>");
+                user.EMAIL = Console.ReadLine();
+
+                Console.WriteLine($"Digite uma nova senha.");
+                user.PASSWORDHASH = PasswordHasher.HashPassword(Console.ReadLine());
+
+                sql = $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID";
+
+                SQLExecute(sql, user);
+
+                Console.WriteLine("Usuario Atualizado! Pressione uma tecla para continuar.");
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ID Inválido! Pressione uma tecla para continuar.");
+                Console.ReadLine();
+            }
         }
 
         public static void Delete()
@@ -76,48 +117,17 @@ namespace ConsoleApp1.Model
             }
         }
 
-        public static void Read()
+        public static UsuarioEntity EditUser(UsuarioEntity user)
         {
-            int quantidade = MostrarUsuarios();
+            user.DOCUMENTO = Menu.GetInput("Digite o Documento");
+            user.TELEFONE1 = Menu.GetInput("Digite o Telefone");
+            user.NOME = Menu.GetInput("Digite seu Nome");
+            user.SOBRENOME = Menu.GetInput("Digite seu Sobrenome");
+            user.EMAIL = Menu.GetInput("Digite seu email");
+            user.SENHA = Menu.GetInput("Digite sua Senha");
+            user.TIPO = Convert.ToInt32(Menu.GetInput("Digite seu perfil\n1-Contratante\n2-Motorista"));
 
-            Menu.GetInput($"Mostrando {quantidade} usuario(s). Pressione uma tecla para continuar.");
-        }
-
-        public static void Update()
-        {
-            try
-            {
-                MostrarUsuarios();
-
-                int ID = GetID("Digite o ID para atualizar: ");
-
-                UsuarioEntity user;
-
-                string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID";
-                var parameters = new { ID };
-
-                user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
-
-                Console.Clear();
-                Console.WriteLine($"Digite o novo email <{user.EMAIL}>");
-                user.EMAIL = Console.ReadLine();
-
-                Console.WriteLine($"Digite uma nova senha.");
-                (user.PASSWORDHASH, user.PASSWORDSALT) = PasswordHasher.HashPassword(Console.ReadLine());
-
-                sql = $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID";
-
-                SQLExecute(sql, user);
-
-                Console.WriteLine("Usuario Atualizado! Pressione uma tecla para continuar.");
-                Console.ReadLine();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"ID Inválido! Pressione uma tecla para continuar.");
-                Console.ReadLine();
-            }
+            return user;
         }
 
         public static int GetID(string msg = "Digite um ID: ")
@@ -143,7 +153,7 @@ namespace ConsoleApp1.Model
 
             foreach (UsuarioEntity user in users)
             {
-                Console.WriteLine($"[{user.ID}] {user.NOME} - {user.EMAIL} - {user.TELEFONE} - {user.ENDERECO}");
+                Console.WriteLine($"[{user.ID}] {user.NOME} - {user.EMAIL} - {user.TELEFONE1} - {user.DOCUMENTO}");
             }
 
             return users.Count();
