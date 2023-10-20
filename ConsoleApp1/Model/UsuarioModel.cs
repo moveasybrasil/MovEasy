@@ -17,72 +17,46 @@ namespace ConsoleApp1.Model
         {
             using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "DROP TABLE IF EXISTS " + UsuarioEntity.DatabaseName; ;
+                string sql = $"DROP TABLE IF EXISTS {UsuarioEntity.DatabaseName}";
                 con.Execute(sql);
             }
 
             using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = "CREATE TABLE " + UsuarioEntity.DatabaseName +
-                    " ( " +
-                        "ID INT NOT NULL AUTO_INCREMENT, " +
-                        "EMAIL VARCHAR(255) NOT NULL, " +
-                        "PASSWORDHASH VARCHAR(255) NOT NULL, " +
-                        "PASSWORDSALT VARCHAR(255) NOT NULL, " +
-                        "NOME VARCHAR(255), " +
-                        "TELEFONE VARCHAR(255), " +
-                        "ENDERECO VARCHAR(255)," +
-                        "PRIMARY KEY (ID)" +
-                    ")";
+                string sql = $@"CREATE TABLE {UsuarioEntity.DatabaseName} ( 
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        DOCUMENTO VARCHAR(45) NOT NULL,
+                        TELEFONE1 VARCHAR(11) NOT NULL,
+                        TELEFONE2 VARCHAR(11),
+                        NOME VARCHAR(255) NOT NULL,
+                        SOBRENOME VARCHAR(255) NOT NULL,
+                        EMAIL VARCHAR(255) NOT NULL,
+                        PASSWORDHASH VARCHAR(255) NOT NULL,
+                        TIPO INT NOT NULL,
+                        CNH VARCHAR(45),
+                        FOTO VARCHAR(255),
+                        PRIMARY KEY (ID)
+                )";
                 con.Execute(sql);
             }
         }
 
         public static void Create()
         {
-            UsuarioEntity user = new UsuarioEntity();
-            user.Popular();
+            UsuarioEntity user = EditUser(new UsuarioEntity());
 
-            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-            {
-                string sql = "INSERT INTO " + UsuarioEntity.DatabaseName + " SET " + UsuarioEntity.DatabaseValues;
-                con.Execute(sql, user);
-            }
-        }
+            SQLExecute(
+                $"INSERT INTO {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues}",
+                user
+            );
 
-        public static void Delete()
-        {
-            try
-            {
-                MostrarUsuarios();
-
-                int ID = GetID("Digite o ID para exclusão: ");
-
-                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-                {
-                    string sql = "DELETE FROM " + UsuarioEntity.DatabaseName + " WHERE ID = @ID";
-                    var parameters = new { ID };
-                    con.Execute(sql, parameters);
-
-                }
-
-                Console.WriteLine("Usuario Deletado! Pressione uma tecla para continuar.");
-                Console.ReadLine();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro: {ex.Message}");
-                Console.ReadLine();
-            }
         }
 
         public static void Read()
         {
             int quantidade = MostrarUsuarios();
 
-            Console.WriteLine($"Mostrando {quantidade} usuario(s). Pressione uma tecla para continuar.");
-            Console.ReadLine();
+            Menu.GetInput($"Mostrando {quantidade} usuário(s). Pressione uma tecla para continuar.");
         }
 
         public static void Update()
@@ -95,20 +69,21 @@ namespace ConsoleApp1.Model
 
                 UsuarioEntity user;
 
-                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-                {
-                    string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName + " WHERE ID = @ID";
-                    var parameters = new { ID };
-                    user = con.QueryFirst<UsuarioEntity>(sql, parameters);
-                }
+                string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID";
+                var parameters = new { ID };
 
-                user.Atualizar();
+                user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
 
-                using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-                {
-                    string sql = "UPDATE " + UsuarioEntity.DatabaseName + " SET " + UsuarioEntity.DatabaseValues + " WHERE ID = @ID";
-                    con.Execute(sql, user);
-                }
+                Console.Clear();
+                Console.WriteLine($"Digite o novo email <{user.EMAIL}>");
+                user.EMAIL = Console.ReadLine();
+
+                Console.WriteLine($"Digite uma nova senha.");
+                user.PASSWORDHASH = PasswordHasher.HashPassword(Console.ReadLine());
+
+                sql = $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID";
+
+                SQLExecute(sql, user);
 
                 Console.WriteLine("Usuario Atualizado! Pressione uma tecla para continuar.");
                 Console.ReadLine();
@@ -119,6 +94,40 @@ namespace ConsoleApp1.Model
                 Console.WriteLine($"ID Inválido! Pressione uma tecla para continuar.");
                 Console.ReadLine();
             }
+        }
+
+        public static void Delete()
+        {
+            try
+            {
+                MostrarUsuarios();
+
+                int ID = GetID("Digite o ID para exclusão: ");
+
+                SQLExecute(
+                    $"DELETE FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID",
+                    new { ID }
+                );
+
+                Menu.GetInput("Usuario Deletado! Pressione uma tecla para continuar.");
+            }
+            catch (Exception ex)
+            {
+                Menu.GetInput($"Erro: {ex.Message}");
+            }
+        }
+
+        public static UsuarioEntity EditUser(UsuarioEntity user)
+        {
+            user.DOCUMENTO = Menu.GetInput("Digite o Documento");
+            user.TELEFONE1 = Menu.GetInput("Digite o Telefone");
+            user.NOME = Menu.GetInput("Digite seu Nome");
+            user.SOBRENOME = Menu.GetInput("Digite seu Sobrenome");
+            user.EMAIL = Menu.GetInput("Digite seu email");
+            user.SENHA = Menu.GetInput("Digite sua Senha");
+            user.TIPO = Convert.ToInt32(Menu.GetInput("Digite seu perfil\n1-Contratante\n2-Motorista"));
+
+            return user;
         }
 
         public static int GetID(string msg = "Digite um ID: ")
@@ -138,18 +147,16 @@ namespace ConsoleApp1.Model
 
         public static int MostrarUsuarios()
         {
-            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
+            string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName;
+
+            IEnumerable<UsuarioEntity> users = SQLConnection().Query<UsuarioEntity>(sql);
+
+            foreach (UsuarioEntity user in users)
             {
-                string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName;
-                IEnumerable<UsuarioEntity> usuarios = con.Query<UsuarioEntity>(sql);
-
-                foreach (UsuarioEntity user in usuarios)
-                {
-                    user.Mostrar();
-                }
-
-                return usuarios.Count();
+                Console.WriteLine($"[{user.ID}] {user.NOME} - {user.EMAIL} - {user.TELEFONE1} - {user.DOCUMENTO}");
             }
+
+            return users.Count();
         }
 
     }

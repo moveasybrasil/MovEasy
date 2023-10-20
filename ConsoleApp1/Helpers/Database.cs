@@ -25,12 +25,17 @@ namespace ConsoleApp1.Helpers
             return ConnectionString;
         }
 
-        protected object Query(string sql, object parameters)
+        protected static MySqlConnection SQLConnection()
         {
             using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                return con.Query(sql, parameters);
+                return con;
             }
+        }
+
+        protected static int SQLExecute(string sql, object parameters = null)
+        {
+            return SQLConnection().Execute(sql, parameters);
         }
     }
 }

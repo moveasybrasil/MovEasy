@@ -9,30 +9,16 @@ namespace ConsoleApp1.Helpers
 {
     internal class PasswordHasher
     {
-        public static (string, string) HashPassword(string Password)
-        {
-            byte[] salt = GenerateSalt();
-            string saltString = Convert.ToBase64String(salt);
-
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] passwordBytes = Encoding.UTF8.GetBytes(Password + saltString);
-                byte[] hashBytes = sha256.ComputeHash(passwordBytes);
-                string hashString = Convert.ToBase64String(hashBytes);
-
-                return (hashString, saltString);
-            }
-        }
-
-        public static (string, string) HashPassword(string Password, string saltString)
+        public static string Salt = Convert.ToBase64String(GenerateSalt());
+        public static string HashPassword(string Password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
-                byte[] passwordBytes = Encoding.UTF8.GetBytes(Password + saltString);
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(Password + Salt);
                 byte[] hashBytes = sha256.ComputeHash(passwordBytes);
                 string hashString = Convert.ToBase64String(hashBytes);
 
-                return (hashString, saltString);
+                return hashString;
             }
         }
 

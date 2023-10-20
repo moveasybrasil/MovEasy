@@ -49,7 +49,11 @@ namespace ConsoleApp1.Helpers
             }
         }
 
-
+        public static string GetInput(string msg = "")
+        {
+            Console.WriteLine(msg);
+            return Console.ReadLine();
+        }
 
     }
 }
