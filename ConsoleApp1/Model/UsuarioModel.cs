@@ -15,15 +15,8 @@ namespace ConsoleApp1.Model
     {
         public static void Setup()
         {
-            //using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-            //{
-            //    string sql = $"DROP TABLE IF EXISTS {UsuarioEntity.DatabaseName}";
-            //    con.Execute(sql);
-            //}
-
-            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-            {
-                string sql = $@"CREATE TABLE IF NOT EXISTS {UsuarioEntity.DatabaseName} ( 
+            SQLExecute(
+                $@"CREATE TABLE IF NOT EXISTS {UsuarioEntity.DatabaseName} ( 
                         ID INT NOT NULL AUTO_INCREMENT,
                         DOCUMENTO VARCHAR(45) NOT NULL,
                         TELEFONE1 VARCHAR(11) NOT NULL,
@@ -36,9 +29,8 @@ namespace ConsoleApp1.Model
                         CNH VARCHAR(45),
                         FOTO VARCHAR(255),
                         PRIMARY KEY (ID)
-                )";
-                con.Execute(sql);
-            }
+                )"
+            );
         }
 
         public static void Create()
