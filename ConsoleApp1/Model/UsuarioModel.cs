@@ -74,12 +74,24 @@ namespace ConsoleApp1.Model
 
                 user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
 
-                Console.Clear();
-                Console.WriteLine($"Digite o novo email <{user.EMAIL}>");
-                user.EMAIL = Console.ReadLine();
+                bool login = PasswordHasher.VerifyPassword(user.EMAIL, Menu.GetInput("Digite sua senha."));
 
-                Console.WriteLine($"Digite uma nova senha.");
-                user.PASSWORDHASH = PasswordHasher.HashPassword(Console.ReadLine());
+                if (!login)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Senha Inválida! Pressione uma tecla para continuar.");
+                    Console.ReadLine();
+                    return;
+                }
+
+                Console.Clear();
+                user.EMAIL = Menu.GetInput($"Digite o novo email <{user.EMAIL}>");
+                user.PASSWORDHASH = PasswordHasher.HashPassword(Menu.GetInput($"Digite uma nova senha."));
+                user.NOME = Menu.GetInput("Digite seu novo Nome");
+                user.SOBRENOME = Menu.GetInput("Digite seu novo Sobrenome");
+                user.DOCUMENTO = Menu.GetInput("Digite seu novo Documento");
+                user.TELEFONE1 = Menu.GetInput("Digite seu novo Telefone");
+                user.TIPO = Convert.ToInt32(Menu.GetInput("Digite seu perfil\n1-Contratante\n2-Motorista"));
 
                 sql = $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID";
 
@@ -147,10 +159,11 @@ namespace ConsoleApp1.Model
 
         public static int MostrarUsuarios()
         {
-            string sql = "SELECT * FROM " + UsuarioEntity.DatabaseName;
+            string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName}";
 
             IEnumerable<UsuarioEntity> users = SQLConnection().Query<UsuarioEntity>(sql);
 
+            Console.Clear();
             foreach (UsuarioEntity user in users)
             {
                 Console.WriteLine($"[{user.ID}] {user.NOME} - {user.EMAIL} - {user.TELEFONE1} - {user.DOCUMENTO}");
