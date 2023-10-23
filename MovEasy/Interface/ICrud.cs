@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Interface
+namespace MovEasy.Interface
 {
     public interface ICrud
     {

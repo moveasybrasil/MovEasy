@@ -1,7 +1,7 @@
-﻿using ConsoleApp1.Helpers;
-using ConsoleApp1.Model;
+﻿using MovEasy.Helpers;
+using MovEasy.Model;
 
-namespace ConsoleApp1
+namespace MovEasy
 {
     internal class Program
     {

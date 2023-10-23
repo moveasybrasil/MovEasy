@@ -1,6 +1,6 @@
-﻿using ConsoleApp1.Entity;
-using ConsoleApp1.Helpers;
-using ConsoleApp1.Interface;
+﻿using MovEasy.Entity;
+using MovEasy.Helpers;
+using MovEasy.Interface;
 using Dapper;
 using MySql.Data.MySqlClient;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Model
+namespace MovEasy.Model
 {
     internal class UsuarioModel : Database, ICrud
     {

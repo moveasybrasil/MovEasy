@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text.Json;
-using ConsoleApp1.Entity;
+using MovEasy.Entity;
 using Dapper;
 
-namespace ConsoleApp1.Helpers
+namespace MovEasy.Helpers
 {
     internal class PasswordHasher : Database
     {
