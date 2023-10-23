@@ -5,9 +5,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp1.Helpers;
+using MovEasy.Helpers;
 
-namespace ConsoleApp1.Entity
+namespace MovEasy.Entity
 {
     public class UsuarioEntity
     {
