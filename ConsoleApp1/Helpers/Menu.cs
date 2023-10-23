@@ -12,7 +12,7 @@ namespace ConsoleApp1.Helpers
         {
             Console.Clear();
             Console.WriteLine($" Menu: {menuName}");
-            Console.WriteLine("-----------------------------------------------");
+            Menu.DivisoriaMenu();
             string[] options = { "Criar", "Ler", "Atualizar", "Deletar" };
             for (int k = 0; k < options.Length; k++)
             {
@@ -22,7 +22,7 @@ namespace ConsoleApp1.Helpers
                 Console.WriteLine(options[k]);
 
             }
-            Console.WriteLine("-----------------------------------------------");
+            Menu.DivisoriaMenu();
             Console.WriteLine($"\t[!] Use as SETAS para mover, e ENTER para selecionar");
             Console.WriteLine($"\t[!] Use as ESC para sair");
 
@@ -49,6 +49,10 @@ namespace ConsoleApp1.Helpers
             }
         }
 
+        public static void DivisoriaMenu()
+        {
+            Console.WriteLine("--------------------------------------------------------------");
+        }
         public static string GetInput(string msg = "")
         {
             Console.WriteLine(msg);

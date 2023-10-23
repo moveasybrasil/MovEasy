@@ -123,6 +123,7 @@ namespace ConsoleApp1.Model
 
         public static UsuarioEntity EditUser(UsuarioEntity user)
         {
+            Console.Clear();
             user.EMAIL = Menu.GetInput("Digite seu email");
             user.SENHA = Menu.GetInput("Digite sua Senha");
             user.NOME = Menu.GetInput("Digite seu Nome");
@@ -160,7 +161,7 @@ namespace ConsoleApp1.Model
             {
                 Console.WriteLine($"[{user.ID}] {user.NOME} - {user.EMAIL} - {user.TELEFONE1} - {user.DOCUMENTO}");
             }
-
+            Menu.DivisoriaMenu();
             return users.Count();
         }
 
