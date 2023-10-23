@@ -58,24 +58,14 @@ namespace ConsoleApp1.Model
                 MostrarUsuarios();
 
                 int ID = GetID("Digite o ID para atualizar: ");
-
-                UsuarioEntity user;
+                bool isLoginValid = VerifyUser(ID);
+                if (!isLoginValid) return;
 
                 string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID";
                 var parameters = new { ID };
 
-                user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
-
-                bool login = PasswordHasher.VerifyPassword(user.EMAIL, Menu.GetInput("Digite sua senha."));
-
-                if (!login)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Senha Inválida! Pressione uma tecla para continuar.");
-                    Console.ReadLine();
-                    return;
-                }
-
+                UsuarioEntity user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
+                    
                 Console.Clear();
                 user.EMAIL = Menu.GetInput($"Digite o novo email <{user.EMAIL}>");
                 user.PASSWORDHASH = PasswordHasher.HashPassword(Menu.GetInput($"Digite uma nova senha."));
@@ -107,6 +97,8 @@ namespace ConsoleApp1.Model
                 MostrarUsuarios();
 
                 int ID = GetID("Digite o ID para exclusão: ");
+                bool isLoginValid = VerifyUser(ID);
+                if (!isLoginValid) return;
 
                 SQLExecute(
                     $"DELETE FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID",
@@ -119,6 +111,24 @@ namespace ConsoleApp1.Model
             {
                 Menu.GetInput($"Erro: {ex.Message}");
             }
+        }
+
+        private static bool VerifyUser(int ID)
+        {
+            string sql = $"SELECT * FROM {UsuarioEntity.DatabaseName} WHERE ID = @ID";
+            var parameters = new { ID };
+
+            UsuarioEntity user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
+
+            bool login = PasswordHasher.VerifyPassword(user.EMAIL, Menu.GetInput("Digite sua senha."));
+
+            if (login) return true;
+
+            Console.Clear();
+            Console.WriteLine("Senha Inválida! Pressione uma tecla para continuar.");
+            Console.ReadLine();
+            return false;
+            
         }
 
         public static UsuarioEntity EditUser(UsuarioEntity user)
