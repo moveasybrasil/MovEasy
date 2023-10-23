@@ -47,7 +47,6 @@ namespace ConsoleApp1.Entity
                 PASSWORDHASH = PasswordHasher.HashPassword(value);
             }
         }
-        protected string PASSWORDSALT { get; set; }
 
     }
 }

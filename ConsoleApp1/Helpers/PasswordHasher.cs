@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Text.Json;
+using ConsoleApp1.Entity;
+using Dapper;
 
 namespace ConsoleApp1.Helpers
 {
-    internal class PasswordHasher
+    internal class PasswordHasher : Database
     {
-        public static string Salt = Convert.ToBase64String(GenerateSalt());
+        public static string Salt = GetSalt();
+        public static string SaltPath = "salt.txt";
         public static string HashPassword(string Password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -22,6 +26,17 @@ namespace ConsoleApp1.Helpers
             }
         }
 
+        public static bool VerifyPassword(string EMAIL, string Password)
+        {
+
+            string sql = $"SELECT PASSWORDHASH FROM {UsuarioEntity.DatabaseName} WHERE EMAIL = @EMAIL";
+            object parameters = new { EMAIL };
+
+            string hashedPass = SQLConnection().QueryFirst<String>(sql, parameters);
+
+            return (hashedPass == HashPassword(Password));
+        }
+
         public static byte[] GenerateSalt(int length = 16)
         {
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
@@ -30,6 +45,45 @@ namespace ConsoleApp1.Helpers
                 rng.GetBytes(salt);
                 return salt;
             }
+        }
+
+        public static string GetSalt()
+        {
+            string data = string.Empty;
+            try
+            {
+                string json = File.ReadAllText("salt.txt");
+                data = JsonSerializer.Deserialize<String>(json);
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                data = SetSalt();
+            }
+            catch (Exception ex)
+            {
+                Console.Clear();
+                Console.WriteLine($"\nErro ao ler arquivo de dados.\n*Err: {ex.Message}");
+            }
+
+            return data;
+        }
+
+        public static string SetSalt()
+        {
+            string data = Convert.ToBase64String(GenerateSalt());
+
+            try
+            {
+                string json = JsonSerializer.Serialize(data);
+                File.WriteAllText("salt.txt", json);
+            }
+            catch (Exception ex)
+            {
+                Console.Clear();
+                Console.WriteLine($"\nErro ao salvar arquivo de dados.\n*Err: {ex.Message}");
+            }
+
+            return data;
         }
     }
 }

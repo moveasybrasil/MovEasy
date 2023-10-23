@@ -15,15 +15,15 @@ namespace ConsoleApp1.Model
     {
         public static void Setup()
         {
-            using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-            {
-                string sql = $"DROP TABLE IF EXISTS {UsuarioEntity.DatabaseName}";
-                con.Execute(sql);
-            }
+            //using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
+            //{
+            //    string sql = $"DROP TABLE IF EXISTS {UsuarioEntity.DatabaseName}";
+            //    con.Execute(sql);
+            //}
 
             using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
             {
-                string sql = $@"CREATE TABLE {UsuarioEntity.DatabaseName} ( 
+                string sql = $@"CREATE TABLE IF NOT EXISTS {UsuarioEntity.DatabaseName} ( 
                         ID INT NOT NULL AUTO_INCREMENT,
                         DOCUMENTO VARCHAR(45) NOT NULL,
                         TELEFONE1 VARCHAR(11) NOT NULL,
@@ -119,12 +119,12 @@ namespace ConsoleApp1.Model
 
         public static UsuarioEntity EditUser(UsuarioEntity user)
         {
-            user.DOCUMENTO = Menu.GetInput("Digite o Documento");
-            user.TELEFONE1 = Menu.GetInput("Digite o Telefone");
-            user.NOME = Menu.GetInput("Digite seu Nome");
-            user.SOBRENOME = Menu.GetInput("Digite seu Sobrenome");
             user.EMAIL = Menu.GetInput("Digite seu email");
             user.SENHA = Menu.GetInput("Digite sua Senha");
+            user.NOME = Menu.GetInput("Digite seu Nome");
+            user.SOBRENOME = Menu.GetInput("Digite seu Sobrenome");
+            user.DOCUMENTO = Menu.GetInput("Digite o Documento");
+            user.TELEFONE1 = Menu.GetInput("Digite o Telefone");
             user.TIPO = Convert.ToInt32(Menu.GetInput("Digite seu perfil\n1-Contratante\n2-Motorista"));
 
             return user;
