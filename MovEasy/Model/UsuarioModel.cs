@@ -67,26 +67,20 @@ namespace MovEasy.Model
                 UsuarioEntity user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
                     
                 Console.Clear();
-                user.EMAIL = Menu.GetInput($"Digite o novo email <{user.EMAIL}>");
-                user.PASSWORDHASH = PasswordHasher.HashPassword(Menu.GetInput($"Digite uma nova senha."));
-                user.NOME = Menu.GetInput("Digite seu novo Nome");
-                user.SOBRENOME = Menu.GetInput("Digite seu novo Sobrenome");
-                user.DOCUMENTO = Menu.GetInput("Digite seu novo Documento");
-                user.TELEFONE1 = Menu.GetInput("Digite seu novo Telefone");
-                user.TIPO = Convert.ToInt32(Menu.GetInput("Digite seu perfil\n1-Contratante\n2-Motorista"));
 
-                sql = $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID";
+                user = EditUser(user);
 
-                SQLExecute(sql, user);
+                SQLExecute(
+                    $"UPDATE {UsuarioEntity.DatabaseName} SET {UsuarioEntity.DatabaseValues} WHERE ID = @ID",
+                    user
+                );
 
-                Console.WriteLine("Usuario Atualizado! Pressione uma tecla para continuar.");
-                Console.ReadLine();
+                Menu.GetInput("Usuario Atualizado! Pressione uma tecla para continuar.");
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"ID Inválido! Pressione uma tecla para continuar.");
-                Console.ReadLine();
+                Menu.GetInput($"ID Inválido! Pressione uma tecla para continuar.");
             }
         }
 
@@ -120,7 +114,7 @@ namespace MovEasy.Model
 
             UsuarioEntity user = SQLConnection().QueryFirst<UsuarioEntity>(sql, parameters);
 
-            bool login = PasswordHasher.VerifyPassword(user.EMAIL, Menu.GetInput("Digite sua senha."));
+            bool login = PasswordHasher.VerifyPassword(user.EMAIL, Menu.GetPasswordInput("Digite sua senha: "));
 
             if (login) return true;
 
@@ -135,7 +129,7 @@ namespace MovEasy.Model
         {
             Console.Clear();
             user.EMAIL = Menu.GetInput("Digite seu email");
-            user.SENHA = Menu.GetInput("Digite sua Senha");
+            user.SENHA = Menu.GetPasswordInput("Digite sua senha: ");
             user.NOME = Menu.GetInput("Digite seu Nome");
             user.SOBRENOME = Menu.GetInput("Digite seu Sobrenome");
             user.DOCUMENTO = Menu.GetInput("Digite o Documento");
