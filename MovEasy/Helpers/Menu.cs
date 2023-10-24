@@ -99,6 +99,10 @@ namespace MovEasy.Helpers
                 {
                     password = password.Remove(password.Length - 1);
                 }
+            } else if (key.Key == ConsoleKey.Tab) {
+                for (int i = 7; i >= password.Length % 7; i--) { Console.Write("\b"); }
+                Console.Write(" \b");
+            } else if (key.Key.ToString().ToLower().Contains("arrow")) {
             } else if (key.Key == ConsoleKey.Enter)
             {
                 Console.WriteLine("");
