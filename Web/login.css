@@ -35,4 +35,9 @@ height: 163px;
     border-top: 1px solid;
 
 }
-    
+
+#btn-cadastrar {
+    background-color: orangered;
+    width: 200px;
+
+}
