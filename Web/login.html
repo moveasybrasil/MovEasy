@@ -37,40 +37,45 @@
         <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test" class="active">LOGIN</a>
       </div>
     </header>
-    <div class="formulario flex my-14 "></div>
-    <form action="/formulario-cadastro-cliente" class="w-[422px] h-[503px] bg-white rounded-[10px] py-10 mx-96" method="post">
+    <div class="my-28"></div>
+    <form action="/formulario-cadastro-cliente" class="w-[422px] bg-white rounded-[10px] flex flex-col mx-96 p-8" method="post">
+
       <label for="formulario-email"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pb-1"><strong>Email:</strong></label>
-      <input type="email" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10" required
+        class="text-black text-sm font-normal font-['Inter']"><strong>Email:</strong></label>
+      <input type="email" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
         placeholder="Digite seu melhor e-mail"></input>
+
       <label for="formulario-senha"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pt-3 pb-1"><strong>Senha:</strong></label>
-      <input type="password" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10" required
-        placeholder="Senha"></input>
-      <label for="formulario-nome"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pt-3 pb-1"><strong>Nome:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10" required
+        class="text-black text-sm font-normal font-['Inter']"><strong>Senha:</strong></label>
+      <input type="password" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required placeholder="Senha"></input>
+
+      <label for="formulario-nome" class="text-black text-sm font-normal font-['Inter']"><strong>Nome:</strong></label>
+      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
         placeholder="Nome e Sobrenome"></input>
+
       <label for="formulario-cpf"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pt-3 pb-1"><strong>CPF/CNPJ:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10" required
-        placeholder="CPF/CNPJ"></input>
+        class="text-black text-sm font-normal font-['Inter']"><strong>CPF/CNPJ:</strong></label>
+      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required placeholder="CPF/CNPJ"></input>
+
       <label for="formulario-tel"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pt-3 pb-1"><strong>Telefone:</strong></label>
-      <input type="tel" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10 " required
+        class="text-black text-sm font-normal font-['Inter']"><strong>Telefone:</strong></label>
+      <input type="tel" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
         placeholder="(xx) xxxxx-xxxx"></input>
+
       <label for="formulario-end"
-        class="text-black text-sm font-normal font-['Inter'] mx-10 pt-3 pb-1"><strong>Endereço:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px] mx-10" required
+        class="text-black text-sm font-normal font-['Inter']"><strong>Endereço:</strong></label>
+      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
         placeholder="Rua, número, complemento"></input>
+
       <div class="mt-4 mx-8">
-        <input type="checkbox" class="bg-zinc-300 mx-2"></input>
+        <input type="checkbox" class="bg-zinc-300"></input>
         <span class="text-sm text-blue-800 font-bold">Concordo com os termos de uso</span>
       </div>
-      <div class="w-[422px] flex mx-auto">
-        <button type="submit" id="btn-cadastrar"
-          class="rounded-[10px] font-bold text-lg shadow mx-auto mt-4">Cadastrar</button>
+
+      <div class="w-[422px]">
+        <button type="submit" id="btn-cadastrar" class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
       </div>
+
     </form>
   </div>
 
