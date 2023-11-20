@@ -23,3 +23,26 @@
     background-size: 1%;
     border-radius: 5px;
 }
+
+.menu-mobile {
+    transform:rotate(90deg);
+    cursor: pointer;
+}
+
+.menu-desktop {
+    display: none;
+    padding-top: 70px;
+    margin-bottom: 10px;
+} .menu-desktop a {
+    padding: 15px;
+}
+
+@media (min-width: 970px) {
+    .menu-mobile {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
+    }
+}
