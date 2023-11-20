@@ -23,3 +23,8 @@
     background-size: 1%;
     border-radius: 5px;
 }
+
+.menu-list {
+    transform:rotate(90deg);
+    cursor: pointer;
+}
