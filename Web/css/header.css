@@ -24,7 +24,7 @@
     border-radius: 5px;
 }
 
-.menu-mobile {
+.menu-list .menu-mobile {
     transform:rotate(90deg);
     cursor: pointer;
 }
