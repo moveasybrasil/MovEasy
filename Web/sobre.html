@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./sobre.css">
-    <script src="./login_files/saved_resource"></script>
+    <link rel="stylesheet" href="./css/header.css">
+    <script src="./js/saved_resource"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -25,30 +26,41 @@
         <div>
             <img id="logo" src="./login_files/logo.png" alt="movEasy">
         </div>
-        <div class="menu-list font-bold text-3xl md:hidden"> ||| </div>
+        <div class="menu-list font-bold text-3xl md:hidden mt-16"> ||| </div>
         <div class="menu md:flex hidden">
-            <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">AGENDAR</a>
-            <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">HOME</a>
-            <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test" class="active">SOBRE</a>
-            <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">FAQ</a>
-            <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">SUPORTE</a>
-            <a href="./login.html">LOGIN</a>
+            <a href="./agendar.html">AGENDAR</a>
+            <a href="./index.html">HOME</a>
+            <a href="./sobre.html" class="active">SOBRE</a>
+            <a href="./faq.html">FAQ</a>
+            <a href="./suporte.html">SUPORTE</a>
+            <a href="./login-usuario.html">LOGIN</a>
         </div>
     </header>
 
-    <article>
+    <article class="flex flex-col">
         <p class="p-10 mx-[94px] text-4xl"><strong> Quem somos: </strong></p>
-        <div class="flex">
-            <div id="background-sofa" class="mx-10">
+        <div class="">
+            <div id="background-sofa" class="">
             </div>
-            <div class="sobre-top">
-                <p id="texto-sobre" class="text-2xl">Somos um grupo de cinco amigos que se uniu para criar uma empresa
+            <div class="sobre-top mx-26">
+                <p id="texto-sobre" class="text-2xl"> Somos um grupo de cinco amigos que se uniu para criar uma empresa
                     com o objetivo de facilitar mudanças.
                     A movEasy oferece uma plataforma que permite
                     a realização de orçamentos para mudanças residenciais,
                     comerciais e corporativas de forma rápida, fácil e segura.
                 </p>
-            </div>
+        <div>
+            <p class="text-3xl"> &quotQueríamos criar uma solução que tornasse as mudanças mais simples e menos
+                estressantes para as pessoas."</p>
+        
+        
+            <p>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em potencial. A empresa
+                espera iniciar suas operações em breve, com o objetivo de se tornar um referência no mercado de mudanças
+                online.
+            </p>
+        
+        <p class="text-3xl">&quotNossa plataforma oferece uma solução completa e segura, que torna o processo mais fácil
+            e tranquilo."</p>
 
         </div>
     </article>
