@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/victor.mariano/Documents/movEasy/login.html -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" href="./css/Suporte.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./login_files/saved_resource"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header id="header" class="flex justify-between	px-16 pt-8">
+      <div>
+        <img id="logo" src="./login_files/logo.png" alt="movEasy">
+      </div>
+
+      <div class="menu">
+        <a href="./Agendar.html">AGENDAR</a>
+        <a href="./index.html">HOME</a>
+        <a href="./Sobre.html">SOBRE</a>
+        <a href="./Faq.html">FAQ</a>
+        <a href="./suporte.html"class="active">SUPORTE</a>
+        <a href="./login.html">LOGIN</a>
+      </div>
+    </header>
+    <div>
+        <img class="imagem-suporte" src="./assets/images/Suporte.jpg" alt="movEasy">
+    </div>
+    <div class="my-28">
+      <form action="/formulario-cadastro-cliente" method="post">
+ 
+        <div class="info-boxes-login">
+          <label for="formulario-nome">Nome:</label>
+          <input type="Nome" required placeholder="Nome"></input>
+ 
+          <label for="formulario-email">E-mail:</label>
+          <input type="email" required placeholder="ex: seuemail@email.com"></input>
+ 
+          <label for="formulario-assunto">Assunto:</label>
+          <input type="Assunto" required placeholder="Assunto"></input>
+
+          <label for="formulario-descricao">Descrição:</label>
+          <input type="descricao" required placeholder="Descrição"></input>
+
+        </div>
+
+ 
+        <div>
+          <button type="submit" id="btn-cadastrar">Enviar</button>
+        </div>
+  </div>
+</body>
+
+</html>
