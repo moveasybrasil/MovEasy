@@ -37,48 +37,53 @@
         <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test" class="active">LOGIN</a>
       </div>
     </header>
-    <div class="my-28"></div>
-    <form action="/formulario-cadastro-cliente" class="w-[422px] bg-white rounded-[10px] flex flex-col mx-96 p-8" method="post">
 
-      <label for="formulario-email"
-        class="text-black text-sm font-normal font-['Inter']"><strong>Email:</strong></label>
-      <input type="email" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
-        placeholder="Digite seu melhor e-mail"></input>
+    <div class="container" id="container">
+      <div class="my-28">
+        <form action="/formulario-cadastro-cliente" method="post">
+          <h1 id="title-cadastro">Crie sua Conta</h1>
 
-      <label for="formulario-senha"
-        class="text-black text-sm font-normal font-['Inter']"><strong>Senha:</strong></label>
-      <input type="password" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required placeholder="Senha"></input>
+          <div class="info-boxes-login">
+            <label for="formulario-email">E-mail:</label>
+            <input type="email" required placeholder="ex: seuemail@email.com"></input>
 
-      <label for="formulario-nome" class="text-black text-sm font-normal font-['Inter']"><strong>Nome:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
-        placeholder="Nome e Sobrenome"></input>
+            <label for="formulario-senha">Senha:</label>
+            <input type="password" required placeholder="Senha"></input>
 
-      <label for="formulario-cpf"
-        class="text-black text-sm font-normal font-['Inter']"><strong>CPF/CNPJ:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required placeholder="CPF/CNPJ"></input>
+            <label for="formulario-confirmar-senha">Confirme sua Senha:</label>
+            <input type="password" required placeholder="Confirme sua Senha"></input>
+          </div>
 
-      <label for="formulario-tel"
-        class="text-black text-sm font-normal font-['Inter']"><strong>Telefone:</strong></label>
-      <input type="tel" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
-        placeholder="(xx) xxxxx-xxxx"></input>
+          <div class="button" id="button-continuar">
+            <button type="submit" id="btn-continuar">Continuar</button>
+          </div>
 
-      <label for="formulario-end"
-        class="text-black text-sm font-normal font-['Inter']"><strong>Endereço:</strong></label>
-      <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
-        placeholder="Rua, número, complemento"></input>
+          <!-- <div class="checkbox_class">
+            <input type="checkbox" class="bg-zinc-300"></input>
+          <span class="text-sm text-blue-800 font-bold" required>Concordo com os termos de uso</span>
+        </div> -->
 
-      <div class="mt-4 mx-8">
-        <input type="checkbox" class="bg-zinc-300"></input>
-        <span class="text-sm text-blue-800 font-bold">Concordo com os termos de uso</span>
+          <!-- <label for="formulario-nome" class="text-black text-sm font-normal font-['Inter']"><strong>Nome:</strong></label>
+          <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
+          placeholder="Nome e Sobrenome"></input>
+          
+          <label for="formulario-cpf"
+          class="text-black text-sm font-normal font-['Inter']"><strong>CPF/CNPJ:</strong></label>
+          <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required placeholder="CPF/CNPJ"></input>
+          
+          <label for="formulario-tel"
+          class="text-black text-sm font-normal font-['Inter']"><strong>Telefone:</strong></label>
+          <input type="tel" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
+          placeholder="(xx) xxxxx-xxxx"></input>
+          
+          <label for="formulario-end"
+          class="text-black text-sm font-normal font-['Inter']"><strong>Endereço:</strong></label>
+          <input type="text" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
+          placeholder="Rua, número, complemento"></input> -->
+
+        </form>
       </div>
-
-      <div class="w-[422px]">
-        <button type="submit" id="btn-cadastrar" class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
-      </div>
-
-    </form>
-  </div>
-
+    </div>
   </div>
 </body>
 
