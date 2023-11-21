@@ -44,47 +44,41 @@
     </div>
 
     <div class="corpo flex flex-col">
-        <div class="menu-login w-[500px] h-[450px]">
+        <div class="menu-login w-[450px] h-[450px]">
             <div class="controlador-login py-10">
                 <div class="input-login py-5">
                     <label for="login-email"
                         class="text-black text-lg py-10 font-normal font-['Inter']"><strong>Email:</strong></label>
-                    <input type="email" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
+                    <input type="email" class="w-[300px] h-[30px] bg-zinc-300 rounded-[10px]" required
                         placeholder="Digite o seu email"></input>
                 </div>
                 <div>
                     <label for="login-senha"
                         class="text-black text-lg py-10 font-normal font-['Inter']"><strong>Senha:</strong></label>
-                    <input type="password" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
+                    <input type="password" class="w-[300px] h-[30px] bg-zinc-300 rounded-[10px]" required
                         placeholder="Digite a sua senha"></input>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 ">
-                <div class=" mx-8">
+                <div class=" mx-8 mt-10">
                     <input type="checkbox" class="bg-zinc-300"></input>
-                    <span class="text-sm text-blue-800 font-bold">Manter conectado?</span>
-
-                    <div>
-                        <button class="recuperar-senha text-black text-lg py-10 font-normal font-['Inter']">
-                            Esqueceu a
-                            senha?</button>
-                    </div>
+                    <span class="text-sm text-blue-800 font-bold"  required placeholder="Manter conectado">Manter conectado?</span>
+ 
+                </div>
+                <div class="mx-8 mt-0">
+                    <button class="recuperar-senha text-black text-lg py-10 font-normal font-['Inter']">
+                        Esqueceu a
+                        senha?</button>
                 </div>
             </div>
 
-            <div>
-                <input type="submit" value="Login" id="logar"
-                    class="bg-sky-400 text-black text-lg font-normal font-['Inter'] ">
-            </div>
+            <div class="w-[422px]">
+                <button type="submit" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
+              </div>
 
-
-
-
-
+        </div>  
         </div>
-
-    </div>
     </div>
 </body>
 

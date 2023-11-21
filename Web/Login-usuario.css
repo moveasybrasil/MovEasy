@@ -60,19 +60,20 @@ padding-top: 85px;
 }
 
 .controlador-login input {
-    padding: 20px;
+    padding: 25px;
 }
 
 .input-senha {
     display:flex;
 }
- #logar {
-    display: flex;
+ #btn-logar {
     width: 150px;
     height: 50px;
     border-radius: 10px;
     justify-content: center;
     margin-left: 150px;
+    background-color: #e54320;
+    border: 1px solid black;
  
    
 }
