@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MovEasy</title>
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/faq.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/saved_resource"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header id="header" class="flex justify-between	px-16 pt-8">
+      <div>
+        <img id="logo" src="assets/images/logo.png" alt="movEasy">
+      </div>
+      <div class="menu-mobile font-bold text-3xl"> ||| </div>
+      <div class="menu-desktop">
+        <a href="./agendar.html">AGENDAR</a>
+        <a href="./index.html">HOME</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html" class="active">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./login.html">LOGIN</a>
+      </div>
+    </header>
+    <div id="faq" class="ml-4 sm:ml-14 md:ml-20 lg:ml-28 mt-28 ">
+      <div id="modelo" class="item hidden">
+        <a class="pergunta text-4xl">Pergunta...</a>
+        <a class="resposta text-2xl">Resposta...</a>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+  <script src="js/faq.js"></script>
+</body>
+
+</html>
