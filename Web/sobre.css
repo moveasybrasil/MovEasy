@@ -36,5 +36,20 @@
     background-repeat: no-repeat;
     background-position-x: 70%;
     background-position-y: 50%;
+}
 
+@media (max-width:800px), handheld {
+    .background-image {
+        background: url(./assets/images/Sobre-4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: 70%;
+    }
+
+    #background-bottom {
+        background: url(./assets/images/Sobre-2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: 70%;
+    }
 }

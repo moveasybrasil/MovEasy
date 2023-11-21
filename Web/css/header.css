@@ -24,7 +24,7 @@
     border-radius: 5px;
 }
 
-.menu-list .menu-mobile {
+.menu-list, .menu-mobile {
     transform:rotate(90deg);
     cursor: pointer;
 }
@@ -44,5 +44,15 @@
 
     .menu-desktop {
         display: flex;
+    }
+}
+
+@media (min-width:800px), handheld {
+    .menu-desktop {
+        
+    }
+
+    .menu-mobile:hover .menu-desktop {
+        opacity: 1;
     }
 }
