@@ -9,13 +9,6 @@
     border-top: 1px solid;
 }
 
-.texto {
-    color: white;
-    text-shadow: 0 0 6px #000;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
 .item {
     width: 80vw;
     margin: 25px;
