@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./sobre.css">
     <link rel="stylesheet" href="./css/header.css">
     <script src="./js/saved_resource"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -36,34 +37,50 @@
             <a href="./login-usuario.html">LOGIN</a>
         </div>
     </header>
-
-    <article class="flex flex-col">
-        <p class="p-10 mx-[94px] text-4xl"><strong> Quem somos: </strong></p>
-        <div class="">
-            <div id="background-sofa" class="">
-            </div>
-            <div class="sobre-top mx-26">
-                <p id="texto-sobre" class="text-2xl"> Somos um grupo de cinco amigos que se uniu para criar uma empresa
-                    com o objetivo de facilitar mudanças.
-                    A movEasy oferece uma plataforma que permite
-                    a realização de orçamentos para mudanças residenciais,
-                    comerciais e corporativas de forma rápida, fácil e segura.
-                </p>
+    <div class="ml-8">
         <div>
-            <p class="text-3xl"> &quotQueríamos criar uma solução que tornasse as mudanças mais simples e menos
-                estressantes para as pessoas."</p>
-        
-        
-            <p>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em potencial. A empresa
-                espera iniciar suas operações em breve, com o objetivo de se tornar um referência no mercado de mudanças
-                online.
+            <p class="text-3xl font-bold my-4 mx-24">
+                Quem Somos:
             </p>
-        
-        <p class="text-3xl">&quotNossa plataforma oferece uma solução completa e segura, que torna o processo mais fácil
-            e tranquilo."</p>
+        </div>
+        <div class="grid grid-cols-2">
+            <div class="background-image"></div>
+            <div class="texto mr-8">
+                <p class="">
+                    Somos um grupo de cinco amigos que se uniu para criar uma empresa com o objetivo de
+                    facilitar
+                    mudanças. A empresa, chamada “movEasy, oferece uma plataforma que permite a realização de orçamentos
+                    para mudanças residenciais, comerciais e corporativas de forma rápida, fácil e segura.
+                </p>
+                <div class="my-16 text-xl">
+                    <span>
+                        <strong>
+                            &quot;Queríamos criar uma solução que tornasse as mudanças mais simples
+                            e menos estressantes para as pessoas.&quot;
+                        </strong>
+                    </span>
+                </div>
+                <div>
+                    <span>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em potencial.
+                        A empresa espera iniciar suas operações em breve, com o objetivo de se tornar um referência no
+                        mercado de mudanças online.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div id="quote-center" class="mt-16 text-2xl">
+            <span>
+                <strong>
+                    &quot;Nossa plataforma oferece uma solução completa e segura,
+                    que torna o processo fácil e tranquilo&quot;
+                </strong>
+            </span>
+        </div>
+        <div id="background-bottom" class="m-8 ">
 
         </div>
-    </article>
+    </div>
 
 </body>
 
