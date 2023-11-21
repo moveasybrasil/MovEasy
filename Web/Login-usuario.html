@@ -26,24 +26,27 @@
         <header id="header" class="flex justify-between	px-16 pt-8">
             <div>
                 <img id="logo" src="./login_files/logo.png" alt="movEasy">
+            </div>
 
+            <div class="menu-list font-bold text-3xl md:hidden mt-16"> ||| </div>
+            <div class="menu md:flex hidden">
+                <a href="./agendar.html">AGENDAR</a>
+                <a href="./index.html">HOME</a>
+                <a href="./sobre.html" class="active">SOBRE</a>
+                <a href="./faq.html">FAQ</a>
+                <a href="./suporte.html">SUPORTE</a>
+                <a href="./login-usuario.html">LOGIN</a>
             </div>
-            <div class="menu">
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">AGENDAR</a>
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">HOME</a>
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">SOBRE</a>
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">FAQ</a>
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">SUPORTE</a>
-                <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test" class="active">LOGIN</a>
-            </div>
+
 
         </header>
 
     </div>
-    <div class="corpo">
-        <div class="menu-login w-[480px] h-[350px]">
-            <div class="controlador-login">
-                <div>
+
+    <div class="corpo flex flex-col">
+        <div class="menu-login w-[500px] h-[450px]">
+            <div class="controlador-login py-10">
+                <div class="input-login py-5">
                     <label for="login-email"
                         class="text-black text-lg py-10 font-normal font-['Inter']"><strong>Email:</strong></label>
                     <input type="email" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
@@ -55,13 +58,33 @@
                     <input type="password" class="w-[308px] h-[29px] bg-zinc-300 rounded-[10px]" required
                         placeholder="Digite a sua senha"></input>
                 </div>
+            </div>
 
-                <div>
-                    <button class ="recuperar-senha text-black text-lg py-10 font-normal font-['Inter']"> Esqueceu a senha?</button>
+            <div class="grid grid-cols-2 ">
+                <div class=" mx-8">
+                    <input type="checkbox" class="bg-zinc-300"></input>
+                    <span class="text-sm text-blue-800 font-bold">Manter conectado?</span>
+
+                    <div>
+                        <button class="recuperar-senha text-black text-lg py-10 font-normal font-['Inter']">
+                            Esqueceu a
+                            senha?</button>
+                    </div>
                 </div>
             </div>
 
+            <div>
+                <input type="submit" value="Login" id="logar"
+                    class="bg-sky-400 text-black text-lg font-normal font-['Inter'] ">
+            </div>
+
+
+
+
+
         </div>
+
+    </div>
     </div>
 </body>
 

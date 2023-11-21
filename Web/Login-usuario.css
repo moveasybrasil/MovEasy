@@ -52,9 +52,27 @@ padding-top: 85px;
 }
 
 .controlador-login {
-    display: grid;
-    align-items: center;
-    justify-content: center;
+    padding: 35px;
+}
+
+.menu-list {
+    position: relative; 
+}
+
+.controlador-login input {
     padding: 20px;
 }
 
+.input-senha {
+    display:flex;
+}
+ #logar {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 150px;
+ 
+   
+}

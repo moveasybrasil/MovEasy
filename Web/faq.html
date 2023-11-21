@@ -5,9 +5,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>MovEasy</title>
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/faq.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/saved_resource"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -30,21 +31,24 @@
       <div class="menu-mobile font-bold text-3xl"> ||| </div>
       <div class="menu-desktop">
         <a href="./agendar.html">AGENDAR</a>
-        <a href="./index.html" class="active">HOME</a>
+        <a href="./index.html">HOME</a>
         <a href="./sobre.html">SOBRE</a>
-        <a href="./faq.html">FAQ</a>
+        <a href="./faq.html" class="active">FAQ</a>
         <a href="./suporte.html">SUPORTE</a>
         <a href="./login.html">LOGIN</a>
       </div>
     </header>
-    <div class="m-28 text-4xl">
-        <span class="texto">QUER SE MUDAR?</span><BR>
-        <span class="texto">DEIXE QUE CUIDAMOS DISSO PARA VOCÊ</span>
+    <div id="faq" class="ml-4 sm:ml-14 md:ml-20 lg:ml-28 mt-28 ">
+      <div id="modelo" class="item hidden">
+        <a class="pergunta text-4xl">Pergunta...</a>
+        <a class="resposta text-2xl">Resposta...</a>
+      </div>
     </div>
 
   </div>
 
   </div>
+  <script src="js/faq.js"></script>
 </body>
 
 </html>
