@@ -5,9 +5,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <link rel="stylesheet" href="./login.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/login.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./login_files/saved_resource"></script>
+  <script src="./js/saved_resource"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -25,16 +26,16 @@
   <div class="banner bg-local">
     <header id="header" class="flex justify-between	px-16 pt-8">
       <div>
-        <img id="logo" src="./login_files/logo.png" alt="movEasy">
-        
-        <div class="menu">
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">AGENDAR</a>
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">HOME</a>
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">SOBRE</a>
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">FAQ</a>
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test">SUPORTE</a>
-          <a href="file:///C:/Users/victor.mariano/Documents/movEasy/test" class="active">LOGIN</a>
-        </div>
+        <img id="logo" src="./assets/images/logo.png" alt="movEasy">
+      </div>
+      <div class="menu-mobile font-bold text-3xl"> ||| </div>
+      <div class="menu-desktop">
+        <a href="./agendar.html">AGENDAR</a>
+        <a href="./index.html">HOME</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./login.html" class="active">LOGIN</a>
       </div>
     </header>
 
