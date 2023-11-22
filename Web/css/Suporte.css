@@ -1,57 +1,30 @@
-#header {
-    background-color: #0b142f;
-    color:#FFF;
+.banner {
+    min-height: 100vh;
     width: 100%;
-    height: 163px ;
-    }
-    
-    #logo {
-        width: 350px;
-        padding-top: 5px ;
-    }
-    
-    .menu {
-        padding-top: 85px;
-    }
-    
-    .menu a {
-        padding:15px ;
-    }
-    
-    .active {
-        
-        background-color: orangered;
-        background-size: 1% ;
-        border-radius: 5px ;
-    }
+    background: url(../assets/images/bg-suporte-md.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    overflow: auto;
+    border-top: 1px solid;
 
-    .banner {
-        height: 100vh;
-        width: 100%;
-        background: url(./assets/images/pexels-photoscom-93398.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        overflow: auto;
-        border-top: 1px solid;
-    
-    }
-    
-    #btn-cadastrar {
-        background-color: orangered;
-        width: 200px;
-    
-    }
+}
 
-    .imagem-suporte {
-        display: flex;
-        justify-content: flex-end;
-        width: -100%;
-        height: 805px;
-        flex-shrink: 0;
-    }
+#btn-cadastrar {
+    background-color: orangered;
+    width: 200px;
 
-    #btn-cadastrar {
+}
+
+.imagem-suporte {
+    display: flex;
+    justify-content: flex-end;
+    width: -100%;
+    height: 805px;
+    flex-shrink: 0;
+}
+
+#btn-cadastrar {
     background-color: #E53420;
     color: #FFF;
     width: 322px;
@@ -62,22 +35,22 @@
     font-weight: bold;
     text-align: center;
 }
-   
-.my-28{
+
+.my-28 {
     width: 422px;
     height: 531px;
     background-color: #0b142f;
     border-radius: 10px;
     flex-direction: column;
-   
+
     padding: 40px 50px 20px 50px;
 }
- 
-.checkbox_class{
-margin: 5px 5px 5px 0;
+
+.checkbox_class {
+    margin: 5px 5px 5px 0;
 }
- 
-.info-boxes-login input{
+
+.info-boxes-suporte input {
     width: 322px;
     height: 59px;
     border-radius: 5px;
@@ -87,43 +60,43 @@ margin: 5px 5px 5px 0;
     margin: 15px;
     margin-left: 0;
 }
- 
-.my-28 label{
+
+.my-28 label {
     font-family: "Montserrat";
     font-size: 18px;
     border-style: solid;
-    color:#f1eaea;
+    color: #f1eaea;
 }
 
 body {
-   
-    margin: 0; 
-    padding: 0; 
+
+    margin: 0;
+    padding: 0;
 }
 
 .my-28 {
-    position: fixed; 
-    left: 98px;       
-    top: 100px;       
-    width: 360px;   
-    height: 60%;   
-    background-color: #0b142f; 
-    color: #fff;   
-    padding: 20px;  
-    box-sizing: border-box; 
+    position: fixed;
+    left: 98px;
+    top: 100px;
+    width: 360px;
+    height: 60%;
+    background-color: #0b142f;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .my-28 ul {
-    list-style-type: none; 
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .my-28 li {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .my-28 a {
-    text-decoration: none; 
-    color: #fff; 
+    text-decoration: none;
+    color: #fff;
 }
