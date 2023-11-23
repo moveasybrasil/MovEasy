@@ -1,7 +1,7 @@
 .banner {
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
-    background: url(../assets/images/bg-suporte-md.jpg);
+    background: url(./assets/images/pexels-photoscom-93398.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -36,9 +36,9 @@
     text-align: center;
 }
 
-.my-28 {
+.Formulario {
     width: 422px;
-    height: 531px;
+    height: 600px;
     background-color: #0b142f;
     border-radius: 10px;
     flex-direction: column;
@@ -50,7 +50,7 @@
     margin: 5px 5px 5px 0;
 }
 
-.info-boxes-suporte input {
+.info-boxes-login input {
     width: 322px;
     height: 59px;
     border-radius: 5px;
@@ -61,7 +61,7 @@
     margin-left: 0;
 }
 
-.my-28 label {
+.Formulario label {
     font-family: "Montserrat";
     font-size: 18px;
     border-style: solid;
@@ -74,7 +74,7 @@ body {
     padding: 0;
 }
 
-.my-28 {
+.Formulario {
     position: fixed;
     left: 98px;
     top: 100px;
@@ -86,17 +86,17 @@ body {
     box-sizing: border-box;
 }
 
-.my-28 ul {
+.Formulario ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.my-28 li {
+.Formulario li {
     margin-bottom: 10px;
 }
 
-.my-28 a {
+.Formulario a {
     text-decoration: none;
     color: #fff;
 }
