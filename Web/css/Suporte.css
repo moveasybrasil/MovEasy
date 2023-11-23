@@ -1,7 +1,7 @@
 .banner {
     height: 100vh;
     width: 100%;
-    background: url(./assets/images/pexels-photoscom-93398.jpg);
+    background: url(../assets/images/bg-suporte-md);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -99,4 +99,15 @@ body {
 .Formulario a {
     text-decoration: none;
     color: #fff;
+}
+
+@media (min-width: 768px) {
+    .banner{
+        background: url(../assets/images/bg-suporte-md.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        overflow: auto;
+        border-top: 1px solid;
+    } 
 }
