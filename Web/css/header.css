@@ -8,6 +8,7 @@
 #logo {
     width: 350px;
     padding-top: 5px;
+    display: fixed;
 }
 
 .menu {
@@ -24,35 +25,69 @@
     border-radius: 5px;
 }
 
-.menu-list, .menu-mobile {
-    transform:rotate(90deg);
-    cursor: pointer;
-}
-
 .menu-desktop {
-    display: none;
     padding-top: 70px;
     margin-bottom: 10px;
-} .menu-desktop a {
+}
+
+.menu-desktop a {
     padding: 15px;
 }
 
-@media (min-width: 970px) {
-    .menu-mobile {
+.menu-desktop a:hover {
+    background-color: orangered;
+    border-radius: 5px;
+}
+
+#icone-mobile {
+    width: 40px;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+@media (max-width: 970px) {
+    .menu-desktop {
         display: none;
     }
 
-    .menu-desktop {
+    .menu-mobile {
         display: flex;
+        flex-direction: column;
+        background-color: #0b142f;
+        align-items: center;
+        width: 300px;
     }
-}
-
-@media (min-width:800px), handheld {
-    .menu-desktop {
-        
+    
+    .menu-mobile-links {
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #0b142f; 
+        z-index: 1;
     }
 
-    .menu-mobile:hover .menu-desktop {
+    .menu-mobile-links a {
+        height: 50px;
+        text-align: center;
+        margin-top: 5px;
+        padding-top: 10px;
+        margin: 0 auto;
+        width: 250px;
+
+    }
+    
+    .active {
+        border-radius: 0;
+    }
+    .menu-mobile:hover .menu-mobile-links {
         opacity: 1;
+        transition: 0.1s;
+    }
+
+    .menu-mobile-links a:hover {
+        background-color: orangered;
+        transition: 0.1s;
     }
 }
