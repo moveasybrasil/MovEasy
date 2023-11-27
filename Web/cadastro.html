@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/victor.mariano/Documents/movEasy/login.html -->
+<html>
+
+<head>
+
+  <title>Cadastro - movEasy</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-language" content="pt-br" />
+  <meta name="author" content="Victor Matheus da Costa Mariano" />
+  <meta name="description" content="Cadastro de Usuário na movEasy" />
+  <meta name="keywords" content="cadastro, movEasy, criar conta" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="stylesheet" href="./css/header.css">
+
+  <script src="./login_files/saved_resource"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header id="header">
+      <div>
+        <img id="logo" src="./login_files/logo.png" alt="movEasy">
+
+        <div class="menu-mobile font-bold text-3xl"> ||| </div>
+        <div class="menu-desktop">
+          <a href="./agendar.html">AGENDAR</a>
+          <a href="./index.html" class="active">HOME</a>
+          <a href="./sobre.html">SOBRE</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./suporte.html">SUPORTE</a>
+          <a href="./login.html">LOGIN</a>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container-cadastro">
+
+      <form action="/formulario-cadastro-cliente" method="post">
+        <div class="box-cadastrar-continuar">
+          <h1 id="title-cadastro">Crie sua Conta</h1>
+
+          <div class="info-boxes-cadastro">
+            <label for="formulario-email">E-mail:</label>
+            <input type="email" required placeholder="ex: seuemail@email.com"></input>
+
+            <label for="formulario-senha">Senha:</label>
+            <input type="password" required placeholder="Senha"></input>
+
+            <label for="formulario-confirmar-senha">Confirme sua Senha:</label>
+            <input type="password" required placeholder="Confirme sua Senha"></input>
+          </div>
+
+          <div class="button">
+            <button class="button-continuar" onclick="box_cadastrar_final()">Continuar</button>
+          </div>
+        </div>
+
+        <div class="box-cadastrar-final" style="display:none">
+
+          <div class="info-boxes-cadastro">
+            <label for="formulario-nome">Nome:</label>
+            <input type="text" placeholder="Nome e Sobrenome"></input>
+
+            <label for="formulario-cpf">CPF ou CNPJ:</label>
+            <input type="text" placeholder="CPF ou CNPJ"></input>
+
+            <label for="formulario-tel">Telefone:</label>
+            <input type="tel" placeholder="(xx) xxxxx-xxxx"></input>
+          </div>
+
+          <div class="checkbox_class">
+            <input type="checkbox"></input>
+            <span required>Concordo com os Termos de Uso</span>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    
+  </div>
+  <script src="./js/cadastro.js"></script>
+</body>
+
+</html>
