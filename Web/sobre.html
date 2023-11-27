@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./sobre.css">
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/header.css">
     <script src="./js/saved_resource"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                    extend: {
+                        colors: {
+                            clifford: '#da373d',
+                        }
                     }
                 }
             }
@@ -24,74 +31,79 @@
 
 <body>
     <div class="banner bg-local">
+
         <header id="header" class="flex justify-between	px-16 pt-8">
-          <div>
-            <img id="logo" src="assets/images/logo.png" alt="movEasy">
-          </div>
-          <div class="menu-mobile">
-            <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-            <div class="menu-mobile-links">
+            <div>
+                <img id="logo" src="assets/images/logo.png" alt="movEasy">
+            </div>
+            <div class="menu-mobile">
+                <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+                <div class="menu-mobile-links">
+                    <img id="" src="./assets/images/logo_original.png" alt="movEasy">
+                    <a href="./index.html">HOME</a>
+                    <a href="./agendar.html">AGENDAR</a>
+                    <a href="./sobre.html" class="active">SOBRE</a>
+                    <a href="./faq.html">FAQ</a>
+                    <a href="./suporte.html">SUPORTE</a>
+                    <a href="./login.html">LOGIN</a>
+                </div>
+            </div>
+            <div class="menu-desktop">
+                <a href="./index.html">HOME</a>
                 <a href="./agendar.html">AGENDAR</a>
-                <a href="./index.html" >HOME</a>
                 <a href="./sobre.html" class="active">SOBRE</a>
                 <a href="./faq.html">FAQ</a>
                 <a href="./suporte.html">SUPORTE</a>
                 <a href="./login.html">LOGIN</a>
-              </div>
-          </div>
-          <div class="menu-desktop">
-            <a href="./agendar.html">AGENDAR</a>
-            <a href="./index.html" >HOME</a>
-            <a href="./sobre.html" class="active">SOBRE</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./suporte.html">SUPORTE</a>
-            <a href="./login.html">LOGIN</a>
-          </div>
+            </div>
         </header>
-    <div class="ml-8">
-        <div>
-            <p class="text-3xl font-bold my-4 mx-24">
-                Quem Somos:
-            </p>
-        </div>
-        <div class="grid grid-cols-2">
-            <div class="background-image"></div>
-            <div class="texto mr-16">
-                <p class="">
-                    Somos um grupo de cinco amigos que se uniu para criar uma empresa com o objetivo de
-                    facilitar
-                    mudanças. A empresa, chamada “movEasy, oferece uma plataforma que permite a realização de orçamentos
-                    para mudanças residenciais, comerciais e corporativas de forma rápida, fácil e segura.
+        <div class="mx-8">
+            <div>
+                <p class="text-3xl font-bold my-8">
+                    Quem Somos:
                 </p>
-                <div class="my-16 text-xl">
-                    <span>
-                        <strong>
-                            &quot;Queríamos criar uma solução que tornasse as mudanças mais simples
-                            e menos estressantes para as pessoas.&quot;
-                        </strong>
-                    </span>
+            </div>
+            <div class="sm:grid grid-cols-2">
+                <div class="background-image"></div>
+                <div class="texto">
+                    <p class="">
+                        Somos um grupo de cinco amigos que se uniu para criar uma empresa com o objetivo de
+                        facilitar
+                        mudanças. A empresa, chamada “movEasy, oferece uma plataforma que permite a realização de
+                        orçamentos
+                        para mudanças residenciais, comerciais e corporativas de forma rápida, fácil e segura.
+                    </p>
+                    <div class="my-16 text-xl">
+                        <span>
+                            <strong><em>
+                                &quot;Queríamos criar uma solução que tornasse as mudanças mais simples
+                                e menos estressantes para as pessoas.&quot;
+                            </strong></em>
+                        </span>
+                    </div>
+                    <div>
+                        <span>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em
+                            potencial.
+                            A empresa espera iniciar suas operações em breve, com o objetivo de se tornar um referência
+                            no
+                            mercado de mudanças online.
+                        </span>
+                    </div>
+
                 </div>
-                <div>
-                    <span>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em potencial.
-                        A empresa espera iniciar suas operações em breve, com o objetivo de se tornar um referência no
-                        mercado de mudanças online.
-                    </span>
-                </div>
+            </div>
+            <div id="quote-center" class="my-16 text-2xl">
+                <span>
+                    <strong><em>
+                        &quot;Nossa plataforma oferece uma solução completa e segura,
+                        que torna o processo fácil e tranquilo&quot;
+                    </strong></em>
+                </span>
+            </div>
+            <div id="background-bottom" class="">
 
             </div>
         </div>
-        <div id="quote-center" class="my-16 text-2xl">
-            <span>
-                <strong>
-                    &quot;Nossa plataforma oferece uma solução completa e segura,
-                    que torna o processo fácil e tranquilo&quot;
-                </strong>
-            </span>
-        </div>
-        <div id="background-bottom" class="my-16">
-
-        </div>
-    </div>
 
 </body>
 
