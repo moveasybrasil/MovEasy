@@ -8,7 +8,7 @@ function createFAQ(faq) {
 const lista = []
 
 lista.push({
-    pergunta: "Quais serviços de mudança de móveis é oferecido?",
+    pergunta: "Quais serviços de mudança de móveis são oferecidos?",
     resposta: "É oferecido serviços de carregamento, transporte, e descarregamento de móveis."
 })
 lista.push({
