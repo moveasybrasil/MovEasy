@@ -12,22 +12,31 @@
     background-position: bottom;
     overflow: auto;
     border-top: 1px solid;
-} 
+    height: 100vh;
+    width: 100vw;
+}
 
-.my-28 {
+.container-cadastro {
+    display: flex;
+    height: (100vh - 163px);
+    margin-top: 140px;
+    width: 100vw;
+    justify-content:center;
+    align-items:center;
+}
+
+.box-cadastrar-continuar {
     width: 422px;
     height: 531px;
     background-color: #FFF;
     border-radius: 10px;
     flex-direction: column;
-    margin: 0 344px 0 344px;
-    padding: 20px 50px 20px 50px;
+    padding: 20px 50px 20px 50px;   
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 #title-cadastro {
     text-align: center;
-    justify-content: center;
-    align-items: center;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 20px;
@@ -36,26 +45,22 @@
 .button {
     background-color: #E53420;
     color: #FFF;
-    width: 322px;
-    height: 50px;
     border-radius: 5px;
-    font-size: large;
     font-weight: bold;
-    align-items: center;
-    text-align: center;
-}
-
-#button-continuar {
-    padding: 10px;
     margin: 20px 0 15px 0;
 }
 
-    
+.button-continuar {
+    width: 322px;
+    height: 50px;
+    font-size: large;
+}
+
 .checkbox_class {
     margin: 5px 5px 5px 0;
 }
 
-.info-boxes-login input {
+.info-boxes-cadastro input {
     width: 322px;
     height: 59px;
     border-radius: 5px;
@@ -66,7 +71,7 @@
     margin-left: 0;
 }
 
-.my-28 label {
+.box-cadastrar-continuar label {
     font-family: "Montserrat";
     font-size: 18px;
     border-style: solid;
