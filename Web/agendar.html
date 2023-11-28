@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MovEasy</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/Login-usuario.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/saved_resource"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        <header id="header" class="flex justify-between	pr-32 pt-8">
+            <div>
+                <img id="logo" src="assets/images/logo.png" alt="movEasy">
+            </div>
+            <div class="menu-mobile">
+                <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+                <div class="menu-mobile-links">
+                    <img id="" src="./assets/images/logo_original.png" alt="movEasy">
+                    <a href="./index.html">HOME</a>
+                    <a href="./agendar.html" class="active">AGENDAR</a>
+                    <a href="./sobre.html">SOBRE</a>
+                    <a href="./faq.html">FAQ</a>
+                    <a href="./suporte.html">SUPORTE</a>
+                    <a href="./login.html">LOGIN</a>
+                </div>
+            </div>
+            <div class="menu-desktop">
+                <a href="./index.html">HOME</a>
+                <a href="./agendar.html" class="active">AGENDAR</a>
+                <a href="./sobre.html">SOBRE</a>
+                <a href="./faq.html">FAQ</a>
+                <a href="./suporte.html">SUPORTE</a>
+                <a href="./login.html">LOGIN</a>
+            </div>
+        </header>
+        <div class="agendar-form">
+            <form action="#">
+                <label for="data">Data da Mudança</label>
+                <input type="date">
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
