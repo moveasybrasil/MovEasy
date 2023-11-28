@@ -47,6 +47,10 @@
     display: none;
 }
 
+#logo-mobile {
+    display: none;
+}
+
 @media (max-width: 970px) {
 
     #logo {
@@ -66,11 +70,11 @@
     }
     
     .menu-mobile-links {
-        opacity: 0;
-        display: flex;
+        display: none;
         flex-direction: column;
         background-color: #0b142f; 
         z-index: 1;
+        margin: 0;
     }
 
     .menu-mobile-links a {
@@ -78,17 +82,24 @@
         text-align: center;
         margin-top: 5px;
         padding-top: 10px;
-        margin: 0 auto;
         width: 250px;
+        margin: 0 auto;
 
     }
     
     .active {
         border-radius: 0;
     }
+
+
     .menu-mobile:hover .menu-mobile-links {
+        display: flex;
         opacity: 1;
         transition: 0.1s;
+    }
+
+    .menu-mobile:hover img {
+        display: block;
     }
 
     .menu-mobile-links a:hover {
