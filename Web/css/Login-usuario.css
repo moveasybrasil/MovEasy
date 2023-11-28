@@ -1,44 +1,27 @@
-#header {
-    background-color: #0b142f;
-    color: #fff;
-    width: 100%;
-    height: 163px;
-
+body {
+    margin: 0;
+    padding: 0;
 }
 
-#logo {
-width: 350px;
-padding-top: 5px;
-
+.banner2 {
+    background: url(../assets/images/Imagem-login.jpeg);
+    width: 100vw;
+    height: 100vh;
 }
-
-.menu {    
-padding-top: 85px;
-}
-
-.menu a {
-    padding: 5px;
-
-}
-
-
-.banner {
- background: url(./assets/images/Imagem-login.jpeg);
- width: 100vw;
- height: 100vh;
- background-size: cover;
- display: flex;
-}
-
 
 .menu-login {
-    border-radius: 15px;
-    max-width: 25%;
+    border-radius: 15px; 
     background-color: #fff;
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 450px;
   
 }
-.corpo{ display: flex;
+
+.corpo { 
+    display: flex;
     align-items: center;
     justify-content: center;
     position:fixed;
@@ -46,9 +29,6 @@ padding-top: 85px;
     bottom:0;
     left:0;
     right:0;
-    background-color: rgba(0, 0,0,.5);
-
-    
 
 }
 
@@ -57,14 +37,15 @@ padding-top: 85px;
     margin-bottom: 15px;
 }
 
-.menu-list {
-    position: relative; 
-}
-
 .controlador-login input {
     padding: 25px;
     margin-top: 10px;
 }
+
+.menu-list {
+    position: relative; 
+}
+
 
 .input-senha {
     display:flex;
@@ -82,7 +63,6 @@ padding-top: 85px;
     border: 1px solid black;
 }
 
-
 #btn-cadastrar {
    display: flex;
    width: 150px;
@@ -96,10 +76,23 @@ padding-top: 85px;
    border: 1px solid black;
 
 }
-
-.input-login {
-    margin: 0px;
-}
 .texto-cadastro {
     margin-left: 150px;
 }
+
+.campos {
+    border: 1px solid #e54320;
+    width: 100%;
+    align-items:center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-size: cover;   
+    background-position: 35%;
+  }
+    
+  }
