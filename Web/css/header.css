@@ -61,12 +61,18 @@
         display: none;
     }
 
+    #header {
+        align-items: center;
+        justify-content: center;
+    }
+
     .menu-mobile {
         display: flex;
         flex-direction: column;
         background-color: #0b142f;
         align-items: center;
-        width: 300px;
+        width: auto;
+        height: 40px;
     }
     
     .menu-mobile-links {
@@ -75,6 +81,8 @@
         background-color: #0b142f; 
         z-index: 1;
         margin: 0;
+        justify-content: center;
+
     }
 
     .menu-mobile-links a {
@@ -82,9 +90,8 @@
         text-align: center;
         margin-top: 5px;
         padding-top: 10px;
-        width: 250px;
-        margin: 0 auto;
-
+        width: auto;
+        margin: 0;
     }
     
     .active {
@@ -98,7 +105,7 @@
         transition: 0.1s;
     }
 
-    .menu-mobile:hover img {
+    .menu-mobile:hover .menu-mobile-links img {
         display: block;
     }
 
