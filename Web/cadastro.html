@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0060)file:///C:/Users/victor.mariano/Documents/movEasy/login.html -->
 <html>
 
 <head>
-
-  <title>Cadastro - movEasy</title>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="content-language" content="pt-br" />
-  <meta name="author" content="Victor Matheus da Costa Mariano" />
-  <meta name="description" content="Cadastro de Usuário na movEasy" />
-  <meta name="keywords" content="cadastro, movEasy, criar conta" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>MovEasy</title>
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/cadastro.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/saved_resource"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -33,53 +26,55 @@
   <div class="banner bg-local">
     <header id="header" class="flex justify-between	px-16 pt-8">
       <div>
-          <img id="logo" src="assets/images/logo.png" alt="movEasy">
+        <img id="logo" src="assets/images/logo.png" alt="movEasy">
       </div>
       <div class="menu-mobile">
-          <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-          <div class="menu-mobile-links">
-              <img id="" src="./assets/images/logo_original.png" alt="movEasy">
-              <a href="./index.html" class="active">HOME</a>
-              <a href="./agendar.html">AGENDAR</a>
-              <a href="./sobre.html">SOBRE</a>
-              <a href="./faq.html">FAQ</a>
-              <a href="./suporte.html">SUPORTE</a>
-              <a href="./login.html">LOGIN</a>
-          </div>
-      </div>
-      <div class="menu-desktop">
+        <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <div class="menu-mobile-links">
+          <img id="" src="./assets/images/logo_original.png" alt="movEasy">
           <a href="./index.html">HOME</a>
           <a href="./agendar.html">AGENDAR</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
           <a href="./login.html" class="active">LOGIN</a>
+        </div>
       </div>
-  </header>
+      <div class="menu-desktop">
+        <a href="./index.html">HOME</a>
+        <a href="./agendar.html">AGENDAR</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./login.html" class="active">LOGIN</a>
+      </div>
+    </header>
 
     <div class="container-cadastro">
 
       <form action="/formulario-cadastro-cliente" method="post">
-        <div class="box-cadastrar-continuar">
-          <h1 id="title-cadastro">Crie sua Conta</h1>
+
+        <div class="box" id="box-continuar-cadastro">
+          <h1 id="title-box">Crie sua Conta</h1>
 
           <div class="info-boxes-cadastro">
             <label for="formulario-email">E-mail:</label>
-            <input type="email" required placeholder="ex: seuemail@email.com"></input>
+            <input type="email" placeholder="ex: seuemail@email.com"></input>
 
             <label for="formulario-senha">Senha:</label>
-            <input type="password" required placeholder="Senha"></input>
+            <input type="password" placeholder="Senha"></input>
 
             <label for="formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" required placeholder="Confirme sua Senha"></input>
+            <input type="password" placeholder="Confirme sua Senha"></input>
           </div>
 
-          <div class="button">
-            <button class="button-continuar" onclick="box_cadastrar_final()">Continuar</button>
+          <div class="button-box" id="button-continuar">
+            <button type="button"
+              onclick="continuar_cadastro('box-continuar-cadastro'); voltar_cadastro('box-finalizar-cadastro');">Continuar</button>
           </div>
         </div>
 
-        <div class="box-cadastrar-final" style="display:none">
+        <div class="box" id="box-finalizar-cadastro">
 
           <div class="info-boxes-cadastro">
             <label for="formulario-nome">Nome:</label>
@@ -94,9 +89,21 @@
 
           <div class="checkbox_class">
             <input type="checkbox"></input>
-            <span required>Concordo com os Termos de Uso</span>
+            <span>Concordo com os Termos de Uso</span>
+          </div>
+
+          <div class="button-container">
+            <div class="button-box" id="button-voltar">
+              <button type="button"
+                onclick="continuar_cadastro('box-continuar-cadastro'); voltar_cadastro('box-finalizar-cadastro');">
+                <</button>
+            </div>
+            <div class="button-box" id="button-cadastrar">
+              <button type="button" >Cadastrar</button>
+            </div>
           </div>
         </div>
+
       </form>
 
     </div>
