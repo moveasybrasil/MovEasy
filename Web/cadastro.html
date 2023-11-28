@@ -12,10 +12,10 @@
   <meta name="description" content="Cadastro de Usuário na movEasy" />
   <meta name="keywords" content="cadastro, movEasy, criar conta" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/cadastro.css">
   <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/cadastro.css">
 
-  <script src="./login_files/saved_resource"></script>
+  <script src="./js/saved_resource"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -31,22 +31,32 @@
 
 <body>
   <div class="banner bg-local">
-    <header id="header">
+    <header id="header" class="flex justify-between	px-16 pt-8">
       <div>
-        <img id="logo" src="./login_files/logo.png" alt="movEasy">
-
-        <div class="menu-mobile font-bold text-3xl"> ||| </div>
-        <div class="menu-desktop">
+          <img id="logo" src="assets/images/logo.png" alt="movEasy">
+      </div>
+      <div class="menu-mobile">
+          <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+          <div class="menu-mobile-links">
+              <img id="" src="./assets/images/logo_original.png" alt="movEasy">
+              <a href="./index.html" class="active">HOME</a>
+              <a href="./agendar.html">AGENDAR</a>
+              <a href="./sobre.html">SOBRE</a>
+              <a href="./faq.html">FAQ</a>
+              <a href="./suporte.html">SUPORTE</a>
+              <a href="./login.html">LOGIN</a>
+          </div>
+      </div>
+      <div class="menu-desktop">
+          <a href="./index.html">HOME</a>
           <a href="./agendar.html">AGENDAR</a>
-          <a href="./index.html" class="active">HOME</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
-          <a href="./login.html">LOGIN</a>
-        </div>
+          <a href="./login.html" class="active">LOGIN</a>
       </div>
-    </header>
-    
+  </header>
+
     <div class="container-cadastro">
 
       <form action="/formulario-cadastro-cliente" method="post">
@@ -90,7 +100,7 @@
       </form>
 
     </div>
-    
+
   </div>
   <script src="./js/cadastro.js"></script>
 </body>
