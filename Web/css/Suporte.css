@@ -1,29 +1,8 @@
-.banner {
-    height: 100vh;
-    width: 100%;
-    background: url(../assets/images/bg-suporte-md);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    overflow: auto;
-    border-top: 1px solid;
-
+body {
+    margin: 0;
+    padding: 0;
+    
 }
-
-#btn-cadastrar {
-    background-color: orangered;
-    width: 200px;
-
-}
-
-.imagem-suporte {
-    display: flex;
-    justify-content: flex-end;
-    width: -100%;
-    height: 805px;
-    flex-shrink: 0;
-}
-
 #btn-cadastrar {
     background-color: #E53420;
     color: #FFF;
@@ -36,42 +15,11 @@
     text-align: center;
 }
 
-.Formulario {
-    width: 422px;
-    height: 600px;
-    background-color: #0b142f;
-    border-radius: 10px;
-    flex-direction: column;
-
-    padding: 40px 50px 20px 50px;
-}
-
-.checkbox_class {
-    margin: 5px 5px 5px 0;
-}
-
-.info-boxes-login input {
-    width: 322px;
-    height: 59px;
-    border-radius: 5px;
-    border: 1px solid #bbb;
-    background-color: #F5F5F5;
-    padding: 10px;
-    margin: 15px;
-    margin-left: 0;
-}
-
 .Formulario label {
     font-family: "Montserrat";
     font-size: 18px;
     border-style: solid;
     color: #f1eaea;
-}
-
-body {
-
-    margin: 0;
-    padding: 0;
 }
 
 .FormularioSuporte {
@@ -82,19 +30,24 @@ body {
     left: 98px;
     top: 100px;
     width: 360px;
-    height: 60%;
+    height: 520px;
     background-color: #0b142f;
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 10px; 
     margin-top: 7rem;
+    
+    
 }
 
 .FormularioSuporte input {
     width: 100%; 
+    height: 40px;
     margin-bottom: 10px; 
     color: #000;
+    border-radius: 5px;
+    
 }
 
 .Formulario ul {
@@ -112,13 +65,27 @@ body {
     color: #fff;
 }
 
-@media (min-width: 768px) {
-    .banner{
-        background: url(../assets/images/bg-suporte-md.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        overflow: auto;
-        border-top: 1px solid;
-    } 
+#descricao {
+    border-radius: 5px;
+    height: 160px;
+    width: 100%;
+
+}
+
+
+.fundo {
+    background: url(../assets/images/bg-suporte-md2.jpg);
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    background-size:cover;
+    background-repeat: no-repeat;
+    align-items: bottom;
+}
+
+@media (max-width: 700px) {
+    .fundo {
+        background-size: 120%;
+        background-position-y: bottom;
+    }
 }

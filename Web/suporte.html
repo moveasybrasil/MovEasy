@@ -23,55 +23,58 @@
 </head>
 
 <body>
-  <div class="banner bg-local">
-    <header id="header" class="flex justify-between	px-16 pt-8">
+  <div class="banner">
+    <header id="header" class="flex justify-between	pr-32 pt-8">
       <div>
-          <img id="logo" src="assets/images/logo.png" alt="movEasy">
+        <img id="logo" src="assets/images/logo.png" alt="movEasy">
       </div>
       <div class="menu-mobile">
-          <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-          <div class="menu-mobile-links">
-              <img id="" src="./assets/images/logo_original.png" alt="movEasy">
-              <a href="./index.html">HOME</a>
-              <a href="./agendar.html">AGENDAR</a>
-              <a href="./sobre.html" >SOBRE</a>
-              <a href="./faq.html">FAQ</a>
-              <a href="./suporte.html" class="active">SUPORTE</a>
-              <a href="./login.html">LOGIN</a>
-          </div>
-      </div>
-      <div class="menu-desktop">
+        <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <div class="menu-mobile-links">
+          <img id="" src="./assets/images/logo_original.png" alt="movEasy">
           <a href="./index.html">HOME</a>
           <a href="./agendar.html">AGENDAR</a>
-          <a href="./sobre.html" >SOBRE</a>
+          <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html" class="active">SUPORTE</a>
           <a href="./login.html">LOGIN</a>
+        </div>
       </div>
-  </header>
+      <div class="menu-desktop">
+        <a href="./index.html">HOME</a>
+        <a href="./agendar.html">AGENDAR</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html" class="active">SUPORTE</a>
+        <a href="./login.html">LOGIN</a>
+      </div>
+    </header>
     <div class="FormularioSuporte">
       <form action="/formulario-suporte" method="post">
- 
+
         <div class="info-boxes-suporte">
           <label for="formulario-nome">Nome:</label>
           <input type="Nome" required placeholder="Nome"></input>
- 
+
           <label for="formulario-email">E-mail:</label>
           <input type="email" required placeholder="ex: seuemail@email.com"></input>
- 
+
           <label for="formulario-assunto">Assunto:</label>
           <input type="Assunto" required placeholder="Assunto"></input>
 
           <label for="formulario-descricao">Descrição:</label>
-          <input type="descricao" required placeholder="Descrição"></input>
+          <textarea id="descricao" type="textarea" required placeholder="Descrição"></textarea>
 
         </div>
 
- 
+
         <div>
           <button type="submit" id="btn-cadastrar">Enviar</button>
         </div>
-  </div>
+    </div>
+    <div class="flex fundo">
+
+    </div>
 </body>
 
 </html>

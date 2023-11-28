@@ -2,102 +2,103 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>MovEasy</title>
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/Login-usuario.css">
-    <script src="./login_files/saved_resource"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/saved_resource"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
             }
+          }
         }
+      }
     </script>
-</head>
-
+  </head>
 <body>
 
-    <div class="banner bg-local">
-        <header id="header" class="flex justify-between	px-16 pt-8">
-            <div>
-                <img id="logo" src="assets/images/logo.png" alt="movEasy">
+    <div class="banner">
+        <header id="header" class="flex justify-between	pr-32 pt-8">
+          <div>
+            <img id="logo" src="assets/images/logo.png" alt="movEasy">
+          </div>
+          <div class="menu-mobile">
+            <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+            <div class="menu-mobile-links">
+              <img id="" src="./assets/images/logo_original.png" alt="movEasy">
+              <a href="./index.html">HOME</a>
+              <a href="./agendar.html">AGENDAR</a>
+              <a href="./sobre.html">SOBRE</a>
+              <a href="./faq.html">FAQ</a>
+              <a href="./suporte.html" class="active">SUPORTE</a>
+              <a href="./login.html">LOGIN</a>
             </div>
-            <div class="menu-mobile">
-                <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-                <div class="menu-mobile-links">
-                    <img id="" src="./assets/images/logo_original.png" alt="movEasy">
-                    <a href="./index.html">HOME</a>
-                    <a href="./agendar.html">AGENDAR</a>
-                    <a href="./sobre.html" >SOBRE</a>
-                    <a href="./faq.html">FAQ</a>
-                    <a href="./suporte.html">SUPORTE</a>
-                    <a href="./login.html" class="active">LOGIN</a>
-                </div>
-            </div>
-            <div class="menu-desktop">
-                <a href="./index.html">HOME</a>
-                <a href="./agendar.html">AGENDAR</a>
-                <a href="./sobre.html" class="active">SOBRE</a>
-                <a href="./faq.html">FAQ</a>
-                <a href="./suporte.html">SUPORTE</a>
-                <a href="./login.html">LOGIN</a>
-            </div>
+          </div>
+          <div class="menu-desktop">
+            <a href="./index.html">HOME</a>
+            <a href="./agendar.html">AGENDAR</a>
+            <a href="./sobre.html">SOBRE</a>
+            <a href="./faq.html">FAQ</a>
+            <a href="./suporte.html" class="active">SUPORTE</a>
+            <a href="./login.html">LOGIN</a>
+          </div>
         </header>
-
     </div>
-    <form action="">
-        <div class="corpo flex flex-col">
-            <div class="menu-login w-[450px] h-[450px]">
-                <div class="controlador-login ">
-                    <div class="input-login py-5">
-                        <label for="login-email"
-                            class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
-                        <input type="email" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
-                            placeholder="Digite o seu email"></input>
-                    </div>
-                    <div>
-                        <label for="login-senha"
-                            class="text-black text-lg py-5 font-normal font-['Inter']"><strong>Senha:</strong></label>
-                        <input type="password" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
-                            placeholder="Digite a sua senha"></input>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
-                </div>
-
-                <div class="">
-                    <div class="campos flex mt-4">
-                        <input type="checkbox" class="bg-zinc-300"></input>
-                        <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
-                            conectado?</span>
-
-
-                        <div class="recuperar-senha">
-                            <button class="recuperar-senha text-black text-lg py-4 font-normal font-['Inter']">
-                                Esqueceu a senha?</button>
+    <div class="banner2">
+        <form action="">
+            <div class="">
+                <div class="menu-login">
+                    <div class="controlador-login">
+                        <div class="">
+                            <label for="login-email"
+                                class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
+                            <input type="email" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
+                                placeholder="Digite o seu email"></input>
+                        </div>
+                        <div>
+                            <label for="login-senha"
+                                class="text-black text-lg py-5 font-normal font-['Inter']"><strong>Senha:</strong></label>
+                            <input type="password" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
+                                placeholder="Digite a sua senha"></input>
                         </div>
                     </div>
+
+                    <div>
+                        <button type="submit" id="btn-logar"
+                            class="rounded-[10px] font-bold text-lg shadow">Login</button>
+                    </div>
+
+                    <div class="">
+                        <div class="campos flex mt-4">
+                            <input type="checkbox" class="bg-zinc-300"></input>
+                            <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
+                                conectado?</span>
+
+
+                            <div class="recuperar-senha">
+                                <button class="recuperar-senha text-black text-lg py-4 font-normal font-['Inter']">
+                                    Esqueceu a senha?</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="texto-cadastro text-black text-lg font-normal font-['Inter']">Nao possui cadastro?</div>
+                    <div>
+                        <button type="submit" id="btn-cadastrar"
+                            class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+                    </div>
+
                 </div>
-
-                <div class="texto-cadastro text-black text-lg font-normal font-['Inter']">Nao possui cadastro?</div>
-
-                <div>
-                    <button type="submit" id="btn-cadastrar"
-                        class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
-                </div>
-
             </div>
-        </div>
-        </div>
-    </form>
 
+    </div>
+    </form>
+    </div>
 </body>
 
 </html>
