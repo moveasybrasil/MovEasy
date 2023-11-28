@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="Login-usuario.css">
+    <link rel="stylesheet" href="./css/Login-usuario.css">
     <script src="./login_files/saved_resource"></script>
     <script>
         tailwind.config = {
@@ -38,7 +38,6 @@
                 <a href="./login-usuario.html">LOGIN</a>
             </div>
 
-
         </header>
 
     </div>
@@ -49,30 +48,32 @@
                     <div class="input-login py-5">
                         <label for="login-email"
                             class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
-                        <input type="email" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]" 
+                        <input type="email" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
                             placeholder="Digite o seu email"></input>
                     </div>
-                    <div>   
+                    <div>
                         <label for="login-senha"
                             class="text-black text-lg py-5 font-normal font-['Inter']"><strong>Senha:</strong></label>
-                        <input type="password" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"placeholder="Digite a sua senha"></input>
+                        <input type="password" class="w-[320px] h-[35px] bg-zinc-300 rounded-[10px]"
+                            placeholder="Digite a sua senha"></input>
                     </div>
                 </div>
-            
+
                 <div>
                     <button type="submit" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
                 </div>
-           
-                <div class="grid grid-cols-2 ">
-                    <div class=" mx-8 mt-4">
+
+                <div class="">
+                    <div class="campos flex mt-4">
                         <input type="checkbox" class="bg-zinc-300"></input>
-                        <span class="text-sm text-blue-800 font-bold"placeholder="Manter conectado">Manter
+                        <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
                             conectado?</span>
 
-                    </div>
-                    <div class="recuperar-senha mx-8">  
-                        <button class="recuperar-senha text-black text-lg py-4 font-normal font-['Inter']">
-                            Esqueceu a senha?</button>
+
+                        <div class="recuperar-senha">
+                            <button class="recuperar-senha text-black text-lg py-4 font-normal font-['Inter']">
+                                Esqueceu a senha?</button>
+                        </div>
                     </div>
                 </div>
 
@@ -80,14 +81,14 @@
 
                 <div>
                     <button type="submit" id="btn-cadastrar"
-                    class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+                        class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
                 </div>
 
             </div>
         </div>
         </div>
     </form>
-   
+
 </body>
 
 </html>

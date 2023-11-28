@@ -23,7 +23,7 @@ padding-top: 85px;
 
 
 .banner {
- background: url(./assets/images/Imagem-login.jpeg);
+ background: url(../assets/images/Imagem-login.jpeg);
  width: 100vw;
  height: 100vh;
  background-size: cover;
@@ -33,7 +33,7 @@ padding-top: 85px;
 
 .menu-login {
     border-radius: 15px;
-    max-width: 25%;
+    
     background-color: #fff;
     margin-top: 0px;
   
@@ -57,14 +57,15 @@ padding-top: 85px;
     margin-bottom: 15px;
 }
 
-.menu-list {
-    position: relative; 
-}
-
 .controlador-login input {
     padding: 25px;
     margin-top: 10px;
 }
+
+.menu-list {
+    position: relative; 
+}
+
 
 .input-senha {
     display:flex;
@@ -103,3 +104,20 @@ padding-top: 85px;
 .texto-cadastro {
     margin-left: 150px;
 }
+
+.campos {
+    border: 1px solid #e54320;
+    width: 100%;
+    align-items:center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-size: cover;   
+    background-position: 35%;
+  }
+    
+  }
