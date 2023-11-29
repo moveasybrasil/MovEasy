@@ -1,4 +1,10 @@
 
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+
 .banner {
  background: url(../assets/images/Imagem-login.jpeg);
  width: 100vw;

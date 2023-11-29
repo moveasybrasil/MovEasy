@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>MovEasy</title>
+  <title>MovEasy</title>
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,37 +25,116 @@
   <div class="banner bg-local">
     <header id="header" class="flex justify-between	px-16 pt-8">
       <div>
-          <img id="logo" src="assets/images/logo.png" alt="movEasy">
+        <img id="logo" src="assets/images/logo.png" alt="movEasy">
       </div>
       <div class="menu-mobile">
-          <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-          <div class="menu-mobile-links">
-              <img id="" src="./assets/images/logo_original.png" alt="movEasy">
-              <a href="./index.html" class="active">HOME</a>
-              <a href="./agendar.html">AGENDAR</a>
-              <a href="./sobre.html">SOBRE</a>
-              <a href="./faq.html">FAQ</a>
-              <a href="./suporte.html">SUPORTE</a>
-              <a href="./login.html">LOGIN</a>
-          </div>
-      </div>
-      <div class="menu-desktop">
+        <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <div class="menu-mobile-links">
+          <img id="" src="./assets/images/logo_original.png" alt="movEasy">
           <a href="./index.html" class="active">HOME</a>
-          <a href="./agendar.html">AGENDAR</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
           <a href="./login.html">LOGIN</a>
+        </div>
       </div>
-  </header>
-    <div class="m-28 text-4xl">
-        <span class="texto">QUER SE MUDAR?</span><BR>
-        <span class="texto">DEIXE QUE CUIDAMOS DISSO PARA VOCÊ</span>
+      <div class="menu-desktop">
+        <a href="./index.html" class="active">HOME</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./login.html">LOGIN</a>
+      </div>
+    </header>
+    <div class="principal mx-28 my-14 text-4xl">
+      <span class="texto">QUER SE MUDAR?</span><BR>
+      <span class="texto">DEIXE QUE CUIDAMOS DISSO PARA VOCÊ</span>
     </div>
+    <form action="#">
+      <div class="agendar-form">
+        <div class="inputs flex flex-col md:flex-row md:place-content-around">
+          <div>
+          <label for="">Qual a origem da mudança?</label>
+          <div>
+            <select id="estado-uf" name="estado-id">
+              <option value="">UF</option>
+              <option value="1">AC</option>
+              <option value="2">AL</option>
+              <option value="3">AM</option>
+              <option value="4">AP</option>
+              <option value="5">BA</option>
+              <option value="6">CE</option>
+              <option value="7">DF</option>
+              <option value="8">ES</option>
+              <option value="9">GO</option>
+              <option value="10">MA</option>
+              <option value="11">MG</option>
+              <option value="12">MS</option>
+              <option value="13">MT</option>
+              <option value="14">PA</option>
+              <option value="15">PB</option>
+              <option value="16">PE</option>
+              <option value="17">PI</option>
+              <option value="18">PR</option>
+              <option value="19">RJ</option>
+              <option value="20">RN</option>
+              <option value="21">RO</option>
+              <option value="22">RR</option>
+              <option value="23">RS</option>
+              <option value="24">SC</option>
+              <option value="25">SE</option>
+              <option value="26">SP</option>
+              <option value="27">TO</option>
+            </select>
+            <input type="text" placeholder="Nome da cidade...">
+          </div>
+          </div>
+        <div>
+          <label for="">Qual o destino da mudança?</label>
+          <div>
+            <select id="estado-uf" name="estado-id">
+              <option value="">UF</option>
+              <option value="1">AC</option>
+              <option value="2">AL</option>
+              <option value="3">AM</option>
+              <option value="4">AP</option>
+              <option value="5">BA</option>
+              <option value="6">CE</option>
+              <option value="7">DF</option>
+              <option value="8">ES</option>
+              <option value="9">GO</option>
+              <option value="10">MA</option>
+              <option value="11">MG</option>
+              <option value="12">MS</option>
+              <option value="13">MT</option>
+              <option value="14">PA</option>
+              <option value="15">PB</option>
+              <option value="16">PE</option>
+              <option value="17">PI</option>
+              <option value="18">PR</option>
+              <option value="19">RJ</option>
+              <option value="20">RN</option>
+              <option value="21">RO</option>
+              <option value="22">RR</option>
+              <option value="23">RS</option>
+              <option value="24">SC</option>
+              <option value="25">SE</option>
+              <option value="26">SP</option>
+              <option value="27">TO</option>
+            </select>
+            <input type="text" placeholder="Nome da cidade...">
+            </div>
+          </div>
+          <div class="buscar-btn md:mx-16">
+            <button id="buscar-opc" class="">Buscar Opções</button>
+          </div>
+        </div>
+      </div>
+    </form>
 
   </div>
 
-  </div>
+
 </body>
 
 </html>
