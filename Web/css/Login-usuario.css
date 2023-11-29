@@ -1,43 +1,33 @@
-body {
-    margin: 0;
-    padding: 0;
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
-.banner2 {
-    background: url(../assets/images/Imagem-login.jpeg);
-    width: 100vw;
-    height: 100vh;
-}
 
-.menu-login {
-    border-radius: 15px; 
-    background-color: #fff;
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    height: 450px;
-  
-}
-
-.corpo { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-
+.banner {
+ background: url(../assets/images/Imagem-login.jpeg);
+ width: 100vw;
+ height: 100vh;
+ background-size: cover;
+ display: flex;
 }
 
 .controlador-login {
+    height: 175px;
     padding: 15px;
     margin-bottom: 15px;
 }
 
+.menu-login {
+    width: 450px;
+    height: 400px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
 .controlador-login input {
+    width: 320px;
+    height: 35px;
     padding: 25px;
     margin-top: 10px;
 }
@@ -57,7 +47,7 @@ body {
     height: 50px;
     border-radius: 10px;
     justify-content: center;
-    margin-left: 150px;
+    margin-left: 137px;
     padding-top: 10px;
     background-color: #e54320;
     border: 1px solid black;
@@ -69,24 +59,46 @@ body {
    height: 50px;
    border-radius: 10px;
    justify-content: center;
-   margin-left: 150px;
+   margin-left: 137px;
    margin-top: 20px;
    padding-top: 10px;
    background-color: #e54320;
    border: 1px solid black;
 
 }
+
+.input-login {
+    margin: 0px;
+}
 .texto-cadastro {
     margin-left: 150px;
 }
 
 .campos {
-    border: 1px solid #e54320;
     width: 100%;
     align-items:center;
     justify-content: center;
 }
 
+.campos span, checkbox {
+    padding-right: 75px;
+}
+
+.corpo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(0, 0,0,.5);
+}
+
+.texto-cadastro{
+    padding-right: 15px;
+}
 @media only screen and (max-width: 768px) {
   .banner {
     background-size: 150%;
@@ -94,5 +106,78 @@ body {
     background-size: cover;   
     background-position: 35%;
   }
-    
+  .menu-login {
+    width: 400px;
+    height: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.controlador-login {
+    width: 250px;
+    height: 190px;
+}
+
+.controlador-login label{
+    font-size: medium;
+}
+
+.controlador-login input {
+    font-size: small;
+    width: 350px;
+    height:10;
+}
+
+.campos {
+    width: 100%;
+    align-items:center;
+    justify-content: center;
+}
+
+.campos span {
+    font-size: medium;
+    margin-top: 0px;
+}
+
+.input-login {
+    margin: 0px;
+}
+.texto-cadastro {
+    margin-left: 15px;
+}   
+
+#btn-logar {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 130px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: #e54320;
+    border: 1px solid black;
+}
+
+
+#btn-cadastrar {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 130px;
+    margin-top: 0px;
+    padding-top: 10px;
+    background-color: #e54320;
+    border: 1px solid black;
+}
+
+.input-login {
+    margin: 0px;
+}
+.texto-cadastro {
+    margin-left: 130px;
+}
+
+ 
   }
