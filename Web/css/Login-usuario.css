@@ -13,7 +13,15 @@
     margin-bottom: 15px;
 }
 
+.menu-login {
+    width: 450px;
+    height: 400px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
 .controlador-login input {
+    width: 320px;
+    height: 35px;
     padding: 25px;
     margin-top: 10px;
 }
@@ -33,22 +41,19 @@
     height: 50px;
     border-radius: 10px;
     justify-content: center;
-    margin-left: 130px;
+    margin-left: 137px;
     padding-top: 10px;
     background-color: #e54320;
     border: 1px solid black;
 }
-.botao {
-padding-bottom: 25px;
 
-}
 #btn-cadastrar {
    display: flex;
    width: 150px;
    height: 50px;
    border-radius: 10px;
    justify-content: center;
-   margin-left: 130px;
+   margin-left: 137px;
    margin-top: 20px;
    padding-top: 10px;
    background-color: #e54320;
@@ -95,5 +100,78 @@ padding-bottom: 25px;
     background-size: cover;   
     background-position: 35%;
   }
-    
+  .menu-login {
+    width: 400px;
+    height: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.controlador-login {
+    width: 250px;
+    height: 190px;
+}
+
+.controlador-login label{
+    font-size: medium;
+}
+
+.controlador-login input {
+    font-size: small;
+    width: 350px;
+    height:10;
+}
+
+.campos {
+    width: 100%;
+    align-items:center;
+    justify-content: center;
+}
+
+.campos span {
+    font-size: medium;
+    margin-top: 0px;
+}
+
+.input-login {
+    margin: 0px;
+}
+.texto-cadastro {
+    margin-left: 15px;
+}   
+
+#btn-logar {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 130px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: #e54320;
+    border: 1px solid black;
+}
+
+
+#btn-cadastrar {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 130px;
+    margin-top: 0px;
+    padding-top: 10px;
+    background-color: #e54320;
+    border: 1px solid black;
+}
+
+.input-login {
+    margin: 0px;
+}
+.texto-cadastro {
+    margin-left: 130px;
+}
+
+ 
   }
