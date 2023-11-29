@@ -56,14 +56,14 @@
           <h1 id="title-box">Crie sua Conta</h1>
 
           <div class="info-boxes-cadastro">
-            <label for="formulario-email">E-mail:</label>
-            <input type="email" placeholder="ex: seuemail@email.com"></input>
+            <label for="cadastro-formulario-email">E-mail:</label>
+            <input type="email" placeholder="ex: seuemail@emai.com"></input>
 
-            <label for="formulario-senha">Senha:</label>
-            <input type="password" placeholder="Senha"></input>
+            <label for="cadastro-formulario-senha">Senha:</label>
+            <input type="password" placeholder="Digite sua senha"></input>
 
-            <label for="formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" placeholder="Confirme sua Senha"></input>
+            <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
+            <input type="password" placeholder="Confirme sua senha"></input>
           </div>
 
           <div class="button-box" id="button-continuar">
@@ -75,19 +75,20 @@
         <div class="box" id="box-finalizar-cadastro">
 
           <div class="info-boxes-cadastro">
-            <label for="formulario-nome">Nome:</label>
-            <input type="text" placeholder="Nome e Sobrenome"></input>
+            <label for="cadastro-formulario-nome">Nome:</label>
+            <input type="text" placeholder="ex: Fulano da Silva"></input>
 
-            <label for="formulario-cpf">CPF ou CNPJ:</label>
-            <input type="text" placeholder="CPF ou CNPJ"></input>
+            <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
+            <input type="text" placeholder="Digite seu CPF ou CNPJ"></input>
 
-            <label for="formulario-tel">Telefone:</label>
-            <input type="tel" placeholder="(xx) xxxxx-xxxx"></input>
+            <label for="cadastro-formulario-tel">Telefone:</label>
+            <input type="tel" placeholder="ex: (11) 99999-9999"></input>
           </div>
 
           <div class="checkbox_class">
             <input type="checkbox"></input>
-            <span>Concordo com os Termos de Uso</span>
+            <span>Li e concordo com os</span>
+            <a id="termos-de-uso" href="">Termos de Uso</a>
           </div>
 
           <div class="button-container">
@@ -97,7 +98,7 @@
                 <</button>
             </div>
             <div class="button-box" id="button-cadastrar">
-              <button type="button" >Cadastrar</button>
+              <button type="button" onclick="cadastrar();">Cadastrar</button>
             </div>
           </div>
         </div>
