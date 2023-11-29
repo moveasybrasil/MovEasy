@@ -36,7 +36,7 @@
 
 #box-finalizar-cadastro {
     display:none;
-    padding-top: 30px;
+    padding-top: 28px;
 }
 
 #title-box {
@@ -75,8 +75,14 @@ button {
     margin-top: 27px;
 }
 
+button:hover {
+    background-color: #8f2014;
+    border-radius: 5px;
+}
+
 .button-container {
     display: flex;
+
 }
 
 #button-voltar {
@@ -111,4 +117,8 @@ button {
 
 .checkbox_class {
     margin: 18px 0px 5px 0;
+}
+
+#termos-de-uso {
+    color:rgb(43, 9, 235);;
 }

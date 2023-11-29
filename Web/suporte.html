@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0060)file:///C:/Users/victor.mariano/Documents/movEasy/login.html -->
 <html>
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <title>MovEasy</title>
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/Suporte.css">
+  <link rel="stylesheet" href="./css/suporte.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/saved_resource"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -23,8 +23,8 @@
 </head>
 
 <body>
-  <div class="banner">
-    <header id="header" class="flex justify-between	pr-32 pt-8">
+  <div class="banner bg-local">
+    <header id="header" class="flex justify-between	px-16 pt-8">
       <div>
         <img id="logo" src="assets/images/logo.png" alt="movEasy">
       </div>
@@ -33,48 +33,71 @@
         <div class="menu-mobile-links">
           <img id="" src="./assets/images/logo_original.png" alt="movEasy">
           <a href="./index.html">HOME</a>
-          <a href="./agendar.html">AGENDAR</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
-          <a href="./suporte.html" class="active">SUPORTE</a>
-          <a href="./login.html">LOGIN</a>
+          <a href="./suporte.html">SUPORTE</a>
+          <a href="./login.html" class="active">LOGIN</a>
         </div>
       </div>
       <div class="menu-desktop">
         <a href="./index.html">HOME</a>
-        <a href="./agendar.html">AGENDAR</a>
         <a href="./sobre.html">SOBRE</a>
         <a href="./faq.html">FAQ</a>
-        <a href="./suporte.html" class="active">SUPORTE</a>
-        <a href="./login.html">LOGIN</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./login.html" class="active">LOGIN</a>
       </div>
     </header>
-    <div class="FormularioSuporte">
+
+    <div class="container-suporte">
+
       <form action="/formulario-suporte" method="post">
 
-        <div class="info-boxes-suporte">
-          <label for="formulario-nome">Nome:</label>
-          <input type="Nome" required placeholder="Nome"></input>
+        <div class="box" id="box-continuar-suporte">
+          <h1 id="title-box">Suporte</h1>
 
-          <label for="formulario-email">E-mail:</label>
-          <input type="email" required placeholder="ex: seuemail@email.com"></input>
+          <div class="info-boxes-suporte">
+            <label for="formulario-suporte-nome">Nome:</label>
+            <input type="text" placeholder="Digite seu nome"></input>
 
-          <label for="formulario-assunto">Assunto:</label>
-          <input type="Assunto" required placeholder="Assunto"></input>
+            <label for="formulario-suporte-email">E-mail:</label>
+            <input type="email" placeholder="ex: seuemail@emai.com"></input>
 
-          <label for="formulario-descricao">Descrição:</label>
-          <textarea id="descricao" type="textarea" required placeholder="Descrição"></textarea>
+            <div class="button-box" id="button-continuar">
+              <button type="button"
+                onclick="continuar_suporte('box-continuar-suporte'); voltar_suporte('box-finalizar-suporte');">Continuar</button>
+            </div>
+          </div>
 
-        </div>
+          <div class="box" id="box-finalizar-suporte">
 
+            <div class="info-boxes-suporte">
+              <label for="formulario-suporte-assunto">Assunto:</label>
+              <input type="text" placeholder="Digite o assunto do seu problema"></input>
+            </div>
 
-        <div>
-          <button type="submit" id="btn-cadastrar">Enviar</button>
-        </div>
+            <div class="info-boxes-suporte" id="descricao-suporte">
+              <label for="formulario-suporte-descricao">Descrição:</label>
+              <input type="text" placeholder="Digite aqui a descrição do seu problema"></input>
+            </div>
+
+            <div class="button-container">
+              <div class="button-box" id="button-voltar">
+                <button type="button"
+                  onclick="continuar_suporte('box-continuar-suporte'); voltar_suporte('box-finalizar-suporte');">
+                  <</button>
+              </div>
+              <div class="button-box" id="button-enviar">
+                <button type="button" onclick="enviar();">Enviar</button>
+              </div>
+            </div>
+          </div>
+
+      </form>
+
     </div>
-    <div class="flex fundo">
 
-    </div>
+  </div>
+  <script src="./js/cadastro.js"></script>
 </body>
 
 </html>
