@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./js/saved_resource"></script>
   <script>
     tailwind.config = {
@@ -56,7 +57,7 @@
           <div>
           <label for="">Qual a origem da mudança?</label>
           <div>
-            <select id="estado-uf" name="estado-id">
+            <select id="origem_estado" name="estado-id">
               <option value="">UF</option>
               <option value="1">AC</option>
               <option value="2">AL</option>
@@ -86,13 +87,13 @@
               <option value="26">SP</option>
               <option value="27">TO</option>
             </select>
-            <input type="text" placeholder="Nome da cidade...">
+            <input id="origem_cidade" type="text" placeholder="Nome da cidade...">
           </div>
           </div>
         <div>
           <label for="">Qual o destino da mudança?</label>
           <div>
-            <select id="estado-uf" name="estado-id">
+            <select id="destino_estado" name="estado-id">
               <option value="">UF</option>
               <option value="1">AC</option>
               <option value="2">AL</option>
@@ -122,11 +123,11 @@
               <option value="26">SP</option>
               <option value="27">TO</option>
             </select>
-            <input type="text" placeholder="Nome da cidade...">
+            <input id="destino_cidade" type="text" placeholder="Nome da cidade...">
             </div>
           </div>
           <div class="buscar-btn md:mx-16">
-            <button id="buscar-opc" class="">Buscar Opções</button>
+            <button type="button" id="buscar-opc" class="">Buscar Opções</button>
           </div>
         </div>
       </div>
@@ -134,7 +135,7 @@
 
   </div>
 
-
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
