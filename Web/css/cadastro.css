@@ -32,6 +32,7 @@
     border-radius: 10px;
     flex-direction: column;
     padding: 20px 50px 20px 50px;   
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #box-finalizar-cadastro {

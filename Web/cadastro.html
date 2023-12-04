@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/cadastro.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/saved_resource"></script>
+  <script src="./js/cadastro.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
@@ -36,7 +37,7 @@
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
-          <a href="./login.html" class="active">LOGIN</a>
+          <a href="./Login-usuario.html" class="active">LOGIN</a>
         </div>
       </div>
       <div class="menu-desktop">
@@ -44,13 +45,15 @@
         <a href="./sobre.html">SOBRE</a>
         <a href="./faq.html">FAQ</a>
         <a href="./suporte.html">SUPORTE</a>
-        <a href="./login.html" class="active">LOGIN</a>
+        <a href="./Login-usuario.html" class="active">LOGIN</a>
       </div>
     </header>
 
     <div class="container-cadastro">
 
       <form action="/formulario-cadastro-cliente" method="post">
+
+        <!-- Primeiro Menu de Cadastro -->
 
         <div class="box" id="box-continuar-cadastro">
           <h1 id="title-box">Crie sua Conta</h1>
@@ -66,11 +69,14 @@
             <input type="password" placeholder="Confirme sua senha"></input>
           </div>
 
+          <!-- Botão que permite ir para o Segundo Menu -->
+
           <div class="button-box" id="button-continuar">
-            <button type="button"
-              onclick="continuar_cadastro('box-continuar-cadastro'); voltar_cadastro('box-finalizar-cadastro');">Continuar</button>
+            <button type="button">Continuar</button>
           </div>
         </div>
+
+          <!-- Segundo Menu de Cadastro -->
 
         <div class="box" id="box-finalizar-cadastro">
 
@@ -91,14 +97,17 @@
             <a id="termos-de-uso" href="">Termos de Uso</a>
           </div>
 
+          <!-- Botão que permite voltar para o Primeiro Menu -->
+          
           <div class="button-container">
             <div class="button-box" id="button-voltar">
-              <button type="button"
-                onclick="continuar_cadastro('box-continuar-cadastro'); voltar_cadastro('box-finalizar-cadastro');">
-                <</button>
+              <button type="button"><</button>
             </div>
+
+            <!-- Botão que finaliza o Cadastro do Usúario -->
+
             <div class="button-box" id="button-cadastrar">
-              <button type="button" onclick="cadastrar();">Cadastrar</button>
+              <button type="button">Cadastrar</button>
             </div>
           </div>
         </div>
@@ -108,6 +117,7 @@
     </div>
 
   </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./js/cadastro.js"></script>
 </body>
 
