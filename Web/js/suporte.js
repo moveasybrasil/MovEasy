@@ -1,21 +1,14 @@
 $(() => {
-
-function continuar_suporte(cs) {
-    var display = document.getElementById(cs).style.display;
-    if(display == "none")
-        document.getElementById(cs).style.display = 'block';
-    else
-        document.getElementById(cs).style.display = 'none';
-}
-
-function voltar_suporte(vs) {
-    var display = document.getElementById(vs).style.display;
-    if(display == "block")
-        document.getElementById(vs).style.display = 'block';
-    else
-        document.getElementById(vs).style.display = 'none';
-}
-
-
-
+ 
+    $("#button-continuar").click(() => {
+        $("#box-continuar-suporte").hide();
+        $("#box-finalizar-suporte").show();
+    });
+ 
+    $("#button-voltar").click(() => {
+        $("#box-continuar-suporte").show();
+        $("#box-finalizar-suporte").hide();
+    })
+ 
+ 
 })
