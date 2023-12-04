@@ -34,7 +34,7 @@
 
 .agendar-form {
     background-color: rgba(189, 189, 189, 0.801);
-    margin: 50px;
+    margin: 30px;
     padding: 15px 0 15px 0;
     border-radius: 15px;   
 }
@@ -64,6 +64,11 @@
     font-weight: 700;
 }
 
+.uf-estado {
+    height: 50px;
+    border-radius: 10px;
+}
+
 @media (min-width: 768px) {
     .banner{
         background: url("../assets/images/bg-home-md.jpg");
@@ -74,20 +79,23 @@
         border-top: 1px solid;
     }
 
+    .mudanca-form {
+        width: 100%;
+    }
+
     .agendar-form {
-        align-content: space-between;
+        width: 60vw;
     }
     .inputs {
         padding-left: 20px;
     }
 
     .inputs input {
-        width: 300px;
-        padding-top: 10px;
+        width: 70%;
     }
 
     #buscar-opc {
-        width: 200px;
+        width: 120px;
     }
 
 }
