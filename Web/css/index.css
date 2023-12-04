@@ -69,10 +69,6 @@
     border-radius: 10px;
 }
 
-.uf-estado option:hover {
-    
-}
-
 @media (min-width: 768px) {
     .banner{
         background: url("../assets/images/bg-home-md.jpg");
