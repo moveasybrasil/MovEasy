@@ -39,7 +39,7 @@
     border-radius: 5px;
 }
 
-#icone-mobile {
+.icone-mobile {
     width: 40px;
 }
 
@@ -96,13 +96,6 @@
     
     .active {
         border-radius: 0;
-    }
-
-
-    .menu-mobile:hover .menu-mobile-links {
-        display: flex;
-        opacity: 1;
-        transition: 0.1s;
     }
 
     .menu-mobile:hover .menu-mobile-links img {
