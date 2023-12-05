@@ -30,25 +30,25 @@
         <img id="logo" src="assets/images/logo.png" alt="movEasy">
       </div>
       <div class="menu-mobile">
-        <img id="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
         <div class="menu-mobile-links">
           <img id="" src="./assets/images/logo_original.png" alt="movEasy">
-          <a href="./index.html">HOME</a>
+          <a href="./index.html" class="active">HOME</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
-          <a href="./Login-usuario.html" class="active">LOGIN</a>
+          <a href="./Login-usuario.html">LOGIN</a>
         </div>
       </div>
       <div class="menu-desktop">
-        <a href="./index.html">HOME</a>
+        <a href="./index.html" class="active">HOME</a>
         <a href="./sobre.html">SOBRE</a>
         <a href="./faq.html">FAQ</a>
         <a href="./suporte.html">SUPORTE</a>
-        <a href="./Login-usuario.html" class="active">LOGIN</a>
+        <a href="./Login-usuario.html">LOGIN</a>
       </div>
     </header>
-
     <div class="container-cadastro">
 
       <form action="/formulario-cadastro-cliente" method="post">
@@ -76,7 +76,7 @@
           </div>
         </div>
 
-          <!-- Segundo Menu de Cadastro -->
+        <!-- Segundo Menu de Cadastro -->
 
         <div class="box" id="box-finalizar-cadastro">
 
@@ -98,10 +98,11 @@
           </div>
 
           <!-- Botão que permite voltar para o Primeiro Menu -->
-          
+
           <div class="button-container">
             <div class="button-box" id="button-voltar">
-              <button type="button"><</button>
+              <button type="button">
+                << /button>
             </div>
 
             <!-- Botão que finaliza o Cadastro do Usúario -->
@@ -119,6 +120,7 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./js/cadastro.js"></script>
+  <script src="./js/header.js"></script>
 </body>
 
 </html>
