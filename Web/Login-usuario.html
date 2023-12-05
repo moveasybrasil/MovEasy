@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/saved_resource"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <SCript src="./js/Login-usuario.js"></SCript>
   <script>
     tailwind.config = {
       theme: {
@@ -56,12 +57,12 @@
               <div class="">
                 <label for="login-email"
                   class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
-                <input type="email" class="bg-zinc-300 rounded-[10px]" placeholder="Digite o seu email"></input>
+                <input type="text" id="email-login" class="bg-zinc-300 rounded-[10px]" placeholder="Digite o seu email"></input>
               </div>
               <div>
                 <label for="login-senha"
                   class="text-black text-lg py-5 font-normal font-['Inter']"><strong>Senha:</strong></label>
-                <input type="password" class="bg-zinc-300 rounded-[10px]" placeholder="Digite a sua senha"></input>
+                <input type="password" id="senha-login"class="bg-zinc-300 rounded-[10px]" placeholder="Digite a sua senha"></input>
               </div>
             </div>
 
