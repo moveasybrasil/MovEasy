@@ -11,6 +11,23 @@ $(() => {
             $("#email-login").addClass("invalid");
             return;
         }
+        if(!~values.email.indexOf("@")){
+            alert("Preencha um e-mail válido!")
+            $("#email-login").addClass("invalid");
+            return
+        }
+
+        if(!~values.email.split("@")[1].indexOf(".")){
+            alert("Preencha um e-mail válido!")
+            $("#email-login").addClass("invalid");
+            return
+        }
+
+        if(!values.email.split("@")[1].split(".")[1]){
+            alert("Preencha um e-mail válido!")
+            $("#email-login").addClass("invalid");
+            return
+        }
         $("#email-login").removeClass("invalid");
 
         if (!values.senha) {
