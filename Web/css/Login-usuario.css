@@ -41,7 +41,7 @@
     display:flex;
     
 }
- #btn-logar, #btn-recuperar {
+ #btn-logar {
     display: flex;
     width: 150px;
     height: 50px;
@@ -140,7 +140,7 @@
     margin: 0px;
 }
 
-#btn-logar, #btn-recuperar {
+#btn-logar {
     display: flex;
     width: 150px;
     height: 50px;
