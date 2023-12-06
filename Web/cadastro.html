@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/cadastro.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./js/saved_resource"></script>
   <script src="./js/cadastro.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -60,13 +60,13 @@
 
           <div class="info-boxes-cadastro">
             <label for="cadastro-formulario-email">E-mail:</label>
-            <input type="email" placeholder="ex: seuemail@emai.com"></input>
+            <input type="email" name="email" id="email" placeholder="ex: seuemail@emai.com"></input>
 
             <label for="cadastro-formulario-senha">Senha:</label>
-            <input type="password" placeholder="Digite sua senha"></input>
+            <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
 
             <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" placeholder="Confirme sua senha"></input>
+            <input type="password" name="confirmed-password" id="confirmed-password" placeholder="Confirme sua senha"></input>
           </div>
 
           <!-- Botão que permite ir para o Segundo Menu -->
@@ -82,13 +82,13 @@
 
           <div class="info-boxes-cadastro">
             <label for="cadastro-formulario-nome">Nome:</label>
-            <input type="text" placeholder="ex: Fulano da Silva"></input>
+            <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
 
             <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
-            <input type="text" placeholder="Digite seu CPF ou CNPJ"></input>
+            <input type="text" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
 
             <label for="cadastro-formulario-tel">Telefone:</label>
-            <input type="tel" placeholder="ex: (11) 99999-9999"></input>
+            <input type="tel" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
           </div>
 
           <div class="checkbox_class">
