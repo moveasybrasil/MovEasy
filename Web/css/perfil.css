@@ -1,0 +1,49 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
+}
+
+* {
+    font-family: Montserrat, sans-serif;
+}
+
+.container {
+    height: 10vh;
+    align-items: self-end;
+}
+
+.btn-container {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px 10px 0 0;
+}
+
+#btn-dados-cadastro {
+    background-color: #D9D9D9;
+}
+
+#btn-dados-pessoais {
+    background-color: #e9e9e9;
+}
+
+.container-dados {
+    background-color: #d9d9d9;
+    height: 60dvh;
+    width: 95vw;
+    align-self: center;
+}
+
+.container-end {
+    justify-content: end;
+}
+
+#btn-logout {
+    background-color: orangered;
+    color: #FFF;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    font-weight: 400;
+}
