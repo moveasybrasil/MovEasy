@@ -21,6 +21,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IStateRepository, StateRepository>();
 builder.Services.AddTransient<ICityRepository, CityRepository>();
 builder.Services.AddTransient<IDistrictRepository, DistrictRepository>();
+builder.Services.AddTransient<IAddressRepository, AddressRepository>();
 // >>>>>>> 312591828b6862959ab71304c156696c49c51f3b
 builder.Services.AddTransient<IVehicleRepository, VehicleRepository>();
 builder.Services.AddCors();
