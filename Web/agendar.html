@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MovEasy</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/agendar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/saved_resource"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner bg-local">
+        <header id="header" class="flex justify-between	px-16 pt-8">
+            <div>
+                <img id="logo" src="assets/images/logo.png" alt="movEasy">
+            </div>
+            <div class="menu-mobile">
+                <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+                <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+                <div class="menu-mobile-links">
+                    <img id="" src="./assets/images/logo_original.png" alt="movEasy">
+                    <a href="./index.html">HOME</a>
+                    <a href="./sobre.html">SOBRE</a>
+                    <a href="./faq.html">FAQ</a>
+                    <a href="./suporte.html">SUPORTE</a>
+                    <a href="./Login-usuario.html" class="active">LOGIN</a>
+                </div>
+            </div>
+            <div class="menu-desktop">
+                <a href="./index.html">HOME</a>
+                <a href="./sobre.html">SOBRE</a>
+                <a href="./faq.html">FAQ</a>
+                <a href="./suporte.html">SUPORTE</a>
+                <a href="./Login-usuario.html" class="active">LOGIN</a>
+            </div>
+        </header>
+        <div class="container-cadastro">
+
+            <form action="/formulario-cadastro-cliente" method="post">
+
+                <!-- Primeiro Menu de Cadastro -->
+
+                <div class="box" id="box-continuar-cadastro">
+                    <h1 id="title-box">Crie sua Conta</h1>
+
+                    <div class="info-boxes-cadastro">
+                        <label for="cadastro-formulario-email">Origem:</label>
+                        <input type="text" name="origem" id="origem"
+                            placeholder="Rua Francisco Vahldieck, 123 - Fortaleza, Bluemenau, SC - 89057-001"></input>
+                            
+                        <label for="cadastro-formulario-senha">Destino:</label>
+                        <input type="text" name="destino" id="destino"
+                            placeholder="Avenida Brasil, 610 - Ponta Aguda, Blumenau, SC - 89050-000"></input>
+                    </div>
+
+                    <!-- Botão que permite ir para o Segundo Menu -->
+
+                    <div class="button-box" id="button-continuar">
+                        <button type="button">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Segundo Menu de Cadastro -->
+
+                <div class="box" id="box-finalizar-cadastro">
+
+                    <div class="info-boxes-cadastro">
+                        <label for="cadastro-formulario-nome">Nome:</label>
+                        <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
+
+                        <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
+                        <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
+
+                        <label for="cadastro-formulario-tel">Telefone:</label>
+                        <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
+                    </div>
+
+                    <div class="checkbox_class">
+                        <input type="checkbox"></input>
+                        <span>Li e concordo com os</span>
+                        <a id="termos-de-uso" href="">Termos de Uso</a>
+                    </div>
+
+                    <!-- Botão que permite voltar para o Primeiro Menu -->
+
+                    <div class="button-container">
+                        <div class="button-box" id="button-voltar">
+                            <button type="button">
+                                << /button>
+                        </div>
+
+                        <!-- Botão que finaliza o Cadastro do Usúario -->
+
+                        <div class="button-box" id="button-cadastrar">
+                            <button type="button">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/agendar.js"></script>
+    <script src="./js/header.js"></script>
+</body>
+
+</html>
