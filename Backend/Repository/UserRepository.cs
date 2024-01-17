@@ -95,5 +95,28 @@ namespace Backend.Repository
                 User = userLogin
             };
         }
+
+        public async Task<string> EsqueciSenha(string receiverEmail)
+        {
+            UserEntity user = new UserEntity();
+            try
+            {
+                string sql = "SELECT * FROM USER WHERE Email = @receiverEmail";
+                user = await GetConnection().QueryFirstAsync<UserEntity>(sql, new { receiverEmail });
+            } catch (System.InvalidOperationException ex)
+            {
+                return await Task.Run(() => "Email não encontrado no banco de dados!");
+            } catch (Exception ex)
+            {
+                return await Task.Run(() => $"Ocorreu um erro inesperado. {ex.Message}");
+            }
+
+            Email email = new Email();
+            return await email.EnviarEmail(
+                receiverEmail, 
+                "Recuperação de senha MovEasy", 
+                $"Olá, {user.Name}\nClique no link abaixo para escolher uma senha nova\nwww.MovEasy.com\\user\\recuperar-senha?fjeuohfeuhbfsjka"
+            );
+        }
     }
 }

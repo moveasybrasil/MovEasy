@@ -1,5 +1,6 @@
 ﻿using Backend.DTO;
 using Backend.Entity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Contracts.Repository
 {
@@ -10,7 +11,7 @@ namespace Backend.Contracts.Repository
         Task Delete(int id);
         Task<UserEntity> GetById(int id);
         Task<IEnumerable<UserEntity>> Get();
-
         Task<UserTokenDTO> Login(UserLoginDTO user);
+        Task<string> EsqueciSenha(string email);
     }
 }

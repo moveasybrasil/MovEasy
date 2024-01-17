@@ -66,5 +66,18 @@ namespace Backend.Controllers
                 return Unauthorized(Ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("login/senha")]
+        public async Task<IActionResult> EsqueciSenha(string email)
+        {
+            try
+            {
+                return Ok(await _userRepository.EsqueciSenha(email));
+            } catch (Exception Ex)
+            {
+                return Unauthorized(Ex.Message);
+            }
+        }
     }
 }
