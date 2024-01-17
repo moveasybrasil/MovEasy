@@ -8,8 +8,7 @@
 }
 
 #logo {
-    width: 40%;
-    
+    width: 40%; 
 }
 
 .menu {
@@ -21,7 +20,7 @@
 }
 
 .active {
-    background-color: orangered;
+    background-color: #e4321e;
     background-size: 0.5%;
     border-radius: 5px;
 }
@@ -35,7 +34,7 @@
 }
 
 .menu-desktop a:hover {
-    background-color: orangered;
+    background-color: #e4321e;
     border-radius: 5px;
 }
 
@@ -57,22 +56,34 @@
         display: none;
     }
 
+    #logo-mobile {
+        display: block;
+    }
+
     .menu-desktop {
         display: none;
     }
 
+    #icone-mobile {
+        padding-top: 10px;
+    }
+
+    #icone-mobile2 {
+        width: 40px;
+    }
+
     #header {
-        align-items: center;
-        justify-content: center;
+        flex-direction: column-reverse;
+        justify-content: space-around;        
     }
 
     .menu-mobile {
         display: flex;
         flex-direction: column;
-        background-color: #0b142f;
-        align-items: center;
+        align-items:center;
         width: auto;
-        height: 40px;
+        height: 100%;
+        padding-top: 5px;
     }
     
     .menu-mobile-links {
@@ -82,6 +93,7 @@
         z-index: 1;
         margin: 0;
         justify-content: center;
+        width: 80%;
 
     }
 
@@ -103,7 +115,7 @@
     }
 
     .menu-mobile-links a:hover {
-        background-color: orangered;
+        background-color: #e4321e;
         transition: 0.1s;
     }
 }
