@@ -1,4 +1,4 @@
-@font-face {
+    @font-face {
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
@@ -45,7 +45,7 @@
     display: none;
 }
 
-#title-box {
+#title-box { 
     text-align: center;
     font-size: 25px;
     font-weight: bold;
