@@ -50,7 +50,7 @@
     margin: 0 auto 0 auto;
     padding-top: 10px;
     background-color: #e54320;
-    border: 1px solid black;
+    color: #FFF;
 }
 
 #btn-cadastrar {
@@ -64,7 +64,7 @@
    margin-top: 20px;
    padding-top: 10px;
    background-color: #e54320;
-   border: 1px solid black;
+   color: #FFF;
 
 }
 
@@ -119,9 +119,14 @@
 }
 
 .controlador-login input {
-    font-size: small;
-    width: 350px;
-    height:10;
+    width: 322px;
+    height: 59px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background-color: #F5F5F5;
+    padding: 0 10px;
+    margin: 15px;
+    margin-left: 0
 
 }
 
