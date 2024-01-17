@@ -2,13 +2,14 @@
     background-color: #0b142f;
     color: #FFF;
     width: 100%;
-    height: 163px;
+    height: 130px;
+    display: flex;
+    align-items: flex-end;
 }
 
 #logo {
-    width: 350px;
-    padding-top: 5px;
-    display: fixed;
+    width: 40%;
+    
 }
 
 .menu {
@@ -21,13 +22,12 @@
 
 .active {
     background-color: orangered;
-    background-size: 1%;
+    background-size: 0.5%;
     border-radius: 5px;
 }
 
 .menu-desktop {
-    padding-top: 70px;
-    margin-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .menu-desktop a {
