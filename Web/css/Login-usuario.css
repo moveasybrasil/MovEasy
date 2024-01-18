@@ -2,7 +2,10 @@
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
-
+ 
+* {
+    font-family: "Montserrat", sans-serif;
+}
 
 .banner {
     background: url(../assets/images/Imagem-login.jpeg);
@@ -20,10 +23,10 @@
 }
 
 .menu-login {
-    width: 425  px;
-    height: 400px;
+    width: 422px;
+    height: 405px;
     background-color: #FFF;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .controlador-login input {
@@ -31,6 +34,8 @@
     height: 35px;
     padding: 25px;
     margin-top: 10px;
+    background-color: #F5F5F5;
+    border: 1px solid #bbb;
 }
 
 .menu-list {
@@ -111,6 +116,8 @@
     width: 250px;
     height: 190px;
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .controlador-login label{
@@ -125,9 +132,15 @@
     background-color: #F5F5F5;
     padding: 0 10px;
     margin: 15px;
-    margin-left: 0
+    margin-left: 0  
 
 }
+
+.credencial {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .campos {
     width: 100%;
