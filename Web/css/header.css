@@ -50,7 +50,59 @@
     display: none;
 }
 
-@media (max-width: 970px) {
+.footer {
+    width: 100%;
+    height: 10vh;
+    background-color: #0b142f;
+    color: rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-icons {
+    display: flex;
+}
+
+.ft-icon {
+    display:flex;
+    flex-direction: row;
+    border-radius: 100%;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.footer-icon {
+    gap: 15px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+#in-icon {
+    background-color: #0a66c2;
+}
+
+#fb-icon {
+    background-color: #0866ff;
+}
+
+#x-icon {
+    background-color: black;
+}
+
+#insta-icon {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); 
+}
+
+.ftr_icon {
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 660px) {
 
     #logo {
         display: none;
