@@ -6,7 +6,7 @@ namespace Backend.Infrastructure
     public class Email
     {
 
-        public async Task<string> EnviarEmail(string ReciverMail, string subject, string body)
+        public async Task<string> SendEmail(string ReciverMail, string subject, string body)
         {
             MailMessage msg = new MailMessage();
 
