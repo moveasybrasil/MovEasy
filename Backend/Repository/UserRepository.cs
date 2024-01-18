@@ -157,14 +157,14 @@ namespace Backend.Repository
 
             } catch (Exception ex)
             {
-                return "Erro ao gerar código para recuperação de senha.";
+                return $"Erro ao gerar código para recuperação de senha. {ex.Message}";
             }
 
             Email email = new Email();
             return await email.EnviarEmail(
                 receiverEmail, 
                 "Recuperação de senha MovEasy", 
-                $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nwww.MovEasy.com\\user\\recovery?uuid={UUID}"
+                $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nwww.MovEasy.com/user/recovery?uuid={UUID}\n\n"
             );
         }
 
@@ -224,10 +224,10 @@ namespace Backend.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("UUID Inválido");
+                throw new Exception("false");
             }
 
-            return "UUID Válido";
+            return "true";
         }
         private string CreateRandomUUID()
         {
