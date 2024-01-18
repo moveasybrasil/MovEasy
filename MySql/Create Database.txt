@@ -29,10 +29,11 @@ CREATE TABLE IF NOT EXISTS `MovEasy`.`User` (
   `Type` INT NOT NULL,
   `CNH` VARCHAR(45) NULL,
   `Photo` VARCHAR(255) NULL,
-  `Role` VARCHAR(45) NULL,
   `PasswordRecoveryUUID` VARCHAR(36) NULL,
   `PasswordRecoveryDate` DATETIME NULL,
-  PRIMARY KEY (`Id`))
+  `Role` VARCHAR(45) NULL DEFAULT 'default',
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

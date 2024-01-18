@@ -13,7 +13,7 @@
         public int Type { get; set; }
         public string? CNH { get; set; }
         public string? Photo { get; set; }
-        public string Role { get; set; }
+        public string? Role { get; set; }
         public string? PasswordRecoveryUUID { get; set; }
         public DateTime? PasswordRecoveryDate { get; set; }
     }

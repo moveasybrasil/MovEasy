@@ -12,26 +12,7 @@ namespace Backend.Repository
     {
         public async Task Add(UserDTO user)
         {
-            string sql = string.Empty;
-            try
-            {
-                sql = "SELECT Id FROM USER WHERE Email = @email";
-                string email = user.Email;
-                UserEntity userExists = await GetConnection().QueryFirstAsync<UserEntity>(sql, new { email });
-
-                if (userExists != null)
-                {
-                    throw new Exception("Usuário já existe");
-                }
-            } catch (Exception ex)
-            {
-                if (ex.Message == "Usuário já existe")
-                {
-                    throw new Exception("Usuário já existe");
-                }
-            }
-
-            sql = @"
+            string sql = @"
                 INSERT INTO USER (
                         Document,
                         Telephone1,
@@ -98,8 +79,7 @@ namespace Backend.Repository
                         PasswordHash = @PasswordHash,
                         Type = @Type,
                         CNH = @CNH,
-                        Photo = @Photo,
-                        Role = @Role
+                        Photo = @Photo
                     WHERE
                         Id = @Id
             ";
@@ -180,7 +160,7 @@ namespace Backend.Repository
             }
 
             Email email = new Email();
-            return await email.EnviarEmail(
+            return await email.SendEmail(
                 receiverEmail, 
                 "Recuperação de senha MovEasy", 
                 $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nwww.MovEasy.com/user/recovery?uuid={UUID}\n\n"
