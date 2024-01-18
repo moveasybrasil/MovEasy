@@ -38,6 +38,9 @@ namespace Backend.Repository
                     )
             ";
 
+            PasswordHasher hasher = new PasswordHasher();
+            user.PasswordHash = await hasher.HashPassword(user.PasswordHash);
+
             await Execute(sql , user);
         }
 
