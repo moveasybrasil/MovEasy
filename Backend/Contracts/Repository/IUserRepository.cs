@@ -8,6 +8,7 @@ namespace Backend.Contracts.Repository
     {
         Task Add(UserDTO user);
         Task Update(UserEntity user);
+        Task UpdatePassword(UserPasswordDTO user);
         Task Delete(int id);
         Task<UserEntity> GetById(int id);
         Task<IEnumerable<UserEntity>> Get();

@@ -84,6 +84,30 @@ namespace Backend.Repository
             ";
 
             await Execute(sql, user);
+
+        }
+
+        public async Task UpdatePassword(UserPasswordDTO user)
+        {
+            string sql = @"
+                UPDATE USER 
+                    SET 
+                        PasswordHash = @newPassword
+                    WHERE
+                        Email = @Email
+            ";
+
+            PasswordHasher hasher = new PasswordHasher();
+            if (await hasher.VerifyPassword(user.Email, user.oldPassword))
+            {
+                user.newPassword = await hasher.HashPassword(user.newPassword);
+                await Execute(sql, user);
+            }
+            else
+            {
+                throw new Exception();
+            }
+
         }
 
         public async Task<UserTokenDTO> Login(UserLoginDTO user)
