@@ -22,7 +22,7 @@
 .menu-login {
     width: 425  px;
     height: 400px;
-    background-color: aliceblue;
+    background-color: #FFF;
     border-radius: 20px;
 }
 
@@ -49,7 +49,7 @@
     justify-content: center;
     margin: 0 auto 0 auto;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     color: #FFF;
 }
 
@@ -63,7 +63,7 @@
    margin-right: auto;
    margin-top: 20px;
    padding-top: 10px;
-   background-color: #e54320;
+   background-color: #e4321e;
    color: #FFF;
 
 }
@@ -105,7 +105,6 @@
   .menu-login {
     width: 380px;
     height: 400px;
-    background-color: rgb(255, 255, 255);
 
 }
 .controlador-login {
@@ -153,7 +152,7 @@
     justify-content: center;
     margin-bottom: 10px;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     border: 1px solid black;
 }
 
@@ -166,7 +165,7 @@
     justify-content: center;
     margin-top: 0px;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     border: 1px solid black;
 }
 

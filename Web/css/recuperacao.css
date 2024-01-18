@@ -45,8 +45,8 @@
     justify-content: center;
     margin: 0 auto 0 auto;
     padding-top: 10px;
-    background-color: #e54320;
-    border: 1px solid black;
+    background-color: #e4321e;
+
 }
 
 .input-login {
@@ -127,8 +127,7 @@
         justify-content: center;
         margin-bottom: 10px;
         padding-top: 10px;
-        background-color: #e54320;
-        border: 1px solid black;
+        background-color: #e4321e;
     }
 
     .texto-cadastro {
