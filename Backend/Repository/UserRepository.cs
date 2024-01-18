@@ -213,8 +213,22 @@ namespace Backend.Repository
             }
 
             return "Senha alterada com sucesso.";
-        } 
+        }
 
+        public async Task<string> ValidateUUID(string UUID)
+        {
+            string sql = "SELECT Id FROM USER WHERE PasswordRecoveryUUID = @UUID";
+            try
+            {
+                await GetConnection().QueryFirstAsync<string>(sql, new { UUID });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("UUID Inválido");
+            }
+
+            return "UUID Válido";
+        }
         private string CreateRandomUUID()
         {
             return Guid.NewGuid().ToString();

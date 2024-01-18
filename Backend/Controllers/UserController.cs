@@ -91,7 +91,20 @@ namespace Backend.Controllers
                 return Ok(await _userRepository.ForgotPassword(email));
             } catch (Exception Ex)
             {
-                return Unauthorized(Ex.Message);
+                return BadRequest(Ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("recovery/{UUID}")]
+        public async Task<IActionResult> ValidateUUID(string UUID)
+        {
+            try
+            {
+                return Ok(await _userRepository.ValidateUUID(UUID));
+            } catch (Exception Ex)
+            {
+                return BadRequest(Ex.Message);
             }
         }
 

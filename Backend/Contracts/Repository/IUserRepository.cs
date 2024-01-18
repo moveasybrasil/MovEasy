@@ -15,5 +15,6 @@ namespace Backend.Contracts.Repository
         Task<UserTokenDTO> Login(UserLoginDTO user);
         Task<string> ForgotPassword(string email);
         Task<string> RenewPassword(UserPasswordRecoveryDTO user);
+        Task<string> ValidateUUID(string UUID);
     }
 }
