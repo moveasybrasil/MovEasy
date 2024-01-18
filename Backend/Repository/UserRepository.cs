@@ -38,6 +38,9 @@ namespace Backend.Repository
                     )
             ";
 
+            PasswordHasher hasher = new PasswordHasher();
+            user.PasswordHash = await hasher.HashPassword(user.PasswordHash);
+
             await Execute(sql , user);
         }
 
@@ -81,6 +84,30 @@ namespace Backend.Repository
             ";
 
             await Execute(sql, user);
+
+        }
+
+        public async Task UpdatePassword(UserPasswordDTO user)
+        {
+            string sql = @"
+                UPDATE USER 
+                    SET 
+                        PasswordHash = @newPassword
+                    WHERE
+                        Email = @Email
+            ";
+
+            PasswordHasher hasher = new PasswordHasher();
+            if (await hasher.VerifyPassword(user.Email, user.oldPassword))
+            {
+                user.newPassword = await hasher.HashPassword(user.newPassword);
+                await Execute(sql, user);
+            }
+            else
+            {
+                throw new Exception();
+            }
+
         }
 
         public async Task<UserTokenDTO> Login(UserLoginDTO user)
@@ -94,6 +121,29 @@ namespace Backend.Repository
                 Token = Authentication.GenerateToken(userLogin),
                 User = userLogin
             };
+        }
+
+        public async Task<string> EsqueciSenha(string receiverEmail)
+        {
+            UserEntity user = new UserEntity();
+            try
+            {
+                string sql = "SELECT * FROM USER WHERE Email = @receiverEmail";
+                user = await GetConnection().QueryFirstAsync<UserEntity>(sql, new { receiverEmail });
+            } catch (System.InvalidOperationException ex)
+            {
+                return await Task.Run(() => "Email não encontrado no banco de dados!");
+            } catch (Exception ex)
+            {
+                return await Task.Run(() => $"Ocorreu um erro inesperado. {ex.Message}");
+            }
+
+            Email email = new Email();
+            return await email.EnviarEmail(
+                receiverEmail, 
+                "Recuperação de senha MovEasy", 
+                $"Olá, {user.Name}\nClique no link abaixo para escolher uma senha nova\nwww.MovEasy.com\\user\\recuperar-senha?fjeuohfeuhbfsjka"
+            );
         }
     }
 }

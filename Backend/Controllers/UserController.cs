@@ -40,6 +40,21 @@ namespace Backend.Controllers
             return Ok();
         }
 
+        [HttpPatch]
+        [Authorize]
+        public async Task<IActionResult> UpdatePassword(UserPasswordDTO user)
+        {
+            try
+            {
+                await _userRepository.UpdatePassword(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized();
+            }
+        }
+
         [HttpDelete]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
@@ -62,6 +77,19 @@ namespace Backend.Controllers
             {
                 return Ok(await _userRepository.Login(user));
             } catch(Exception Ex)
+            {
+                return Unauthorized(Ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("login/senha")]
+        public async Task<IActionResult> EsqueciSenha(string email)
+        {
+            try
+            {
+                return Ok(await _userRepository.EsqueciSenha(email));
+            } catch (Exception Ex)
             {
                 return Unauthorized(Ex.Message);
             }
