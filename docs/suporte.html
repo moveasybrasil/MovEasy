@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>MovEasy</title>
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/suporte.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/saved_resource"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <SCript src="./js/suporte.js"></SCript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header id="header" class="flex justify-between	px-16">
+      <div style="display:flex">
+        <img id="logo" src="./assets/images/logo_moveasy.png" alt="logo">
+
+      </div>
+      <div class="menu-mobile">
+        <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
+        <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <div>
+        <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+      </div>
+        <div class="menu-mobile-links">
+          <a href="./index.html" >HOME</a>
+          <a href="./sobre.html">SOBRE</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./suporte.html"class="active">SUPORTE</a>
+          <a href="./Login-usuario.html">LOGIN</a>
+        </div>
+      </div>
+      <div class="menu-desktop">
+        <a href="./index.html" class="active">HOME</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./Login-usuario.html">LOGIN</a>
+      </div>
+    </header>
+    <div class="container-suporte">
+
+      <form action="/formulario-suporte" method="post">
+
+        <div class="box" id="box-continuar-suporte">
+          <h1 id="title-box">Suporte</h1>
+
+          <div class="info-boxes-suporte">
+            <label for="formulario-suporte-nome">Nome:</label>
+            <input type="text" placeholder="Digite seu nome" id="Nome"></input>
+
+            <label for="formulario-suporte-email">E-mail:</label>
+            <input type="email" placeholder="ex: seuemail@emai.com" id="Email"></input>
+
+            <div class="button-box" id="button-continuar">
+              <button type="button">Continuar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" id="box-finalizar-suporte">
+
+          <div class="info-boxes-suporte">
+            <label for="formulario-suporte-assunto">Assunto:</label>
+            <input type="text" placeholder="Digite o assunto do seu problema" id="Assunto"></input>
+          </div>
+
+          <div class="info-boxes-suporte" id="descricao-suporte">
+            <label for="formulario-suporte-descricao">Descrição:</label>
+            <input type="text" placeholder="Digite aqui a descrição do seu problema" id="Descricao"></input>
+          </div>
+
+          <div class="button-container">
+            <div class="button-box" id="button-voltar">
+              <button type="button"><</button>
+            </div>
+            <div class="button-box" id="button-enviar">
+              <button type="button" id="Enviar">Enviar</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+<script src="./js/header.js"></script>
+</html>
