@@ -12,7 +12,26 @@ namespace Backend.Repository
     {
         public async Task Add(UserDTO user)
         {
-            string sql = @"
+            string sql = string.Empty;
+            try
+            {
+                sql = "SELECT Id FROM USER WHERE Email = @email";
+                string email = user.Email;
+                UserEntity userExists = await GetConnection().QueryFirstAsync<UserEntity>(sql, new { email });
+
+                if (userExists != null)
+                {
+                    throw new Exception("Usuário já existe");
+                }
+            } catch (Exception ex)
+            {
+                if (ex.Message == "Usuário já existe")
+                {
+                    throw new Exception("Usuário já existe");
+                }
+            }
+
+            sql = @"
                 INSERT INTO USER (
                         Document,
                         Telephone1,

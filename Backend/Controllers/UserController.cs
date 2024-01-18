@@ -28,8 +28,14 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(UserDTO user)
         {
-            await _userRepository.Add(user);
-            return Ok();
+            try
+            {
+                await _userRepository.Add(user);
+                return Ok();
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
