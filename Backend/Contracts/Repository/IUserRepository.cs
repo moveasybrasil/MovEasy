@@ -13,6 +13,7 @@ namespace Backend.Contracts.Repository
         Task<UserEntity> GetById(int id);
         Task<IEnumerable<UserEntity>> Get();
         Task<UserTokenDTO> Login(UserLoginDTO user);
-        Task<string> EsqueciSenha(string email);
+        Task<string> ForgotPassword(string email);
+        Task<string> RenewPassword(UserPasswordRecoveryDTO user);
     }
 }

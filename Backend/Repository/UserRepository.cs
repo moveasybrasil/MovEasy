@@ -3,6 +3,8 @@ using Backend.Contracts.Repository;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Infrastructure;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace Backend.Repository
 {
@@ -123,7 +125,7 @@ namespace Backend.Repository
             };
         }
 
-        public async Task<string> EsqueciSenha(string receiverEmail)
+        public async Task<string> ForgotPassword(string receiverEmail)
         {
             UserEntity user = new UserEntity();
             try
@@ -138,12 +140,84 @@ namespace Backend.Repository
                 return await Task.Run(() => $"Ocorreu um erro inesperado. {ex.Message}");
             }
 
+            string UUID = CreateRandomUUID();
+
+            try
+            {
+                DateTime Date = DateTime.Now.AddDays(1);
+                string sql = @"
+                UPDATE USER 
+                    SET 
+                        PasswordRecoveryUUID = @UUID,
+                        PasswordRecoveryDate = @Date
+                    WHERE
+                        Email = @receiverEmail
+                ";
+                await Execute(sql, new { UUID, receiverEmail, Date });
+
+            } catch (Exception ex)
+            {
+                return "Erro ao gerar código para recuperação de senha.";
+            }
+
             Email email = new Email();
             return await email.EnviarEmail(
                 receiverEmail, 
                 "Recuperação de senha MovEasy", 
-                $"Olá, {user.Name}\nClique no link abaixo para escolher uma senha nova\nwww.MovEasy.com\\user\\recuperar-senha?fjeuohfeuhbfsjka"
+                $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nwww.MovEasy.com\\user\\recovery?uuid={UUID}"
             );
+        }
+
+        public async Task<string> RenewPassword(UserPasswordRecoveryDTO user)
+        {
+            string sql = "SELECT Id FROM USER WHERE PasswordRecoveryUUID = @UUID";
+            string UUID = user.UUID;
+            string id = string.Empty;
+            try
+            {
+                id = await GetConnection().QueryFirstAsync<string>(sql, new { UUID });
+            } catch (Exception ex)
+            {
+                return "UUID Inválido.";
+            }
+
+            sql = "SELECT PasswordRecoveryDate FROM USER WHERE Id = @id";
+            try
+            {
+                DateTime date = await GetConnection().QueryFirstAsync<DateTime>(sql, new { id });
+                if (DateTime.Now > date)
+                {
+                    return "Este código expirou, tente novamente.";
+                }
+            } catch (Exception ex)
+            {
+                return "Erro inesperado.";
+            }
+
+            sql = @"UPDATE USER 
+                        SET 
+                            PasswordHash = @Password,
+                            PasswordRecoveryUUID = null,
+                            PasswordRecoveryDate = null
+                        WHERE
+                            PasswordRecoveryUUID = @UUID
+            ";
+            try
+            {
+                PasswordHasher hasher = new PasswordHasher();
+                user.Password = await hasher.HashPassword(user.Password);
+                await Execute(sql, user);
+            } catch (Exception ex)
+            {
+                return "Não foi possível alterar a senha.";
+            }
+
+            return "Senha alterada com sucesso.";
+        } 
+
+        private string CreateRandomUUID()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

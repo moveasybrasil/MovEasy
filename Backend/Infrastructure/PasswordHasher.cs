@@ -50,7 +50,7 @@ namespace Backend.Infrastructure
             }
         }
 
-        public async Task<string> GetSalt()
+        private async Task<string> GetSalt()
         {
             string salt = string.Empty;
             try
@@ -71,7 +71,7 @@ namespace Backend.Infrastructure
             return salt;
         }
 
-        public async Task<string> SetSalt()
+        private async Task<string> SetSalt()
         {
             string data = Convert.ToBase64String(GenerateSalt());
 

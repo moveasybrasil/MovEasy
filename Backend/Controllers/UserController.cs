@@ -83,15 +83,28 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        [Route("login/senha")]
-        public async Task<IActionResult> EsqueciSenha(string email)
+        [Route("recovery")]
+        public async Task<IActionResult> ForgotPassword(string email)
         {
             try
             {
-                return Ok(await _userRepository.EsqueciSenha(email));
+                return Ok(await _userRepository.ForgotPassword(email));
             } catch (Exception Ex)
             {
                 return Unauthorized(Ex.Message);
+            }
+        }
+
+        [HttpPatch]
+        [Route("recovery")]
+        public async Task<IActionResult> RenewPassword(UserPasswordRecoveryDTO user)
+        {
+            try
+            {
+                return Ok(await _userRepository.RenewPassword(user));
+            } catch (Exception Ex)
+            {
+                return Forbid();
             }
         }
     }
