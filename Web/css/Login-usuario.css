@@ -2,7 +2,10 @@
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
-
+ 
+* {
+    font-family: "Montserrat", sans-serif;
+}
 
 .banner {
     background: url(../assets/images/Imagem-login.jpeg);
@@ -15,22 +18,23 @@
 }
 
 .controlador-login {
-    height: 175px;
-    padding: 15px;
+    height: 200px;
+    padding: 20px;
 }
 
 .menu-login {
-    width: 425  px;
-    height: 400px;
-    background-color: aliceblue;
-    border-radius: 20px;
+    width: 422px;
+    height: 422px;
+    background-color: #FFF;
+    border-radius: 10px;
 }
 
 .controlador-login input {
-    width: 320px;
-    height: 35px;
+    width: 360px;
+    height: 50px;
     padding: 25px;
-    margin-top: 10px;
+    background-color: #F5F5F5;
+    border: 1px solid #bbb;
 }
 
 .menu-list {
@@ -38,39 +42,36 @@
 }
 
 .input-senha {
-    display:flex;
-    
+    display:flex;    
 }
  #btn-logar {
     display: flex;
-    width: 150px;
+    width: 322px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
     justify-content: center;
     margin: 0 auto 0 auto;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     color: #FFF;
 }
 
 #btn-cadastrar {
    display: flex;
-   width: 150px;
+   width: 322px;
    height: 50px;
-   border-radius: 10px;
+   border-radius: 5px;
    justify-content: center;
    margin-left: auto;
    margin-right: auto;
    margin-top: 20px;
    padding-top: 10px;
-   background-color: #e54320;
+   background-color: #e4321e;
    color: #FFF;
 
 }
 
-.input-login {
-    margin: 0px;
-}
+
 
 .texto-cadastro {
     display: flex;
@@ -95,6 +96,18 @@
     justify-content: center;
 }
 
+.logar-senha {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.logar-email {
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
 @media only screen and (max-width: 768px) {
   .banner {
     background-size: 150%;
@@ -105,13 +118,14 @@
   .menu-login {
     width: 380px;
     height: 400px;
-    background-color: rgb(255, 255, 255);
 
 }
 .controlador-login {
     width: 250px;
     height: 190px;
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .controlador-login label{
@@ -124,9 +138,8 @@
     border-radius: 5px;
     border: 1px solid #bbb;
     background-color: #F5F5F5;
-    padding: 0 10px;
     margin: 15px;
-    margin-left: 0
+    margin-left: 0  
 
 }
 
@@ -153,7 +166,7 @@
     justify-content: center;
     margin-bottom: 10px;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     border: 1px solid black;
 }
 
@@ -166,7 +179,7 @@
     justify-content: center;
     margin-top: 0px;
     padding-top: 10px;
-    background-color: #e54320;
+    background-color: #e4321e;
     border: 1px solid black;
 }
 

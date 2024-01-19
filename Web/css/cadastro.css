@@ -157,8 +157,9 @@ button {
     justify-content: center;
 }
 
-#button-continuar1, #button-continuar2 {
-    background-color: #E53420;
+
+#button-continuar {
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;
@@ -168,7 +169,7 @@ button {
 }
 
 button:hover {
-    background-color: #8f2014;
+    background-color: #e4321e;
     border-radius: 5px;
 }
 
@@ -178,7 +179,7 @@ button:hover {
 
 #button-voltar {
     width: 15%;
-    background-color: #E53420;
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;
@@ -190,7 +191,7 @@ button:hover {
 
 #button-cadastrar {
     width: 85%;
-    background-color: #E53420;
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;
