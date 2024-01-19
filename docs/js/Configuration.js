@@ -6,11 +6,12 @@ function request(type, url, callback, params) {
         if (this.readyState == 4 && this.status == 400) {
             console.log(this.responseText)
         }
-
+        
         if (this.readyState == 4 && this.status == 200) {
-           callback();
+            callback(this);
         }
     };
     xhttp.open(type, url);
-    xhttp.send(params);
+    xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhttp.send(JSON.stringify(params));
 }

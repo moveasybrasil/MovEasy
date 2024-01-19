@@ -32,12 +32,12 @@ $(() => {
 
         console.log(values)
 
-        if (validateEmail(email)) {
+        if (validateEmail(values.email)) {
 
             request(
                 "POST",
-                `${serverURL}user/recovery?email=${email}`,
-                () => { console.log(this.reponseText)}
+                `${serverURL}user/recovery?email=${values.email}`,
+                (xhr) => { console.log(xhr.responseText)}
             )
     
         }
