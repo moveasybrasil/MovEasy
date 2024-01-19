@@ -12,6 +12,7 @@ function request(type, url, callback, params) {
         }
     };
     xhttp.open(type, url);
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhttp.send(JSON.stringify(params));
 }
