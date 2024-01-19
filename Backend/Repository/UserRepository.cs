@@ -13,7 +13,7 @@ namespace Backend.Repository
         public async Task Add(UserDTO user)
         {
             string sql = @"
-                INSERT INTO USER (
+                INSERT INTO User (
                         Document,
                         Telephone1,
                         Telephone2,
@@ -48,27 +48,27 @@ namespace Backend.Repository
 
         public async Task Delete(int id)
         {
-            string sql = "DELETE FROM USER WHERE Id = @id";
+            string sql = "DELETE FROM User WHERE Id = @id";
 
             await Execute(sql, new { id });
         }
 
         public async Task<IEnumerable<UserEntity>> Get()
         {
-            string sql = "SELECT * FROM USER";
+            string sql = "SELECT * FROM User";
             return await GetConnection().QueryAsync<UserEntity>(sql);
         }
 
         public async Task<UserEntity> GetById(int id)
         {
-            string sql = "SELECT * FROM USER WHERE Id = @id";
+            string sql = "SELECT * FROM User WHERE Id = @id";
             return await GetConnection().QueryFirstAsync<UserEntity>(sql, new {id});
         }
 
         public async Task Update(UserEntity user)
         {
             string sql = @"
-                UPDATE USER 
+                UPDATE User 
                     SET 
                         Document = @Document,
                         Telephone1 = @Telephone1,
@@ -91,7 +91,7 @@ namespace Backend.Repository
         public async Task UpdatePassword(UserPasswordDTO user)
         {
             string sql = @"
-                UPDATE USER 
+                UPDATE User 
                     SET 
                         PasswordHash = @newPassword
                     WHERE
@@ -113,7 +113,7 @@ namespace Backend.Repository
 
         public async Task<UserTokenDTO> Login(UserLoginDTO user)
         {
-            string sql = "SELECT * FROM USER WHERE Email = @Email and PasswordHash = @Password";
+            string sql = "SELECT * FROM User WHERE Email = @Email and PasswordHash = @Password";
 
             UserEntity userLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, user);
 
@@ -129,7 +129,7 @@ namespace Backend.Repository
             UserEntity user = new UserEntity();
             try
             {
-                string sql = "SELECT * FROM USER WHERE Email = @receiverEmail";
+                string sql = "SELECT * FROM User WHERE Email = @receiverEmail";
                 user = await GetConnection().QueryFirstAsync<UserEntity>(sql, new { receiverEmail });
             } catch (System.InvalidOperationException ex)
             {
@@ -145,7 +145,7 @@ namespace Backend.Repository
             {
                 DateTime Date = DateTime.Now.AddDays(1);
                 string sql = @"
-                UPDATE USER 
+                UPDATE User 
                     SET 
                         PasswordRecoveryUUID = @UUID,
                         PasswordRecoveryDate = @Date
@@ -169,7 +169,7 @@ namespace Backend.Repository
 
         public async Task<string> RenewPassword(UserPasswordRecoveryDTO user)
         {
-            string sql = "SELECT Id FROM USER WHERE PasswordRecoveryUUID = @UUID";
+            string sql = "SELECT Id FROM User WHERE PasswordRecoveryUUID = @UUID";
             string UUID = user.UUID;
             string id = string.Empty;
             try
@@ -180,7 +180,7 @@ namespace Backend.Repository
                 return "UUID Inválido.";
             }
 
-            sql = "SELECT PasswordRecoveryDate FROM USER WHERE Id = @id";
+            sql = "SELECT PasswordRecoveryDate FROM User WHERE Id = @id";
             try
             {
                 DateTime date = await GetConnection().QueryFirstAsync<DateTime>(sql, new { id });
@@ -193,7 +193,7 @@ namespace Backend.Repository
                 return "Erro inesperado.";
             }
 
-            sql = @"UPDATE USER 
+            sql = @"UPDATE User 
                         SET 
                             PasswordHash = @Password,
                             PasswordRecoveryUUID = null,
@@ -216,7 +216,7 @@ namespace Backend.Repository
 
         public async Task<string> ValidateUUID(string UUID)
         {
-            string sql = "SELECT Id FROM USER WHERE PasswordRecoveryUUID = @UUID";
+            string sql = "SELECT Id FROM User WHERE PasswordRecoveryUUID = @UUID";
             try
             {
                 await GetConnection().QueryFirstAsync<string>(sql, new { UUID });
