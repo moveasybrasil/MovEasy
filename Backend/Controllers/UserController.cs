@@ -28,8 +28,14 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(UserDTO user)
         {
-            await _userRepository.Add(user);
-            return Ok();
+            try
+            {
+                await _userRepository.Add(user);
+                return Ok();
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
@@ -38,6 +44,21 @@ namespace Backend.Controllers
         {
             await _userRepository.Update(user);
             return Ok();
+        }
+
+        [HttpPatch]
+        [Authorize]
+        public async Task<IActionResult> UpdatePassword(UserPasswordDTO user)
+        {
+            try
+            {
+                await _userRepository.UpdatePassword(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpDelete]
@@ -64,6 +85,45 @@ namespace Backend.Controllers
             } catch(Exception Ex)
             {
                 return Unauthorized(Ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("recovery")]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            try
+            {
+                return Ok(await _userRepository.ForgotPassword(email));
+            } catch (Exception Ex)
+            {
+                return BadRequest(Ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("recovery/{UUID}")]
+        public async Task<IActionResult> ValidateUUID(string UUID)
+        {
+            try
+            {
+                return Ok(await _userRepository.ValidateUUID(UUID));
+            } catch (Exception Ex)
+            {
+                return BadRequest(Ex.Message);
+            }
+        }
+
+        [HttpPatch]
+        [Route("recovery")]
+        public async Task<IActionResult> RenewPassword(UserPasswordRecoveryDTO user)
+        {
+            try
+            {
+                return Ok(await _userRepository.RenewPassword(user));
+            } catch (Exception Ex)
+            {
+                return Forbid();
             }
         }
     }

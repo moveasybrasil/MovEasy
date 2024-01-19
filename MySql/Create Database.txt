@@ -1,0 +1,187 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema MovEasy
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema MovEasy
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `MovEasy` DEFAULT CHARACTER SET utf8 ;
+USE `MovEasy` ;
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`User`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`User` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Document` VARCHAR(45) NOT NULL,
+  `Telephone1` VARCHAR(11) NOT NULL,
+  `Telephone2` VARCHAR(11) NOT NULL,
+  `Name` VARCHAR(100) NOT NULL,
+  `LastName` VARCHAR(100) NOT NULL,
+  `Email` VARCHAR(100) NOT NULL,
+  `PasswordHash` VARCHAR(255) NOT NULL,
+  `Type` INT NOT NULL,
+  `CNH` VARCHAR(45) NULL,
+  `Photo` VARCHAR(255) NULL,
+  `PasswordRecoveryUUID` VARCHAR(36) NULL,
+  `PasswordRecoveryDate` DATETIME NULL,
+  `Role` VARCHAR(45) NULL DEFAULT 'default',
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`State`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`State` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(255) NOT NULL,
+  `FU` VARCHAR(2) NOT NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`City`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`City` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(255) NOT NULL,
+  `State_Id` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_City_State_idx` (`State_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_City_State`
+    FOREIGN KEY (`State_Id`)
+    REFERENCES `MovEasy`.`State` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`District`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`District` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `City_Id` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_District_City1_idx` (`City_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_District_City1`
+    FOREIGN KEY (`City_Id`)
+    REFERENCES `MovEasy`.`City` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`Address`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`Address` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Street` VARCHAR(255) NOT NULL,
+  `PostalCode` VARCHAR(9) NOT NULL,
+  `Number` VARCHAR(45) NOT NULL,
+  `Address2` VARCHAR(255) NULL,
+  `District_Id` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_Address_District1_idx` (`District_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Address_District1`
+    FOREIGN KEY (`District_Id`)
+    REFERENCES `MovEasy`.`District` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`Vehicle`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`Vehicle` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `LicensePlate` VARCHAR(7) NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Year` INT NOT NULL,
+  `Capacity` INT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `LicensePlate_UNIQUE` (`LicensePlate` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`Service`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`Service` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Terms` VARCHAR(255) NOT NULL,
+  `Description` VARCHAR(255) NOT NULL,
+  `OriginDescription` VARCHAR(255) NOT NULL,
+  `Status` INT NOT NULL,
+  `DestinationDescription` VARCHAR(255) NOT NULL,
+  `Date` DATE NOT NULL,
+  `Obs` VARCHAR(255) NULL,
+  `Address_Id` INT NOT NULL,
+  `Address_Id1` INT NOT NULL,
+  `User_Id` INT NOT NULL,
+  `User_Id1` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_Service_Address1_idx` (`Address_Id` ASC) VISIBLE,
+  INDEX `fk_Service_Address2_idx` (`Address_Id1` ASC) VISIBLE,
+  INDEX `fk_Service_User1_idx` (`User_Id` ASC) VISIBLE,
+  INDEX `fk_Service_User2_idx` (`User_Id1` ASC) VISIBLE,
+  CONSTRAINT `fk_Service_Address1`
+    FOREIGN KEY (`Address_Id`)
+    REFERENCES `MovEasy`.`Address` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Service_Address2`
+    FOREIGN KEY (`Address_Id1`)
+    REFERENCES `MovEasy`.`Address` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Service_User1`
+    FOREIGN KEY (`User_Id`)
+    REFERENCES `MovEasy`.`User` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Service_User2`
+    FOREIGN KEY (`User_Id1`)
+    REFERENCES `MovEasy`.`User` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MovEasy`.`User_Vehicle`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MovEasy`.`User_Vehicle` (
+  `User_Id` INT NOT NULL,
+  `Vehicle_Id` INT NOT NULL,
+  PRIMARY KEY (`User_Id`, `Vehicle_Id`),
+  INDEX `fk_User_has_Vehicle_Vehicle1_idx` (`Vehicle_Id` ASC) VISIBLE,
+  INDEX `fk_User_has_Vehicle_User1_idx` (`User_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_User_has_Vehicle_User1`
+    FOREIGN KEY (`User_Id`)
+    REFERENCES `MovEasy`.`User` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_User_has_Vehicle_Vehicle1`
+    FOREIGN KEY (`Vehicle_Id`)
+    REFERENCES `MovEasy`.`Vehicle` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
