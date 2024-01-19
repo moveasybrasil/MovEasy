@@ -22,7 +22,13 @@ namespace Backend.Controllers
         [Authorize]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _userRepository.Get());
+            try
+            {
+                return Ok(await _userRepository.Get());
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
@@ -42,8 +48,13 @@ namespace Backend.Controllers
         [Authorize]
         public async Task<IActionResult> Update(UserEntity user)
         {
-            await _userRepository.Update(user);
-            return Ok();
+            try
+            {
+                await _userRepository.Update(user);
+                return Ok();
+            } catch (Exception ex) { 
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
@@ -58,7 +69,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized();
+                return Unauthorized(ex.Message);
             }
         }
 
@@ -66,14 +77,26 @@ namespace Backend.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _userRepository.Delete(id);
-            return Ok();
+            try
+            {
+                await _userRepository.Delete(id);
+                return Ok();
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await _userRepository.GetById(id));
+            try
+            {
+                return Ok(await _userRepository.GetById(id));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
