@@ -1,6 +1,6 @@
 $(() => {
 
-    $("#button-continuar").click(() => {
+    $("#button-continuar2").click(() => {
         const values = {
             email: $("#email")[0].value,
             senha: $("#password")[0].value,
@@ -60,8 +60,8 @@ $(() => {
         if (camposInvalidos) {
             alert(msg);
         } else {
-            $("#box-continuar-cadastro").hide();
-            $("#box-finalizar-cadastro").show();
+            $("#box2").hide();
+            $("#box3").show();
         }
     });
 
@@ -134,9 +134,9 @@ $(() => {
         }
     });
 
-    $("#button-voltar").click(() => {
-        $("#box-continuar-cadastro").show();
-        $("#box-finalizar-cadastro").hide();
+    $("#button-voltar2").click(() => {
+        $("#box2").show();
+        $("#box3").hide();
     })
 })
 
