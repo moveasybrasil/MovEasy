@@ -46,8 +46,9 @@ namespace Backend.Controllers
             return Ok();
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Authorize]
+        [Route("password")]
         public async Task<IActionResult> UpdatePassword(UserPasswordDTO user)
         {
             try
@@ -114,7 +115,7 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("recovery")]
         public async Task<IActionResult> RenewPassword(UserPasswordRecoveryDTO user)
         {

@@ -31,5 +31,36 @@ $(() => {
         $("#email-recuperacao").removeClass("invalid");
 
         console.log(values)
+
+        if (validateEmail(email)) {
+
+            request(
+                "POST",
+                `${serverURL}user/recovery?email=${email}`,
+                () => { console.log(this.reponseText)}
+            )
+    
+        }
     });
 })
+
+function validateEmail(email) {
+
+    if(!email) {
+        return false
+    }
+    
+    if (!~email.indexOf("@")) {
+        return false
+    }
+    
+    if (!~email.split("@")[1].indexOf(".")) {
+        return false
+    }
+    
+    if (!email.split("@")[1].split(".")[1]) {
+        return false
+    }
+    
+    return true;
+}
