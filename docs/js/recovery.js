@@ -6,15 +6,15 @@ $(() => {
 
         request(
             "PUT",
-            `${serverURL}user/recovery/${UUID}`,
-            () => { 
+            `${serverURL}user/recovery`,
+            (xhr) => { 
 
-                console.log(this.responseText)
+                console.log(xhr.responseText)
 
             },
             {
-                uuid: UUID,
-                password: document.getElementById("senha-recuperacao").value
+                UUID: UUID,
+                Password: document.getElementById("senha-recuperacao").value
             }
         )
 
