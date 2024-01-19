@@ -34,80 +34,92 @@
                 <div class="menu-mobile-links">
                     <img id="" src="./assets/images/logo_original.png" alt="movEasy">
                     <a href="./index.html">HOME</a>
+                    <a href="./index.html" class="active">AGENDAR</a>
                     <a href="./sobre.html">SOBRE</a>
                     <a href="./faq.html">FAQ</a>
                     <a href="./suporte.html">SUPORTE</a>
-                    <a href="./Login-usuario.html" class="active">LOGIN</a>
+                    <a href="./Login-usuario.html">LOGIN</a>
                 </div>
             </div>
             <div class="menu-desktop">
                 <a href="./index.html">HOME</a>
+                <a href="./index.html" class="active">AGENDAR</a>
                 <a href="./sobre.html">SOBRE</a>
                 <a href="./faq.html">FAQ</a>
                 <a href="./suporte.html">SUPORTE</a>
-                <a href="./Login-usuario.html" class="active">LOGIN</a>
+                <a href="./Login-usuario.html">LOGIN</a>
             </div>
         </header>
-        <div class="container-cadastro">
+        <div class="container-agendar">
 
-            <form action="/formulario-cadastro-cliente" method="post">
+            <form action="/formulario-agendar" method="post">
 
-                <!-- Primeiro Menu de Cadastro -->
+                <!-- Formulário de Agendamento -->
 
-                <div class="box" id="box-continuar-cadastro">
-                    <h1 id="title-box">Crie sua Conta</h1>
+                <div class="box" id="box-continuar">
+                    <h1 id="title-box"> Faça Seu Orçamento</h1>
 
-                    <div class="info-boxes-cadastro">
-                        <label for="cadastro-formulario-email">Origem:</label>
+                    <h2 id="title-box"> Endereço de Origem</h2>
+
+                    <div class="info-boxes">
+                        <label for="agendar-formulario-origem">Rua:</label>
                         <input type="text" name="origem" id="origem"
-                            placeholder="Rua Francisco Vahldieck, 123 - Fortaleza, Bluemenau, SC - 89057-001"></input>
+                            placeholder="Rua Francisco Vahldieck"></input>
+
+                        <label for="agendar-formulario-origem">Nº</label>
+                        <input type="text" name="origem" id="origem"
+                            placeholder="1234"></input>
+
+                        <label for="agendar-formulario-origem">Bairro</label>
+                        <input type="text" name="origem" id="origem"
+                            placeholder="Bairro das Missões"></input>
+
+                            <label for="">Qual a origem da mudança?</label>
+                            <div class="mudanca-form">
+                              <select id="origem_estado" class="uf-estado" name="estado-id">
+                                <option value="">UF</option>
+                                <option value="1">AC</option>
+                                <option value="2">AL</option>
+                                <option value="3">AM</option>
+                                <option value="4">AP</option>
+                                <option value="5">BA</option>
+                                <option value="6">CE</option>
+                                <option value="7">DF</option>
+                                <option value="8">ES</option>
+                                <option value="9">GO</option>
+                                <option value="10">MA</option>
+                                <option value="11">MG</option>
+                                <option value="12">MS</option>
+                                <option value="13">MT</option>
+                                <option value="14">PA</option>
+                                <option value="15">PB</option>
+                                <option value="16">PE</option>
+                                <option value="17">PI</option>
+                                <option value="18">PR</option>
+                                <option value="19">RJ</option>
+                                <option value="20">RN</option>
+                                <option value="21">RO</option>
+                                <option value="22">RR</option>
+                                <option value="23">RS</option>
+                                <option value="24">SC</option>
+                                <option value="25">SE</option>
+                                <option value="26">SP</option>
+                                <option value="27">TO</option>
+                              </select>
+                              <input id="origem_cidade" type="text" placeholder="Nome da cidade...">
+                            </div>
+
+
                             
-                        <label for="cadastro-formulario-senha">Destino:</label>
+                        <label for="agendar-formulario-destino">Destino:</label>
                         <input type="text" name="destino" id="destino"
                             placeholder="Avenida Brasil, 610 - Ponta Aguda, Blumenau, SC - 89050-000"></input>
                     </div>
 
-                    <!-- Botão que permite ir para o Segundo Menu -->
+                    <!-- Enviar Solicitação -->
 
                     <div class="button-box" id="button-continuar">
                         <button type="button">Continuar</button>
-                    </div>
-                </div>
-
-                <!-- Segundo Menu de Cadastro -->
-
-                <div class="box" id="box-finalizar-cadastro">
-
-                    <div class="info-boxes-cadastro">
-                        <label for="cadastro-formulario-nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
-
-                        <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
-                        <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
-
-                        <label for="cadastro-formulario-tel">Telefone:</label>
-                        <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
-                    </div>
-
-                    <div class="checkbox_class">
-                        <input type="checkbox"></input>
-                        <span>Li e concordo com os</span>
-                        <a id="termos-de-uso" href="">Termos de Uso</a>
-                    </div>
-
-                    <!-- Botão que permite voltar para o Primeiro Menu -->
-
-                    <div class="button-container">
-                        <div class="button-box" id="button-voltar">
-                            <button type="button">
-                                << /button>
-                        </div>
-
-                        <!-- Botão que finaliza o Cadastro do Usúario -->
-
-                        <div class="button-box" id="button-cadastrar">
-                            <button type="button">Cadastrar</button>
-                        </div>
                     </div>
                 </div>
 

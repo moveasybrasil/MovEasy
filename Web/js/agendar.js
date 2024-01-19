@@ -18,40 +18,7 @@ $(() => {
             msg = "Os campos em vermelho estão inválidos!"
         } else {
             $("#origem").removeClass("invalid");
-            $('input[id="origem"]').css("border", "1px solid #bbb");
-        }
-        
-        if (!values.destinoFinal) {
-            $('input[id="destino"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#destino").addClass("invalid");
-            msg = "Os campos em vermelho estão inválidos!"
-        } else {
-            $("#destino").removeClass("invalid");
-            $('input[id="destino"]').css("border", "1px solid #bbb");
-        }
-
-        if (camposInvalidos) {
-            alert(msg);
-        } else {
-            $("#box-continuar-cadastro").hide();
-            $("#box-finalizar-cadastro").show();
-        }
-    });
-
-
-    // kdlfkldfklkdfl
-
-
-    $("#button-cadastrar").click(() => {
-        const values = {
-            nome: $("#nome")[0].value,
-            cpf_or_cnpj: $("#cpf-cnpj")[0].value,
-            telefone: $("#telefone")[0].value
-        }
-
-        console.log(values)
-
+            
         let camposInvalidosFinal = false
         let msg = "Os campos em vermelho estão incorretos!"
 
