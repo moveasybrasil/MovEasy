@@ -16,7 +16,13 @@
     background-position: bottom;
     overflow: auto;
     border-top: 1px solid;
+}
 
+.bg-filter {
+    display: flex;
+    flex: column;
+    height: 100vh;
+    background-color: rgba(0,0,0,.4);
 }
 
 .texto {
@@ -38,7 +44,7 @@
 
 .agendar-form {
     background-color: white;
-    margin: 30px;
+    margin-top: 30px;
     padding: 15px 0 15px 0;
     border-radius: 15px;   
     box-shadow: 3px 2px 2px #8a8a8a;

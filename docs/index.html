@@ -33,8 +33,8 @@
         <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
         <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
         <div>
-        <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
-      </div>
+          <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+        </div>
         <div class="menu-mobile-links">
           <a href="./index.html" class="active">HOME</a>
           <a href="./sobre.html">SOBRE</a>
@@ -51,114 +51,118 @@
         <a href="./Login-usuario.html">LOGIN</a>
       </div>
     </header>
-    <div class="principal mx-28 my-14 text-4xl">
-      <span class="texto">QUER SE MUDAR?</span><BR>
-      <span class="texto">DEIXE QUE CUIDAMOS DISSO PARA VOCÊ</span>
-    </div>
-    <form action="#">
-      <div class="agendar-form">
-        <div class="inputs flex flex-col md:flex-row md:place-content-around">
-          <div class="form-um">
-          <label for="">Qual a origem da mudança?</label>
-          <div class="mudanca-form">
-            <select id="origem_estado" class="uf-estado" name="estado-id">
-              <option value="">UF</option>
-              <option value="1">AC</option>
-              <option value="2">AL</option>
-              <option value="3">AM</option>
-              <option value="4">AP</option>
-              <option value="5">BA</option>
-              <option value="6">CE</option>
-              <option value="7">DF</option>
-              <option value="8">ES</option>
-              <option value="9">GO</option>
-              <option value="10">MA</option>
-              <option value="11">MG</option>
-              <option value="12">MS</option>
-              <option value="13">MT</option>
-              <option value="14">PA</option>
-              <option value="15">PB</option>
-              <option value="16">PE</option>
-              <option value="17">PI</option>
-              <option value="18">PR</option>
-              <option value="19">RJ</option>
-              <option value="20">RN</option>
-              <option value="21">RO</option>
-              <option value="22">RR</option>
-              <option value="23">RS</option>
-              <option value="24">SC</option>
-              <option value="25">SE</option>
-              <option value="26">SP</option>
-              <option value="27">TO</option>
-            </select>
-            <input id="origem_cidade" type="text" placeholder="Nome da cidade...">
-          </div>
-          </div>
-        <div class="form-dois">
-          <label for="">Qual o destino da mudança?</label>
-          <div class="mudanca-form">
-            <select id="destino_estado" class="uf-estado" name="estado-id">
-              <option value="">UF</option>
-              <option value="1">AC</option>
-              <option value="2">AL</option>
-              <option value="3">AM</option>
-              <option value="4">AP</option>
-              <option value="5">BA</option>
-              <option value="6">CE</option>
-              <option value="7">DF</option>
-              <option value="8">ES</option>
-              <option value="9">GO</option>
-              <option value="10">MA</option>
-              <option value="11">MG</option>
-              <option value="12">MS</option>
-              <option value="13">MT</option>
-              <option value="14">PA</option>
-              <option value="15">PB</option>
-              <option value="16">PE</option>
-              <option value="17">PI</option>
-              <option value="18">PR</option>
-              <option value="19">RJ</option>
-              <option value="20">RN</option>
-              <option value="21">RO</option>
-              <option value="22">RR</option>
-              <option value="23">RS</option>
-              <option value="24">SC</option>
-              <option value="25">SE</option>
-              <option value="26">SP</option>
-              <option value="27">TO</option>
-            </select>
-            <input id="destino_cidade" type="text" placeholder="Nome da cidade...">
+    <div class="bg-filter">
+      <div class="principal mx-28 my-14">
+        <span class="texto  text-4xl">QUER SE MUDAR?</span><BR>
+        <span class="texto  text-4xl">DEIXE QUE CUIDAMOS DISSO PARA VOCÊ</span>
+        <form action="#">
+          <div class="agendar-form">
+            <div class="inputs flex flex-col md:flex-row md:place-content-around">
+              <div class="form-um">
+                <label for="">Qual a origem da mudança?</label>
+                <div class="mudanca-form">
+                  <select id="origem_estado" class="uf-estado" name="estado-id">
+                    <option value="">UF</option>
+                    <option value="1">AC</option>
+                    <option value="2">AL</option>
+                    <option value="3">AM</option>
+                    <option value="4">AP</option>
+                    <option value="5">BA</option>
+                    <option value="6">CE</option>
+                    <option value="7">DF</option>
+                    <option value="8">ES</option>
+                    <option value="9">GO</option>
+                    <option value="10">MA</option>
+                    <option value="11">MG</option>
+                    <option value="12">MS</option>
+                    <option value="13">MT</option>
+                    <option value="14">PA</option>
+                    <option value="15">PB</option>
+                    <option value="16">PE</option>
+                    <option value="17">PI</option>
+                    <option value="18">PR</option>
+                    <option value="19">RJ</option>
+                    <option value="20">RN</option>
+                    <option value="21">RO</option>
+                    <option value="22">RR</option>
+                    <option value="23">RS</option>
+                    <option value="24">SC</option>
+                    <option value="25">SE</option>
+                    <option value="26">SP</option>
+                    <option value="27">TO</option>
+                  </select>
+                  <input id="origem_cidade" type="text" placeholder="Nome da cidade...">
+                </div>
+              </div>
+              <div class="form-dois">
+                <label for="">Qual o destino da mudança?</label>
+                <div class="mudanca-form">
+                  <select id="destino_estado" class="uf-estado" name="estado-id">
+                    <option value="">UF</option>
+                    <option value="1">AC</option>
+                    <option value="2">AL</option>
+                    <option value="3">AM</option>
+                    <option value="4">AP</option>
+                    <option value="5">BA</option>
+                    <option value="6">CE</option>
+                    <option value="7">DF</option>
+                    <option value="8">ES</option>
+                    <option value="9">GO</option>
+                    <option value="10">MA</option>
+                    <option value="11">MG</option>
+                    <option value="12">MS</option>
+                    <option value="13">MT</option>
+                    <option value="14">PA</option>
+                    <option value="15">PB</option>
+                    <option value="16">PE</option>
+                    <option value="17">PI</option>
+                    <option value="18">PR</option>
+                    <option value="19">RJ</option>
+                    <option value="20">RN</option>
+                    <option value="21">RO</option>
+                    <option value="22">RR</option>
+                    <option value="23">RS</option>
+                    <option value="24">SC</option>
+                    <option value="25">SE</option>
+                    <option value="26">SP</option>
+                    <option value="27">TO</option>
+                  </select>
+                  <input id="destino_cidade" type="text" placeholder="Nome da cidade...">
+                </div>
+              </div>
+              <div class="buscar-btn">
+                <button type="button" id="buscar-opc" class="">Buscar Opções</button>
+              </div>
             </div>
           </div>
-          <div class="buscar-btn">
-            <button type="button" id="buscar-opc" class="">Buscar Opções</button>
+        </form>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="footer-icon flex">
+          <div class="ft-icon" id="in-icon">
+            <img src="./assets/images/linkedin-in(1).svg" class="ftr_icon" id="linkedin_icon" alt="icone linkedin"
+              srcset="">
+          </div>
+          <div class="ft-icon" id="fb-icon">
+            <img src="./assets/images/facebook-f.svg" class="ftr_icon" id="facebook_icon" alt="icone facebook"
+              srcset="">
+          </div>
+          <div class="ft-icon" id="x-icon">
+            <img src="./assets/images/x-twitter(1).svg" class="ftr_icon" id="twitter_icon" alt="icone x" srcset="">
+          </div>
+          <div class="ft-icon" id="insta-icon">
+            <img src="./assets/images/instagram(1).svg" class="ftr_icon" id="instagram_icon" alt="icone instagram"
+              srcset="">
           </div>
         </div>
+        <span>© 2024 Copyright: movEasy</span>
       </div>
-    </form>
-
-  </div>
-  <footer>
-    <div class="footer">
-      <div class="footer-icon flex" >
-        <div class="ft-icon" id="in-icon">
-        <img src="./assets/images/linkedin-in(1).svg" class="ftr_icon" id="linkedin_icon"alt="icone linkedin" srcset="">
-      </div>
-      <div class="ft-icon" id="fb-icon">
-        <img src="./assets/images/facebook-f.svg" class="ftr_icon" id="facebook_icon" alt="icone facebook" srcset="">
-      </div>
-      <div class="ft-icon" id="x-icon">
-        <img src="./assets/images/x-twitter(1).svg" class="ftr_icon" id="twitter_icon" alt="icone x" srcset="">
-      </div>
-      <div class="ft-icon" id="insta-icon">
-        <img src="./assets/images/instagram(1).svg" class="ftr_icon" id="instagram_icon" alt="icone instagram" srcset="">
-      </div>
-    </div>
-      <span>© 2024 Copyright: movEasy</span>
-    </div>
-  </footer>
-  <script src="./js/index.js"></script>
-  <script src="./js/header.js"></script>
+    </footer>
+    <script src="./js/index.js"></script>
+    <script src="./js/header.js"></script>
 </body>
 
 </html>
