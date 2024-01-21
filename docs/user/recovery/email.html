@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovEasy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../../js/saved_resource"></script>
+  <script src="../../js/common.js"></script>
+
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/user-recovery.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="banner">
+    <div class="banner bg-local">
+      <header id="header" class="flex justify-between	px-16">
+        <div style="display:flex">
+          <img id="logo" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="MovEasy">
+  
+        </div>
+        <div class="menu-mobile">
+          <img id="logo-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+          <img id="icone-mobile" class="icone-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/bars-solid.png'))" alt="menu-mobile">
+          <div>
+          <img id="icone-mobile2" class="icone-mobile hidden" src="../" onerror="this.setAttribute('src', getUrl('assets/images/xmark.svg'))" alt="menu-mobile">
+        </div>
+        <div class="menu-mobile-links">
+          <a class="header-home" href="javascript:goTo('index')">HOME</a>
+          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+        </div>
+        </div>
+        <div class="menu-desktop">
+          <a class="header-home" href="javascript:goTo('index')">HOME</a>
+          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+        </div>
+      </header>
+    <div class="banner2">
+      <form action="">
+        <div class="corpo">
+          <div class="menu-login">
+            <div class="controlador-login">
+              <div class="recuperar-email mt-8">
+                <label for="login-email"
+                  class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
+                <input type="text" id="recovery" class="bg-zinc-300 rounded-[10px]"
+                  placeholder="Digite o seu email"
+                  onkeyup="ValidateEmail()"></input>
+              </div>
+            </div>
+
+            <div class="botao-logar">
+              <button type="button" id="btn-recuperar" class="rounded-[10px] font-bold text-lg shadow"  onclick="SendEmail()">Recuperar Conta</button>
+            </div>
+
+            <div class="">
+              <div class="campos mt-4 ml-4">
+                <div>
+                  <button type="button" id="btn-EnviarEmail" class="recuperar-senha text-lg font-normal font-['Inter']"
+                    onclick="goTo('user/login')">
+                    < Voltar para o login
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+  </form>
+  </div>
+  <script src="../../js/header.js"></script>
+  <script src="../../js/user-recovery.js"></script>
+</body>
+</html>

@@ -1,3 +1,8 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-support").forEach( (e) => {
+    e.classList.add("active")
+})
+
 $(() => {
  
     $("#button-continuar").click(() => {
