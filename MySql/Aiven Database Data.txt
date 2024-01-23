@@ -1,0 +1,17 @@
+Service URI
+mysql://avnadmin:AVNS_2OtrV0hmtp8IMkJR5do@mysql-1e882686-moveasy.a.aivencloud.com:11197/defaultdb?ssl-mode=REQUIRED
+
+Database name
+defaultdb
+
+Host
+mysql-1e882686-moveasy.a.aivencloud.com
+
+Port
+11197
+
+User
+avnadmin
+
+Password
+AVNS_2OtrV0hmtp8IMkJR5do
