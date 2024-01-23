@@ -33,14 +33,14 @@
         <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
         <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
         <div>
-        <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
-      </div>
+          <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+        </div>
         <div class="menu-mobile-links">
-          <a href="./index.html" >HOME</a>
+          <a href="./index.html">HOME</a>
           <a href="./sobre.html">SOBRE</a>
           <a href="./faq.html">FAQ</a>
           <a href="./suporte.html">SUPORTE</a>
-          <a href="./Login-usuario.html"class="active">LOGIN</a>
+          <a href="./Login-usuario.html" class="active">LOGIN</a>
         </div>
       </div>
       <div class="menu-desktop">
@@ -57,7 +57,43 @@
 
         <!-- Primeiro Menu de Cadastro -->
 
-        <div class="box" id="box-continuar-cadastro">
+        <div class="box" id="box1">
+          <h1 id="title-box">Crie sua Conta</h1>
+
+          <input type="radio" id="radio-one" name="switch-cadastro" value="no" />
+          <label for="radio-one"></label>
+
+          <div class="switch-options" id="s1" onclick="document.getElementById('radio-one').checked = true">
+            <div class="image-switch">
+              <img src=".//assets/images/user_8647311-removebg-preview.png" alt="" id="img-usuario"></img>
+            </div>
+            <div id="title-switcn">
+              <p>Usúario</p>
+            </div>
+          </div>
+
+          <input type="radio" id="radio-two" name="switch-cadastro" value="no" />
+          <label for="radio-two"></label>
+
+          <div class="switch-options" id="s2" onclick="document.getElementById('radio-two').checked = true">
+            <div class="image-switch">
+              <img src=".//assets/images/delivery-truck_2769339-removebg-preview.png" alt="" id="img-prestador"></img>
+            </div>
+            <div id="title-switcn">
+              <p>Prestador de Serviços</p>
+            </div>
+          </div>
+
+          <!-- Botão que permite ir para o Segundo Menu -->
+
+          <div class="button-box" id="button-continuar1">
+            <button type="button">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Segundo Menu de Cadastro -->
+
+        <div class="box" id="box2">
           <h1 id="title-box">Crie sua Conta</h1>
 
           <div class="info-boxes-cadastro">
@@ -68,19 +104,20 @@
             <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
 
             <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" name="confirmed-password" id="confirmed-password" placeholder="Confirme sua senha"></input>
+            <input type="password" name="confirmed-password" id="confirmed-password"
+              placeholder="Confirme sua senha"></input>
           </div>
 
-          <!-- Botão que permite ir para o Segundo Menu -->
+          <!-- Botão que permite ir para o Terceiro Menu -->
 
-          <div class="button-box" id="button-continuar">
+          <div class="button-box" id="button-continuar2">
             <button type="button">Continuar</button>
           </div>
         </div>
 
-        <!-- Segundo Menu de Cadastro -->
+        <!-- Terceiro Menu de Cadastro -->
 
-        <div class="box" id="box-finalizar-cadastro">
+        <div class="box" id="box3">
 
           <div class="info-boxes-cadastro">
             <label for="cadastro-formulario-nome">Nome:</label>
@@ -99,7 +136,7 @@
             <a id="termos-de-uso" href="">Termos de Uso</a>
           </div>
 
-          <!-- Botão que permite voltar para o Primeiro Menu -->
+          <!-- Botão que permite voltar para o Segundo Menu -->
 
           <div class="button-container">
             <div class="button-box" id="button-voltar">
@@ -109,7 +146,7 @@
 
             <!-- Botão que finaliza o Cadastro do Usúario -->
 
-            <div class="button-box" id="button-cadastrar">
+            <div class="button-box" id="button-cadastrar1">
               <button type="button">Cadastrar</button>
             </div>
           </div>

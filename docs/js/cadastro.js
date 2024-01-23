@@ -60,8 +60,8 @@ $(() => {
         if (camposInvalidos) {
             alert(msg);
         } else {
-            $("#box-continuar-cadastro").hide();
-            $("#box-finalizar-cadastro").show();
+            $("#box2").hide();
+            $("#box3").show();
         }
     });
 
@@ -135,9 +135,10 @@ $(() => {
     });
 
     $("#button-voltar").click(() => {
-        $("#box-continuar-cadastro").show();
-        $("#box-finalizar-cadastro").hide();
+        $("#box2").show();
+        $("#box3").hide();
     })
 })
+
 
 // slideToggle(slow) para header mobile
