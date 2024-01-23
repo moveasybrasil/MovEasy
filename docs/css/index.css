@@ -8,7 +8,7 @@
 }
 
 .banner {
-    height: 97vh;
+    height: 95vh;
     width: 100%;
     background: url("../assets/images/bg-home-sm.jpg");
     background-size: cover;
@@ -22,7 +22,7 @@
     display: flex;
     flex: column;
     height: 100vh;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .texto {
@@ -30,7 +30,7 @@
     text-shadow: 0 0 6px #000;
     text-transform: uppercase;
     font-weight: bold;
-    
+
 }
 
 #buscar-opc {
@@ -46,13 +46,12 @@
     background-color: white;
     margin-top: 30px;
     padding: 15px 0 15px 0;
-    border-radius: 15px;   
+    border-radius: 15px;
     box-shadow: 3px 2px 2px #8a8a8a;
     display: flex;
     justify-content: space-evenly;
     height: 100%;
 }
-
 .inputs {
     gap: 18px;
     align-items: center;
@@ -62,7 +61,7 @@
 }
 
 .form-um {
-    height:100%;
+    height: 100%;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -71,8 +70,8 @@
 }
 
 .form-dois {
-    width:40%;
-    height:100%;
+    width: 40%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,13 +121,17 @@
 
 
 @media (min-width: 768px) {
-    .banner{
+    .banner {
         background: url("../assets/images/bg-home-md.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: bottom;
         overflow: auto;
         border-top: 1px solid;
+    }
+
+    .menu-desktop {
+        display: flex;
     }
 
     .mudanca-form {
@@ -138,6 +141,7 @@
     .agendar-form {
         width: 60vw;
     }
+
     .inputs {
         padding-left: 20px;
     }
@@ -153,9 +157,44 @@
 }
 
 @media (max-width: 768px) {
-    .texto{
+    .texto {
         display: flex;
         text-align: center;
-        
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .form-um,
+    .form-dois,
+    .buscar-btn {
+        width: 100%;
+        align-items: center;
+    }
+
+    .principal {
+        margin: 0 10px 0 10px;
+
+    }
+
+    .texto {
+        justify-content: center;
+    }
+
+    .mudanca-form,
+    .form-dois {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #origem_cidade,
+    #destino_cidade {
+        width: 70%;
+    }
+
+    .agendar-form {
+        margin-top: 200px;  
     }
 }
