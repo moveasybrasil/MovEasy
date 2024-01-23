@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 @font-face {
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
@@ -16,7 +21,7 @@
     width: 100vw;
 }
 
-.container-cadastro {
+.container {
     display: flex;
     height: (100vh - 163px);
     margin-top: 140px;
@@ -51,14 +56,104 @@
     padding-top: 28px;
 }
 
-#title-box {
+#box1 {
+    display: hide;
+}
+
+#box2 {
+    display:none;
+}
+
+#box3 {
+    display:none;
+}
+
+.title{
+    padding: 0px;
+    margin: 0px;
+}
+
+.title-box {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    padding-bottom: 20px;
 }
 
-.info-boxes-cadastro input {
+.subtitle-box {
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.switch-options {
+    display: flex;
+    flex-direction:column;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.switch-options input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+}
+
+.switch-options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    border: 1px solid #bbb;
+    color: rgba(0, 0, 0, 0.6);
+    font-size:20px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 320px;
+    height: 45px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+.image-switch {
+    width: 322px;
+    height: 135px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size:20px;
+    background-color: #F5F5F5;
+    border: 1px solid #bbb;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    border: 1px solid #bbb;
+    color: #000;
+}
+
+.image-switch:hover {
+    cursor: pointer;
+}
+
+.image-switch img {
+    width: 100px;
+    height: 100px;
+}
+
+.switch-options label:hover {
+    cursor: pointer;
+}
+
+.switch-options input:checked + label {
+    background-color: #E53420;
+    color: #FFF;
+    box-shadow: none;
+}
+
+.info-boxes input {
     width: 322px;
     height: 59px;
     border-radius: 5px;
@@ -77,8 +172,9 @@ button {
     justify-content: center;
 }
 
+
 #button-continuar {
-    background-color: #E53420;
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;
@@ -88,7 +184,7 @@ button {
 }
 
 button:hover {
-    background-color: #8f2014;
+    background-color: #e4321e;
     border-radius: 5px;
 }
 
@@ -98,7 +194,7 @@ button:hover {
 
 #button-voltar {
     width: 15%;
-    background-color: #E53420;
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;
@@ -110,7 +206,7 @@ button:hover {
 
 #button-cadastrar {
     width: 85%;
-    background-color: #E53420;
+    background-color: #e4321e;
     color: #FFF;
     font-weight:bold;
     border:none;

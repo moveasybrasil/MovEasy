@@ -2,6 +2,10 @@
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
+ 
+* {
+    font-family: "Montserrat", sans-serif;
+}
 
 .banner {
     min-height: 100vh;
@@ -25,7 +29,7 @@
     padding-left: 50px;
     background-color: rgb(245, 243, 243);
     width: 80vw;
-    border-left: #FF4500;
+    border-left: #e4321e;
     border-style: solid;
 }
 

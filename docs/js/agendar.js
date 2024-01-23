@@ -1,15 +1,14 @@
 // Adiciona a tag 'active' ao header para o item especifico
-document.querySelectorAll(".header-login").forEach( (e) => {
+document.querySelectorAll(".header-home").forEach( (e) => {
     e.classList.add("active")
 })
 
 $(() => {
 
-    $("#button-continuar2").click(() => {
+    $("#button-continuar").click(() => {
         const values = {
-            email: $("#email")[0].value,
-            senha: $("#password")[0].value,
-            confirmar_senha: $("#confirmed-password")[0].value
+            inicio: $("#inicio")[0].value,
+            destinoFinal: $("#destino-final")[0].value,
         }
 
         console.log(values)
@@ -17,72 +16,14 @@ $(() => {
         let camposInvalidos = false
         let msg = "Os campos em vermelho estão incorretos!"
         
-        if (values.senha.length < 8) {
-            $('input[id="password"]').css("border", "2px solid red");
+        if (!values.inicio) {
+            $('input[id="origem"]').css("border", "2px solid red");
             camposInvalidos = true
-            $("#senha").addClass("invalid");
-            $('input[id="confirmed-password"]').css("border", "2px solid red");
-            $("#confirmed-senha").addClass("invalid");
-            msg = "A senha deve ter mais de 8 caracteres!"
-        } else if (!(values.senha == values.confirmar_senha)) {
-            $('input[id="password"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#senha").addClass("invalid");
-            $('input[id="confirmed-password"]').css("border", "2px solid red");
-            $("#confirmed-senha").addClass("invalid");
-            msg = "As senhas não são iguais!"
-        } else {
-            $("#senha").removeClass("invalid");
-            $('input[id="password"]').css("border", "1px solid #bbb");
-            $('input[id="confirmed-password"]').css("border", "1px solid #bbb");
-        }
-        
-        if (!values.email) {
-            $('input[id="email"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#email").addClass("invalid");
+            $("#origem").addClass("invalid");
             msg = "Os campos em vermelho estão inválidos!"
-        } else if (!~values.email.indexOf("@")) {
-            $('input[id="email"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#email").addClass("invalid");
-            msg = "Há informações faltando no e-mail informado!"
-        } else if (!~values.email.split("@")[1].indexOf(".")) {
-            $('input[id="email"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#email").addClass("invalid");
-            msg = "Há informações faltando no e-mail informado!"
-        } else if (!values.email.split("@")[1].split(".")[1]) {
-            $('input[id="email"]').css("border", "2px solid red");
-            camposInvalidos = true
-            $("#email").addClass("invalid");
-            msg = "Há informações faltando no e-mail informado!"
         } else {
-            $("#email").removeClass("invalid");
-            $('input[id="email"]').css("border", "1px solid #bbb");
-        }
-
-        if (camposInvalidos) {
-            alert(msg);
-        } else {
-            $("#box2").hide();
-            $("#box3").show();
-        }
-    });
-
-
-    // kdlfkldfklkdfl
-
-
-    $("#button-cadastrar").click(() => {
-        const values = {
-            nome: $("#nome")[0].value,
-            cpf_or_cnpj: $("#cpf-cnpj")[0].value,
-            telefone: $("#telefone")[0].value
-        }
-
-        console.log(values)
-
+            $("#origem").removeClass("invalid");
+            
         let camposInvalidosFinal = false
         let msg = "Os campos em vermelho estão incorretos!"
 
@@ -140,10 +81,9 @@ $(() => {
     });
 
     $("#button-voltar").click(() => {
-        $("#box2").show();
-        $("#box3").hide();
+        $("#box-continuar-cadastro").show();
+        $("#box-finalizar-cadastro").hide();
     })
 })
-
 
 // slideToggle(slow) para header mobile

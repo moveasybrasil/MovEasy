@@ -1,3 +1,8 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-home").forEach( (e) => {
+    e.classList.add("active")
+})
+
 $(() => {
 
     $("#buscar-opc").click( ()=> {

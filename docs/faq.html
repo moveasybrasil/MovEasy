@@ -3,12 +3,16 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>MovEasy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovEasy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/saved_resource"></script>
+  <script src="./js/common.js"></script>
+  
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/faq.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./js/saved_resource"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -26,29 +30,29 @@
   <div class="banner bg-local">
     <header id="header" class="flex justify-between	px-16">
       <div style="display:flex">
-        <img id="logo" src="./assets/images/logo_moveasy.png" alt="logo">
+        <img id="logo" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="MovEasy">
 
       </div>
       <div class="menu-mobile">
-        <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
-        <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <img id="logo-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+        <img id="icone-mobile" class="icone-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/bars-solid.png'))" alt="menu-mobile">
         <div>
-        <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+        <img id="icone-mobile2" class="icone-mobile hidden" src="../" onerror="this.setAttribute('src', getUrl('assets/images/xmark.svg'))" alt="menu-mobile">
       </div>
-        <div class="menu-mobile-links">
-          <a href="./index.html" >HOME</a>
-          <a href="./sobre.html">SOBRE</a>
-          <a href="./faq.html"class="active">FAQ</a>
-          <a href="./suporte.html">SUPORTE</a>
-          <a href="./Login-usuario.html">LOGIN</a>
-        </div>
+      <div class="menu-mobile-links">
+        <a class="header-home" href="javascript:goTo('index')">HOME</a>
+        <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+        <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+        <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+      </div>
       </div>
       <div class="menu-desktop">
-        <a href="./index.html" class="active">HOME</a>
-        <a href="./sobre.html">SOBRE</a>
-        <a href="./faq.html">FAQ</a>
-        <a href="./suporte.html">SUPORTE</a>
-        <a href="./Login-usuario.html">LOGIN</a>
+        <a class="header-home" href="javascript:goTo('index')">HOME</a>
+        <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+        <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+        <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
       </div>
     </header>
     <div id="faq" class="ml-4 sm:ml-14 md:ml-20 lg:ml-28 mt-28 ">
@@ -61,7 +65,7 @@
   </div>
 
   </div>
-  <script src="js/faq.js"></script>
+  <script src="./js/faq.js"></script>
+  <script src="./js/header.js"></script>
 </body>
-<script src="./js/header.js"></script>
 </html>

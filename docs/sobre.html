@@ -2,14 +2,18 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/sobre.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <script src="./js/saved_resource"></script>
+    <title>MovEasy</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/saved_resource"></script>
+    <script src="./js/common.js"></script>
+
+    <link rel="stylesheet" href="./css/sobre.css">
+    <link rel="stylesheet" href="./css/header.css">
     <script>
         tailwind.config = {
             theme: {
@@ -33,49 +37,49 @@
 <body>
     <div class="banner bg-local">
         <header id="header" class="flex justify-between	px-16">
-          <div style="display:flex">
-            <img id="logo" src="./assets/images/logo_moveasy.png" alt="logo">
-    
-          </div>
-          <div class="menu-mobile">
-            <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
-            <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-            <div>
-            <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
-          </div>
-            <div class="menu-mobile-links">
-              <a href="./index.html" >HOME</a>
-              <a href="./sobre.html"class="active">SOBRE</a>
-              <a href="./faq.html">FAQ</a>
-              <a href="./suporte.html">SUPORTE</a>
-              <a href="./Login-usuario.html">LOGIN</a>
+            <div style="display:flex">
+              <img id="logo" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="MovEasy">
+      
             </div>
-          </div>
-          <div class="menu-desktop">
-            <a href="./index.html" class="active">HOME</a>
-            <a href="./sobre.html">SOBRE</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./suporte.html">SUPORTE</a>
-            <a href="./Login-usuario.html">LOGIN</a>
-          </div>
-        </header>
+            <div class="menu-mobile">
+              <img id="logo-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+              <img id="icone-mobile" class="icone-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/bars-solid.png'))" alt="menu-mobile">
+              <div>
+              <img id="icone-mobile2" class="icone-mobile hidden" src="../" onerror="this.setAttribute('src', getUrl('assets/images/xmark.svg'))" alt="menu-mobile">
+            </div>
+            <div class="menu-mobile-links">
+              <a class="header-home" href="javascript:goTo('index')">HOME</a>
+              <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+              <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+              <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+              <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+            </div>
+            </div>
+            <div class="menu-desktop">
+              <a class="header-home" href="javascript:goTo('index')">HOME</a>
+              <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+              <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+              <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+              <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+            </div>
+          </header>
         <div class="mx-8">
             <div>
-                <p class="text-3xl font-bold my-8">
+                <p class="text-4xl my-8">
                     Quem Somos:
                 </p>
             </div>
             <div class="sm:grid grid-cols-2">
                 <div class="background-image"></div>
                 <div class="texto">
-                    <p class="">
+                    <p class="text-2xl">
                         Somos um grupo de cinco amigos que se uniu para criar uma empresa com o objetivo de
                         facilitar
                         mudanças. A empresa, chamada “movEasy, oferece uma plataforma que permite a realização de
                         orçamentos
                         para mudanças residenciais, comerciais e corporativas de forma rápida, fácil e segura.
                     </p>
-                    <div class="my-16 text-xl">
+                    <div class="my-16 text-4xl">
                         <span>
                             <strong><em>
                                 &quot;Queríamos criar uma solução que tornasse as mudanças mais simples
@@ -83,7 +87,7 @@
                             </strong></em>
                         </span>
                     </div>
-                    <div>
+                    <div class="text-2xl">
                         <span>A movEasy está em fase de pré-lançamento e já conta com uma carteira de clientes em
                             potencial.
                             A empresa espera iniciar suas operações em breve, com o objetivo de se tornar um referência
@@ -94,7 +98,7 @@
 
                 </div>
             </div>
-            <div id="quote-center" class="my-16 text-2xl">
+            <div id="quote-center" class="my-16 text-4xl">
                 <span>
                     <strong><em>
                         &quot;Nossa plataforma oferece uma solução completa e segura,
@@ -107,6 +111,7 @@
             </div>
         </div>
 
+        <script src="./js/header.js"></script>
+        <script src="./js/sobre.js"></script>
 </body>
-<script src="./js/header.js"></script>
 </html>

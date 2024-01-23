@@ -2,6 +2,10 @@
     font-family: "Montserrat";
     src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
+ 
+* {
+    font-family: "Montserrat", sans-serif;
+}
 
 .banner {
     height: 100vh;
