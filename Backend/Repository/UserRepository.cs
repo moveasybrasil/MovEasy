@@ -163,7 +163,7 @@ namespace Backend.Repository
             return await email.SendEmail(
                 receiverEmail, 
                 "Recuperação de senha MovEasy", 
-                $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nmoveasybrasil.github.io/MovEasy/recovery.html?UUID={UUID}\n\n"
+                $"Olá, {user.Name}\n\nClique no link abaixo para definir uma nova senha\n\nmoveasybrasil.github.io/MovEasy/user/recovery?UUID={UUID}\n\n"
             );
         }
 

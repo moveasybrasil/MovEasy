@@ -1,3 +1,8 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-faq").forEach( (e) => {
+    e.classList.add("active")
+})
+
 function createFAQ(faq) {
     const novoFAQ = $("#modelo").clone().removeAttr(`id`).removeClass('hidden');
     $('.pergunta', novoFAQ).html(faq.pergunta);
