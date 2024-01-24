@@ -9,7 +9,6 @@ namespace Backend.Converter
         public async static Task<UserEntity> Convert(UserDTO user)
         {
             PasswordHasher hasher = new PasswordHasher();
-            user.Password = await hasher.HashPassword(user.Password);
 
             UserEntity userEntity = new UserEntity()
             {
@@ -17,8 +16,7 @@ namespace Backend.Converter
                 Email = user.Email,
                 PasswordHash = await hasher.HashPassword(user.Password),
                 Document = user.Document,
-                Telephone1 = user.Telephone1,
-                Telephone2 = user.Telephone2,
+                Telephone1 = user.Telephone,
                 Type = user.Type,
                 Role = "default"
             };
