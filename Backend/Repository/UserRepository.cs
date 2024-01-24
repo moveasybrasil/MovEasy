@@ -12,7 +12,28 @@ namespace Backend.Repository
     {
         public async Task Add(UserDTO user)
         {
+
+            // Checar se usuário ja existe antes de criar a conta.
             string sql = @"
+                SELECT Id FROM User 
+                WHERE Email = @Email
+            ";
+
+            bool userExists = false;
+            try
+            {
+                await GetConnection().QueryFirstAsync<UserEntity>(sql, user.Email);
+                userExists = true;
+
+            } catch (Exception ex)
+            {
+                if (userExists)
+                {
+                    throw new Exception("Usuário já cadastrado.");
+                }
+            }
+
+            sql = @"
                 INSERT INTO User (
                         Document,
                         Telephone1,
@@ -36,7 +57,7 @@ namespace Backend.Repository
                         @Type,
                         @CNH,
                         @Photo,
-                        @Role
+                        default
                     )
             ";
 
