@@ -1,5 +1,5 @@
 const serverURL = "https://moveasy-afe07a84638c.herokuapp.com";
-const frontURL = "https://moveasybrasil.github.io/MovEasy/";
+const frontURL = "https://moveasybrasil.github.io/MovEasy";
 
 function request(type, url, callback, params) {
     var xhttp = new XMLHttpRequest();

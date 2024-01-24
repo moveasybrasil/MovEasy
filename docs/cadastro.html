@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>MovEasy</title>
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/saved_resource"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header id="header" class="flex justify-between	px-16">
+      <div style="display:flex">
+        <img id="logo" src="./assets/images/logo_moveasy.png" alt="logo">
+
+      </div>
+      <div class="menu-mobile">
+        <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
+        <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
+        <div>
+          <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
+        </div>
+        <div class="menu-mobile-links">
+          <a href="./index.html">HOME</a>
+          <a href="./sobre.html">SOBRE</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./suporte.html">SUPORTE</a>
+          <a href="./Login-usuario.html" class="active">LOGIN</a>
+        </div>
+      </div>
+      <div class="menu-desktop">
+        <a href="./index.html" class="active">HOME</a>
+        <a href="./sobre.html">SOBRE</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./suporte.html">SUPORTE</a>
+        <a href="./Login-usuario.html">LOGIN</a>
+      </div>
+    </header>
+    <div class="container-cadastro">
+
+      <form action="/formulario-cadastro-cliente" method="post">
+
+        <!-- Primeiro Menu de Cadastro -->
+
+        <div class="box" id="box1">
+          <h1 id="title-box">Crie sua Conta</h1>
+
+          <input type="radio" id="radio-one" name="switch-cadastro" value="no" />
+          <label for="radio-one"></label>
+
+          <div class="switch-options" id="s1" onclick="document.getElementById('radio-one').checked = true">
+            <div class="image-switch">
+              <img src=".//assets/images/user_8647311-removebg-preview.png" alt="" id="img-usuario"></img>
+            </div>
+            <div id="title-switcn">
+              <p>Usúario</p>
+            </div>
+          </div>
+
+          <input type="radio" id="radio-two" name="switch-cadastro" value="no" />
+          <label for="radio-two"></label>
+
+          <div class="switch-options" id="s2" onclick="document.getElementById('radio-two').checked = true">
+            <div class="image-switch">
+              <img src=".//assets/images/delivery-truck_2769339-removebg-preview.png" alt="" id="img-prestador"></img>
+            </div>
+            <div id="title-switcn">
+              <p>Prestador de Serviços</p>
+            </div>
+          </div>
+
+          <!-- Botão que permite ir para o Segundo Menu -->
+
+          <div class="button-box" id="button-continuar1">
+            <button type="button">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Segundo Menu de Cadastro -->
+
+        <div class="box" id="box2">
+          <h1 id="title-box">Crie sua Conta</h1>
+
+          <div class="info-boxes-cadastro">
+            <label for="cadastro-formulario-email">E-mail:</label>
+            <input type="email" name="email" id="email" placeholder="ex: seuemail@emai.com"></input>
+
+            <label for="cadastro-formulario-senha">Senha:</label>
+            <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
+
+            <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
+            <input type="password" name="confirmed-password" id="confirmed-password"
+              placeholder="Confirme sua senha"></input>
+          </div>
+
+          <!-- Botão que permite ir para o Terceiro Menu -->
+
+          <div class="button-box" id="button-continuar2">
+            <button type="button">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Terceiro Menu de Cadastro -->
+
+        <div class="box" id="box3">
+
+          <div class="info-boxes-cadastro">
+            <label for="cadastro-formulario-nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
+
+            <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
+            <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
+
+            <label for="cadastro-formulario-tel">Telefone:</label>
+            <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
+          </div>
+
+          <div class="checkbox_class">
+            <input type="checkbox"></input>
+            <span>Li e concordo com os</span>
+            <a id="termos-de-uso" href="">Termos de Uso</a>
+          </div>
+
+          <!-- Botão que permite voltar para o Segundo Menu -->
+
+          <div class="button-container">
+            <div class="button-box" id="button-voltar">
+              <button type="button">
+                <</button>
+            </div>
+
+            <!-- Botão que finaliza o Cadastro do Usúario -->
+
+            <div class="button-box" id="button-cadastrar1">
+              <button type="button">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/cadastro.js"></script>
+  <script src="./js/header.js"></script>
+</body>
+
+</html>

@@ -139,10 +139,11 @@ $(() => {
         }
     });
 
-    $("#button-voltar2").click(() => {
+    $("#button-voltar").click(() => {
         $("#box2").show();
         $("#box3").hide();
     })
 })
+
 
 // slideToggle(slow) para header mobile
