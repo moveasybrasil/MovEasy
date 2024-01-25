@@ -112,6 +112,19 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("validation/{UUID}")]
+        public async Task<IActionResult> ValidateEmail(string UUID)
+        {
+            try
+            {
+                return Ok(await _userRepository.ValidateEmail(UUID));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("recovery")]
         public async Task<IActionResult> ForgotPassword(string email)

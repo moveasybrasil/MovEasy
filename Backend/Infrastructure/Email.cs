@@ -29,7 +29,7 @@ namespace Backend.Infrastructure
             }
             catch (Exception ex)
             {
-                return "Erro ao enviar Email: " + ex.Message;
+                throw new Exception(ex.Message);
             }
             finally
             {
