@@ -5,24 +5,22 @@ using Backend.Entity;
 using Backend.Infrastructure;
 using System.Text;
 using System.Security.Cryptography;
+using Backend.Converter;
 
 namespace Backend.Repository
 {
     public class UserRepository : Connection, IUserRepository
     {
-        public async Task Add(UserDTO user)
+        public async Task<string> Add(UserDTO userDTO)
         {
-
-            // Checar se usuário ja existe antes de criar a conta.
             string sql = @"
                 SELECT Id FROM User 
                 WHERE Email = @Email
             ";
-
             bool userExists = false;
             try
             {
-                await GetConnection().QueryFirstAsync<UserEntity>(sql, user.Email);
+                await GetConnection().QueryFirstAsync<UserEntity>(sql, userDTO.Email);
                 userExists = true;
 
             } catch (Exception ex)
@@ -33,38 +31,57 @@ namespace Backend.Repository
                 }
             }
 
+            UserEntity user = await UserConverter.Convert(userDTO);
+            string UUID = CreateRandomUUID();
+            user.EmailValidationUUID = UUID;
             sql = @"
                 INSERT INTO User (
                         Document,
                         Telephone1,
                         Telephone2,
-                        Name,
-                        LastName, 
+                        Name, 
                         Email, 
                         PasswordHash,
                         Type,
                         CNH,
                         Photo,
-                        Role
+                        Role,
+                        EmailValidationUUID
                     ) VALUE (
                         @Document,
                         @Telephone1,
                         @Telephone2,
                         @Name,
-                        @LastName,
                         @Email, 
                         @PasswordHash,
                         @Type,
                         @CNH,
                         @Photo,
-                        default
+                        @Role,
+                        @EmailValidationUUID
                     )
             ";
+            try
+            {
+                await Execute(sql , user);
+            } catch (Exception ex)
+            {
+                throw new Exception($"Não foi possivel cadastrar usuário. {ex.Message}");
+            }
 
-            PasswordHasher hasher = new PasswordHasher();
-            user.PasswordHash = await hasher.HashPassword(user.PasswordHash);
-
-            await Execute(sql , user);
+            try
+            {
+                Email email = new Email();
+                await email.SendEmail(
+                    user.Email,
+                    "MovEasy - Confirmação de Email",
+                    $"Olá, {user.Name}\n\nClique no link abaixo para confirmar seu email\n\nmoveasybrasil.github.io/MovEasy/user/validation/email?UUID={UUID}\n\n"
+                );
+                return "Cadastro efetuado";
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task Delete(int id)
@@ -143,6 +160,38 @@ namespace Backend.Repository
                 Token = Authentication.GenerateToken(userLogin),
                 User = userLogin
             };
+        }
+
+        public async Task<string> ValidateEmail(string UUID)
+        {
+            string sql = "SELECT Id FROM User WHERE EmailValidationUUID = @UUID";
+            string id = string.Empty;
+            try
+            {
+                id = await GetConnection().QueryFirstAsync<string>(sql, new { UUID });
+            }
+            catch (Exception ex)
+            {
+                return "UUID Inválido.";
+            }
+
+            sql = @"
+                UPDATE User 
+                    SET 
+                        EmailValidationUUID = @UUID,
+                        EmailValidationDate = @Date
+                    WHERE
+                        Id = @id
+            ";
+            try
+            {
+                await Execute(sql, new {UUID = (string?)null, Date = (DateTime)DateTime.Now, id});
+            } catch (Exception ex)
+            {
+                return $"Erro ao atualizar banco de dados. {ex.Message}";
+            }
+
+            return "Email Validado!";
         }
 
         public async Task<string> ForgotPassword(string receiverEmail)
@@ -249,6 +298,7 @@ namespace Backend.Repository
 
             return "true";
         }
+
         private string CreateRandomUUID()
         {
             return Guid.NewGuid().ToString();

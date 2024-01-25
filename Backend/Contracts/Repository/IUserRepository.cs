@@ -6,7 +6,7 @@ namespace Backend.Contracts.Repository
 {
     public interface IUserRepository
     {
-        Task Add(UserDTO user);
+        Task<string> Add(UserDTO user);
         Task Update(UserEntity user);
         Task UpdatePassword(UserPasswordDTO user);
         Task Delete(int id);
@@ -16,5 +16,6 @@ namespace Backend.Contracts.Repository
         Task<string> ForgotPassword(string email);
         Task<string> RenewPassword(UserPasswordRecoveryDTO user);
         Task<string> ValidateUUID(string UUID);
+        Task<string> ValidateEmail(string UUID);
     }
 }
