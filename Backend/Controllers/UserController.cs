@@ -4,6 +4,8 @@ using Backend.Contracts.Repository;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Repository;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -38,6 +40,27 @@ namespace Backend.Controllers
             {
                 await _userRepository.Add(user);
                 return Ok();
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> AddPhoto(IFormFile image)
+        {
+            try
+            {
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                string email = identity.FindFirst(ClaimTypes.Email).Value;
+                if (email == null) { throw new Exception("Token Invalido."); }
+
+                //Microsoft.Extensions.Primitives.StringValues headerValues;
+                // Request.Headers.TryGetValue("Authorization", out headerValues);
+
+                return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
             } catch (Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -160,7 +183,7 @@ namespace Backend.Controllers
                 return Ok(await _userRepository.RenewPassword(user));
             } catch (Exception Ex)
             {
-                return Forbid();
+                return Forbid(Ex.Message);
             }
         }
     }
