@@ -1,9 +1,11 @@
-﻿namespace Backend.Entity
+namespace Backend.Entity
 {
     public class ServiceEntity
     {
         public int Id { get; set; }
-        public string Terms { get; set; }
+
+        //public string Terms { get; set; } ESSA LINHA NAO TINHA NO SQL, REVISAR DEPOIS
+
         public string Description { get; set; }
         public string OriginDescription { get; set; }
         public int Status { get; set; }
