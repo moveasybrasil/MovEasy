@@ -8,7 +8,6 @@
 }
 
 .banner {
-
     width: 100%;
     background: url("../assets/images/bg-home-sm.jpg");
     background-size: cover;
@@ -25,15 +24,8 @@
     background-color: rgba(0, 0, 0, .4);
 }
 
-.texto {
-    color: white;
-    text-shadow: 0 0 6px #000;
-    text-transform: uppercase;
-    font-weight: bold;
+@media (min-width: 661px) {
 
-}
-
-@media (min-width: 950px) {
     .banner {
         background: url("../assets/images/bg-home-md.jpg");
         background-size: cover;
@@ -43,26 +35,36 @@
         border-top: 1px solid;
     }
 
-    .mudanca-form {
-        width: 100%;
+    #container-text {
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
     }
 
-    .agendar-form {
-        width: 60vw;
+    #text-bn {
+        text-align: center;
+        padding-top: 50px;
+        width: 70%;     
     }
 
-    .inputs {
-        padding-left: 20px;
-    }
-
-    .inputs input {
+    #text-bm {
+        text-align: center;
+        margin-top: 380px;
         width: 70%;
     }
 
-    #buscar-opc {
-        width: 120px;
-    }
-
+    #text-bt {
+        color: white;
+        background-color: #e4321e;
+        width: 70%;
+        border-radius: 15px;
+        font-weight: 500; 
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        cursor: pointer;
+}
 }
 
 @media (max-width: 660px) {
@@ -93,5 +95,6 @@
         text-align: center;
         margin-top: 30px;
         padding: 20px;
+        cursor: pointer;
     }
 }
