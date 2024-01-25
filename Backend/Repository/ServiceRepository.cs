@@ -1,4 +1,5 @@
 ﻿using Backend.Contracts.Repository;
+using Backend.Converter;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Infrastructure;
@@ -11,8 +12,8 @@ namespace Backend.Repository
         public async Task Add(ServiceDTO service)
         {
             string sql = @"
-                INSERT INTO SERVICE (
-                        Id,
+                INSERT INTO Service (
+                        Terms,
                         Description,
                         OriginDescription,
                         Status, 
@@ -24,7 +25,7 @@ namespace Backend.Repository
                         User_Id,
                         User_Id1
                     ) VALUE (
-                        @Id,
+                        @Terms,
                         @Description,
                         @OriginDescription,
                         @Status,
@@ -38,34 +39,34 @@ namespace Backend.Repository
                     )
             ";
 
-            await Execute(sql, service);
+            await Execute(sql, await ServiceConverter.Convert(service));
         }
 
         public async Task Delete(int id)
         {
-            string sql = "DELETE FROM SERVICE WHERE Id = @id";
+            string sql = "DELETE FROM Service WHERE Id = @id";
 
             await Execute(sql, new { id });
         }
 
         public async Task<IEnumerable<ServiceEntity>> Get()
         {
-            string sql = "SELECT * FROM SERVICE";
+            string sql = "SELECT * FROM Service";
             return await GetConnection().QueryAsync<ServiceEntity>(sql);
         }
 
         public async Task<ServiceEntity> GetById(int id)
         {
-            string sql = "SELECT * FROM SERVICE WHERE Id = @id";
+            string sql = "SELECT * FROM Service WHERE Id = @id";
             return await GetConnection().QueryFirstAsync<ServiceEntity>(sql, new { id });
         }
 
         public async Task Update(ServiceEntity service)
         {
             string sql = @"
-                UPDATE SERVICE 
+                UPDATE Service 
                     SET 
-                        Id = @Id,
+                        Terms = @Terms,
                         Description = @Description,
                         OriginDescription = @OriginDescription,
                         Status = @Status, 
