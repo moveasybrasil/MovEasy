@@ -1,5 +1,6 @@
 const serverURL = "https://moveasy-afe07a84638c.herokuapp.com";
 const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? "https://moveasybrasil.github.io/MovEasy" : `file:///C:/Users/${window.location.pathname.split('Users/')[1].split('/MovEasy')[0]}/MovEasy/docs`;
+const r2URL = "https://pub-aa42159a06e741ff942b348ad2e0ab2c.r2.dev"
 
 function request(type, url, callback, params) {
     var xhttp = new XMLHttpRequest();
