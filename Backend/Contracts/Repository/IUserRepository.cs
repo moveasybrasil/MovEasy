@@ -7,6 +7,7 @@ namespace Backend.Contracts.Repository
     public interface IUserRepository
     {
         Task<string> Add(UserDTO user);
+        Task<string> AddPhoto(Stream image, string name, string type);
         Task Update(UserEntity user);
         Task UpdatePassword(UserPasswordDTO user);
         Task Delete(int id);

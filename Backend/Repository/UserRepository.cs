@@ -6,6 +6,7 @@ using Backend.Infrastructure;
 using System.Text;
 using System.Security.Cryptography;
 using Backend.Converter;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace Backend.Repository
 {
@@ -84,6 +85,51 @@ namespace Backend.Repository
             }
         }
 
+        public async Task<string> AddPhoto(Stream image, string fileName, string email)
+        {
+            string id, path, sql;
+            try
+            {
+                sql = "SELECT Id FROM User WHERE Email = @email";
+                id = await GetConnection().QueryFirstAsync<string>(sql , new { email });
+                path = $"user/{id}{Path.GetExtension(fileName)}";
+            } catch (Exception ex)
+            {
+                throw new Exception($"0- {ex.Message}");
+            }
+
+
+            try
+            {
+                CloudflareClient CloudFlareClient = new CloudflareClient();
+                await CloudFlareClient.UploadImage(
+                    image,
+                    path,
+                    GetContentTypeFromFileName(fileName)
+                );
+            } catch (Exception ex)
+            {
+                throw new Exception ($"1- {ex.Message}");
+            }
+
+            try
+            {
+                sql = @"
+                    UPDATE User 
+                        SET 
+                            Photo = @Photo
+                        WHERE
+                            Id = @Id
+                ";
+                await Execute(sql, new {Photo = path, Id = id});
+            } catch (Exception ex)
+            {
+                throw new Exception($"2- {ex.Message}");
+            }
+
+            return "Imagem Salva";
+        }
+
         public async Task Delete(int id)
         {
             string sql = "DELETE FROM User WHERE Id = @id";
@@ -152,6 +198,9 @@ namespace Backend.Repository
         public async Task<UserTokenDTO> Login(UserLoginDTO user)
         {
             string sql = "SELECT * FROM User WHERE Email = @Email and PasswordHash = @Password";
+
+            PasswordHasher hasher = new PasswordHasher();
+            user.Password = await hasher.HashPassword(user.Password);
 
             UserEntity userLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, user);
 
@@ -302,6 +351,13 @@ namespace Backend.Repository
         private string CreateRandomUUID()
         {
             return Guid.NewGuid().ToString();
+        }
+
+        private string GetContentTypeFromFileName(string fileName)
+        {
+            string contentType;
+            new FileExtensionContentTypeProvider().TryGetContentType(fileName, out contentType);
+            return contentType ?? "application/octet-stream";
         }
     }
 }
