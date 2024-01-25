@@ -27,7 +27,6 @@ namespace Backend.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _serviceRepository.Delete(id);
@@ -35,7 +34,6 @@ namespace Backend.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Get()
         {
             return Ok(await _serviceRepository.Get());
@@ -48,7 +46,6 @@ namespace Backend.Controllers
         }
 
         [HttpPut]
-        [Authorize]
         public async Task<IActionResult> Update(ServiceEntity service)
         {
             await _serviceRepository.Update(service);
