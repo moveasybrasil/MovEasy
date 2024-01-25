@@ -7,12 +7,15 @@
     align-items: flex-end;
 }
 
-#logo {
-    width: 40%; 
-}
-
 .menu {
     padding-top: 85px;
+}
+
+#logo {
+    width: 356px;
+    height: 84px;
+    display: block;
+
 }
 
 .menu a {
@@ -47,6 +50,10 @@
     display: none;
 }
 
+.menu-mobile-links {
+    display: none;
+}
+
 #logo-mobile {
     display: none;
 }
@@ -60,10 +67,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    z-index: 10000;
 }
 
 .footer-icons {
     display: flex;
+    z-index: 1000;
 }
 
 .ft-icon {
@@ -83,24 +93,89 @@
 
 #in-icon {
     background-color: #0a66c2;
+    
 }
 
 #fb-icon {
     background-color: #0866ff;
+    
 }
 
 #x-icon {
     background-color: black;
+    
 }
 
 #insta-icon {
   background: #d6249f;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); 
+  
 }
 
 .ftr_icon {
     width: 25px;
     height: 25px;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex !important;
+}
+
+footer {
+    position: relative;
+}
+
+#poplinkedin {
+    flex-direction: column;
+    background-color: #0b142f;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    z-index: 56;
+    position: absolute;
+    height: 0;
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    }
+
+#poplinkedin span {
+    padding-bottom: 10px;
+}
+
+#poplinkedin.active {
+    height: 480px;
+    top: -1020px;
+    transform:translateY(50%);
+    transition: top 1s ease-in-out;
+    opacity: 1;
+}
+
+.nome-linkedin {
+    padding: 20px;
+}
+
+#poplinkedin div {
+    display: flex;
+}
+
+#poplinkedin a {
+    padding-left: 80px;
+    width: 100%;
+}
+
+#poplinkedin img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    align-self: center;
+    position: absolute;
+    left: 5%;
+}
+
+#poplinkedin a:hover {
+    background-color: #e4321e;
 }
 
 @media (max-width: 950px) {
@@ -109,12 +184,10 @@
         display: none;
     }
 
-    #icone-mobile {
-        padding-top: 10px;
-    }
-
     #icone-mobile2 {
-        width: 40px;
+        width: 60px;
+        height: 65px;
+        padding-bottom: 15px;
         }
 
     .menu-mobile {
@@ -161,7 +234,8 @@
 
 @media (max-width: 450px) {
     #logo {
-       width: 100%; 
+       width: auto;
+       display: flex;
     }
 
     #header {
@@ -169,6 +243,4 @@
         flex-direction: column;
         align-items: center;
     }
-
-
 }
