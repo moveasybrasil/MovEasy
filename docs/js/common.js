@@ -26,3 +26,11 @@ function goTo(path) {
 function getUrl(path) {
     return `${frontURL}/${path}`
 }
+
+function SetUpSessionStorage() {
+    if(localStorage.getItem(`token`)) {
+        sessionStorage.setItem(`token`, localStorage.getItem(`token`))
+    }
+}
+
+SetUpSessionStorage()
