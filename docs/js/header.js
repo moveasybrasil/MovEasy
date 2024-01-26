@@ -22,7 +22,7 @@ $(() => {
         window.location.href = "https://twitter.com";
     });
     $('#insta-icon').click((e) => {
-        window.location.href = "https://www.instagram.com/";
+        window.location.href = "https://www.instagram.com/moveasybrasil/";
     });
     
     $(document).click(function (e) {
