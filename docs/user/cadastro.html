@@ -28,63 +28,60 @@
 
 <body>
   <div class="banner bg-local">
-    <header id="header" class="flex justify-between	px-16">
-      <div style="display:flex">
-        <img id="logo" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="MovEasy">
+    <div class="header" id="header">
+      <div class="btn-container">
+        <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+      </div>
+      <div class="logo-header">
+        <img id="logo-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))"
+          alt="movEasy">
+      </div>
+      <div class="navigation-header" id="navigation-header">
+        <div class="btn-icon-x">
+          <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">X</button>
+        </div>
+        <a class="header-home" href="javascript:goTo('index')">HOME</a>
+        <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+        <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+        <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+      </div>
+    </div>
 
-      </div>
-      <div class="menu-mobile">
-        <img id="logo-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
-        <img id="icone-mobile" class="icone-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/bars-solid.png'))" alt="menu-mobile">
-        <div>
-        <img id="icone-mobile2" class="icone-mobile hidden" src="../" onerror="this.setAttribute('src', getUrl('assets/images/xmark.svg'))" alt="menu-mobile">
-      </div>
-      <div class="menu-mobile-links">
-        <a class="header-home" href="javascript:goTo('index')">HOME</a>
-        <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
-        <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
-        <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
-      </div>
-      </div>
-      <div class="menu-desktop">
-        <a class="header-home" href="javascript:goTo('index')">HOME</a>
-        <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
-        <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
-        <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
-      </div>
     </header>
-    <div class="container">
+
+    <div class="container-cadastro">
 
       <form action="/formulario-cadastro-cliente" method="post">
 
-        <!-- Menu de Escolha de Tipo de Usuário -->
+        <!-- Primeiro Menu de Cadastro -->
 
         <div class="box" id="box1">
-          <div class="title">
-            <h1 class="title-box" id="title-box1">Crie sua Conta</h1>
-            <h2 class="subtitle-box">Escolha o Tipo de Usuário</h2>
-          </div>
+          <h1 class="title-box">Crie sua Conta</h1>
 
-          <div class="switch-options">
-            <input type="radio" id="radio-one" name="switch-one" value="yes" checked />
-            <label for="radio-one" src="../" onerror="this.setAttribute('src', getUrl('assets/images/user_8647311-removebg-preview.png'))">Usúario</label>
-          </div>
+          <input type="radio" id="radio-one" name="switch-cadastro" value="no" />
+          <label for="radio-one"></label>
 
-
-          <div class="switch-options">
-            <div class="image-switch" onclick="document.getElementById('radio-two').checked = true">
-              <div id="title-switcn">
-                <p>Prestador de Serviço</p>
-              </div>
-              <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/delivery-truck_2769339-removebg-preview.png'))" alt=""></img>
+          <div class="switch-options" id="s1" onclick="check1()">
+            <div class="image-switch">
+              <img src="..//assets/images/user_8647311-removebg-preview.png" alt="" id="img-usuario"></img>
             </div>
-
-            <input type="radio" id="radio-two" name="switch-one" value="no" />
-            <label for="radio-two"></label>
+            <div class="title-switch">
+              <p>Usúario</p>
+            </div>
           </div>
 
+          <input type="radio" id="radio-two" name="switch-cadastro" value="no" />
+          <label for="radio-two"></label>
+
+          <div class="switch-options s2" id="s2" onclick="check2()">
+            <div class="image-switch">
+              <img src="..//assets/images/delivery-truck_2769339-removebg-preview.png" alt="" id="img-prestador"></img>
+            </div>
+            <div class="title-switch">
+              <p>Prestador de Serviços</p>
+            </div>
+          </div>
 
           <!-- Botão que permite ir para o Segundo Menu -->
 
@@ -92,7 +89,8 @@
             <button type="button">Continuar</button>
           </div>
         </div>
-        <!-- Primeiro Menu de Cadastro -->
+
+        <!-- Segundo Menu de Cadastro -->
 
         <div class="box" id="box2">
           <h1 class="title-box">Crie sua Conta</h1>
@@ -105,59 +103,59 @@
             <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
 
             <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" name="confirmed-password" id="confirmed-password"
-              placeholder="Confirme sua senha"></input>
+            <input type="password" name="confirmed-password" id="confirmed-password" placeholder="Confirme sua senha"></input>
           </div>
 
-          <!-- Botão que permite ir para o Segundo Menu -->
+          <!-- Botão que permite voltar para o Segundo Menu -->
+
+          <div class="button-box" id="button-voltar1">
+            <button type="button">
+              <</button>
+          </div>
+
+          <!-- Botão que permite ir para o Terceiro Menu -->
+
+          <div class="button-box" id="button-continuar2">
+            <button type="button">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Terceiro Menu de Cadastro -->
+
+        <div class="box" id="box3">
+
+          <div class="info-boxes-cadastro">
+            <label for="cadastro-formulario-nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
+
+            <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
+            <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
+
+            <label for="cadastro-formulario-tel">Telefone:</label>
+            <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
+          </div>
+
+          <div class="checkbox_class">
+            <input type="checkbox"></input>
+            <span>Li e concordo com os</span>
+            <a id="termos-de-uso" href="">Termos de Uso</a>
+          </div>
+
+          <!-- Botão que permite voltar para o Segundo Menu -->
 
           <div class="button-container">
-            <div class="button-box" id="button-voltar1">
+            <div class="button-box" id="button-voltar2">
               <button type="button">
-                < </button>
+                <</button>
             </div>
 
-            <div class="button-box" id="button-continuar2">
-              <button type="button">Continuar</button>
-            </div>
-          </div>
+            <!-- Botão que finaliza o Cadastro do Usúario -->
 
-          <!-- Segundo Menu de Cadastro -->
-
-          <div class="box" id="box3">
-
-            <div class="info-boxes">
-              <label for="cadastro-formulario-nome">Nome:</label>
-              <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
-
-              <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
-              <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
-
-              <label for="cadastro-formulario-tel">Telefone:</label>
-              <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
-            </div>
-
-            <div class="checkbox_class">
-              <input type="checkbox"></input>
-              <span>Li e concordo com os</span>
-              <a id="termos-de-uso" href="">Termos de Uso</a>
-            </div>
-
-            <!-- Botão que permite voltar para o Primeiro Menu -->
-
-            <div class="button-container">
-              <div class="button-box" id="button-voltar2">
-                <button type="button">
-                  < </button>
-              </div>
-
-              <!-- Botão que finaliza o Cadastro do Usúario -->
-
-              <div class="button-box" id="button-cadastrar">
-                <button type="button">Cadastrar</button>
-              </div>
+            <div class="button-box" id="button-cadastrar1">
+              <button type="button">Cadastrar</button>
             </div>
           </div>
+        </div>
 
       </form>
 
