@@ -147,3 +147,23 @@ $(() => {
 
 
 // slideToggle(slow) para header mobile
+
+
+function SignUp() {
+
+    let user = {
+        document: document.getElementById("cpf-cnpj"),
+        telephone: document.getElementById("telefone"),
+        name: document.getElementById("nome"),
+        email: document.getElementById("email"),
+        password: document.getElementById("password"),
+        type: document.getElementById("radio-one").checked ? 0 : 1
+    }
+
+    request("POST", `${serverURL}/user`, (xhr) => {
+        console.log(`* - ${xhr.responseText}`)
+    }, user 
+    )
+
+
+}
