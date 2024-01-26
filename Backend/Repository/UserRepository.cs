@@ -14,28 +14,10 @@ namespace Backend.Repository
     {
         public async Task<string> Add(UserDTO userDTO)
         {
-            string sql = @"
-                SELECT Id FROM User 
-                WHERE Email = @Email
-            ";
-            bool userExists = false;
-            try
-            {
-                await GetConnection().QueryFirstAsync<UserEntity>(sql, userDTO.Email);
-                userExists = true;
-
-            } catch (Exception ex)
-            {
-                if (userExists)
-                {
-                    throw new Exception("Usuário já cadastrado.");
-                }
-            }
-
             UserEntity user = await UserConverter.Convert(userDTO);
             string UUID = CreateRandomUUID();
             user.EmailValidationUUID = UUID;
-            sql = @"
+            string sql = @"
                 INSERT INTO User (
                         Document,
                         Telephone1,
