@@ -63,13 +63,13 @@
 
                 </div>
                 <div class="container-end flex p-8">
-                    <button name="logout" id="btn-logout" class="">Logout</button>
+                    <button name="logout" id="btn-logout" class="" onclick="sessionStorage.removeItem(`token`);goTo(`user/login`)">Logout</button>
                 </div>
             </div>
 
         </div>
 
         <script src="../js/header.js"></script>
-        <script src="../js/cadastro.js"></script>
+        <script src="../js/user-profile.js"></script>
     </body>
 </html>

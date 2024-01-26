@@ -31,3 +31,9 @@ $(() => {
         }
     });
 });
+
+if(!!sessionStorage.getItem(`token`)) { 
+    document.querySelectorAll(".header-login").forEach( (e) => {
+        e.innerHTML = "PERFIL"
+    })
+}
