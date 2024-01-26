@@ -12,6 +12,7 @@ namespace Backend.Contracts.Repository
         Task UpdatePassword(UserPasswordDTO user);
         Task Delete(int id);
         Task<UserEntity> GetById(int id);
+        Task<string> GetUserPhoto(string email);
         Task<IEnumerable<UserEntity>> Get();
         Task<UserTokenDTO> Login(UserLoginDTO user);
         Task<string> ForgotPassword(string email);

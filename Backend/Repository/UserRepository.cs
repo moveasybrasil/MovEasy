@@ -131,6 +131,18 @@ namespace Backend.Repository
             return await GetConnection().QueryFirstAsync<UserEntity>(sql, new {id});
         }
 
+        public async Task<string> GetUserPhoto(string email)
+        {
+            string sql = "SELECT Photo FROM User WHERE Email = @email";
+            try
+            {
+                return await GetConnection().QueryFirstAsync<string>(sql, new { email });
+            } catch (Exception ex)
+            {
+                return "user/default.jpg";
+            }
+        }
+
         public async Task Update(UserEntity user)
         {
             string sql = @"
