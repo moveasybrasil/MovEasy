@@ -202,10 +202,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    z-index: 10000;
 }
 
 .footer-icons {
     display: flex;
+    z-index: 1000;
 }
 
 .ft-icon {
@@ -225,14 +228,17 @@
 
 #in-icon {
     background-color: #0a66c2;
+    
 }
 
 #fb-icon {
     background-color: #0866ff;
+    
 }
 
 #x-icon {
     background-color: black;
+    
 }
 
 #insta-icon {

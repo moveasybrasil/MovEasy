@@ -4,6 +4,8 @@ using Backend.Contracts.Repository;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Repository;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -41,6 +43,45 @@ namespace Backend.Controllers
             } catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> AddPhoto(IFormFile image)
+        {
+            try
+            {
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                string email = identity.FindFirst(ClaimTypes.Email).Value;
+                if (email == null) { throw new Exception("Token Invalido."); }
+
+                //Microsoft.Extensions.Primitives.StringValues headerValues;
+                // Request.Headers.TryGetValue("Authorization", out headerValues);
+
+                return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> GetPhoto()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            string email = identity.FindFirst(ClaimTypes.Email).Value;
+            if (email == null) { throw new Exception("Token Invalido."); }
+
+            try
+            {
+                return Ok(await _userRepository.GetUserPhoto(email));
+            } catch (Exception ex)
+            { 
+                return NotFound(ex.Message);
             }
         }
 
@@ -112,6 +153,19 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("validation/{UUID}")]
+        public async Task<IActionResult> ValidateEmail(string UUID)
+        {
+            try
+            {
+                return Ok(await _userRepository.ValidateEmail(UUID));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("recovery")]
         public async Task<IActionResult> ForgotPassword(string email)
@@ -147,7 +201,7 @@ namespace Backend.Controllers
                 return Ok(await _userRepository.RenewPassword(user));
             } catch (Exception Ex)
             {
-                return Forbid();
+                return Forbid(Ex.Message);
             }
         }
     }

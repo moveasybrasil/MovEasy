@@ -7,8 +7,8 @@
     font-family: "Montserrat", sans-serif;
 }
 
+
 .banner {
-    height: 95vh;
     width: 100%;
     background: url("../assets/images/bg-home-sm.jpg");
     background-size: cover;
@@ -16,6 +16,7 @@
     background-position: bottom;
     overflow: auto;
     border-top: 1px solid;
+    overflow: hidden;
 }
 
 .bg-filter {
@@ -23,104 +24,11 @@
     flex: column;
     height: 100vh;
     background-color: rgba(0, 0, 0, .4);
+    overflow: hidden;
 }
 
-.texto {
-    color: white;
-    text-shadow: 0 0 6px #000;
-    text-transform: uppercase;
-    font-weight: bold;
+@media (min-width: 661px) {
 
-}
-
-#buscar-opc {
-    color: white;
-    background-color: #e4321e;
-    width: 120px;
-    height: 60px;
-    border-radius: 15px;
-    font-weight: 500;
-}
-
-.agendar-form {
-    background-color: white;
-    margin-top: 30px;
-    padding: 15px 0 15px 0;
-    border-radius: 15px;
-    box-shadow: 3px 2px 2px #8a8a8a;
-    display: flex;
-    justify-content: space-evenly;
-    height: 100%;
-}
-.inputs {
-    gap: 18px;
-    align-items: center;
-    background-color: white;
-    height: 100%;
-    width: 100%;
-}
-
-.form-um {
-    height: 100%;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 10px;
-}
-
-.form-dois {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.buscar-btn {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#estado-uf {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    font-weight: 620;
-    background-color: #aaaaaa;
-    border: 1px solid #bbb;
-
-}
-
-.inputs input {
-    font-weight: 500;
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    padding: 8px;
-    margin-left: 20px;
-    background-color: #f5f5f5;
-    box-shadow: 3px 2px 2px #aaaaaa;
-    border: 1px solid #bbb;
-}
-
-.agendar-form label {
-    font-weight: 700;
-}
-
-.uf-estado {
-    height: 50px;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    box-shadow: 3px 2px 2px #aaaaaa;
-    border: 1px solid #bbb;
-}
-
-
-@media (min-width: 768px) {
     .banner {
         background: url("../assets/images/bg-home-md.jpg");
         background-size: cover;
@@ -130,71 +38,72 @@
         border-top: 1px solid;
     }
 
-    .menu-desktop {
-        display: flex;
+    #container-text {
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
     }
 
-    .mudanca-form {
-        width: 100%;
+    #text-bn {
+        text-align: center;
+        padding-top: 50px;
+        width: 70%;     
     }
 
-    .agendar-form {
-        width: 60vw;
-    }
-
-    .inputs {
-        padding-left: 20px;
-    }
-
-    .inputs input {
+    #text-bm {
+        text-align: center;
+        margin-top: 200px;
         width: 70%;
+        overflow: hidden;
     }
 
-    #buscar-opc {
-        width: 120px;
-    }
-
+    #text-bt {
+        color: white;
+        background-color: #e4321e;
+        width: 70%;
+        border-radius: 15px;
+        font-weight: 500; 
+        text-align: center;
+        margin-top: 30px;
+        padding: 15px;
+        cursor: pointer;
+}
 }
 
-@media (max-width: 768px) {
-    .texto {
-        display: flex;
-        text-align: center;
-    }
+@media (max-width: 693px) {
 
-    .menu-desktop {
-        display: none;
-    }
-
-    .form-um,
-    .form-dois,
-    .buscar-btn {
+    #container-text {
         width: 100%;
+        flex-direction: column;
         align-items: center;
+        margin-top: 50px;   
+        overflow: hidden;
     }
 
-    .principal {
-        margin: 0 10px 0 10px;
+    #text-bn {
+        text-align: center;
+        margin-top: 30px;
 
     }
 
-    .texto {
-        justify-content: center;
+    #text-bm {
+        text-align: center;
+        margin-top: 380px;
+        overflow: visible;
     }
 
-    .mudanca-form,
-    .form-dois {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    #origem_cidade,
-    #destino_cidade {
-        width: 70%;
-    }
-
-    .agendar-form {
-        margin-top: 200px;  
+    #text-bt {
+        color: white;
+        background-color: #e4321e;
+        width: 90%;
+        border-radius: 15px;
+        font-weight: 500; 
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 2
     }
 }
