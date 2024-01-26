@@ -1,5 +1,5 @@
 const serverURL = "https://moveasy-afe07a84638c.herokuapp.com";
-const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? "https://moveasybrasil.github.io/MovEasy" : `file:///C:/Users/${window.location.pathname.split('Users/')[1].split('/MovEasy')[0]}/MovEasy/docs`;
+const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? "https://moveasybrasil.github.io/MovEasy" : `${window.location.href.split("docs")[0]}docs/`;
 const r2URL = "https://pub-aa42159a06e741ff942b348ad2e0ab2c.r2.dev"
 
 function request(type, url, callback, params, formData, isAuthorized) {
@@ -13,7 +13,7 @@ function request(type, url, callback, params, formData, isAuthorized) {
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
 
     if(isAuthorized) {
-        xhttp.setRequestHeader('Authorization', `Bearer ${localStorage.getItem(`token`)}`);
+        xhttp.setRequestHeader('Authorization', `Bearer ${sessionStorage.getItem(`token`)}`);
     }
 
     if(formData) {
@@ -39,3 +39,11 @@ function goTo(path) {
 function getUrl(path) {
     return `${frontURL}/${path}`
 }
+
+function SetUpSessionStorage() {
+    if(localStorage.getItem(`token`)) {
+        sessionStorage.setItem(`token`, localStorage.getItem(`token`))
+    }
+}
+
+SetUpSessionStorage()

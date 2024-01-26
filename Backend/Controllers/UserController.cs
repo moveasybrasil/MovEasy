@@ -67,6 +67,24 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> GetPhoto()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            string email = identity.FindFirst(ClaimTypes.Email).Value;
+            if (email == null) { throw new Exception("Token Invalido."); }
+
+            try
+            {
+                return Ok(await _userRepository.GetUserPhoto(email));
+            } catch (Exception ex)
+            { 
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpPut]
         [Authorize]
         public async Task<IActionResult> Update(UserEntity user)

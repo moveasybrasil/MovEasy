@@ -14,28 +14,10 @@ namespace Backend.Repository
     {
         public async Task<string> Add(UserDTO userDTO)
         {
-            string sql = @"
-                SELECT Id FROM User 
-                WHERE Email = @Email
-            ";
-            bool userExists = false;
-            try
-            {
-                await GetConnection().QueryFirstAsync<UserEntity>(sql, userDTO.Email);
-                userExists = true;
-
-            } catch (Exception ex)
-            {
-                if (userExists)
-                {
-                    throw new Exception("Usuário já cadastrado.");
-                }
-            }
-
             UserEntity user = await UserConverter.Convert(userDTO);
             string UUID = CreateRandomUUID();
             user.EmailValidationUUID = UUID;
-            sql = @"
+            string sql = @"
                 INSERT INTO User (
                         Document,
                         Telephone1,
@@ -147,6 +129,18 @@ namespace Backend.Repository
         {
             string sql = "SELECT * FROM User WHERE Id = @id";
             return await GetConnection().QueryFirstAsync<UserEntity>(sql, new {id});
+        }
+
+        public async Task<string> GetUserPhoto(string email)
+        {
+            string sql = "SELECT Photo FROM User WHERE Email = @email";
+            try
+            {
+                return await GetConnection().QueryFirstAsync<string>(sql, new { email });
+            } catch (Exception ex)
+            {
+                return "user/default.jpg";
+            }
         }
 
         public async Task Update(UserEntity user)
