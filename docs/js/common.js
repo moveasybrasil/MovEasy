@@ -17,7 +17,7 @@ function request(type, url, callback, params, formData, isAuthorized) {
     }
 
     if(formData) {
-        xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        // xhttp.setRequestHeader('Content-type', 'multipart/form-data');
         xhttp.send(formData);
     } else if(params) {
         xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');

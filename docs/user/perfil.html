@@ -57,7 +57,7 @@
                     <button name="dados-pessoais" id="btn-dados-pessoais" class="btn-container">Dados Pessoais</button>
                 </div>
                 <div class="container-dados mx-2">
-                    <img id="photo" src="../assets/images/default.jpg" width="100px"> 
+                    <img id="photo" src="../assets/images/default.jpg" onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))" width="100px"> 
                     
                 </div>
                 <div class="container-end flex p-8">
@@ -66,7 +66,7 @@
             </div>
 
             <input type="file" name="file">
-            <button type="button" role="button" onclick="SendPhoto()">[Enviar]</button>
+            <button type="button" role="button" onclick="sendPhoto()">[Enviar]</button>
 
         </div>
     </div>
