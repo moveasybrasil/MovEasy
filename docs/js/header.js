@@ -16,7 +16,7 @@ $(() => {
         popUp.toggleClass("flex active");
     });
     $('#fb-icon').click((e) => {
-        window.location.href = "https://pt-br.facebook.com";
+        window.location.href = "https://www.facebook.com/moveasybrasil";
     });
     $('#x-icon').click((e) => {
         window.location.href = "https://twitter.com";
