@@ -153,6 +153,25 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("renew-token")]
+        public async Task<IActionResult> RenewToken()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            string email = identity.FindFirst(ClaimTypes.Email).Value;
+            if (email == null) { throw new Exception("Token Invalido."); }
+
+            try
+            {
+                return Ok(await _userRepository.RenewToken(email));
+            }
+            catch (Exception Ex)
+            {
+                return Unauthorized(Ex.Message);
+            }
+        }
+
         [HttpPut]
         [Route("validation/{UUID}")]
         public async Task<IActionResult> ValidateEmail(string UUID)
