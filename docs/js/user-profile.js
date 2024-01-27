@@ -39,3 +39,9 @@ function setProfilePhoto() {
 
     document.getElementById("photo").src = url();
 }
+
+function logOut() {
+    localStorage.removeItem(`token`);
+    sessionStorage.removeItem(`token`);
+    goTo(`user/login`)
+}
