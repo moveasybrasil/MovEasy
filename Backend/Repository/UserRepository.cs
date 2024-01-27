@@ -205,6 +205,19 @@ namespace Backend.Repository
             };
         }
 
+        public async Task<UserTokenDTO> RenewToken(string email)
+        {
+            string sql = "SELECT * FROM User WHERE Email = @email";
+
+            UserEntity userLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, new {email});
+
+            return new UserTokenDTO
+            {
+                Token = Authentication.GenerateToken(userLogin),
+                User = userLogin
+            };
+        }
+
         public async Task<string> ValidateEmail(string UUID)
         {
             string sql = "SELECT Id FROM User WHERE EmailValidationUUID = @UUID";
