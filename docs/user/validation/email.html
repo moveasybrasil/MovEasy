@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MovEasy</title>
   <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-  
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="../../js/saved_resource"></script>
   <script src="../../js/common.js"></script>
@@ -48,41 +48,44 @@
             <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
             <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
             <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-            <a class="header-login" href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
+            <a class="header-login"
+              href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
           </div>
         </div>
       </header>
-    
-      <div id="content">
-    <div class="banner2">
-      <form action="">
-        <div class="corpo">
-          <div class="menu-login">
-            <div class="controlador-login">
-              <div class="recuperar-email mt-8">
-                <label for="login-email"
-                  class="text-black text-lg font-normal font-['Inter']"><strong>Confirmação de email</strong></label>
-              </div>
-            </div>
 
-            <div class="">
-              <div class="campos mt-4 ml-4">
-                <div>
-                  <button type="button" id="btn-EnviarEmail" class="recuperar-senha text-lg font-normal font-['Inter']"onclick="goTo('user/login')">
-                    < Voltar para o login</button>
+      <div id="content">
+        <div class="banner2">
+          <form action="">
+            <div class="corpo">
+              <div class="menu-login">
+                <div class="controlador-login">
+                  <div class="recuperar-email mt-8">
+                    <label for="login-email" class="text-black text-lg font-normal font-['Inter']"><strong>Confirmação
+                        de email</strong></label>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="campos mt-4 ml-4">
+                    <div>
+                      <button type="button" id="btn-EnviarEmail"
+                        class="recuperar-senha text-lg font-normal font-['Inter']" onclick="goTo('user/login')">
+                        < Voltar para o login</button>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
-          </div>
-
         </div>
+      </div>
     </div>
-  </div>
-  </div>
 
-  </form>
+    </form>
   </div>
   <script src="../../js/header.js"></script>
   <script src="../../js/user-validation.js"></script>
 </body>
+
 </html>
