@@ -41,7 +41,7 @@ function setProfilePhoto() {
 }
 
 function logOut() {
-    localStorage.removeItem(`token`);
-    sessionStorage.removeItem(`token`);
+    localStorage.clear();
+    sessionStorage.clear();
     goTo(`user/login`)
 }
