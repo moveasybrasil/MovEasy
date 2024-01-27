@@ -53,6 +53,7 @@ $(() => {
         
                     if(values.manterConectado) {
                         localStorage.setItem(`token`, token)
+                        localStorage.setItem(`user`, user)
                     }
         
                     sessionStorage.setItem(`token`, token)

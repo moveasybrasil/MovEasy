@@ -28,6 +28,7 @@
 
 <body>
   <div class="banner bg-local">
+    <header>
     <div class="header" id="header">
       <div class="btn-container">
         <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
@@ -45,7 +46,7 @@
         <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
         <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
         <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-        <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+        <a class="header-login" href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
       </div>
     </div>
     </header>

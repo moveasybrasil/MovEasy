@@ -118,7 +118,7 @@ $(() => {
     // kdlfkldfklkdfl
 
 
-    $("#button-cadastrar").click(() => {
+    $("#button-cadastrar1").click(() => {
         const values = {
             nome: $("#nome")[0].value,
             cpf_or_cnpj: $("#cpf-cnpj")[0].value,
@@ -177,9 +177,8 @@ $(() => {
         if (camposInvalidos) {
             alert(msg);
         } else {
-            $("#button-cadastrar").click(function () {
-                msg = "Cadastro realizado com sucesso!";
-            });
+            SignUp();
+            msg = "Cadastro realizado com sucesso!";
         }
     });
 
@@ -200,16 +199,20 @@ $(() => {
 function SignUp() {
 
     let user = {
-        document: document.getElementById("cpf-cnpj"),
-        telephone: document.getElementById("telefone"),
-        name: document.getElementById("nome"),
-        email: document.getElementById("email"),
-        password: document.getElementById("password"),
-        type: document.getElementById("radio-one").checked ? 0 : 1
+        document: document.getElementById("cpf-cnpj").value,
+        telephone: document.getElementById("telefone").value,
+        name: document.getElementById("nome").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        type: document.getElementById("radio-two").checked ? 1 : 0
     }
 
     request("POST", `${serverURL}/user`, (xhr) => {
-        console.log(`* - ${xhr.responseText}`)
+        if(xhr.status == 200) {
+            alert(`Cadastro Realizado. ${xhr.responseText}`)
+        } else {
+            alert (`${xhr.responseText}`)
+        }
     }, user 
     )
 
