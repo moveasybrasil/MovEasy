@@ -40,6 +40,8 @@ function setProfilePhoto() {
     document.getElementById("photo").src = url();
 }
 
+setProfilePhoto()
+
 function logOut() {
     localStorage.clear();
     sessionStorage.clear();
