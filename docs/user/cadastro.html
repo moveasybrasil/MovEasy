@@ -46,125 +46,128 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
+          <a class="header-login"
+            href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
         </div>
       </div>
     </header>
-  
+
     <div id="content">
 
-    <div class="container-cadastro">
+      <div class="container-cadastro">
 
-      <form action="/formulario-cadastro-cliente" method="post">
+        <form action="/formulario-cadastro-cliente" method="post">
 
-        <!-- Primeiro Menu de Cadastro -->
+          <!-- Primeiro Menu de Cadastro -->
 
-        <div class="box" id="box1">
-          <h1 class="title-box">Crie sua Conta</h1>
+          <div class="box" id="box1">
+            <h1 class="title-box">Crie sua Conta</h1>
 
-          <input type="radio" id="radio-one" name="switch-cadastro" value="no" />
-          <label for="radio-one"></label>
+            <input type="radio" id="radio-one" name="switch-cadastro" value="no" />
+            <label for="radio-one"></label>
 
-          <div class="switch-options" id="s1" onclick="check1()">
-            <div class="image-switch">
-              <img src="..//assets/images/user_8647311-removebg-preview.png" alt="" id="img-usuario"></img>
+            <div class="switch-options" id="s1" onclick="check1()">
+              <div class="image-switch">
+                <img src="..//assets/images/user_8647311-removebg-preview.png" alt="" id="img-usuario"></img>
+              </div>
+              <div class="title-switch">
+                <p>Usúario</p>
+              </div>
             </div>
-            <div class="title-switch">
-              <p>Usúario</p>
+
+            <input type="radio" id="radio-two" name="switch-cadastro" value="no" />
+            <label for="radio-two"></label>
+
+            <div class="switch-options s2" id="s2" onclick="check2()">
+              <div class="image-switch">
+                <img src="..//assets/images/delivery-truck_2769339-removebg-preview.png" alt=""
+                  id="img-prestador"></img>
+              </div>
+              <div class="title-switch">
+                <p>Prestador de Serviços</p>
+              </div>
+            </div>
+
+            <!-- Botão que permite ir para o Segundo Menu -->
+
+            <div class="button-box" id="button-continuar1">
+              <button type="button">Continuar</button>
             </div>
           </div>
 
-          <input type="radio" id="radio-two" name="switch-cadastro" value="no" />
-          <label for="radio-two"></label>
+          <!-- Segundo Menu de Cadastro -->
 
-          <div class="switch-options s2" id="s2" onclick="check2()">
-            <div class="image-switch">
-              <img src="..//assets/images/delivery-truck_2769339-removebg-preview.png" alt="" id="img-prestador"></img>
+          <div class="box" id="box2">
+            <h1 class="title-box">Crie sua Conta</h1>
+
+            <div class="info-boxes">
+              <label for="cadastro-formulario-email">E-mail:</label>
+              <input type="email" name="email" id="email" placeholder="ex: seuemail@emai.com"></input>
+
+              <label for="cadastro-formulario-senha">Senha:</label>
+              <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
+
+              <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
+              <input type="password" name="confirmed-password" id="confirmed-password"
+                placeholder="Confirme sua senha"></input>
             </div>
-            <div class="title-switch">
-              <p>Prestador de Serviços</p>
-            </div>
-          </div>
 
-          <!-- Botão que permite ir para o Segundo Menu -->
+            <!-- Botão que permite voltar para o Segundo Menu -->
 
-          <div class="button-box" id="button-continuar1">
-            <button type="button">Continuar</button>
-          </div>
-        </div>
-
-        <!-- Segundo Menu de Cadastro -->
-
-        <div class="box" id="box2">
-          <h1 class="title-box">Crie sua Conta</h1>
-
-          <div class="info-boxes">
-            <label for="cadastro-formulario-email">E-mail:</label>
-            <input type="email" name="email" id="email" placeholder="ex: seuemail@emai.com"></input>
-
-            <label for="cadastro-formulario-senha">Senha:</label>
-            <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
-
-            <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
-            <input type="password" name="confirmed-password" id="confirmed-password" placeholder="Confirme sua senha"></input>
-          </div>
-
-          <!-- Botão que permite voltar para o Segundo Menu -->
-
-          <div class="button-box" id="button-voltar1">
-            <button type="button">
-              <</button>
-          </div>
-
-          <!-- Botão que permite ir para o Terceiro Menu -->
-
-          <div class="button-box" id="button-continuar2">
-            <button type="button">Continuar</button>
-          </div>
-        </div>
-
-        <!-- Terceiro Menu de Cadastro -->
-
-        <div class="box" id="box3">
-
-          <div class="info-boxes-cadastro">
-            <label for="cadastro-formulario-nome">Nome:</label>
-            <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
-
-            <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
-            <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
-
-            <label for="cadastro-formulario-tel">Telefone:</label>
-            <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
-          </div>
-
-          <div class="checkbox_class">
-            <input type="checkbox"></input>
-            <span>Li e concordo com os</span>
-            <a id="termos-de-uso" href="">Termos de Uso</a>
-          </div>
-
-          <!-- Botão que permite voltar para o Segundo Menu -->
-
-          <div class="button-container">
-            <div class="button-box" id="button-voltar2">
+            <div class="button-box" id="button-voltar1">
               <button type="button">
-                <</button>
+                << /button>
             </div>
 
-            <!-- Botão que finaliza o Cadastro do Usúario -->
+            <!-- Botão que permite ir para o Terceiro Menu -->
 
-            <div class="button-box" id="button-cadastrar1">
-              <button type="button">Cadastrar</button>
+            <div class="button-box" id="button-continuar2">
+              <button type="button">Continuar</button>
             </div>
           </div>
-        </div>
 
-      </form>
+          <!-- Terceiro Menu de Cadastro -->
+
+          <div class="box" id="box3">
+
+            <div class="info-boxes-cadastro">
+              <label for="cadastro-formulario-nome">Nome:</label>
+              <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
+
+              <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
+              <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
+
+              <label for="cadastro-formulario-tel">Telefone:</label>
+              <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
+            </div>
+
+            <div class="checkbox_class">
+              <input type="checkbox"></input>
+              <span>Li e concordo com os</span>
+              <a id="termos-de-uso" href="">Termos de Uso</a>
+            </div>
+
+            <!-- Botão que permite voltar para o Segundo Menu -->
+
+            <div class="button-container">
+              <div class="button-box" id="button-voltar2">
+                <button type="button">
+                  << /button>
+              </div>
+
+              <!-- Botão que finaliza o Cadastro do Usúario -->
+
+              <div class="button-box" id="button-cadastrar1">
+                <button type="button">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
 
     </div>
-
-  </div>
   </div>
   <script src="../js/cadastro.js"></script>
   <script src="../js/header.js"></script>
