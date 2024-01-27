@@ -3,39 +3,43 @@ document.querySelectorAll(".header-login").forEach( (e) => {
     e.classList.add("active")
 })
 
-function sendPhoto() {
+async function sendPhoto() {
 
     const files = document.querySelector('[name=file]').files
     let formData = new FormData()
-    formData.append('photo', files[0])
+    formData.append('image', files[0])
 
-    request("PUT", `${serverURL}/user/photo`, 
+    await request("PUT", `${serverURL}/user/photo`, 
         (xhr)=> {
-            console.log(chr.responseText)
+            console.log(xhr.responseText)
         },
         null,
         formData,
         true
     )
+
+    await setProfilePhoto()
 }
 
 if(!sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/login`)}
 
-function setProfilePhoto() {
+async function setProfilePhoto() {
 
-    let url = () => {
-        try {
-            request("GET", `${serverURL}/user/photo`, (xhr) => {
-                if(xhr.status == 200) {
-                    return `${r2URL}/${xhr.responseText}`;
-                } else {
-                    return `${r2URL}/user/default.jpg`
-                }
-            }) 
-        } catch {
-            return `${r2URL}/user/default.jpg` 
-        }
+    let url;
+    try {
+        await request("GET", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}`;
+            console.log(url)
+            document.getElementById("photo").setAttribute('src', url)
+        }, null, null, true) 
+    } catch {
+        url = `${r2URL}/user/default.jpg` 
+        document.getElementById("photo").setAttribute('src', url)
     }
+}
 
-    document.getElementById("photo").src = url();
+function logOut() {
+    sessionStorage.clear();
+    localStorage.clear();
+    goTo(`user/login`);
 }
