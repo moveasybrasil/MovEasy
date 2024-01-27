@@ -143,27 +143,46 @@ namespace Backend.Repository
             }
         }
 
-        public async Task Update(UserEntity user)
+        public async Task<string> Update(UserUpdateDTO user, string email)
         {
-            string sql = @"
-                UPDATE User 
-                    SET 
-                        Document = @Document,
-                        Telephone1 = @Telephone1,
-                        Telephone2 = @Telephone2,
-                        Name = @Name,
-                        LastName = @LastName, 
-                        Email = @Email, 
-                        PasswordHash = @PasswordHash,
-                        Type = @Type,
-                        CNH = @CNH,
-                        Photo = @Photo
-                    WHERE
-                        Id = @Id
-            ";
+            string sql;
+            UserEntity userEntity;
 
-            await Execute(sql, user);
+            try
+            {
+                sql = "SELECT * FROM User WHERE Email = @email";
+                userEntity = await GetConnection().QueryFirstAsync<UserEntity>(sql, new {email});
+            } catch (Exception ex)
+            {
+                throw new Exception($"Email incorreto. {ex.Message}");
+            }
 
+            userEntity = await UserConverter.Merge(userEntity, user);
+
+            try
+            {
+                sql = @"
+                    UPDATE User 
+                        SET 
+                            Document = @Document,
+                            Telephone1 = @Telephone1,
+                            Telephone2 = @Telephone2,
+                            Name = @Name,
+                            Email = @Email, 
+                            PasswordHash = @PasswordHash,
+                            Type = @Type,
+                            CNH = @CNH,
+                            Photo = @Photo
+                        WHERE
+                            Id = @Id
+                ";
+                await Execute(sql, userEntity);
+            } catch (Exception ex)
+            {
+                throw new Exception($"Não foi possível atualizar dados. {ex.Message}");
+            }
+
+            return "Dados Atualizados.";
         }
 
         public async Task UpdatePassword(UserPasswordDTO user)

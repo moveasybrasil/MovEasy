@@ -51,19 +51,17 @@ namespace Backend.Controllers
         [Route("photo")]
         public async Task<IActionResult> AddPhoto(IFormFile image)
         {
+            if (image == null){ return BadRequest("Nenhuma imagem fornecida.");}
+
             try
             {
-                var identity = HttpContext.User.Identity as ClaimsIdentity;
-                string email = identity.FindFirst(ClaimTypes.Email).Value;
-                if (email == null) { throw new Exception("Token Invalido."); }
-
-                //Microsoft.Extensions.Primitives.StringValues headerValues;
-                // Request.Headers.TryGetValue("Authorization", out headerValues);
+                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
 
                 return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Erro ao adicionar a foto: {ex.Message}");
             }
         }
 
@@ -72,12 +70,9 @@ namespace Backend.Controllers
         [Route("photo")]
         public async Task<IActionResult> GetPhoto()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            string email = identity.FindFirst(ClaimTypes.Email).Value;
-            if (email == null) { throw new Exception("Token Invalido."); }
-
             try
             {
+                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.GetUserPhoto(email));
             } catch (Exception ex)
             { 
@@ -87,12 +82,12 @@ namespace Backend.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Update(UserEntity user)
+        public async Task<IActionResult> Update(UserUpdateDTO user)
         {
             try
             {
-                await _userRepository.Update(user);
-                return Ok();
+                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _userRepository.Update(user, email));
             } catch (Exception ex) { 
                 return BadRequest(ex.Message);
             }
@@ -158,9 +153,7 @@ namespace Backend.Controllers
         [Route("renew-token")]
         public async Task<IActionResult> RenewToken()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            string email = identity.FindFirst(ClaimTypes.Email).Value;
-            if (email == null) { throw new Exception("Token Invalido."); }
+            string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
 
             try
             {
@@ -221,6 +214,20 @@ namespace Backend.Controllers
             } catch (Exception Ex)
             {
                 return Forbid(Ex.Message);
+            }
+        }
+
+        private string GetClaimValueFromToken(HttpContext httpContext, string claimType)
+        {
+            var identity = httpContext.User.Identity as ClaimsIdentity;
+            switch (claimType)
+            {
+                case ClaimTypes.Email:
+                    string email = identity?.FindFirst(ClaimTypes.Email)?.Value;
+                    if (string.IsNullOrEmpty(email)) { throw new Exception("Token Inválido."); }
+                    return email;
+                default:
+                    throw new Exception("Claim Inválido.");
             }
         }
     }
