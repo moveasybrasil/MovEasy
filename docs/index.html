@@ -46,78 +46,82 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
+          <a class="header-login"
+            href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
         </div>
       </div>
     </header>
-  
+
     <div id="content">
 
-    <div class="bg-filter">
-      <div id="container-text" class="flex mx-2">
-        <span id="text-bv" class="text-4xl text-white font-bold">Bem-vindo(a)!</span>
-        <span id="text-bn" class="text-2xl text-white font-bold">Seja na vida pessoal ou nos negócios, mudanças são
-          inevitáveis.</span>
-        <span id="text-bm" class="text-2xl text-white font-bold"> E se pudéssemos tornar o processo de gerenciamento de
-          mudanças mais fácil e eficiente?</span>
-        <span id="text-bt" class="text-xl text-white font-bold">Clique aqui e descubra como!</span>
+      <div class="bg-filter">
+        <div id="container-text" class="flex mx-2">
+          <span id="text-bv" class="text-4xl text-white font-bold">Bem-vindo(a)!</span>
+          <span id="text-bn" class="text-2xl text-white font-bold">Seja na vida pessoal ou nos negócios, mudanças são
+            inevitáveis.</span>
+          <span id="text-bm" class="text-2xl text-white font-bold"> E se pudéssemos tornar o processo de gerenciamento
+            de
+            mudanças mais fácil e eficiente?</span>
+          <span id="text-bt" class="text-xl text-white font-bold">Clique aqui e descubra como!</span>
+        </div>
       </div>
     </div>
+    <footer>
+      <div id="poplinkedin" popover>
+        <span>Clique no nome do integrante que gostaria de conhecer:</span>
+        <div>
+          <img src="./assets/images/perfil_dj.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/djordhan-eyng-369b1a288/">Djordhan da Rosa Eyng</a>
+        </div>
+        <div>
+          <img src="./assets/images/perfil_edu.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/eduardorauber/">Eduardo Bolson Rauber</a>
+        </div>
+        <div>
+          <img src="./assets/images/perfil_luciano.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/luciano-francisco-dias-b094391ab/">Luciano
+            Francisco
+            Dias</a>
+        </div>
+        <div>
+          <img src="./assets/images/perfil_luiz.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/luizeduardooo/">Luiz Eduardo Andrzejewski</a>
+        </div>
+        <div>
+          <img src="./assets/images/perfil_ricardo.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/rbmees/">Ricardo Berri Mees</a>
+        </div>
+        <div>
+          <img src="./assets/images/perfil_victor.jpg" alt="">
+          <a class="nome-linkedin" href="https://www.linkedin.com/in/victor-matheus-da-costa-mariano-444ab6244/">Victor
+            Matheus da Costa Mariano</a>
+        </div>
+      </div>
   </div>
-  <footer>
-    <div id="poplinkedin" popover>
-      <span>Clique no nome do integrante que gostaria de conhecer:</span>
-      <div>
-        <img src="./assets/images/perfil_dj.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/djordhan-eyng-369b1a288/">Djordhan da Rosa Eyng</a>
+  <div class="footer">
+
+    <div class="footer-icon flex">
+      <div class="ft-icon" id="in-icon">
+        <img src="./assets/images/linkedin-in(1).svg" class="ftr_icon" id="linkedin_icon" alt="icone linkedin"
+          srcset="">
       </div>
-      <div>
-        <img src="./assets/images/perfil_edu.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/eduardorauber/">Eduardo Bolson Rauber</a>
+
+      <div class="ft-icon" id="fb-icon">
+        <img src="./assets/images/facebook-f.svg" class="ftr_icon" id="facebook_icon" alt="icone facebook" srcset="">
       </div>
-      <div>
-        <img src="./assets/images/perfil_luciano.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/luciano-francisco-dias-b094391ab/">Luciano Francisco
-          Dias</a>
+      <div class="ft-icon" id="x-icon">
+        <img src="./assets/images/x-twitter(1).svg" class="ftr_icon" id="twitter_icon" alt="icone x" srcset="">
       </div>
-      <div>
-        <img src="./assets/images/perfil_luiz.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/luizeduardooo/">Luiz Eduardo Andrzejewski</a>
-      </div>
-      <div>
-        <img src="./assets/images/perfil_ricardo.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/rbmees/">Ricardo Berri Mees</a>
-      </div>
-      <div>
-        <img src="./assets/images/perfil_victor.jpg" alt="">
-        <a class="nome-linkedin" href="https://www.linkedin.com/in/victor-matheus-da-costa-mariano-444ab6244/">Victor
-          Matheus da Costa Mariano</a>
+      <div class="ft-icon" id="insta-icon">
+        <img src="./assets/images/instagram(1).svg" class="ftr_icon" id="instagram_icon" alt="icone instagram"
+          srcset="">
       </div>
     </div>
+    <span class="text-sm">movEasy Tecnologia. © 2024. Todos os direitos reservados</span>
   </div>
-    <div class="footer">
-
-      <div class="footer-icon flex">
-        <div class="ft-icon" id="in-icon">
-          <img src="./assets/images/linkedin-in(1).svg" class="ftr_icon" id="linkedin_icon" alt="icone linkedin"
-            srcset="">
-        </div>
-
-        <div class="ft-icon" id="fb-icon">
-          <img src="./assets/images/facebook-f.svg" class="ftr_icon" id="facebook_icon" alt="icone facebook" srcset="">
-        </div>
-        <div class="ft-icon" id="x-icon">
-          <img src="./assets/images/x-twitter(1).svg" class="ftr_icon" id="twitter_icon" alt="icone x" srcset="">
-        </div>
-        <div class="ft-icon" id="insta-icon">
-          <img src="./assets/images/instagram(1).svg" class="ftr_icon" id="instagram_icon" alt="icone instagram"
-            srcset="">
-        </div>
-      </div>
-      <span class="text-sm">movEasy Tecnologia. © 2024. Todos os direitos reservados</span>
-    </div>
   </footer>
   <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
 </body>
+
 </html>

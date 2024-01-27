@@ -46,62 +46,65 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
+          <a class="header-login"
+            href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
         </div>
       </div>
     </header>
-  
+
     <div id="content">
-    <div class="container-suporte">
+      <div class="container-suporte">
 
-      <form action="/formulario-suporte" method="post">
+        <form action="/formulario-suporte" method="post">
 
-        <div class="box" id="box-continuar-suporte">
-          <h1 id="title-box">Suporte</h1>
+          <div class="box" id="box-continuar-suporte">
+            <h1 id="title-box">Suporte</h1>
 
-          <div class="info-boxes-suporte">
-            <label for="formulario-suporte-nome">Nome:</label>
-            <input type="text" placeholder="Digite seu nome" id="Nome"></input>
+            <div class="info-boxes-suporte">
+              <label for="formulario-suporte-nome">Nome:</label>
+              <input type="text" placeholder="Digite seu nome" id="Nome"></input>
 
-            <label for="formulario-suporte-email">E-mail:</label>
-            <input type="email" placeholder="ex: seuemail@emai.com" id="Email"></input>
+              <label for="formulario-suporte-email">E-mail:</label>
+              <input type="email" placeholder="ex: seuemail@emai.com" id="Email"></input>
 
-            <div class="button-box" id="button-continuar">
-              <button type="button">Continuar</button>
+              <div class="button-box" id="button-continuar">
+                <button type="button">Continuar</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="box" id="box-finalizar-suporte">
+          <div class="box" id="box-finalizar-suporte">
 
-          <div class="info-boxes-suporte">
-            <label for="formulario-suporte-assunto">Assunto:</label>
-            <input type="text" placeholder="Digite o assunto do seu problema" id="Assunto"></input>
-          </div>
-
-          <div class="info-boxes-suporte" id="descricao-suporte">
-            <label for="formulario-suporte-descricao">Descrição:</label>
-            <input type="text" placeholder="Digite aqui a descrição do seu problema" id="Descricao"></input>
-          </div>
-
-          <div class="button-container">
-            <div class="button-box" id="button-voltar">
-              <button type="button"><</button>
+            <div class="info-boxes-suporte">
+              <label for="formulario-suporte-assunto">Assunto:</label>
+              <input type="text" placeholder="Digite o assunto do seu problema" id="Assunto"></input>
             </div>
-            <div class="button-box" id="button-enviar">
-              <button type="button" id="Enviar">Enviar</button>
+
+            <div class="info-boxes-suporte" id="descricao-suporte">
+              <label for="formulario-suporte-descricao">Descrição:</label>
+              <input type="text" placeholder="Digite aqui a descrição do seu problema" id="Descricao"></input>
+            </div>
+
+            <div class="button-container">
+              <div class="button-box" id="button-voltar">
+                <button type="button">
+                  << /button>
+              </div>
+              <div class="button-box" id="button-enviar">
+                <button type="button" id="Enviar">Enviar</button>
+              </div>
             </div>
           </div>
-        </div>
 
-      </form>
+        </form>
+
+      </div>
 
     </div>
-
-  </div>
   </div>
 
   <script src="./js/header.js"></script>
   <script src="./js/suporte.js"></script>
 </body>
+
 </html>
