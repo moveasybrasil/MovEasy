@@ -3,7 +3,7 @@ const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? 
 const r2URL = "https://pub-aa42159a06e741ff942b348ad2e0ab2c.r2.dev"
 
 function request(type, url, callback, params, formData, isAuthorized) {
-    if(location.origin == "file://") {url = `https://corsproxy.io/?${encodeURIComponent(url)}`}
+    if(location.origin == "file://" && type == "GET") {url = `https://corsproxy.io/?${encodeURIComponent(url)}`}
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
