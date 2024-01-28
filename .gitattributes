@@ -1,4 +1,4 @@
 app/* linguist-documentation=false
 app/* linguist-vendored
 
-docs/* linguist-documentation
+docs/* linguist-vendored=false
