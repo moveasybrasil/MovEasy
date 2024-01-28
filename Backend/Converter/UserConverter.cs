@@ -1,6 +1,7 @@
 ﻿using Backend.DTO;
 using Backend.Entity;
 using Backend.Infrastructure;
+using System.Net.Mail;
 
 namespace Backend.Converter
 {
@@ -8,6 +9,10 @@ namespace Backend.Converter
     {
         public async static Task<UserEntity> Convert(UserDTO user)
         {
+            if(!await CheckIfEmailIsValid(user.Email)) { throw new Exception("Email inválido."); }
+
+            if(!await CheckIfPasswordIsValid(user.Password)) { throw new Exception("Senha inválida."); }
+
             PasswordHasher hasher = new PasswordHasher();
 
             UserEntity userEntity = new UserEntity()
@@ -23,6 +28,20 @@ namespace Backend.Converter
             return userEntity;
         }
 
+        public async static Task<UserDTO> Deconvert(UserEntity userEntity)
+        {
+            UserDTO userDTO = new UserDTO()
+            {
+                Document = userEntity.Document,
+                Telephone = userEntity.Telephone1,
+                Name = userEntity.Name,
+                Email = userEntity.Email,
+                Password = "********",
+                Type = userEntity.Type
+            };
+            return userDTO;
+        }
+
         public async static Task<UserEntity> Merge(UserEntity userEntity, UserUpdateDTO userUpdateDTO)
         {
             userEntity.Document = userUpdateDTO.Document;
@@ -36,5 +55,23 @@ namespace Backend.Converter
             return userEntity;
         }
 
+        private async static Task<bool> CheckIfEmailIsValid(string email)
+        {
+            try
+            {
+                new MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private async static Task<bool> CheckIfPasswordIsValid(string password)
+        {
+            if (password == null || password.Length < 8) { return false; }
+            return true;
+        }
     }
 }
