@@ -63,7 +63,13 @@ namespace Backend.Repository
             return await GetConnection().QueryAsync<AddressDTO>(sql);
         }
 
-        public async Task<AddressDTO> GetById(int id)
+        public async Task<AddressEntity> GetById(int id)
+        {
+            string sql = @"SELECT * FROM Address WHERE Address.Id = @id";
+            return await GetConnection().QueryFirstAsync<AddressEntity>(sql, new {id});
+        }
+
+        public async Task<AddressDTO> GetAllById(int id)
         {
             string sql = @"SELECT
                     Address.Street AS Street,
@@ -81,7 +87,7 @@ namespace Backend.Repository
                 WHERE
                     Address.Id = @id
             ";
-            return await GetConnection().QueryFirstAsync<AddressDTO>(sql, new {id});
+            return await GetConnection().QueryFirstAsync<AddressDTO>(sql, new { id });
         }
 
         public async Task<string> Update(AddressEntity address)

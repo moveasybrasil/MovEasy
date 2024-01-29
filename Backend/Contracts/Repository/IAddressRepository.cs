@@ -8,6 +8,7 @@ namespace Backend.Contracts.Repository
         Task<IEnumerable<AddressDTO>> Get();
         Task<int> Add(AddressDTO address);
         Task<string> Update(AddressEntity address);
-        Task<AddressDTO> GetById(int id);
+        Task<AddressEntity> GetById(int id);
+        Task<AddressDTO> GetAllById(int id);
     }
 }
