@@ -6,6 +6,7 @@ using Backend.Entity;
 using Backend.Repository;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Security.Claims;
+using Backend.Infrastructure;
 
 namespace Backend.Controllers
 {
@@ -20,6 +21,32 @@ namespace Backend.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Add(UserDTO user)
+        {
+            try
+            {
+                return Ok(await _userRepository.Add(user));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                return Ok(await _userRepository.Delete(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Get()
@@ -27,74 +54,52 @@ namespace Backend.Controllers
             try
             {
                 return Ok(await _userRepository.Get());
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<IActionResult> Update(UserUpdateDTO user)
+        {
+            try
+            {
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _userRepository.Update(user, email));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            try
+            {
+                return Ok(await _userRepository.GetById(id));
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(UserDTO user)
+        [Route("login")]
+        public async Task<IActionResult> Login(UserLoginDTO user)
         {
             try
             {
-                await _userRepository.Add(user);
-                return Ok();
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return Ok(await _userRepository.Login(user));
             }
-        }
-
-        [HttpPut]
-        [Authorize]
-        [Route("photo")]
-        public async Task<IActionResult> AddPhoto(IFormFile image)
-        {
-            try
+            catch (Exception Ex)
             {
-                var identity = HttpContext.User.Identity as ClaimsIdentity;
-                string email = identity.FindFirst(ClaimTypes.Email).Value;
-                if (email == null) { throw new Exception("Token Invalido."); }
-
-                //Microsoft.Extensions.Primitives.StringValues headerValues;
-                // Request.Headers.TryGetValue("Authorization", out headerValues);
-
-                return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpGet]
-        [Authorize]
-        [Route("photo")]
-        public async Task<IActionResult> GetPhoto()
-        {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            string email = identity.FindFirst(ClaimTypes.Email).Value;
-            if (email == null) { throw new Exception("Token Invalido."); }
-
-            try
-            {
-                return Ok(await _userRepository.GetUserPhoto(email));
-            } catch (Exception ex)
-            { 
-                return NotFound(ex.Message);
-            }
-        }
-
-        [HttpPut]
-        [Authorize]
-        public async Task<IActionResult> Update(UserEntity user)
-        {
-            try
-            {
-                await _userRepository.Update(user);
-                return Ok();
-            } catch (Exception ex) { 
-                return BadRequest(ex.Message);
+                return Unauthorized(Ex.Message);
             }
         }
 
@@ -114,42 +119,37 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpDelete]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpPut]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> AddPhoto(IFormFile image)
         {
+            if (image == null) { return BadRequest("Nenhuma imagem fornecida."); }
+
             try
             {
-                await _userRepository.Delete(id);
-                return Ok();
-            } catch (Exception ex)
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Erro ao adicionar a foto: {ex.Message}");
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet]
+        [Authorize]
+        [Route("photo")]
+        public async Task<IActionResult> GetPhoto()
         {
             try
             {
-                return Ok(await _userRepository.GetById(id));
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _userRepository.GetUserPhoto(email));
             }
-        }
-
-        [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login(UserLoginDTO user)
-        {
-            try
+            catch (Exception ex)
             {
-                return Ok(await _userRepository.Login(user));
-            } catch(Exception Ex)
-            {
-                return Unauthorized(Ex.Message);
+                return NotFound(ex.Message);
             }
         }
 
@@ -158,30 +158,14 @@ namespace Backend.Controllers
         [Route("renew-token")]
         public async Task<IActionResult> RenewToken()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            string email = identity.FindFirst(ClaimTypes.Email).Value;
-            if (email == null) { throw new Exception("Token Invalido."); }
-
             try
             {
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.RenewToken(email));
             }
             catch (Exception Ex)
             {
                 return Unauthorized(Ex.Message);
-            }
-        }
-
-        [HttpPut]
-        [Route("validation/{UUID}")]
-        public async Task<IActionResult> ValidateEmail(string UUID)
-        {
-            try
-            {
-                return Ok(await _userRepository.ValidateEmail(UUID));
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
             }
         }
 
@@ -221,6 +205,20 @@ namespace Backend.Controllers
             } catch (Exception Ex)
             {
                 return Forbid(Ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("validation/{UUID}")]
+        public async Task<IActionResult> ValidateEmail(string UUID)
+        {
+            try
+            {
+                return Ok(await _userRepository.ValidateEmail(UUID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

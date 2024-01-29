@@ -1,9 +1,12 @@
 ﻿using Backend.Contracts.Repository;
+using Backend.Converter;
 using Backend.DTO;
 using Backend.Entity;
+using Backend.Infrastructure;
 using Backend.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -12,17 +15,24 @@ namespace Backend.Controllers
     public class ServiceController : ControllerBase
     {
         private readonly IServiceRepository _serviceRepository;
+        private readonly IAddressRepository _addressRepository;
 
-        public ServiceController(IServiceRepository serviceRepository)
+        public ServiceController(IServiceRepository serviceRepository, IAddressRepository addressRepository)
         {
             _serviceRepository = serviceRepository;
+            _addressRepository = addressRepository;
         }
 
 
         [HttpPost]
         public async Task<IActionResult> Add(ServiceDTO service)
         {
-            await _serviceRepository.Add(service);
+            string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+
+            int addressId = await _addressRepository.Add(service.Address_Id);
+            int addressId1 = await _addressRepository.Add(service.Address_Id1);
+
+            await _serviceRepository.Add(service, email, addressId, addressId1);
             return Ok();
         }
 

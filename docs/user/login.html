@@ -48,7 +48,7 @@
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
           <a class="header-login"
-            href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
+            href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
         </div>
       </div>
     </header>

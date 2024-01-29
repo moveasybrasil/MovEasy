@@ -67,7 +67,7 @@ window.addEventListener('resize', function(event) {
 });
 
 
-if(!!sessionStorage.getItem(`token`)) { 
+if(isTokenValid()) { 
     document.querySelectorAll(".header-login").forEach( (e) => {
         e.innerHTML = "PERFIL"
     })
