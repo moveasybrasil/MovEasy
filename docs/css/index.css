@@ -14,7 +14,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    overflow: auto;
     border-top: 1px solid;
     overflow: hidden;
 }
@@ -34,7 +33,6 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: bottom;
-        overflow: auto;
         border-top: 1px solid;
     }
 
