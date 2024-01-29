@@ -47,7 +47,7 @@
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
           <a class="header-login"
-            href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+            href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfil') : goTo('user/login')">LOGIN</a>
         </div>
       </div>
     </header>
@@ -113,16 +113,18 @@
             </div>
 
             <!-- Botão que permite voltar para o Segundo Menu -->
+            
+            <div class="button-container">
+              <div class="button-box" id="button-voltar1">
+                <button type="button">
+                  <</button>
+              </div>
 
-            <div class="button-box" id="button-voltar1">
-              <button type="button">
-                << /button>
-            </div>
+              <!-- Botão que permite ir para o Terceiro Menu -->
 
-            <!-- Botão que permite ir para o Terceiro Menu -->
-
-            <div class="button-box" id="button-continuar2">
-              <button type="button">Continuar</button>
+              <div class="button-box" id="button-continuar2">
+                <button type="button">Continuar</button>
+              </div>
             </div>
           </div>
 
@@ -130,7 +132,7 @@
 
           <div class="box" id="box3">
 
-            <div class="info-boxes-cadastro">
+            <div class="info-boxes" id="info-boxes-box3">
               <label for="cadastro-formulario-nome">Nome:</label>
               <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
 
@@ -149,15 +151,15 @@
 
             <!-- Botão que permite voltar para o Segundo Menu -->
 
-            <div class="button-container">
+            <div class="button-container" id="button-container-box3">
               <div class="button-box" id="button-voltar2">
                 <button type="button">
-                  << /button>
+                  <</button>
               </div>
 
               <!-- Botão que finaliza o Cadastro do Usúario -->
 
-              <div class="button-box" id="button-cadastrar1">
+              <div class="button-box" id="button-cadastrar">
                 <button type="button">Cadastrar</button>
               </div>
             </div>
