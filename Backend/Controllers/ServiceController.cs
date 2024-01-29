@@ -1,4 +1,5 @@
 ﻿using Backend.Contracts.Repository;
+using Backend.Converter;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Infrastructure;
@@ -14,10 +15,12 @@ namespace Backend.Controllers
     public class ServiceController : ControllerBase
     {
         private readonly IServiceRepository _serviceRepository;
+        private readonly IAddressRepository _addressRepository;
 
-        public ServiceController(IServiceRepository serviceRepository)
+        public ServiceController(IServiceRepository serviceRepository, IAddressRepository addressRepository)
         {
             _serviceRepository = serviceRepository;
+            _addressRepository = addressRepository;
         }
 
 
@@ -25,7 +28,11 @@ namespace Backend.Controllers
         public async Task<IActionResult> Add(ServiceDTO service)
         {
             string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
-            await _serviceRepository.Add(service, email);
+
+            int addressId = await _addressRepository.Add(service.Address_Id);
+            int addressId1 = await _addressRepository.Add(service.Address_Id1);
+
+            await _serviceRepository.Add(service, email, addressId, addressId1);
             return Ok();
         }
 
