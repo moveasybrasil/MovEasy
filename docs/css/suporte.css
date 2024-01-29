@@ -68,7 +68,7 @@
     height: 220px;
 }
 
-button {
+.button-box {
     width: 100%;
     height: 50px;
     display: flex;

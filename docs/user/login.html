@@ -28,77 +28,74 @@
 
 <body>
 
-  <div class="banner">
-    <div class="banner bg-local">
-      <header id="header" class="flex justify-between	px-16">
-        <div style="display:flex">
-          <img id="logo" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="MovEasy">
-  
+  <div class="banner bg-local">
+    <header>
+      <div class="header" id="header">
+        <div class="btn-container">
+          <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
         </div>
-        <div class="menu-mobile">
-          <img id="logo-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
-          <img id="icone-mobile" class="icone-mobile" src="../" onerror="this.setAttribute('src', getUrl('assets/images/bars-solid.png'))" alt="menu-mobile">
-          <div>
-          <img id="icone-mobile2" class="icone-mobile hidden" src="../" onerror="this.setAttribute('src', getUrl('assets/images/xmark.svg'))" alt="menu-mobile">
+        <div class="logo-header">
+          <img id="logo-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))"
+            alt="movEasy">
         </div>
-        <div class="menu-mobile-links">
+        <div class="navigation-header" id="navigation-header">
+          <div class="btn-icon-x btn-container">
+            <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+          </div>
           <a class="header-home" href="javascript:goTo('index')">HOME</a>
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
+          <a class="header-login"
+            href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
         </div>
-        </div>
-        <div class="menu-desktop">
-          <a class="header-home" href="javascript:goTo('index')">HOME</a>
-          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
-          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
-          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:goTo('user/login')">LOGIN</a>
-        </div>
-      </header>
-    <div class="banner2">
-      <form action="">
-        <div class="corpo">
-          <div class="menu-login">
-            <div class="controlador-login">
-              <div class="logar-email">
-                <label for="login-email"
-                  class=""><strong>Email:</strong></label>
-                <input type="text" id="email-login" class="" placeholder="Digite o seu email"></input>
-              </div>
-              <div class="logar-senha">
-                <label for="login-senha"
-                  class=""><strong>Senha:</strong></label>
-                <input type="password" id="senha-login"class="" placeholder="Digite a sua senha"></input>
-              </div>
-            </div>
+      </div>
+    </header>
 
-            <div class="botao-logar">
-              <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
-            </div>
-
-            <div class="">
-              <div class="campos flex mt-4">
-                <input type="checkbox" class="bg-zinc-300" id="manterConectado"></input>
-                <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
-                  conectado?</span>
-
-                <div>
-                  <button type="button" class="recuperar-senha text-black text-lg font-normal font-['Inter']" onclick="goTo('user/recovery/email')">
-                    Esqueceu a senha?</button>
+    <div id="content">
+      <div class="banner2">
+        <form action="">
+          <div class="corpo">
+            <div class="menu-login">
+              <div class="controlador-login">
+                <div class="logar-email">
+                  <label for="login-email" class=""><strong>Email:</strong></label>
+                  <input type="text" id="email-login" class="" placeholder="Digite o seu email"></input>
+                </div>
+                <div class="logar-senha">
+                  <label for="login-senha" class=""><strong>Senha:</strong></label>
+                  <input type="password" id="senha-login" class="" placeholder="Digite a sua senha"></input>
                 </div>
               </div>
-            </div>
-            <div class="texto-cadastro text-black text-lg font-normal font-['Inter']">Nao possui cadastro?</div>
-            <div>
-              <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
-                class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+
+              <div class="botao-logar">
+                <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
+              </div>
+
+              <div class="">
+                <div class="campos flex mt-4">
+                  <input type="checkbox" class="bg-zinc-300" id="manterConectado"></input>
+                  <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
+                    conectado?</span>
+
+                  <div>
+                    <button type="button" class="recuperar-senha text-black text-lg font-normal font-['Inter']"
+                      onclick="goTo('user/recovery/email')">
+                      Esqueceu a senha?</button>
+                  </div>
+                </div>
+              </div>
+              <div class="texto-cadastro text-black text-lg font-normal font-['Inter']">Nao possui cadastro?</div>
+              <div>
+                <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
+                  class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+              </div>
+
             </div>
 
           </div>
-
-        </div>
+      </div>
     </div>
   </div>
 
@@ -107,4 +104,5 @@
   <script src="../js/header.js"></script>
   <script src="../js/user-login.js"></script>
 </body>
+
 </html>

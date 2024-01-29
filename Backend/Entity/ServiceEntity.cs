@@ -1,4 +1,4 @@
-﻿namespace Backend.Entity
+namespace Backend.Entity
 {
     public class ServiceEntity
     {

@@ -3,6 +3,8 @@ document.querySelectorAll(".header-login").forEach( (e) => {
     e.classList.add("active")
 })
 
+if(sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/perfil`)}
+
 $(() => {
     $("#btn-logar").click(() => {
         const values = {
@@ -42,6 +44,31 @@ $(() => {
         }
         $("#senha-login").removeClass("invalid");
 
-        console.log(values)
+        request("POST", `${serverURL}/user/login`, (xhr) => {
+
+            switch(xhr.status) {
+                case 200: {
+                    let token = JSON.parse(xhr.responseText).token
+                    let user = JSON.parse(xhr.responseText).user
+        
+                    if(values.manterConectado) {
+                        localStorage.setItem(`token`, token)
+                        localStorage.setItem(`user`, user)
+                    }
+        
+                    sessionStorage.setItem(`token`, token)
+                    sessionStorage.setItem(`user`, user)
+        
+                    goTo(`user/perfil`)
+                } 
+                case 401: {
+                    console.log(xhr.responseText)
+                }
+            }
+        },
+        {
+            email: values.email,
+            password: values.senha
+        })
     });
 })
