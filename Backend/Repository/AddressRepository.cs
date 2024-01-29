@@ -9,7 +9,7 @@ namespace Backend.Repository
 {
     public class AddressRepository : Connection, IAddressRepository
     {
-        public async Task<string> Add(AddressDTO address)
+        public async Task<int> Add(AddressDTO address)
         {
             try
             {
@@ -27,9 +27,9 @@ namespace Backend.Repository
                         @Number,
                         @Address2,
                         @District_Id
-                )";
+                ); SELECT LAST_INSERT_ID();";
 
-                await Execute(sql , new {
+                int id = await GetConnection().QueryFirstAsync<int>(sql , new {
                     Street = address.Street,
                     PostalCode = address.PostalCode,
                     Number = address.Number,
@@ -37,7 +37,7 @@ namespace Backend.Repository
                     District_Id = districtId
                 });
 
-                return "Endereço cadastrado.";
+                return id;
             } catch (Exception ex)
             {
                 throw ex;
