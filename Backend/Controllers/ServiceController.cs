@@ -1,9 +1,11 @@
 ﻿using Backend.Contracts.Repository;
 using Backend.DTO;
 using Backend.Entity;
+using Backend.Infrastructure;
 using Backend.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -22,7 +24,8 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ServiceDTO service)
         {
-            await _serviceRepository.Add(service);
+            string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+            await _serviceRepository.Add(service, email);
             return Ok();
         }
 
