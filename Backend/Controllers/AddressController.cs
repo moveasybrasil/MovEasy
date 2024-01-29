@@ -42,15 +42,41 @@ namespace Backend.Controllers
         [Authorize]
         public async Task<IActionResult> Update(AddressEntity address)
         {
-            await _AddressRepository.Update(address);
-            return Ok();
+            try
+            {
+                return Ok(await _AddressRepository.Update(address));
+            } catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await _AddressRepository.GetById(id));
+            try
+            {
+                return Ok(await _AddressRepository.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Não encontrei o endereço no id fornecido. {ex.Message}");
+            }
+        }
+
+        [HttpGet("{id}/all")]
+        [Authorize]
+        public async Task<IActionResult> GetallById(int id)
+        {
+            try
+            {
+                return Ok(await _AddressRepository.GetAllById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Não encontrei o endereço no id fornecido. {ex.Message}");
+            }
         }
     }
 }
