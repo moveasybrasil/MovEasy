@@ -44,19 +44,47 @@ namespace Backend.Repository
             }
         }
 
-        public async Task<IEnumerable<AddressEntity>> Get()
+        public async Task<IEnumerable<AddressDTO>> Get()
         {
-            string sql = "SELECT * FROM Address";
-            return await GetConnection().QueryAsync<AddressEntity>(sql);
+            string sql = @"SELECT
+                    Address.Street AS Street,
+                    Address.PostalCode AS PostalCode,
+                    Address.Number AS Number,
+                    Address.Address2 AS Address2,
+                    District.Name AS District,
+                    City.Name AS City,
+                    State.FU AS FU
+                FROM
+                    Address
+                    INNER JOIN District ON Address.District_Id = District.Id
+                    INNER JOIN City ON District.City_Id = City.Id
+                    INNER JOIN State ON City.State_Id = State.Id
+            ";
+            return await GetConnection().QueryAsync<AddressDTO>(sql);
         }
 
-        public async Task<AddressEntity> GetById(int id)
+        public async Task<AddressDTO> GetById(int id)
         {
-            string sql = "SELECT * FROM Address WHERE Id = @id";
-            return await GetConnection().QueryFirstAsync<AddressEntity>(sql, new {id});
+            string sql = @"SELECT
+                    Address.Street AS Street,
+                    Address.PostalCode AS PostalCode,
+                    Address.Number AS Number,
+                    Address.Address2 AS Address2,
+                    District.Name AS District,
+                    City.Name AS City,
+                    State.FU AS FU
+                FROM
+                    Address
+                    INNER JOIN District ON Address.District_Id = District.Id
+                    INNER JOIN City ON District.City_Id = City.Id
+                    INNER JOIN State ON City.State_Id = State.Id
+                WHERE
+                    Address.Id = @id
+            ";
+            return await GetConnection().QueryFirstAsync<AddressDTO>(sql, new {id});
         }
 
-        public async Task Update(AddressEntity address)
+        public async Task<string> Update(AddressEntity address)
         {
             string sql = @"
                 UPDATE Address 
@@ -71,6 +99,8 @@ namespace Backend.Repository
             ";
 
             await Execute(sql, address);
+
+            return "Campos atualizados.";
         }
 
         private async Task<int> GetDistrictIdFromDistricName(AddressDTO address)
