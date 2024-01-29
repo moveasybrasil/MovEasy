@@ -233,7 +233,6 @@ namespace Backend.Repository
             {
                 string sql = "SELECT * FROM User WHERE Email = @receiverEmail";
                 user = await GetConnection().QueryFirstOrDefaultAsync<UserEntity>(sql, new { receiverEmail });
-
                 if(user == null) { throw new Exception("Email inválido."); }
 
                 string UUID = CreateRandomUUID();
@@ -294,7 +293,7 @@ namespace Backend.Repository
             try
             {
                 string sql = "SELECT Id FROM User WHERE PasswordRecoveryUUID = @UUID";
-                string? value = await GetConnection().QueryFirstOrDefaultAsync<string>(sql, new { UUID });
+                string? value = await GetConnection().QueryFirstOrDefaultAsync<string?>(sql, new { UUID });
 
                 if (value == null) { return false; } else { return true; }
             }
