@@ -29,8 +29,13 @@ namespace Backend.Controllers
         [Authorize]
         public async Task<IActionResult> Add(AddressDTO address)
         {
-            await _AddressRepository.Add(address);
-            return Ok();
+            try
+            {
+                return Ok(await _AddressRepository.Add(address));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
