@@ -5,7 +5,7 @@ namespace Backend.Contracts.Repository
 {
     public interface IServiceRepository
     {
-        Task Add(ServiceDTO service);
+        Task Add(ServiceDTO service, string email);
         Task Update(ServiceEntity service);
         Task Delete(int id);
         Task<ServiceEntity> GetById(int id);

@@ -9,7 +9,7 @@ namespace Backend.Repository
 {
     public class ServiceRepository : Connection, IServiceRepository
     {
-        public async Task Add(ServiceDTO service)
+        public async Task Add(ServiceDTO service, string email)
         {
             string sql = @"
                 INSERT INTO Service (
@@ -39,7 +39,7 @@ namespace Backend.Repository
                     )
             ";
 
-            await Execute(sql, await ServiceConverter.Convert(service));
+            await Execute(sql, await ServiceConverter.Convert(service, await GetUserIdFromEmail(email)));
         }
 
         public async Task Delete(int id)
@@ -82,6 +82,19 @@ namespace Backend.Repository
             ";
 
             await Execute(sql, service);
+        }
+
+        private async Task<int> GetUserIdFromEmail(string email)
+        {
+            try
+            {
+                string sql = "SELECT Id FROM User WHERE Email = @email";
+                return await GetConnection().QueryFirstAsync<int>(sql, new { email });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Nao foi possivel obter id de usuario. {ex.Message}");
+            }
         }
     }
 }
