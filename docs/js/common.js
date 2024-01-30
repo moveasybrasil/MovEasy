@@ -65,7 +65,7 @@ function isTokenValid() {
     if(!sessionStorage.getItem(`token`)) return false
 
     try {
-        let expireDate = parseJwt(sessionStorage.getItem(token)).exp * 1000;
+        let expireDate = parseJwt(sessionStorage.getItem(`token`)).exp * 1000;
         let currentDate = Date.now();
 
         if(expireDate > currentDate) {
