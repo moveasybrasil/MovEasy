@@ -195,7 +195,7 @@ button:hover {
 
     .info-boxes-suporte input {
         width: 322px;
-        height: 59px;
+        height: 60px;
         border-radius: 5px;
         border: 1px solid #bbb;
         background-color: #F5F5F5;
@@ -216,5 +216,11 @@ button:hover {
             color: black;
         }
 
-        
+        #box-finalizar-suporte {
+
+            margin-left: 25px; 
+            padding: 15px 15px 15px 25px; 
+        }
+      
+      
 }
