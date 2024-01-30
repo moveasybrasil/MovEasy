@@ -63,10 +63,13 @@
                     <img id="photo" src="../assets/images/default.jpg"
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))" width="100px">
                     <div id="modal-photo" class="modal">
-                        <div>
-                            <span id="fecha-modal">X</span>
+                        <div class="flex justify-end w-1/2">
+                            <span id="fecha-modal" class="text-4xl m-6">X</span>
                         </div>
+                        <img id="photo" src="../assets/images/default.jpg"
+                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
                         <input type="file" name="file">
+                        
                         <button type="button" role="button" onclick="sendPhoto()">[Enviar]</button>
                        
                     </div>

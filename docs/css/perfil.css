@@ -59,17 +59,25 @@
 .show {
     position: absolute;
     background-color: rgba(0, 0,0, 0.4);
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
     right: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+
+    backdrop-filter: grayscale(30%);
+}
+
+#modal-photo {
+    width: 70%;
+    height: 70%
 }
 
 #fecha-modal {
     color: white;
     cursor: pointer;
-
+    font-weight: 700;
 }
