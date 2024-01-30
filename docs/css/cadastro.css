@@ -135,6 +135,10 @@
     box-shadow: none;
 }
 
+.switch-options p {
+    margin-bottom: 15px;
+}
+
 .switch-options img {
     width: 100px;
     height: 100px;
@@ -261,5 +265,23 @@ button:hover {
 
 #termos-de-uso {
     color: rgb(43, 9, 235);
-    ;
+}
+
+@media (max-width: 550px){
+
+    .banner {
+        background: #FFF;
+        width: 100vw;
+        height: 100dvh;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+
+    .box {
+        display: flex;
+        background-color: #FFF;
+        box-shadow: none;
+    }
 }
