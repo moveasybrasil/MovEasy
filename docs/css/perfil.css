@@ -47,3 +47,29 @@
     align-content: center;
     font-weight: 400;
 }
+
+#photo {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+}
+
+.show {
+    position: absolute;
+    background-color: rgba(0, 0,0, 0.4);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fecha-modal {
+    color: white;
+    cursor: pointer;
+
+}
