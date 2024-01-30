@@ -5,9 +5,10 @@ namespace Backend.Contracts.Repository
 {
     public interface IAddressRepository
     {
-        Task<IEnumerable<AddressEntity>> Get();
-        Task<string> Add(AddressDTO address);
-        Task Update(AddressEntity address);
+        Task<IEnumerable<AddressDTO>> Get();
+        Task<int> Add(AddressDTO address);
+        Task<string> Update(AddressEntity address);
         Task<AddressEntity> GetById(int id);
+        Task<AddressDTO> GetAllById(int id);
     }
 }

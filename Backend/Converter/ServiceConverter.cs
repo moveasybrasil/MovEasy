@@ -1,13 +1,14 @@
 ﻿using Backend.DTO;
 using Backend.Entity;
+using Backend.Infrastructure;
+using Backend.Repository;
 
 namespace Backend.Converter
 {
     public class ServiceConverter
     {
-        public async static Task<ServiceEntity> Convert(ServiceDTO service)
+        public async static Task<ServiceEntity> Convert(ServiceDTO service, int AddressId, int AddressId1, int userId)
         {
-
             ServiceEntity ServiceEntity = new ServiceEntity()
             {
                 Terms = service.Terms,
@@ -17,10 +18,10 @@ namespace Backend.Converter
                 DestinationDescription = service.DestinationDescription,
                 Date = service.Date,
                 Obs = service.Obs,
-                Address_Id = 1,
-                Address_Id1 = 2,
-                User_Id = 1,
-                User_Id1 = 2
+                Address_Id = AddressId,
+                Address_Id1 = AddressId1,
+                User_Id = userId,
+                User_Id1 = 0
             };
             return ServiceEntity;
         }

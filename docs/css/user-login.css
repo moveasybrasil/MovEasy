@@ -113,18 +113,38 @@
     background-size: 150%;
     background-repeat: no-repeat;
     background-size: cover;   
-    background-position: 35%;
+    background-position: 35%;   
   }
   .menu-login {
     width: 380px;
-    height: 400px;
-
+    height: 425px;
+    margin-left: 10px;
+    margin-right: 10px;
+  
 }
-.controlador-login {
+
+.logar-senha {
     width: 250px;
-    height: 190px;
-    margin-bottom: 15px;
-    display: flex;
+    height: 75px;
+}
+
+.logar-email{
+  
+.logar-email input {
+    height: 20px;   
+    width: 200px;
+}
+.logar-senha input {
+    height: 20px;
+    width: 200px;
+}
+
+
+.controlador-login {
+    width: 235px;
+    height: 155px;
+    margin-bottom: 10px;
+    display: flex;  
     flex-direction: column;
 }
 
@@ -133,14 +153,13 @@
 }
 
 .controlador-login input {
-    width: 322px;
-    height: 59px;
+    width: 150px;
+    height: 20px;
     border-radius: 5px;
     border: 1px solid #bbb;
     background-color: #F5F5F5;
     margin: 15px;
     margin-left: 0  
-
 }
 
 .campos {
@@ -150,7 +169,7 @@
 }
 
 .campos span {
-    font-size: medium;
+    font-size: large;
     margin-top: 0px;
 }
 
@@ -160,8 +179,8 @@
 
 #btn-logar {
     display: flex;
-    width: 150px;
-    height: 50px;
+    width: 125px;
+    height: 45px;
     border-radius: 10px;
     justify-content: center;
     margin-bottom: 10px;
@@ -173,8 +192,8 @@
 
 #btn-cadastrar {
     display: flex;
-    width: 150px;
-    height: 50px;
+    width: 125px;
+    height: 45px;   
     border-radius: 10px;
     justify-content: center;
     margin-top: 0px;
@@ -183,13 +202,10 @@
     border: 1px solid black;
 }
 
-.input-login {
-    margin: 0px;
-}
 .texto-cadastro {
     margin-left: auto;
     margin-right: auto;
 }
 
  
-  }
+}

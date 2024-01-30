@@ -29,5 +29,19 @@ namespace Backend.Infrastructure
 
             return tokenHandler.WriteToken(token);
         }
+
+        public static string GetClaimValueFromToken(HttpContext httpContext, string claimType)
+        {
+            var identity = httpContext.User.Identity as ClaimsIdentity;
+            switch (claimType)
+            {
+                case ClaimTypes.Email:
+                    string? email = identity?.FindFirst(ClaimTypes.Email)?.Value;
+                    if (string.IsNullOrEmpty(email)) { throw new Exception("Token Inválido."); }
+                    return email;
+                default:
+                    throw new Exception("Claim Inválido.");
+            }
+        }
     }
 }

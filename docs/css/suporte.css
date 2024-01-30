@@ -10,12 +10,11 @@
 .banner {
     height: 100vh;
     width: 100%;
-
     overflow: auto;
     border-top: 1px solid;
     height: 100vh;
     width: 100vw;
-}
+}   
 
 .container-suporte {
     /* display: flex; */
@@ -29,6 +28,8 @@
 .box {
     width: 422px;
     height: 531px;
+    margin-left: 150px;
+    margin-top: 200px;
     background-color: #FFF;
     border-radius: 10px;
     flex-direction: column;
@@ -129,11 +130,6 @@ button:hover {
     margin-left: 5px;
 }
 
-@media (min-width: 1100px) {
-    .container-suporte{
-        margin-left: 350px;
-    }
-
     .banner {
         background: url(../assets/images/Suporte_siuuu.jpg);
         width: 100vw;
@@ -147,8 +143,88 @@ button:hover {
 
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 1100px) {
     .container-suporte{
-        display: flex;
+        margin-left: 150px;
     }
+ 
+    .banner {
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+ 
+    }
+ 
+}
+@media only screen and (max-width: 768px) {
+    .banner {
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+
+    }
+
+
+    .banner {
+        height: 30vh;
+        width: 30%;
+        overflow: auto;
+        border-top: 1px solid;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .box {
+        width: 380px;
+        height: 425px;
+        border-radius: 5px;
+        flex-direction: column;
+        border-radius: 5px;
+        margin-right: 10px;
+        padding: 20px 50px 20px 50px; 
+        border: 1px solid #fcf8f8;
+        background-color: #F5F5F5;
+
+    }
+
+
+    #box-continuar-suporte {
+        height: 400px;
+        width: 410px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .info-boxes-suporte input {
+        width: 322px;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        background-color: #F5F5F5;
+    }
+    
+
+    .info-boxes-suporte label, #title-box {
+        color: #FFF;
+        margin-right: 20px;
+    
+        }
+
+        #title-box { 
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            padding-bottom: 20px;
+            color: black;
+        }
+
+        #box-finalizar-suporte {
+
+            margin-left: 25px; 
+            padding: 15px 15px 15px 25px; 
+        }
+      
+      
 }
