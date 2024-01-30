@@ -81,3 +81,20 @@
     cursor: pointer;
     font-weight: 700;
 }
+
+#photo-change {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+#btn-photo-send {
+    background-color:#e4321e;
+    color: #FFF;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    font-weight: 400;
+}
