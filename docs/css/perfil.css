@@ -47,3 +47,37 @@
     align-content: center;
     font-weight: 400;
 }
+
+#photo {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+}
+
+.show {
+    position: absolute;
+    background-color: rgba(0, 0,0, 0.4);
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    backdrop-filter: grayscale(30%);
+}
+
+#modal-photo {
+    width: 70%;
+    height: 70%
+}
+
+#fecha-modal {
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}

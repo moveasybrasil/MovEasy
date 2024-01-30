@@ -45,3 +45,15 @@ function logOut() {
     sessionStorage.clear();
     goTo(`user/login`)
 }
+
+const modalPhoto = $('#modal-photo');
+$('#photo').click( (e) => {
+    modalPhoto.removeClass("modal");
+    modalPhoto.toggleClass("show");
+});
+
+const closeModal = $('#fecha-modal')
+closeModal.click( (e) => {
+    modalPhoto.removeClass("show");
+    modalPhoto.toggleClass("modal");
+})
