@@ -8,7 +8,7 @@
         public string DestinationDescription { get; set; }
         public DateTime Date { get; set; }
         public string Obs { get; set; }
-        public string Address_Id { get; set; } 
-        public string Address_Id1 { get; set; }
+        public AddressDTO Address_Id { get; set; } 
+        public AddressDTO Address_Id1 { get; set; }
     }
 }

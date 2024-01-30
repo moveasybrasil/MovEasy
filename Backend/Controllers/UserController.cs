@@ -6,6 +6,7 @@ using Backend.Entity;
 using Backend.Repository;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Security.Claims;
+using Backend.Infrastructure;
 
 namespace Backend.Controllers
 {
@@ -66,7 +67,7 @@ namespace Backend.Controllers
         {
             try
             {
-                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.Update(user, email));
             }
             catch (Exception ex)
@@ -127,7 +128,7 @@ namespace Backend.Controllers
 
             try
             {
-                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.AddPhoto(image.OpenReadStream(), image.FileName, email));
             }
             catch (Exception ex)
@@ -143,7 +144,7 @@ namespace Backend.Controllers
         {
             try
             {
-                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.GetUserPhoto(email));
             }
             catch (Exception ex)
@@ -159,7 +160,7 @@ namespace Backend.Controllers
         {
             try
             {
-                string email = GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
                 return Ok(await _userRepository.RenewToken(email));
             }
             catch (Exception Ex)
@@ -218,20 +219,6 @@ namespace Backend.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetClaimValueFromToken(HttpContext httpContext, string claimType)
-        {
-            var identity = httpContext.User.Identity as ClaimsIdentity;
-            switch (claimType)
-            {
-                case ClaimTypes.Email:
-                    string? email = identity?.FindFirst(ClaimTypes.Email)?.Value;
-                    if (string.IsNullOrEmpty(email)) { throw new Exception("Token Inválido."); }
-                    return email;
-                default:
-                    throw new Exception("Claim Inválido.");
             }
         }
     }
