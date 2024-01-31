@@ -23,30 +23,36 @@
             </label>
 
         </div>
+
         <div class="checkout-box">
 
             <div class="qr-pix">
-                <div class="blur">
-                     <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+                <div class="hidden">
+                    <img src=""
                         id="img-qr" />
                 </div>
-                </div>
-                <div>
+            </div>
+            <div>
 
-                    <div class="pix-copia-cola">
-                        <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
-                        <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código abaixo para pagar.<br />
-                            Seu pagamento será confirmado automaticamente.</span>
-                        <div class="">
-                            <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
-                        </div>
-                        <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg" style="height:20px" />Pix
-                            Copia e Cola</button>
+                <div class="pix-copia-cola">
+                    <span id="start-timer"></span><span class="stop-time"></span>
+                    <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
+                    <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código abaixo para pagar.<br />
+                        Seu pagamento será confirmado automaticamente.</span>
+                    <div class="">
+                        <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
                     </div>
+                    <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg"
+                            style="height:20px" />Pix
+                        Copia e Cola</button>
+
+                    <div id="timer" class="hidden">10:00</div>
+                    <span class="hidden">Faça sua operação no tempo indicado!</span>
                 </div>
             </div>
-
+        </div>
 
 </body>
 <script src="./js/qr-code.js"></script>
+
 </html>
