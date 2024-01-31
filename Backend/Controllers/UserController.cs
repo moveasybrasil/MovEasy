@@ -204,7 +204,7 @@ namespace Backend.Controllers
                 return Ok(await _userRepository.RenewPassword(user));
             } catch (Exception Ex)
             {
-                return Forbid(Ex.Message);
+                return BadRequest(Ex.Message);
             }
         }
 

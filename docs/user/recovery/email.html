@@ -24,6 +24,9 @@
       }
     }
   </script>
+
+  <script defer src="../../js/header.js"></script>
+  <script defer src="../../js/user-recovery.js"></script>
 </head>
 
 <body>
@@ -57,11 +60,11 @@
 
           <div class="info-boxes-suporte">
             <label for="login-email">Email:</label>
-            <input type="text" id="recovery" placeholder="ex: seuemail@emai.com" onkeyup="ValidateEmail()"></input>
+            <input type="text" id="recovery" placeholder="ex: seuemail@email.com" onkeyup="ValidateEmail()"></input>
           </div>
 
-          <div style="display: none;">
-            <p id="resposta-email">Email enviado com sucesso!</p>
+          <div>
+            <p id="resposta-email" style="display: none;">Email enviado com sucesso!</p>
           </div>
 
           <div class="img-recovery">
@@ -90,8 +93,4 @@
   </div>
 
 </body>
-
-<script src="../../js/header.js"></script>
-<script src="../../js/user-recovery.js"></script>
-
 </html>
