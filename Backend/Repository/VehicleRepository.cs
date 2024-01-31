@@ -44,5 +44,11 @@ namespace Backend.Repository
                           ";
                 await Execute(sql, vehicle);
             }
+
+            public async Task<VehicleDTO> GetInfoFromLicensePlate(string licensePlate)
+            {
+                return await WebScraper.GetVehicleDataFromLicensePlate(licensePlate);
+            }
+
         }
     }
