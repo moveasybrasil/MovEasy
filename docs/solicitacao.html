@@ -3,13 +3,17 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MovEasy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/saved_resource"></script>
+  <script src="./js/common.js"></script>
+
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/solicitacao.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./js/saved_resource"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <SCript src="./js/solicitacao.js"></SCript>
+  <script src="./js/solicitacao.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -25,109 +29,107 @@
 
 <body>
   <div class="banner bg-local">
-  <header id="header" class="flex justify-between	px-16">
-    <div style="display:flex">
-      <img id="logo" src="./assets/images/logo_moveasy.png" alt="logo">
-
-    </div>
-    <div class="menu-mobile">
-      <img id="logo-mobile" src="./assets/images/logo_moveasy.png" alt="movEasy">
-      <img id="icone-mobile" class="icone-mobile" src="./assets/images/bars-solid.png" alt="menu-mobile">
-      <div>
-      <img id="icone-mobile2" class="icone-mobile hidden" src="./assets/images/xmark.svg" alt="menu-mobile">
-    </div>
-      <div class="menu-mobile-links">
-        <a href="./index.html" >HOME</a>
-        <a href="./sobre.html">SOBRE</a>
-        <a href="./faq.html">FAQ</a>
-        <a href="./suporte.html"class=>SUPORTE</a>
-        <a href="./Login-usuario.html">LOGIN</a>
-        <a href="./solicitacao.html" class="active">SOLICITAÇÃO</a>
-      </div>
-    </div>
-    <div class="menu-desktop">
-      <a href="./index.html">HOME</a>
-      <a href="./sobre.html">SOBRE</a>
-      <a href="./faq.html">FAQ</a>
-      <a href="./suporte.html" class=>SUPORTE</a>
-      <a href="./Login-usuario.html">LOGIN</a>
-      <a href="./solicitacao.html" class="active">SOLICITAÇÃO</a>
-    </div>
-  </header>
-
-  <div class="container-solicitacao">
-
-    <form action="/formulario-solicitacao" method="post" style="height: 100%;">
-
-      <div class="form" id="form-continuar-solicitacao">
-        <h1 id="title-form">Formulário</h1>
-
-        <div class="info-formes-solicitacao">
-          <label for="formulario-solicitacao-descricao">Descrição:</label>
-          <input type="text" placeholder="Descrição de origem" id="Descricao"></input>
-
-          <label for="formulario-solicitacao-descricao">Descrição:</label>
-          <input type="descricao" placeholder="Descrição de destino" id="Descricao"></input>
-
-          <label for="formulario-solicitacao-observacao">Observação:</label>
-          <input type="observacao" placeholder="Ponto de referencia" id="observacao"></input>
-
-          <label for="formulario-solicitacao-data">Data:</label>
-          <input type="data" placeholder="Data do frete" id="data"></input>
-
-          <label for="formulario-solicitacao-contratante">Contratante:</label>
-          <input type="contratante" placeholder="Seu nome" id="contratante"></input>
-
-      
-          <div class="button-form" id="button-continuar">
-            <button type="button">Continuar</button>
+    <header>
+      <div class="header" id="header">
+        <div class="btn-container">
+          <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+        </div>
+        <div class="logo-header">
+          <img id="logo-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))"
+            alt="movEasy">
+        </div>
+        <div class="navigation-header" id="navigation-header">
+          <div class="btn-icon-x btn-container">
+            <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
           </div>
+          <a class="header-home" href="javascript:goTo('index')">HOME</a>
+          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
         </div>
       </div>
+    </header>
 
-      <div class="form" id="form-finalizar-solicitacao" style="display: none">
- 
-        <div class="info-formes-solicitacao">
-          <label for="formulario-solicitacao-termos do servico">Termos do serviço:</label>
-          <input type="text" placeholder="Qual frete desejas" id="Termos do servico"></input>
-        </div>
- 
-        <div class="info-formes-solicitacao" id="status-solicitacao">
-          <label for="formulario-solicitacao-status">Status:</label>
-          <input type="text" placeholder="Nada declarar" id="Status"></input>
-        </div>
- 
-        <div class="info-formes-solicitacao" id="endereco de destino-solicitacao">
-          <label for="formulario-solicitacao-endereco de destino">Endereço de destino:</label>
-          <input type="text" placeholder="Nada declarar" id="Endereco de destino"></input>
-        </div>
- 
-        <div class="info-formes-solicitacao" id="endereco de origem-solicitacao">
-          <label for="formulario-solicitacao-endereco de origem">Endereço de origem:</label>
-          <input type="text" placeholder="Nada declarar" id="Endereco de origem"></input>
-        </div>
- 
-        <div class="info-formes-solicitacao" id="usuario contratante-solicitacao">
-          <label for="formulario-solicitacao-usuario contratante">Usuario do contratante:</label>
-          <input type="text" placeholder="Nada declarar" id="Usuario do contratante"></input>
-        </div>
- 
-        <div class="info-formes-solicitacao" id="usuario motorista-solicitacao">
-          <label for="formulario-solicitacao-usuario motorista">Usuario do motorista:</label>
-          <input type="text" placeholder="Nada declarar" id="Usuario do motorista"></input>
-        </div>
+    <div id="content">
 
-        <div class="button-container">
-          <div class="button-box" id="button-voltar">
-            <button type="button"><</button>
+      <div class="container-solicitacao">
+
+        <form action="/formulario-solicitacao" method="post" style="height: 100%;">
+
+          <div class="form" id="form-continuar-solicitacao">
+            <h1 id="title-form">Formulário</h1>
+
+            <div class="info-formes-solicitacao">
+              <label for="formulario-solicitacao-descricao">Descrição:</label>
+              <input type="text" placeholder="Descrição de origem" id="Descricao"></input>
+
+              <label for="formulario-solicitacao-descricao">Descrição:</label>
+              <input type="descricao" placeholder="Descrição de destino" id="Descricao"></input>
+
+              <label for="formulario-solicitacao-observacao">Observação:</label>
+              <input type="observacao" placeholder="Ponto de referencia" id="observacao"></input>
+
+              <label for="formulario-solicitacao-data">Data:</label>
+              <input type="data" placeholder="Data do frete" id="data"></input>
+
+              <label for="formulario-solicitacao-contratante">Contratante:</label>
+              <input type="contratante" placeholder="Seu nome" id="contratante"></input>
+
+
+              <div class="button-form" id="button-continuar">
+                <button type="button">Continuar</button>
+              </div>
+            </div>
           </div>
-          <div class="button-box" id="button-enviar">
-            <button type="button" id="Enviar">Enviar</button>
+
+          <div class="form" id="form-finalizar-solicitacao" style="display: none">
+
+            <div class="info-formes-solicitacao">
+              <label for="formulario-solicitacao-termos do servico">Termos do serviço:</label>
+              <input type="text" placeholder="Qual frete desejas" id="Termos do servico"></input>
+            </div>
+
+            <div class="info-formes-solicitacao" id="status-solicitacao">
+              <label for="formulario-solicitacao-status">Status:</label>
+              <input type="text" placeholder="Nada declarar" id="Status"></input>
+            </div>
+
+            <div class="info-formes-solicitacao" id="endereco de destino-solicitacao">
+              <label for="formulario-solicitacao-endereco de destino">Endereço de destino:</label>
+              <input type="text" placeholder="Nada declarar" id="Endereco de destino"></input>
+            </div>
+
+            <div class="info-formes-solicitacao" id="endereco de origem-solicitacao">
+              <label for="formulario-solicitacao-endereco de origem">Endereço de origem:</label>
+              <input type="text" placeholder="Nada declarar" id="Endereco de origem"></input>
+            </div>
+
+            <div class="info-formes-solicitacao" id="usuario contratante-solicitacao">
+              <label for="formulario-solicitacao-usuario contratante">Usuario do contratante:</label>
+              <input type="text" placeholder="Nada declarar" id="Usuario do contratante"></input>
+            </div>
+
+            <div class="info-formes-solicitacao" id="usuario motorista-solicitacao">
+              <label for="formulario-solicitacao-usuario motorista">Usuario do motorista:</label>
+              <input type="text" placeholder="Nada declarar" id="Usuario do motorista"></input>
+            </div>
+
+            <div class="button-container">
+              <div class="button-box" id="button-voltar">
+                <button type="button">
+                  < 
+                </button>
+              </div>
+              <div class="button-box" id="button-enviar">
+                <button type="button" id="Enviar">Enviar</button>
+              </div>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-</form>
-</div>
-</div>
+    </div>
+  </div>
 </body>
 </html>
