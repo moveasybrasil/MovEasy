@@ -30,7 +30,7 @@ $(() => {
         console.log(checked)
 
         let camposInvalidos = false
-        let msg = "Selecione um tipo de usúario!"
+        let msg = "Selecione um tipo de usúario!"-
 
         console.log(checked)
 
