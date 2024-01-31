@@ -24,7 +24,8 @@ form {
     width: 1580px;
     max-width: 500px; 
     height: auto; 
-    background-color: #0b142f;
+    background-color: #F5F5F5;
+    border: 1px solid #bbb;
     border-radius: 10px;
     flex-direction: column;
     padding: 20px 50px; 
@@ -37,7 +38,7 @@ form {
 
 .info-formes-solicitacao label,
 #title-form {
-    color: #fff;
+    color: #0f0000;
 }
 
 #title-form {
@@ -93,6 +94,6 @@ button {
 }
 
 button:hover {
-    background-color: #c4210e; 
+    background-color: #e4321e;
     border-radius: 5px;
 }
