@@ -24,6 +24,9 @@
       }
     }
   </script>
+
+  <script defer src="../../js/header.js"></script>
+  <script defer src="../../js/user-recovery.js"></script>
 </head>
 
 <body>
@@ -51,44 +54,43 @@
     </header>
 
     <div id="content">
-      <div class="banner2">
-        <form action="">
-          <div class="corpo">
-            <div class="menu-login">
-              <div class="controlador-login">
-                <div class="recuperar-email mt-8">
-                  <label for="login-email"
-                    class="text-black text-lg font-normal font-['Inter']"><strong>Email:</strong></label>
-                  <input type="text" id="recovery" class="bg-zinc-300 rounded-[10px]" placeholder="Digite o seu email"
-                    onkeyup="ValidateEmail()"></input>
-                </div>
+      <form action="">
+        <div class="box" id="box-user-recovery">
+          <h1 id="title-box">Email Para Recuperação</h1>
 
-              </div>
+          <div class="info-boxes-suporte">
+            <label for="login-email">Email:</label>
+            <input type="text" id="recovery" placeholder="ex: seuemail@email.com" onkeyup="ValidateEmail()"></input>
+          </div>
 
-              <div class="botao-logar">
-                <button type="button" id="btn-recuperar" class="rounded-[10px] font-bold text-lg shadow"
-                  onclick="SendEmail()">Recuperar Conta</button>
-              </div>
+          <div>
+            <p id="resposta-email" style="display: none;">Email enviado com sucesso!</p>
+          </div>
 
-              <div class="">
-                <div class="campos mt-4 ml-4">
-                  <div>
-                    <button type="button" id="btn-EnviarEmail"
-                      class="recuperar-senha text-lg font-normal font-['Inter']" onclick="goTo('user/login')">
-                      < Voltar para o login </button>
-                  </div>
-                </div>
-              </div>
+          <div class="img-recovery">
+            <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/verification_12478924.png'))" alt="">
+          </div>
+
+          <div style="display: none;" id="reenviar-email">
+            <p>Não recebeu seu email? Clique no botão abaixo para enviar novamente!</p>
+          </div>
+
+          <div>
+            <div class="button-box" id="button-enviar">
+              <button type="button" id="btn-recuperar" onclick="SendEmail()">Enviar Email</button>
             </div>
 
+            <div class="voltar-login" id="voltar-login" onclick="goTo('user/login')">
+              <a href="">Voltar para o Login</button>
+            </div>
           </div>
-      </div>
+
+        </div>
+
+      </form>
+
     </div>
-
-    </form>
   </div>
-  <script src="../../js/header.js"></script>
-  <script src="../../js/user-recovery.js"></script>
-</body>
 
+</body>
 </html>
