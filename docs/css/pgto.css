@@ -24,9 +24,9 @@ body {
     height: 100vh;
 }
 
-/*---------------------
-Slider opção pagamento
---------------------*/
+
+/*---------------------Slider opção pagamento--------------------*/
+
 
 .opcao-pgto {
     position: absolute;
@@ -92,9 +92,9 @@ Slider opção pagamento
     top: 2px;
 }
 
-/*--------------------
-  Pix-Checkout box
--------------------*/
+
+  /*--------------------Pix-Checkout box-------------------*/
+
 
 .background-checkout {
     background-color: darkgrey;
@@ -126,9 +126,9 @@ Slider opção pagamento
     width: 150px;
 }
 
-/*----------------
-Copia/cola Pix
-----------------*/
+
+/*----------------Copia/cola Pix----------------*/
+
 
 .pix-copia-cola {
     width: 100%;

@@ -1,7 +1,7 @@
-    
-    /*------------------------------------------------
-    Função que tira o blur e começa o countdown do pix
-    -------------------------------------------------*/
+
+
+/*--- Função que tira o blur e começa o countdown do pix ---*/
+
 
 function GerarQRCode() {
     let finalURL = './assets/images/Qr-Before.png';
@@ -21,9 +21,9 @@ $(document).ready(function () {
     });
 });
 
-    /*-----------------
-    Timer de pagamento
-    -----------------*/
+
+/*--- Timer de pagamento ---*/
+
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -42,9 +42,7 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-/*------------------------------------
-Função para copiar o texto do textarea
--------------------------------------*/
+/*--- Função para copiar o texto do textarea ---*/
 
 $(document).ready(function () {
     $("#btn-copiar").click(function () {
@@ -53,17 +51,15 @@ $(document).ready(function () {
     });
 });
 
-/*-------------------------
-Alternar entre Pix e Crédito
--------------------------*/
+/*--- Alternar entre Pix e Crédito ---*/
 $(document).ready(function () {
-$('.toggle-checkbox').change(function () {
-    if (this.checked) {
-      $('.qr-pix').addClass('hidden');
-      $('.pix-copia-cola').addClass('hidden')
-    } else {
-      $('.qr-pix').removeClass('hidden');
-      $('.pix-copia-cola').removeClass('hidden');
-    }
-  });
+    $('.toggle-checkbox').change(function () {
+        if (this.checked) {
+            $('.qr-pix').addClass('hidden');
+            $('.pix-copia-cola').addClass('hidden')
+        } else {
+            $('.qr-pix').removeClass('hidden');
+            $('.pix-copia-cola').removeClass('hidden');
+        }
+    });
 });
