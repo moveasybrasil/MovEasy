@@ -1,5 +1,5 @@
 const serverURL = "https://moveasy-afe07a84638c.herokuapp.com";
-const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? "https://moveasybrasil.github.io/MovEasy" : `${window.location.href.split("docs")[0]}docs/`;
+const frontURL = window.location.origin === "https://moveasybrasil.github.io" ? "https://moveasybrasil.github.io/MovEasy" : `${window.location.href.split("docs")[0]}docs`;
 const r2URL = "https://pub-aa42159a06e741ff942b348ad2e0ab2c.r2.dev"
 
 // Função para realizar requisições HTTP.
@@ -65,7 +65,7 @@ function isTokenValid() {
     if(!sessionStorage.getItem(`token`)) return false
 
     try {
-        let expireDate = parseJwt(sessionStorage.getItem(token)).exp * 1000;
+        let expireDate = parseJwt(sessionStorage.getItem(`token`)).exp * 1000;
         let currentDate = Date.now();
 
         if(expireDate > currentDate) {
@@ -84,7 +84,7 @@ async function renewToken() {
     console.log("Verificação de token")
     if(!isTokenValid()) return
 
-    let expireDate = parseJwt(sessionStorage.getItem(token)).exp * 1000;
+    let expireDate = parseJwt(sessionStorage.getItem(`token`)).exp * 1000;
     let currentDate = Date.now();
 
     if(expireDate - currentDate < 15 * 60 * 1000) { // Renovar quando faltar menos de 15 minutos para expirar

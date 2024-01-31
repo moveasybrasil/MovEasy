@@ -45,3 +45,34 @@ function logOut() {
     sessionStorage.clear();
     goTo(`user/login`)
 }
+
+const modalPhoto = $('#modal-photo');
+$('#photo').click( (e) => {
+    modalPhoto.removeClass("modal");
+    modalPhoto.toggleClass("show");
+});
+
+const closeModal = $('#fecha-modal')
+closeModal.click( (e) => {
+    modalPhoto.removeClass("show");
+    modalPhoto.toggleClass("modal");
+
+    // Volta a foto para o default
+    document.getElementById("photo-change").setAttribute('src', getUrl('assets/images/default.jpg'))
+
+    // Limpa a seleção de foto
+    var $el = $('#photo-input');
+    $el.wrap('<form>').closest('form').get(0).reset();
+    $el.unwrap();
+})
+
+function fileChanged() {
+    let selectedFile = document.getElementById('photo-input').files[0];
+    let img = document.getElementById('photo-change')
+
+    let reader = new FileReader();
+    reader.onload = function(){
+        img.src = this.result
+    }
+    reader.readAsDataURL(selectedFile);
+}

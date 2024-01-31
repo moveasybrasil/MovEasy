@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="banner bg-local">
+    <div class="banner">
         <header>
             <div class="header" id="header">
                 <div class="btn-container">
@@ -51,17 +51,33 @@
                 </div>
             </div>
         </header>
-
         <div id="content">
             <div class="">
                 <div class="container flex px-8">
                     <button name="dados-cadastro" id="btn-dados-cadastro" class="button-container">Dados do
                         Cadastro</button>
-                    <button name="dados-pessoais" id="btn-dados-pessoais" class="button-container">Dados Pessoais</button>
+                    <button name="dados-pessoais" id="btn-dados-pessoais" class="button-container">Dados
+                        Pessoais</button>
                 </div>
                 <div class="container-dados mx-2">
                     <img id="photo" src="../assets/images/default.jpg"
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))" width="100px">
+                    <div id="modal-photo" class="modal">
+                        <div class="flex justify-end w-1/2">
+                            <span id="fecha-modal" class="text-4xl m-6">X</span>
+                        </div>
+                        <img id="photo-change" src="../assets/images/default.jpg"
+                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+
+                        <label id="photo-input-label">
+                            Selecionar arquivo
+                            <input style="display: none" id="photo-input" type="file" name="file" onchange="fileChanged()">
+                        </label>
+                        
+                        <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                       
+                    </div>
+
 
                 </div>
                 <div class="container-end flex p-8">
@@ -69,10 +85,9 @@
                 </div>
             </div>
 
-            <input type="file" name="file">
-            <button type="button" role="button" onclick="sendPhoto()">[Enviar]</button>
 
         </div>
+
     </div>
 
     <script src="../js/header.js"></script>
