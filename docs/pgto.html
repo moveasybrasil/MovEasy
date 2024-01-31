@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/pgto.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+
+
+    <div class="background-checkout">
+        <div class="opcao-pgto">
+            <span class="toggle-label">Pix</span>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Cartão de Crédito</span>
+            </label>
+
+        </div>
+
+        <div class="checkout-box">
+            <div class="qr-pix">
+                <div class="hidden">
+                    <img src="" id="img-qr" />
+                </div>
+            </div>
+            <div>
+
+                <div class="pix-copia-cola">
+                    <span id="start-timer"></span><span class="stop-time"></span>
+                    <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
+                    <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código abaixo para pagar.<br />
+                        Seu pagamento será confirmado automaticamente.</span>
+                    <div class="">
+                        <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
+                    </div>
+                    <div class="bottom-menu">
+                        <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg"
+                                style="height:20px" />Pix
+                            Copia e Cola</button>
+                        <div class="timer-menu">
+                            <div id="timer" class="">10:00
+                            </div>
+                            <span class="" id="span-bottom">Faça a operação no tempo indicado!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="credito-checkout">
+
+            </div>
+        </div>
+        <div>
+            <button class="btn-copia" id="btn-continua">Continuar</button>
+        </div>
+    </div>
+
+
+</body>
+<script src="./js/qr-code.js"></script>
+
+</html>
