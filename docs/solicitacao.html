@@ -42,7 +42,7 @@
         <a href="./faq.html">FAQ</a>
         <a href="./suporte.html"class=>SUPORTE</a>
         <a href="./Login-usuario.html">LOGIN</a>
-        <a href="./solicitacao.html" class="active">Solicitação</a>
+        <a href="./solicitacao.html" class="active">SOLICITAÇÃO</a>
       </div>
     </div>
     <div class="menu-desktop">
@@ -51,7 +51,7 @@
       <a href="./faq.html">FAQ</a>
       <a href="./suporte.html" class=>SUPORTE</a>
       <a href="./Login-usuario.html">LOGIN</a>
-      <a href="./solicitacao.html" class="active">Solicitação</a>
+      <a href="./solicitacao.html" class="active">SOLICITAÇÃO</a>
     </div>
   </header>
 
@@ -85,24 +85,49 @@
         </div>
       </div>
 
-      <div class="form" id="form-finalizar-solicitacao">
-
+      <div class="form" id="form-finalizar-solicitacao" style="display: none">
+ 
         <div class="info-formes-solicitacao">
-          <label for="formulario-solicitacao-assunto">Assunto:</label>
-          <input type="text" placeholder="Digite o assunto do seu problema" id="Assunto"></input>
+          <label for="formulario-solicitacao-termos do servico">Termos do serviço:</label>
+          <input type="text" placeholder="Qual frete desejas" id="Termos do servico"></input>
         </div>
-
-        <div class="info-formes-solicitacao" id="descricao-suporte">
-          <label for="formulario-suporte-descricao">Descrição:</label>
-          <input type="text" placeholder="Digite aqui a descrição do seu problema" id="Descricao"></input>
+ 
+        <div class="info-formes-solicitacao" id="status-solicitacao">
+          <label for="formulario-solicitacao-status">Status:</label>
+          <input type="text" placeholder="Nada declarar" id="Status"></input>
+        </div>
+ 
+        <div class="info-formes-solicitacao" id="endereco de destino-solicitacao">
+          <label for="formulario-solicitacao-endereco de destino">Endereço de destino:</label>
+          <input type="text" placeholder="Nada declarar" id="Endereco de destino"></input>
+        </div>
+ 
+        <div class="info-formes-solicitacao" id="endereco de origem-solicitacao">
+          <label for="formulario-solicitacao-endereco de origem">Endereço de origem:</label>
+          <input type="text" placeholder="Nada declarar" id="Endereco de origem"></input>
+        </div>
+ 
+        <div class="info-formes-solicitacao" id="usuario contratante-solicitacao">
+          <label for="formulario-solicitacao-usuario contratante">Usuario do contratante:</label>
+          <input type="text" placeholder="Nada declarar" id="Usuario do contratante"></input>
+        </div>
+ 
+        <div class="info-formes-solicitacao" id="usuario motorista-solicitacao">
+          <label for="formulario-solicitacao-usuario motorista">Usuario do motorista:</label>
+          <input type="text" placeholder="Nada declarar" id="Usuario do motorista"></input>
         </div>
 
         <div class="button-container">
           <div class="button-box" id="button-voltar">
-            <button type="button"></button>
+            <button type="button"><</button>
           </div>
           <div class="button-box" id="button-enviar">
             <button type="button" id="Enviar">Enviar</button>
           </div>
         </div>
       </div>
+</form>
+</div>
+</div>
+</body>
+</html>
