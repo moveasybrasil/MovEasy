@@ -252,7 +252,7 @@ namespace Backend.Repository
 
             } catch (Exception ex)
             {
-                return $"Não foi possivel enviar email de recuperação: {ex.Message}";
+                throw new Exception($"Não foi possivel enviar email de recuperação: {ex.Message}");
             }
         }
 
@@ -260,6 +260,8 @@ namespace Backend.Repository
         {
             try
             {
+                if(user.Password.Length < 8) { throw new Exception("Senha Inválida"); }
+
                 string sql = "SELECT Id FROM User WHERE PasswordRecoveryUUID = @UUID";
                 string UUID = user.UUID;
                 string? id = await GetConnection().QueryFirstOrDefaultAsync<string>(sql, new { UUID });
