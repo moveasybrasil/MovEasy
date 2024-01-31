@@ -5,7 +5,7 @@ document.querySelectorAll(".header-home").forEach((e) => {
 
 $(() => {
     $('#text-bt').click((e) => {
-        goTo('agendar')
+        goTo('solicitacao')
 
     });
     });
