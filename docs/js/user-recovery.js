@@ -12,24 +12,28 @@ function ValidateEmail() {
     if (!email) {
         //alert("Email não informado!");
         addClass();
+        $('input[id="recovery"]').css("border", "2px solid red");
         return false
     }
 
     if(!~email.indexOf("@")){
         //alert("Preencha um e-mail válido!")
         addClass();
+        $('input[id="recovery"]').css("border", "2px solid red");
         return false
     }
 
     if(!~email.split("@")[1].indexOf(".")){
         //alert("Preencha um e-mail válido!")
         addClass();
+        $('input[id="recovery"]').css("border", "2px solid red");
         return false
     }
 
     if(!email.split("@")[1].split(".")[1]){
         //alert("Preencha um e-mail válido!")
         addClass();
+        $('input[id="recovery"]').css("border", "2px solid red");
         return false
     }
 
@@ -69,7 +73,17 @@ function SendEmail(){
     request(
         "POST",
         `${serverURL}/user/recovery?email=${document.getElementById("recovery").value}`,
-        (xhr) => { document.getElementById("resposta-email").innerHTML = xhr.responseText}
+        (xhr) => { 
+            if(xhr.status == 200) {
+                $('input[id="recovery"]').css("border", "2px solid red");
+                console.log(xhr.responseText)
+                document.getElementById("resposta-email").innerHTML = xhr.responseText                
+            } else {
+                $('input[id="recovery"]').css("border", "1px solid #bbb");
+                document.getElementById("resposta-email").style.display = "flex"
+                document.getElementById("reenviar-email").style.display = "flex"
+            }
+        }
     )
 
 }
