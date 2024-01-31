@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 textarea {
@@ -108,7 +107,7 @@ Slider opção pagamento
 
 .checkout-box {
     background-color: #f9f9f9;
-    width: 40%;
+    width: 35%;
     height: 70%;
     display: flex;
     padding-top: 80px;
@@ -127,9 +126,9 @@ Slider opção pagamento
     width: 150px;
 }
 
-/*---------------
+/*----------------
 Copia/cola Pix
---------------*/
+----------------*/
 
 .pix-copia-cola {
     width: 100%;
@@ -171,12 +170,25 @@ Copia/cola Pix
     margin-right: 5px;
 }
 
+#btn-copiar {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
 .hidden {
     display: none;
 }
 
 #span-bottom {
     font-weight: 700;
+}
+
+#btn-continua {
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    width: 15%;
+
 }
 
 @media (max-width: 600px) {
@@ -198,15 +210,22 @@ Copia/cola Pix
     .qr-pix {
         position: absolute;
         top: 75px;
+    }
 
+    #timer {
+        margin-top: 25px;
     }
 
     #span-bottom {
+
         text-align: center;
     }
 
-    #btn-copiar {
-        width: 40%;
-        margin-top: 30px;
+    #btn-continua {
+        position: absolute;
+        left: 33%;
+        width: 33%;
+    
     }
+
 }
