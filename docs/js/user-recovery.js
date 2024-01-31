@@ -69,7 +69,7 @@ function SendEmail(){
     request(
         "POST",
         `${serverURL}/user/recovery?email=${document.getElementById("recovery").value}`,
-        (xhr) => { console.log(xhr.responseText)}
+        (xhr) => { document.getElementById("resposta-email").innerHTML = xhr.responseText}
     )
 
 }
