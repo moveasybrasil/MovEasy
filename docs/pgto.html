@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/pgto.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+
+
+    <div class="background-checkout">
+        <div class="opcao-pgto">
+            <span class="toggle-label">Pix</span>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Cartão de Crédito</span>
+            </label>
+
+        </div>
+        <div class="checkout-box">
+
+            <div class="qr-pix">
+                <div class="blur">
+                     <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+                        id="img-qr" />
+                </div>
+                </div>
+                <div>
+
+                    <div class="pix-copia-cola">
+                        <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
+                        <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código Pix para pagar.<br />
+                            Seu pagamento será confirmado automaticamente.</span>
+                        <div class="">
+                            <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
+                        </div>
+                        <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg" style="height:20px" />Pix
+                            Copia e Cola</button>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+<script src="./js/qr-code.js"></script>
+</html>
