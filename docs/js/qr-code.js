@@ -59,9 +59,11 @@ Alternar entre Pix e Crédito
 $(document).ready(function () {
 $('.toggle-checkbox').change(function () {
     if (this.checked) {
-      $('.checkout-box').addClass('blur');
+      $('.qr-pix').addClass('hidden');
+      $('.pix-copia-cola').addClass('hidden')
     } else {
-      $('.checkout-box').removeClass('blur');
+      $('.qr-pix').removeClass('hidden');
+      $('.pix-copia-cola').removeClass('hidden');
     }
   });
 });
