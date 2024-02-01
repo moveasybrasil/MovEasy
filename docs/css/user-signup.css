@@ -60,6 +60,10 @@
     display: none;
 }
 
+#box4 {
+    display: none;
+}
+
 /* --- TITLE --- */
 
 .title {
@@ -184,6 +188,14 @@
     padding: 0 10px;
     margin: 15px;
     margin-left: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+       -webkit-appearance: none;   
+       margin: 0; 
+} 
+input[type="number"] {  
+     -moz-appearance: textfield; 
 }
 
 /* --- BUTTON-BOXES --- */

@@ -12,7 +12,7 @@
   <script src="../js/common.js"></script>
 
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/cadastro.css">
+  <link rel="stylesheet" href="../css/user-signup.css">
   <script>
     tailwind.config = {
       theme: {
@@ -24,6 +24,9 @@
       }
     }
   </script>
+
+  <script defer src="../js/user-signup.js"></script>
+  <script defer src="../js/header.js"></script>
 </head>
 
 <body>
@@ -54,7 +57,7 @@
 
     <div id="content">
 
-          <!-- Menu de Cadastro -->
+      <!-- Menu de Cadastro -->
 
       <div class="container-cadastro">
 
@@ -115,11 +118,12 @@
             </div>
 
             <!-- Botão que permite voltar para o Segundo Menu -->
-            
+
             <div class="button-container">
               <div class="button-box" id="button-voltar1">
                 <button type="button">
-                  <</button>
+                  < 
+                </button>
               </div>
 
               <!-- Botão que permite ir para o Terceiro Menu -->
@@ -146,9 +150,9 @@
             </div>
 
             <div class="checkbox_class">
-              <input type="checkbox"></input>
+              <input type="checkbox" id="termos-de-uso"></input>
               <span>Li e concordo com os</span>
-              <a id="termos-de-uso" href="">Termos de Uso</a>
+              <a href="">Termos de Uso</a>
             </div>
 
             <!-- Botão que permite voltar para o Segundo Menu -->
@@ -156,15 +160,38 @@
             <div class="button-container" id="button-container-box3">
               <div class="button-box" id="button-voltar2">
                 <button type="button">
-                  <</button>
+                  < 
+                </button>
               </div>
 
               <!-- Botão que finaliza o Cadastro do Usúario -->
 
               <div class="button-box" id="button-cadastrar">
-                <button type="button">Cadastrar</button>
+                <button type="button" id="button-cadastrar1">Cadastrar</button>
               </div>
             </div>
+          </div>
+
+          <div class="box" id="box4">
+
+            <div class="info-boxes">
+              <span id="response-message">Efetuando Cadastro.</span>
+            </div>
+
+            <div class="button-container" id="button-container-box4">
+              <div class="button-box" id="button-voltar3">
+                <button type="button">
+                  < 
+                </button>
+              </div>
+
+              <!-- Botão que finaliza o Cadastro do Usúario -->
+
+              <div class="button-box" id="button-cadastrar">
+                <button type="button" id="button-login">Ir para o Login</button>
+              </div>
+            </div>
+
           </div>
 
         </form>
@@ -173,8 +200,6 @@
 
     </div>
   </div>
-  <script src="../js/cadastro.js"></script>
-  <script src="../js/header.js"></script>
 </body>
 
 </html>
