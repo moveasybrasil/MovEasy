@@ -59,11 +59,9 @@ $(document).ready(function () {
             $('#btn-continua').addClass('hidden')
             $('.checkout-credit').removeClass('hidden');
         } else {
-            $('.qr-pix').removeClass('hidden');
             $('.pix-copia-cola').removeClass('hidden');
             $('#btn-continua').removeClass('hidden')
             $('.checkout-credit').addClass('hidden')
-
         }
     });
 });

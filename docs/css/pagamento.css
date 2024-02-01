@@ -96,6 +96,10 @@ textarea:focus {
 }
 
 .checkout-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     width: 35%;
     height: 70%;
@@ -105,9 +109,10 @@ textarea:focus {
 
 }
 
-.qr-pix {
+#moveasy-qr {
     position: absolute;
-    top: 30px;
+    top: 11rem;
+    left: 7.5rem;
     border: 1px solid #000;
 }
 
@@ -122,13 +127,16 @@ textarea:focus {
 
 
 .pix-copia-cola {
+    position: relative;
+    top: 4rem;
     width: 100%;
     height: 80%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     transition: 0.4s;
-    margin-top: 115px;
+
 }
 
 .top-span {
@@ -234,6 +242,9 @@ textarea:focus {
 Form
 --------------------*/
 .form {
+    position: relative;
+    top: 70px;
+    margin: 8px;
 
     fieldset {
         border: none;
@@ -249,8 +260,8 @@ Form
             width: 60%;
 
             & .select {
-                width: 84px;
-                margin-right: 12px;
+                width: 4.5rem;
+                margin-right: 10px;
                 float: left;
             }
         }
@@ -287,9 +298,9 @@ Form
             background-color: #F5F5F5;
 
             &.input-cart-number {
-                width: 72px;
+                width: 68px;
                 display: inline-block;
-                margin-right: 8px;
+                margin-right: 3px;
                 background-color: #F5F5F5;
 
                 &:last-child {
@@ -323,11 +334,8 @@ Form
                 left: 6px;
                 background: none;
                 background-color: #F5F5F5;
-                margin-left: 10px;
+                margin-left: 0px;
                 display: flex;
-                position: absolute;
-                left: 2px;
-                top: 7px;
                 background: transparent;
 
 
@@ -397,8 +405,8 @@ Credit Card
 
     .front
     {
-        width: 320px;
-        height: 210px;
+        width: 18rem;
+        height: 11rem;
         border-radius: 15px;
         backface-visibility: hidden;
         background: linear-gradient(135deg, #bd6772, #53223f);
@@ -424,16 +432,16 @@ Credit Card
     }
 
     .back {
-        width: 320px;
-        height: 210px;
+        width: 18rem;
+        height: 11rem;
         border-radius: 15px;
         backface-visibility: hidden;
         background: linear-gradient(135deg, #bd6772, #53223f);
         position: absolute;
         color: #fff;
         font-family: Inconsolata;
-        top: 0;
-        left: -43px;
+        top: 15px !important;
+        left: -38px !important;
         text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
         box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
 
@@ -443,7 +451,7 @@ Credit Card
             width: 100%;
             height: 100%;
             top: 0;
-            left: 0;
+            left: -26px;
             background: url('http://cdn.flaticon.com/svg/44/44386.svg') no-repeat center;
             background-size: cover;
             opacity: .05;
@@ -520,9 +528,9 @@ Credit Card
     .number {
         position: absolute;
         margin: 0 auto;
-        top: 103px;
-        left: 10px;
-        font-size: 29px;
+        top: 6rem;
+        left: 1.6rem;
+        font-size: 22px;
     }
 
     label {
@@ -540,16 +548,16 @@ Credit Card
     .card-expiration-date {
         position: absolute;
         margin: 0 auto;
-        top: 160px;
-        left: 19px;
-        font-size: 15px;
+        top: 8rem;
+        left: 25px;
+        font-size: 12px;
         text-transform: capitalize;
     }
 
     .card-expiration-date {
         text-align: right;
-        left: auto;
-        right: 20px;
+
+        right: 1rem;
     }
 
     .ccv {
@@ -579,12 +587,6 @@ Credit Card
     .bottom-menu {
         flex-direction: column !important;
     }
-
-    .qr-pix {
-        top: 190px !important;
-        left: 138px !important;
-
-    }
 }
 
 
@@ -594,11 +596,6 @@ Credit Card
         width: 80%;
         height: 70%;
 
-    }
-
-    .qr-pix {
-        position: absolute;
-        top: 50px;
     }
 
     #timer {
@@ -611,10 +608,9 @@ Credit Card
     }
 
     #btn-continua {
-        position: absolute;
         left: 33%;
         width: 33%;
-        top: 85%
+        top: 95vh;
     }
 
     .bottom-menu {
