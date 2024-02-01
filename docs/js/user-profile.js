@@ -76,3 +76,25 @@ function fileChanged() {
     }
     reader.readAsDataURL(selectedFile);
 }
+
+function updateInfo() {
+    const data = {
+        document: "string",
+        telephone1: "string",
+        telephone2: "string",
+        email: "string",
+        name: "string",
+        cnh: "string"
+    }
+
+    request("PUT", `${serverURL}/user`, (xhr)=> {
+        console.log(xhr.responseText)
+        if(xhr.status == 200) {
+            if(sessionStorage.getItem(`token`) == localStorage.getItem(`token`)) {
+                localStorage.setItem(`user`, xhr.responseText)
+            }
+
+            sessionStorage.setItem(`user`, xhr.responseText)
+        }
+    }, data, null, true)
+}

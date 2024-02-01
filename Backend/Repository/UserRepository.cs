@@ -115,7 +115,7 @@ namespace Backend.Repository
             }
         }
 
-        public async Task<string> Update(UserUpdateDTO user, string email)
+        public async Task<UserEntity> Update(UserUpdateDTO user, string email)
         {
             try
             {
@@ -138,7 +138,7 @@ namespace Backend.Repository
                 ";
                 await Execute(sql, userEntity);
 
-                return "Dados Atualizados.";
+                return userEntity;
             } catch (Exception ex)
             {
                 throw new Exception($"Nao foi possivel alterar os dados: {ex.Message}");
