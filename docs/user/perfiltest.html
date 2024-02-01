@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovEasy</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/saved_resource"></script>
+    <script src="../js/common.js"></script>
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/perfiltest.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <header>
+            <div class="header" id="header">
+                <div class="btn-container">
+                    <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+                </div>
+                <div class="logo-header">
+                    <img id="logo-img" src="../"
+                        onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+                </div>
+                <div class="navigation-header" id="navigation-header">
+                    <div class="btn-icon-x btn-container">
+                        <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+                    </div>
+                    <a class="header-home" href="javascript:goTo('index')">HOME</a>
+                    <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+                    <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+                    <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+                    <a class="header-login"
+                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content" id="content">
+            <div class="barra-lateral">
+                <div class="img-perfil" id="img-perfil">
+                    <img id="photo" src="../assets/images/default.jpg"
+                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+                    <div id="descricao-usuario">
+                        <p id="nome-usuario">4.57 ★</p>
+                        <div id="conquistas-usuario">
+                            <p id="conquista-usuario">——— Conquistas ———</p>
+                            <div id="icon-conquistas">
+                                <img id="logo-img" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-photo" class="modal" style="position: absolute;">
+                        <div class="fechar-modal">
+                            <span id="fecha-modal">X</span>
+                        </div>
+                        <div>
+                            <div class="photo-change">
+                                <img id="photo-change" src="../assets/images/default.jpg"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+                                <div class="photo-select-archive">
+                                    <label id="photo-input-label">
+                                        <img src="../"
+                                            onerror="this.setAttribute('src', getUrl('assets/images/camera-trocar-foto.png'))"
+                                            alt="">
+                                        <input style="display: none" id="photo-input" type="file" name="file"
+                                            onchange="fileChanged()">
+                                </div>
+                            </div>
+                            </label>
+                        </div>
+                        <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-dados">
+
+            </div>
+
+        </div>
+
+        <div class="container flex px-8">
+            <button name="dados-cadastro" id="btn-dados-cadastro" class="button-container">Dados do
+                Cadastro</button>
+            <button name="dados-pessoais" id="btn-dados-pessoais" class="button-container">Dados
+                Pessoais</button>
+        </div>
+    </div>
+
+    <div class="container-end flex p-8">
+        <button name="logout" id="btn-logout" class="" onclick="logOut()">Logout</button>
+    </div>
+
+    </div>
+
+    </div>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/user-profile.js"></script>
+</body>
+
+</html>
