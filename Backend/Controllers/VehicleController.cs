@@ -26,7 +26,7 @@ namespace Backend.Controllers
                 return Ok(await _vehicleRepository.Get());
             }
 
-            [HttpGet("{licensePlate}")]
+            [HttpGet("placa/{licensePlate}")]
             [Authorize(Roles = "client, admin, driver")]
             public async Task<IActionResult> GetByLicensePlate(string licensePlate)
             {
@@ -55,6 +55,20 @@ namespace Backend.Controllers
             {
                 await _vehicleRepository.Update(vehicle);
                 return Ok();
+            }
+
+            [HttpGet]
+            [Authorize]
+            [Route("{licensePlate}")]
+            public async Task<IActionResult> GetInfoFromLicensePlate(string licensePlate)
+            {
+                try
+                {
+                    return Ok(await _vehicleRepository.GetInfoFromLicensePlate(licensePlate));
+                } catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
 
         }
