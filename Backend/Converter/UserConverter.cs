@@ -49,7 +49,6 @@ namespace Backend.Converter
             userEntity.Telephone1 = userUpdateDTO.Telephone1;
             userEntity.Telephone2 = userUpdateDTO.Telephone2;
             userEntity.Name = userUpdateDTO.Name;
-            userEntity.Type = userUpdateDTO.Type;
             userEntity.CNH = userUpdateDTO.CNH;
 
             return userEntity;
