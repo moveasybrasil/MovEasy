@@ -243,7 +243,7 @@ Form
     fieldset {
         border: none;
         padding: 0;
-        padding: 20px 0;
+        padding: 17px 0;
         position: relative;
         clear: both;
         background-color: #FFF;
@@ -384,7 +384,7 @@ Credit Card
 --------------------*/
 .credit-card-box {
     width: 70%;
-    height: 280px;
+    height: 200px;
     position: absolute;
     top: 175px;
     left: 42%;
@@ -407,7 +407,7 @@ Credit Card
         color: #fff;
         font-family: Inconsolata;
         top: 15px;
-        left: 24px;
+        left: 35px;
         text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
         box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
 
@@ -602,10 +602,10 @@ Credit Card
         align-items: center;
     }
 
-@media (min-width: 1210px) {
+@media (min-width: 770px) {
 
     .btn-copia {
-        width: 20%;
+        width: 30%;
     }
 
     .checkout-box {
@@ -624,7 +624,7 @@ Credit Card
 
     .checkout-credit {
         width: 50%;
-        justify-content: center;
+
         align-items: center;
         flex-direction: column;
     }
@@ -643,8 +643,7 @@ Credit Card
     }
 
     .btn {
-        top: 185px !important;
-        left: -260px;
+        top: 0 !important;
     }
 
     .front {
@@ -674,6 +673,10 @@ Credit Card
 
     .back .logo {
         top: 140px !important;
+    }
+
+    .opcao-pgto {
+        display: none;
     }
 }
 
