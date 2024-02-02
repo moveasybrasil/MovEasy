@@ -4,16 +4,16 @@ document.querySelectorAll(".header-login").forEach((e) => {
 })
 
 function check1() {
-    document.getElementsByClassName(".s2").checked = false
-    document.getElementsByClassName(".s1").checked = true
+    document.getElementById("radio-two").checked = false
+    document.getElementById("radio-one").checked = true
 
     document.getElementById("s1").classList.add("ativo")
     document.getElementById("s2").classList.remove("ativo")
 }
 
 function check2() {
-    document.getElementsByClassName(".s2").checked = true
-    document.getElementsByClassName(".s1").checked = false
+    document.getElementById("radio-two").checked = true
+    document.getElementById("radio-one").checked = false
 
     document.getElementById("s1").classList.remove("ativo")
     document.getElementById("s2").classList.add("ativo")
@@ -23,18 +23,16 @@ $(() => {
 
     $("#button-continuar1").click(() => {
         const checked = {
-            radio_one: $("#radio-one").checked,
-            radio_two: $("#radio-two").checked,
+            radio_one: $("#radio-one")[0].checked,
+            radio_two: $("#radio-two")[0].checked,
         }
 
         console.log(checked)
 
         let camposInvalidos = false
-        let msg = "Selecione um tipo de usúario!"-
+        let msg = "Selecione um tipo de usúario!"
 
-        console.log(checked)
-
-        if ((checked.radio_one = false) || (checked.radio_two = false)) {
+        if (!checked.radio_one && !checked.radio_two) {
             camposInvalidos = true
             msg = "Selecione um tipo de usúario!"
         }
@@ -114,21 +112,23 @@ $(() => {
         }
     });
 
-
-    // kdlfkldfklkdfl
-
-
     $("#button-cadastrar1").click(() => {
         const values = {
             nome: $("#nome")[0].value,
             cpf_or_cnpj: $("#cpf-cnpj")[0].value,
-            telefone: $("#telefone")[0].value
+            telefone: $("#telefone")[0].value,
+            term: $("#termos-de-uso")[0].checked
         }
 
         console.log(values)
 
         let camposInvalidos = false
         let msg = "Os campos em vermelho estão incorretos!"
+        
+        if(!values.term) {
+            camposInvalidos = true
+            msg = "Você deve aceitar os termos de uso."
+        }
 
         if (!values.telefone) {
             $('input[id="telefone"]').css("border", "2px solid red");
@@ -178,9 +178,14 @@ $(() => {
             alert(msg);
         } else {
             SignUp();
-            msg = "Cadastro realizado com sucesso!";
+            $("#box3").hide();
+            $("#box4").show();
         }
     });
+
+    $("#button-login").click( ()=>{
+        goTo("user/login");
+    })
 
     $("#button-voltar1").click(() => {
         $("#box1").show();
@@ -189,6 +194,10 @@ $(() => {
     $("#button-voltar2").click(() => {
         $("#box2").show();
         $("#box3").hide();
+    })
+    $("#button-voltar3").click(() => {
+        $("#box3").show();
+        $("#box4").hide();
     })
 })
 
@@ -209,9 +218,9 @@ function SignUp() {
 
     request("POST", `${serverURL}/user`, (xhr) => {
         if(xhr.status == 200) {
-            alert(`Cadastro Realizado. ${xhr.responseText}`)
+            document.getElementById("response-message").innerHTML = xhr.responseText
         } else {
-            alert (`${xhr.responseText}`)
+            document.getElementById("response-message").innerHTML = xhr.responseText
         }
     }, user 
     )
