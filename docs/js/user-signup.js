@@ -140,8 +140,8 @@ $(() => {
             camposInvalidos = true
             $("#telefone").addClass("invalid");
         } else {
-            $("#senha").removeClass("invalid");
-            $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
+            $("#telefone").removeClass("invalid");
+            $('input[id="telefone"]').css("border", "1px solid #bbb");
         }
 
         if (!values.cpf_or_cnpj) {
@@ -160,7 +160,7 @@ $(() => {
             $("#cpf-cnpj").addClass("invalid");
             msg = "O seu CNPJ deve ter 14 números!";
         } else {
-            $("#senha").removeClass("invalid");
+            $("##cpf-cnpj").removeClass("invalid");
             $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
         }
 
@@ -201,7 +201,7 @@ $(() => {
     })
 
     $(document).ready(function () {
-        $('[name=telefone]').mask('(00) 0000-0000#');
+        $('[name=telefone]').mask('(00) 0000#-0000');
     });
 
     $('#cpf-cnpj').mask('000.000.000-00', {
