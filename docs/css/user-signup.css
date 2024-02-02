@@ -11,7 +11,7 @@
 .banner {
     height: 100vh;
     width: 100%;
-    background: url(../assets/images/pexels-photoscom-93398.jpg);
+    background: url(../assets/images/fundo\ agendart.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -27,6 +27,8 @@
     align-items: center;
     padding-top: 125px;
 }
+
+
 
 /* --- BOXES --- */
 
@@ -62,7 +64,11 @@
 
 #box4 {
     display: none;
+    align-items: center;
+    flex-direction: column;
 }
+
+
 
 /* --- TITLE --- */
 
@@ -82,7 +88,7 @@
     margin-bottom: 25px;
 }
 
-.subtitle-box {
+#subtitle-box {
     text-align: center;
     font-size: 15px;
     padding-bottom: 10px;
@@ -190,43 +196,62 @@
     margin-left: 0;
 }
 
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
-       -webkit-appearance: none;   
-       margin: 0; 
-} 
-input[type="number"] {  
-     -moz-appearance: textfield; 
+.info-boxes input[type="password"] {
+    padding-right: 40px;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container img {
+    width: 20px;
+    cursor: pointer;
+    top: 60px;
+    left: 290px;
+    position: absolute;
+    user-select: none;
+    opacity: 0.5;
+}
+
+
 
 /* --- BUTTON-BOXES --- */
 
 .button-box {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e4321e;
-    color: #FFF;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4321e;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #e4321e;
-    border-radius: 5px;
+  background-color: #e4321e;
+  border-radius: 5px;
 }
 
 .button-container {
-    display: flex;
-    justify-content: none;
-}
-
-#button-container-box3 {
-    margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 34px;
 }
 
 #button-voltar1 {
@@ -269,6 +294,12 @@ button:hover {
     font-size: large;
 }
 
+#button-cadastrar1 {
+    width: 100%;
+    height: 50px;
+    font-size: large;
+}
+
 /* --- CHECKBOX E TERMOS DE USO --- */
 
 .checkbox_class {
@@ -279,7 +310,7 @@ button:hover {
     color: rgb(43, 9, 235);
 }
 
-@media (max-width: 550px){
+@media (max-width: 550px) {
 
     .banner {
         background: #FFF;
@@ -288,7 +319,11 @@ button:hover {
         background-size: cover;
         display: flex;
         flex-direction: column;
-        align-items: center;   
+        align-items: center;
+    }
+
+    .container-cadastro {
+        padding-top: 15px;
     }
 
     .box {
@@ -296,4 +331,49 @@ button:hover {
         background-color: #FFF;
         box-shadow: none;
     }
+}
+
+
+
+/* --- LOADING DA BOX 4 --- */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.load {
+    width: 100px;
+    height: 100px;
+    margin: 120px auto 120px;
+    border: solid 10px #e4321e;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1.0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    transition: all 0.5s ease-in;
+    animation-name: rotate;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
