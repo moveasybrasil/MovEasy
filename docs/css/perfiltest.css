@@ -1,6 +1,7 @@
 :root {
     --color-background-perfil: #010616;
     --color-background-perfil2: #e4321e;
+    --color-background-perfil3: #FFF;
     --color-text-perfil: #FFF;
     --color-text-perfil2: #000;
     --color-active-perfil: #e4321e;
@@ -18,6 +19,8 @@
 
 .content {
     display: flex;
+    height: 86vh;
+    overflow: hidden;
 }
 
 
@@ -28,33 +31,62 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 18%;
-    height: 100vh;
-    background-color: var(--color-background-perfil);
-    color: var(--color-text);
+    width: 550px;
+    height: 101%;
+    background-color: var(--color-background-perfil3);
+    color: var(--color-text-perfil2);
     padding: 4% 0;
+}
+
+#img-perfil {
+    background-color: var(--color-background-perfil3);
+    width: 200px;
+    height: 200px;
 }
 
 #photo {
     cursor: pointer;
     border-radius: 50%;
+    border: 2px solid #000;
     width: 100%;
-    height: 50%;
+    height: 100%;
+    background-color: var(--color-background-perfil3);
 }
 
-#descricao-usuario {
+#rating-conquistas-usuario {
+    display: flex;
     font-weight: bold;
     padding-top: 20px;
-    display: flex;
-    flex-direction:column;
+    flex-direction: column;
     gap: 35px;
+    height: 450px;
     align-items: center;
-    justify-content: center;
+    width: 250px;
 }
 
-#icon-conquistas img {
-    width: 50px;
-    height: 50px;
+#conquista-txt-usuario {
+    margin-bottom: 25px;
+}
+
+#icons-conquistas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4px;
+}
+
+#icons-conquistas img {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-logout {
+    background-color: var(--color-background-perfil3);
+    color: var(--color-text-perfil2);
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+    cursor: pointer;
 }
 
 
@@ -139,50 +171,25 @@
 
 .container-dados {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 82%;
-    height: 100vh;
-    background-color: var(--color-background-perfil2);
+    width: 100vw;
+    height: 101%;
+    background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
     padding: 4% 2%;
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
 }
 
-
-
-
-.button-container {
+.nome-usuario-perfil {
+    width: 100%;
     height: 50px;
-    width: 100px;
-    border-radius: 10px 10px 0 0;
+    font-size: 30px;
 }
 
-#btn-dados-cadastro {
-    background-color: #D9D9D9;
-}
-
-#btn-dados-pessoais {
-    background-color: #e9e9e9;
-}
-
-/* .container-dados {
-    background-color: #d9d9d9;
-    height: 20%;
-    width: 20%;
-    align-self: center;
-} */
-
-.container-end {
-    justify-content: end;
-}
-
-#btn-logout {
-    background-color: #e4321e;
-    color: #FFF;
-    height: 50px;
-    width: 100px;
-    border-radius: 10px;
-    justify-content: center;
-    align-content: center;
-    font-weight: 400;
+.sections-perfil {
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
 }
