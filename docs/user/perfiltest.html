@@ -57,16 +57,6 @@
                 <div class="img-perfil" id="img-perfil">
                     <img id="photo" src="../assets/images/default.jpg"
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
-                    <div id="descricao-usuario">
-                        <p id="nome-usuario">4.57 ★</p>
-                        <div id="conquistas-usuario">
-                            <p id="conquista-usuario">——— Conquistas ———</p>
-                            <div id="icon-conquistas">
-                                <img id="logo-img" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="">
-                            </div>
-                        </div>
-                    </div>
                     <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
@@ -89,29 +79,38 @@
                         <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
                     </div>
                 </div>
+                <div id="rating-conquistas-usuario">
+                    <p id="nome-usuario">★ 4.57</p>
+                    <div id="conquistas-usuario">
+                        <p id="conquista-txt-usuario">———— Conquistas ————</p>
+                        <div id="icons-conquistas">
+                            <img id="conquista-img" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <img id="conquista-img" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-logout">
+                    <p class="" onclick="logOut()">Sair da Conta</p>
+                </div>
             </div>
-
             <div class="container-dados">
+                <div class="nome-usuario-perfil">
+                    <span>VICTOR MATHEUS DA COSTA MARIANO</span>
+                    <span>————————————————————————————————————</span>
+                </div>
+                <div class="sections-perfil">
+                    <span>
+                        Informações
+                    </span>
+                    
 
+                </div>
             </div>
-
-        </div>
-
-        <div class="container flex px-8">
-            <button name="dados-cadastro" id="btn-dados-cadastro" class="button-container">Dados do
-                Cadastro</button>
-            <button name="dados-pessoais" id="btn-dados-pessoais" class="button-container">Dados
-                Pessoais</button>
         </div>
     </div>
 
-    <div class="container-end flex p-8">
-        <button name="logout" id="btn-logout" class="" onclick="logOut()">Logout</button>
-    </div>
-
-    </div>
-
-    </div>
 
     <script src="../js/header.js"></script>
     <script src="../js/user-profile.js"></script>
