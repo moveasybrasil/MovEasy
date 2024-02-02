@@ -8,6 +8,11 @@
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    crossorigin="anonymous"></script>
+
+
   <script src="../js/saved_resource"></script>
   <script src="../js/common.js"></script>
 
@@ -109,21 +114,32 @@
               <label for="cadastro-formulario-email">E-mail:</label>
               <input type="email" name="email" id="email" placeholder="ex: seuemail@emai.com"></input>
 
-              <label for="cadastro-formulario-senha">Senha:</label>
-              <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
+              <div class="password-container">
+                <label for="cadastro-formulario-senha">Senha:</label>
+                <div id="eye-container">
+                  <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/eye-password.png'))"
+                    alt="visualizar senha" id="eye-password-spy1"></input>
+                </div>
+                <input type="password" name="password" id="password" placeholder="Digite sua senha">
+              </div>
 
-              <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
-              <input type="password" name="confirmed-password" id="confirmed-password"
-                placeholder="Confirme sua senha"></input>
+              <div class="password-container">
+                <label for="cadastro-formulario-confirmar-senha">Confirme sua Senha:</label>
+                <div id="eye-container">
+                  <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/eye-password.png'))"
+                    alt="visualizar senha" id="eye-password-spy2"></input>
+                </div>
+                <input type="password" name="confirmed-password" id="confirmed-password"
+                  placeholder="Confirme sua senha"></input>
+              </div>
             </div>
 
-            <!-- Botão que permite voltar para o Segundo Menu -->
+            <!-- Botão que permite voltar para o Primeiro Menu -->
 
             <div class="button-container">
               <div class="button-box" id="button-voltar1">
                 <button type="button">
-                  < 
-                </button>
+                  < </button>
               </div>
 
               <!-- Botão que permite ir para o Terceiro Menu -->
@@ -140,19 +156,20 @@
 
             <div class="info-boxes" id="info-boxes-box3">
               <label for="cadastro-formulario-nome">Nome:</label>
-              <input type="text" name="nome" id="nome" placeholder="ex: Fulano da Silva"></input>
+              <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo"></input>
 
               <label for="cadastro-formulario-cpf">CPF ou CNPJ:</label>
-              <input type="number" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ"></input>
+              <input type="text" name="cpf-cnpj" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ">
 
-              <label for="cadastro-formulario-tel">Telefone:</label>
-              <input type="number" name="telefone" id="telefone" placeholder="ex: (11) 99999-9999"></input>
+              <label for="telefone">Telefone:</label>
+              <input type="tel" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx"
+                pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15">
             </div>
 
             <div class="checkbox_class">
               <input type="checkbox" id="termos-de-uso"></input>
               <span>Li e concordo com os</span>
-              <a href="">Termos de Uso</a>
+              <a href="" style="color:rgb(43, 9, 235);">Termos de Uso</a>
             </div>
 
             <!-- Botão que permite voltar para o Segundo Menu -->
@@ -160,8 +177,7 @@
             <div class="button-container" id="button-container-box3">
               <div class="button-box" id="button-voltar2">
                 <button type="button">
-                  < 
-                </button>
+                  < </button>
               </div>
 
               <!-- Botão que finaliza o Cadastro do Usúario -->
@@ -172,26 +188,19 @@
             </div>
           </div>
 
+          <!-- Quarto Menu de Cadastro -->
+
+
           <div class="box" id="box4">
-
-            <div class="info-boxes">
-              <span id="response-message">Efetuando Cadastro.</span>
+            <h2 class="title-box">Sua Conta Foi Criada</h2>
+            <div>
+              <p id="subtitle-box"> Aguarde alguns segundos, você será direcionado para o seu perfil!</p>
             </div>
-
-            <div class="button-container" id="button-container-box4">
-              <div class="button-box" id="button-voltar3">
-                <button type="button">
-                  < 
-                </button>
-              </div>
-
-              <!-- Botão que finaliza o Cadastro do Usúario -->
-
-              <div class="button-box" id="button-cadastrar">
-                <button type="button" id="button-login">Ir para o Login</button>
-              </div>
+            <div class="load"></div>
+            <div>
+              <p id="subtitle-box"> Caso não tenha sido direcionado, <a href="./perfiltest.html"
+                  style="color:rgb(43, 9, 235);">clique aqui</a></p>
             </div>
-
           </div>
 
         </form>

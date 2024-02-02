@@ -124,8 +124,8 @@ $(() => {
 
         let camposInvalidos = false
         let msg = "Os campos em vermelho estão incorretos!"
-        
-        if(!values.term) {
+
+        if (!values.term) {
             camposInvalidos = true
             msg = "Você deve aceitar os termos de uso."
         }
@@ -146,19 +146,19 @@ $(() => {
 
         if (!values.cpf_or_cnpj) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "Os campos em vermelho estão incorretos!"
-        } else if (values.cpf_or_cnpj.length < 8) {
+            msg = "Os campos em vermelho estão incorretos!";
+        } else if (values.cpf_or_cnpj.length < 11) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "O seu CPF ou CNPJ deve ter mais de 11 números!"
-        } else if (values.cpf_or_cnpj.length > 14) {
+            msg = "O seu CPF ou CNPJ deve ter mais de 11 números!";
+        } else if (values.cpf_or_cnpj.length > 14 || values.cpf_or_cnpj.length === 12 || values.cpf_or_cnpj.length === 13) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "O seu CNPJ não deve ter mais de 14 números!"
+            msg = "O seu CNPJ deve ter 14 números!";
         } else {
             $("#senha").removeClass("invalid");
             $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
@@ -183,7 +183,7 @@ $(() => {
         }
     });
 
-    $("#button-login").click( ()=>{
+    $("#button-login").click(() => {
         goTo("user/login");
     })
 
@@ -199,7 +199,63 @@ $(() => {
         $("#box3").show();
         $("#box4").hide();
     })
+
+    $(document).ready(function () {
+        $('[name=telefone]').mask('(00) 0000-0000#');
+    });
+
+    $('#cpf-cnpj').mask('000.000.000-00', {
+        onKeyPress: function (cpfcnpj, e, field, options) {
+            cpfcnpj = cpfcnpj.replace(/\D/g, ''); // Remove caracteres não numéricos
+            const masks = ['000.000.000-000', '00.000.000/0000-00'];
+            const mask = (cpfcnpj.length > 11) ? masks[1] : masks[0];
+            $('#cpf-cnpj').mask(mask, options);
+        }
+    });
 })
+
+
+// Visualizar Senha
+
+var passwordInput = document.getElementById('password');
+var eyePasswordSpy1 = document.getElementById('eye-password-spy1');
+
+
+eyePasswordSpy1.addEventListener('mousedown', function () {
+    passwordInput.type = 'text';
+});
+
+eyePasswordSpy1.addEventListener('mouseup', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('mouseout', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
+
+
+var confirmedPasswordInput = document.getElementById('confirmed-password');
+var eyePasswordSpy2 = document.getElementById('eye-password-spy2');
+
+eyePasswordSpy2.addEventListener('mousedown', function () {
+    confirmedPasswordInput.type = 'text';
+});
+
+eyePasswordSpy2.addEventListener('mouseup', function () {
+    confirmedPasswordInput.type = 'password';
+});
+
+eyePasswordSpy2.addEventListener('mouseout', function () {
+    confirmedPasswordInput.type = 'password';
+});
+
+eyePasswordSpy2.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
 
 
 // slideToggle(slow) para header mobile
@@ -217,12 +273,12 @@ function SignUp() {
     }
 
     request("POST", `${serverURL}/user`, (xhr) => {
-        if(xhr.status == 200) {
+        if (xhr.status == 200) {
             document.getElementById("response-message").innerHTML = xhr.responseText
         } else {
             document.getElementById("response-message").innerHTML = xhr.responseText
         }
-    }, user 
+    }, user
     )
 
 
