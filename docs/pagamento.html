@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/saved_resource"></script>
     <script src="./js/common.js"></script>
@@ -47,6 +47,7 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
                         href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+                    <a href="">AGENDAR</a>
                 </div>
             </div>
         </header>
@@ -64,37 +65,35 @@
             </div>
 
             <div class="checkout-box">
-                <div class="qr-pix hidden">
-                    <div class="" id="moveasy-qr">
-                        <img src="./assets/images/Qr-Before.png" id="img-qr" />
-                    </div>
-                </div>
-                <div>
 
-                    <div class="pix-copia-cola">
-                        <span id="start-timer"></span><span class="stop-time"></span>
-                        <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
-                        <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código abaixo para pagar.<br />
-                            Seu pagamento será confirmado automaticamente.</span>
-                        <div class="" style="height: 100px">
-                            <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
+
+
+                <div class="pix-copia-cola">
+                    <div class="qr-pix hidden">
+                        <div class="" id="moveasy-qr">
+                            <img src="./assets/images/Qr-Before.png" id="img-qr" />
                         </div>
-                        <div class="bottom-menu">
-                            <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg"
-                                    style="height:20px" />Pix
-                                Copia e Cola</button>
-                            <div class="timer-menu">
-                                <div id="timer" class="">10:00
-                                </div>
-                                <span class="" id="span-bottom">Faça a operação no tempo indicado!</span>
+                    </div>
+                    <span id="start-timer"></span><span class="stop-time"></span>
+                    <button class="btn-copia" id="gerarQR">Gerar QR Code</button>
+                    <span class="top-span"><b>Escaneie o QR Code</b> ou copie o código abaixo para pagar.<br />
+                        Seu pagamento será confirmado automaticamente.</span>
+                    <div class="" style="height: 100px">
+                        <textarea name="" id="copia-cola" cols="20" rows="10"></textarea>
+                    </div>
+                    <div class="bottom-menu">
+                        <button class="btn-copia" id='btn-copiar'><img src="./assets/images/copy-icon.svg"
+                                style="height:20px" />Pix
+                            Copia e Cola</button>
+                        <div class="timer-menu">
+                            <div id="timer" class="">10:00
                             </div>
+                            <span class="" id="span-bottom">Faça a operação no tempo indicado!</span>
                         </div>
                     </div>
                 </div>
 
-
-
-                <div class="checkout-credit hidden">
+                <div class="checkout-credit hidden md:flex lg:flex">
                     <div class="credit-card-box">
                         <div class="flip">
                             <div class="front">
@@ -218,10 +217,11 @@
                     </form>
 
                 </div>
+                <div class="btn-bottom">
+                    <button class="btn-copia" id="btn-continua" style="width: 100%">Continuar</button>
+                </div>
             </div>
-            <div>
-                <button class="btn-copia" id="btn-continua">Continuar</button>
-            </div>
+
         </div>
     </div>
 

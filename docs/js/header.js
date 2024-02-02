@@ -18,8 +18,10 @@ $(() => {
     $('#fb-icon').click((e) => {
         window.location.href = "https://www.facebook.com/moveasybrasil";
     });
-    $('#x-icon').click((e) => {
-        window.location.href = "https://twitter.com";
+    const popGit = $('#popgithub')
+    $('#git-icon').on('click', (e) => {
+        popGit.toggleClass("flex active");
+    
     });
     $('#insta-icon').click((e) => {
         window.location.href = "https://www.instagram.com/moveasybrasil/";
@@ -28,6 +30,11 @@ $(() => {
     $(document).click(function (e) {
         if (!$(e.target).closest('#poplinkedin').length && !$(e.target).is('#in-icon')) {
             $('#poplinkedin').removeClass("flex active");
+        }
+    }); 
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#popgithub').length && !$(e.target).is('#git-icon')) {
+            $('#popgithub').removeClass("flex active");
         }
     });
 });
@@ -72,3 +79,5 @@ if(isTokenValid()) {
         e.innerHTML = "PERFIL"
     })
 }
+
+

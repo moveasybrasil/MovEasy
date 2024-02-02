@@ -259,10 +259,23 @@ header {
     
 }
 
-#x-icon {
-    background-color: black;
-    
+#git-icon {
+    background-image: url("../assets/images/github.svg");
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    padding: 30px;
 }
+
+.git-iconbg {
+    background-color: #FFF;
+    height: 65px;
+    width: 65px;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #insta-icon {
   background: #d6249f;
@@ -339,3 +352,63 @@ footer {
 #poplinkedin a:hover {
     background-color: #e4321e;
 }
+
+/*---------------- Popup Github ---------*/
+
+#popgithub {
+    flex-direction: column;
+    background-color: #0b142f;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    z-index: 56;
+    height: 0;
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+
+    }
+
+#popgithub span {
+    padding-bottom: 10px;
+}
+
+#popgithub.active {
+    height: 480px;
+    top: -1700px;
+    position: absolute;
+    transform:translateY(130%);
+    transition: top 1s ease-in-out;
+    opacity: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.nome-linkedin {
+    padding: 20px;
+}
+
+#popgithub div {
+    display: flex;
+}
+
+#popgithub a {
+    padding-left: 80px;
+    width: 100%;
+}
+
+#popgithub img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    align-self: center;
+    position: absolute;
+    left: 5%;
+}
+
+#popgithub a:hover {
+    background-color: #e4321e;
+}
+
+

@@ -54,14 +54,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.toggle-checkbox').change(function () {
         if (this.checked) {
-            $('.qr-pix').addClass('hidden');
+
             $('.pix-copia-cola').addClass('hidden');
             $('#btn-continua').addClass('hidden')
             $('.checkout-credit').removeClass('hidden');
         } else {
             $('.pix-copia-cola').removeClass('hidden');
-            $('#btn-continua').removeClass('hidden')
-            $('.checkout-credit').addClass('hidden')
+            $('#btn-continua').removeClass('hidden');
+            $('.checkout-credit').addClass('hidden');          
         }
     });
 });

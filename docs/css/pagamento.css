@@ -92,34 +92,37 @@ textarea:focus {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .checkout-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: #fff;
-    width: 35%;
-    height: 70%;
+    width: 80%;
+    height: 75%;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top: 100px;
+    margin-top: 50px;
+    border-radius: 5px;
 
 }
 
 #moveasy-qr {
-    position: absolute;
-    top: 11rem;
-    left: 7.5rem;
     border: 1px solid #000;
+}
+
+.qr-pix {
+    margin-bottom: 8px;
 }
 
 .qr-pix img {
     height: 150px;
     width: 150px;
-    transition: 1s;
 }
 
 
@@ -127,15 +130,13 @@ textarea:focus {
 
 
 .pix-copia-cola {
-    position: relative;
-    top: 4rem;
+
     width: 100%;
-    height: 80%;
+    height: 90%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    transition: 0.4s;
+    justify-content: flex-end;
 
 }
 
@@ -161,7 +162,7 @@ textarea:focus {
     color: white;
     border-radius: 5px;
     border: 0px;
-    margin: 10px 0 20px 0;
+
     cursor: pointer;
     padding: 20px;
     font-weight: 700;
@@ -184,19 +185,12 @@ textarea:focus {
     font-weight: 700;
 }
 
-#btn-continua {
-    position: absolute;
-    top: 90%;
-    left: 80%;
-    width: 15%;
-}
-
 .bottom-menu {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+
 }
 
 .timer-menu {
@@ -243,13 +237,13 @@ Form
 --------------------*/
 .form {
     position: relative;
-    top: 70px;
+    top: 200px;
     margin: 8px;
 
     fieldset {
         border: none;
         padding: 0;
-        padding: 20px 0;
+        padding: 17px 0;
         position: relative;
         clear: both;
         background-color: #FFF;
@@ -389,9 +383,8 @@ Checkout
 Credit Card
 --------------------*/
 .credit-card-box {
-    perspective: 1000;
     width: 70%;
-    height: 280px;
+    height: 200px;
     position: absolute;
     top: 175px;
     left: 42%;
@@ -414,7 +407,7 @@ Credit Card
         color: #fff;
         font-family: Inconsolata;
         top: 15px;
-        left: 24px;
+        left: 35px;
         text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
         box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
 
@@ -440,8 +433,8 @@ Credit Card
         position: absolute;
         color: #fff;
         font-family: Inconsolata;
-        top: 15px !important;
-        left: -38px !important;
+        top: 15px;
+        left: -38px;
         text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
         box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
 
@@ -581,36 +574,13 @@ Credit Card
     }
 }
 
-
-
-@media (max-width: 431px) {
-    .bottom-menu {
+.bottom-menu {
         flex-direction: column !important;
-    }
-}
-
-
-@media (max-width: 1244px) {
-
-    .checkout-box {
-        width: 80%;
-        height: 70%;
-
-    }
-
-    #timer {
-        margin-top: 25px;
     }
 
     #span-bottom {
 
         text-align: center;
-    }
-
-    #btn-continua {
-        left: 33%;
-        width: 33%;
-        top: 95vh;
     }
 
     .bottom-menu {
@@ -624,10 +594,90 @@ Credit Card
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        right: 12%;
-        bottom: 22%;
     }
 
+    .btn-bottom {
+        height: 15%;
+        display: flex;
+        align-items: center;
+    }
+
+@media (min-width: 770px) {
+
+    .btn-copia {
+        width: 30%;
+    }
+
+    .checkout-box {
+        flex-direction: row;
+        justify-content: normal;
+        align-items: normal;
+    }
+
+    .pix-copia-cola {
+        width: 50%;
+    }
+
+    #btn-continua {
+        display: none;
+    }
+
+    .checkout-credit {
+        width: 50%;
+
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .btn-bottom {
+        display: none;
+    }
+
+    .form {
+        position: unset;
+        top: 0;
+    }
+
+    .input-card-number {
+        width: 90px;
+    }
+
+    .btn {
+        top: 0 !important;
+    }
+
+    .front {
+        width: 21rem !important;
+        height: 12rem !important;
+        position: unset !important;
+
+    }
+
+    .credit-card-box {
+        position:unset;
+        width: auto;
+    }
+
+    .credit-card-box {
+        transform: translateX(0);
+
+    }
+
+    .back {
+        width: 21rem !important;
+        height: 12rem !important;
+        top: 0 !important;
+        left: 0 !important;
+ 
+    }
+
+    .back .logo {
+        top: 140px !important;
+    }
+
+    .opcao-pgto {
+        display: none;
+    }
 }
 
 
