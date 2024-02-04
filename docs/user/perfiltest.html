@@ -95,28 +95,50 @@
                     <p class="" onclick="logOut()">Sair da Conta</p>
                 </div>
             </div>
-            <div class="container-dados">
-                <div>
-                    <div class="nome-usuario-perfil">
-                        <span>VICTOR MATHEUS DA COSTA MARIANO</span>
-                    </div>
 
-                    <div class="sections-perfil">
-                        <span>
+            <div class="container-dados">
+
+                <div class="nome-usuario-perfil">
+                    <span id="nome-usuario-perfil">VICTOR MATHEUS DA COSTA MARIANO</span>
+                </div>
+
+                <div class="sections-perfil">
+                    <div class="sections-perfil-informacoes active-perfil " id="sections-perfil-informacoes">
+                        <span onclick="mostrarDiv('container-dados-informacoes', 0)">
                             Informações
                         </span>
-                        <span>
-                            Histórico
-                        </span>
-                        <span>
-                            Veículos
-                        </span>
-                        <span>
-                            Configurações
-                        </span>
                     </div>
 
-                    <div class="container-informacoes" id="container-informaceos">
+                    <div class="sections-perfil-informacoes " id="sections-perfil-informacoes">
+                        <div id="sections-perfil-historico">
+                            <span onclick="mostrarDiv('container-dados-historico', 1)">
+                                Histórico
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="sections-perfil-informacoes " id="sections-perfil-informacoes">
+                        <div id="sections-perfil-veiculos">
+                            <span onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                Veículos
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="sections-perfil-informacoes " id="sections-perfil-informacoes">
+                        <div id="sections-perfil-configuracoes">
+                            <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                                Configurações
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-informacoes" id="container-informaceos">
+
+                    <div class="mostrar-div" id="container-dados-informacoes">
 
                         <div class="info-perfil-for-motorista">
                             <div class="info-perfil" style="display: block; padding-bottom: 20px;">
@@ -171,13 +193,11 @@
                                 <span id="veiculo-perfil-motorista">Scania LK 140 | Branco | XAS-1545</span>
                             </div>
                             <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
+
                                 <div class="box-img-veiculo">
                                     <img src="../"
                                         onerror="this.setAttribute('src', getUrl('assets/images/veiculo-perfil-test1.jpg'))"
                                         alt="">
-                                    <div class="sobreposicao-imagem">
-                                        <div class="text-sobreposicao-imagem">Clique para Visualizar</div>
-                                    </div>
                                 </div>
 
                                 <div class="box-img-veiculo">
@@ -192,13 +212,29 @@
                                 <p>Feedbacks: </p>
                             </div>
 
+                            <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
+
+                            </div>
                         </div>
                     </div>
+
+                    <div class="container-dados-historico mostrar-div" id="container-dados-historico">
+                        DEU
+                    </div>
+
+                    <div class="container-dados-veiculos mostrar-div" id="container-dados-veiculos">
+                        CERTO
+                    </div>
+
+                    <div class="container-dados-configuracoes mostrar-div" id="container-dados-configuracoes">
+                        MAN
+                    </div>
+
                 </div>
             </div>
+
         </div>
     </div>
-
 
     <script src="../js/header.js"></script>
     <script src="../js/user-profile.js"></script>
