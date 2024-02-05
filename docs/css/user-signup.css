@@ -310,6 +310,10 @@ button:hover {
     color: rgb(43, 9, 235);
 }
 
+
+
+/* --- CADASTRO MOBILE --- */
+
 @media (max-width: 550px) {
 
     .banner {
