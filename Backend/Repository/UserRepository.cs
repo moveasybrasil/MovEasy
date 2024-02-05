@@ -14,7 +14,7 @@ namespace Backend.Repository
 {
     public class UserRepository : Connection, IUserRepository
     {
-        public async Task<string> Add(UserDTO userDTO)
+        public async Task<UserTokenDTO> Add(UserDTO userDTO)
         {
             try
             {
@@ -47,8 +47,17 @@ namespace Backend.Repository
                             @EmailValidationUUID
                 )";
                 await Execute(sql , user);
+
+                sql = "SELECT * FROM User WHERE ID = LAST_INSERT_ID()";
+                UserEntity userLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, user);
+
                 await SendConfirmationEmail(user, UUID);
-                return "Cadastro efetuado";
+
+                return new UserTokenDTO
+                {
+                    Token = Authentication.GenerateToken(userLogin),
+                    User = userLogin
+                };
             } catch (Exception ex)
             {
                 throw new Exception($"Não foi possivel cadastrar usuário: {ex.Message}");
