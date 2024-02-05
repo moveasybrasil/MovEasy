@@ -42,6 +42,12 @@ namespace Backend.Infrastructure
                         case "Ano Modelo:":
                             year = TR.SelectSingleNode(".//td[2]").InnerText;
                             break;
+                        case "Ano:":
+                            if (year == "")
+                            {
+                                year = TR.SelectSingleNode(".//td[2]").InnerText;
+                            }
+                            break;
                         case "Cor:":
                             colour = TR.SelectSingleNode(".//td[2]").InnerText;
                             break;
