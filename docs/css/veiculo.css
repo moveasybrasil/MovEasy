@@ -55,8 +55,7 @@
     flex-direction: column;
 }
 
-.info-cadastro label,
-#title-form {
+.info-cadastro label {
     color: #0f0000;
     padding-left: 15px;
 }   
@@ -100,11 +99,12 @@ margin-top: 20px;
         border-radius: 10px;
         align-items: center;
         border: none;
+    
     }
     
 
     .info-cadastro input {
-        width: 90%; 
+        width: 95%; 
         height: 45px;
         border-radius: 5px;
         margin: 10px 10px 10px 10px; 
@@ -120,10 +120,15 @@ margin-top: 20px;
         color: #FFF; 
     }
 
-    .info-cadastro label,
-#title-form {
+    .info-cadastro label {
     color: #0f0000;
     padding-left: 15px;
-}   
+}  
+
+#title-form {
+
+    width: 100%;
+
+}
 
 }
