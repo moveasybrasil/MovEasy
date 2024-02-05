@@ -19,7 +19,7 @@
 
 .content {
     display: flex;
-    height: 86vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -199,6 +199,10 @@
     border-bottom: 2px solid #000;
 }
 
+.sections-perfil-informacoes-mobile {
+    display: none;
+}
+
 .sections-perfil {
     display: flex;
     width: 100%;
@@ -222,7 +226,7 @@
     background-color: var(--color-background-perfil3);
 }
 
-#sections-perfil-informacoes span::after,
+/* #sections-perfil-informacoes span::after,
 #sections-perfil-historico span::after,
 #sections-perfil-veiculos span::after,
 #sections-perfil-configuracoes span::after {
@@ -271,7 +275,7 @@
 #sections-perfil-veiculos span.active::after,
 #sections-perfil-configuracoes span.active::after {
     height: 0;
-}
+} */
 
 .container-informacoes {
     display: block;
@@ -355,4 +359,135 @@
 .valor {
     display: block;
     width: 100%;
+}
+
+
+
+/* --- DADOS DO CONTAINER VEÍCULOS E CONFIGURAÇÕES--- */
+
+.config-perfil,
+.add-veiculo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin: 25px 0 25px 0;
+    border-left: #e4321e;
+    background-color: rgb(245, 243, 243);
+    border-style: solid;
+}
+
+.config-perfil:hover,
+.add-veiculo:hover {
+    cursor: pointer;
+}
+
+.config-perfil p,
+.add-veiculo p {
+    margin-left: -20px;
+}
+
+.config-perfil img,
+.add-veiculo img {
+    margin: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* --- PERFIL MOBILE --- */
+
+@media (max-width: 550px) {
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        overflow: scroll;
+    }
+
+    /* --- BARRA LATERAL MOBILE --- */
+
+    .barra-lateral {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 220px;
+        background-color: var(--color-background-perfil3);
+        color: var(--color-text-perfil2);
+        margin: 5% 0 0 0;
+        padding: 0;
+    }
+
+    #img-perfil {
+        background-color: var(--color-background-perfil3);
+        width: 150px;
+        height: 150px;
+    }
+
+    #photo {
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid #000;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-background-perfil3);
+    }
+
+    #rating-conquistas-usuario {
+        display: flex;
+        font-weight: bold;
+        padding-top: 10px;
+        flex-direction: column;
+        height: 25px;
+        align-items: center;
+        width: auto;
+    }
+
+    #conquista-txt-usuario,
+    #icons-conquistas-usuario,
+    #icons-conquistas-usuario img,
+    .btn-logout,
+    .btn-logout:hover {
+        display: none;
+    }
+
+
+
+    /* --- DADOS DO USÚARIO MOBILE--- */
+
+    .container-dados {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100%;
+        background-color: var(--color-background-perfil3);
+        color: var(--color-text-perfil2);
+        padding: 4% 4% 0 4%;
+        box-shadow: none;
+    }
+
+    .nome-usuario-perfil {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #000;
+    }
+
+    .sections-perfil span {
+        padding-right: 0;
+        font-size: 0;
+    }
+
+    .sections-perfil-informacoes-mobile {
+        display: flex;
+    }
 }
