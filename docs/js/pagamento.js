@@ -68,29 +68,27 @@ $(document).ready(function () {
 
 /*--- LÓGICA DO CARTÃO DE CRÉDITO ---*/
 
-$('.input-cart-number').on('keyup change', function(){
-    $t = $(this);
-    
-    if ($t.val().length > 3) {
-      $t.next().focus();
-    }
-    
-    var card_number = '';
-    $('.input-cart-number').each(function(){
-      card_number += $(this).val() + ' ';
-      if ($(this).val().length == 4) {
-        $(this).next().focus();
-      }
-    })
-    
-    $('.credit-card-box .number').html(card_number);
+$('.input-cart-number').on('input', function() {
+  $t = $(this);
+
+  if ($t.val().length >= 4) {
+    $t.next().focus();
+  }
+
+  var card_number = '';
+  $('.input-cart-number').each(function() {
+    card_number += $(this).val() + ' ';
   });
+
+  $('.credit-card-box .number').html(card_number.trim());
+});
+
+$('#card-holder').on('input', function() {
+  $t = $(this);
+  $('.credit-card-box .card-holder div').html($t.val());
   
-  $('#card-holder').on('keyup change', function(){
-    $t = $(this);
-    $('.credit-card-box .card-holder div').html($t.val());
-  });
-  
+});
+
   $('#card-holder').on('keyup change', function(){
     $t = $(this);
     $('.credit-card-box .card-holder div').html($t.val());
@@ -111,6 +109,23 @@ $('.input-cart-number').on('keyup change', function(){
     $('.ccv div').html($(this).val());
   });
   
+
+  $('#limpa-campos').click( (e) => {
+    e.preventDefault();
+    $('#card-number').val("");
+    $('#card-number-1').val("");
+    $('#card-number-2').val("");
+    $('#card-number-3').val("");
+    $('#card-holder').val("");
+    $('#card-expiration-month').val("");
+    $('#card-expiration-year').val("");
+    $('#card-ccv').val("");
+    $('.number').text("");
+    $('.ccv div').text("");
+    $('.card-expiration-date div').text("");
+    $('.card-holder div').text("");
+  });
+
   
   /*--------------------
   CodePen Tile Preview
