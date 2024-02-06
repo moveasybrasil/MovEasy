@@ -84,10 +84,16 @@
                     <div id="conquistas-usuario">
                         <p id="conquista-txt-usuario">———— Conquistas ————</p>
                         <div id="icons-conquistas-usuario">
-                            <img id="conquista-img" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                            <img id="conquista-img" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <div>
+                                <img id="conquista-img" src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
+                                    alt="">
+                            </div>
+                            <div>
+                                <img id="conquista-img" src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
+                                    alt="">
+                            </div>
                         </div>
 
                         <!-- <div id="icons-conquistas-motorista">
@@ -108,64 +114,59 @@
                 <div class="nome-usuario-perfil">
                     <span id="nome-usuario-perfil">VICTOR MATHEUS DA COSTA MARIANO</span>
                 </div>
-<!-- 
-                <div class="sections-perfil-mobile">
-                    <div class="sections-perfil-informacoes-mobile" id="sections-perfil-informacoes">
-                        <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                            onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                    </div>
-
-                    <div class="sections-perfil-informacoes" id="sections-perfil-informacoes">
-                        <div id="sections-perfil-historico-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 1)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div>
-                    </div>
-
-
-                    <div class="sections-perfil-informacoes" id="sections-perfil-informacoes">
-                        <div id="sections-perfil-veiculos-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 2)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div>
-                    </div>
-
-                    <div class="sections-perfil-informacoes" id="sections-perfil-informacoes">
-                        <div id="sections-perfil-configuracoes-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 3)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="sections-perfil">
                     <div class="sections-perfil-informacoes" id="sections-perfil-informacoes">
-                        <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
-                            Informações
-                        </span>
-                        <div class="sections-perfil-informacoes-mobile" id="sections-perfil-informacoes">
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                                Informações
+                            </span>
+                        </div>
+                        
+                        <div class="sections-perfil-mobile">
                             <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
                                 onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
                         </div>
                     </div>
 
                     <div id="sections-perfil-historico" id="sections-perfil-informacoes">
-                        <span onclick="mostrarDiv('container-dados-historico', 1)">
-                            Histórico
-                        </span>
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-historico', 1)">
+                                Histórico
+                            </span>
+                        </div>
+
+                        <div class="sections-perfil-mobile">
+                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                        </div>
                     </div>
 
 
                     <div id="sections-perfil-veiculos" id="sections-perfil-informacoes">
-                        <span onclick="mostrarDiv('container-dados-veiculos', 2)">
-                            Veículos
-                        </span>
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                Veículos
+                            </span>
+                        </div>
+
+                        <div class="sections-perfil-mobile">
+                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                        </div>
                     </div>
 
                     <div id="sections-perfil-configuracoes" id="sections-perfil-informacoes">
-                        <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
-                            Configurações
-                        </span>
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                                Configurações
+                            </span>
+                        </div>
+
+                        <div class="sections-perfil-mobile">
+                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                        </div>
                     </div>
                 </div>
 
@@ -313,6 +314,16 @@
                             <img src="../"
                                 onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="">
                             <p>Editar Veículo</p>
+                        </div>
+
+                        <div class="info-dados-perfil add-veiculo">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                            <p>Selecionar Veículo Princípal</p>
+                        </div>
+
+                        <div class="info-perfil" style="display: block; padding-bottom: 20px;">
+                            <p style="padding-top: 20px;">Todos os seus veículos:</p>
                         </div>
 
                         <div id="modelo-veiculo" class="item hidden">
