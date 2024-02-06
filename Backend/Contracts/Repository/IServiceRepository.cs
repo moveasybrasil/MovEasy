@@ -10,5 +10,6 @@ namespace Backend.Contracts.Repository
         Task Delete(int id);
         Task<ServiceEntity> GetById(int id);
         Task<IEnumerable<ServiceEntity>> Get();
+        Task<IEnumerable<ServiceEntity>> GetAllOpenServices();
     }
 }

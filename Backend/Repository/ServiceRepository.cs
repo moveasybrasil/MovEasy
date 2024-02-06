@@ -65,6 +65,12 @@ namespace Backend.Repository
             return await GetConnection().QueryFirstAsync<ServiceEntity>(sql, new { id });
         }
 
+        public async Task<IEnumerable<ServiceEntity>> GetAllOpenServices()
+        {
+            string sql = "SELECT * FROM Service WHERE Status = 0";
+            return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql);
+        }
+
         public async Task Update(ServiceEntity service)
         {
             string sql = @"

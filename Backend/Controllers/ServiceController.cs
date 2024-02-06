@@ -61,5 +61,19 @@ namespace Backend.Controllers
             await _serviceRepository.Update(service);
             return Ok();
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("Open")]
+        public async Task<IActionResult> GetAllOpenServices()
+        {
+            try
+            {
+                return Ok(await _serviceRepository.GetAllOpenServices());
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
