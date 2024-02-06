@@ -1,10 +1,10 @@
 @font-face {
     font-family: "Montserrat";
-    src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
+    src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
 }
  
 * {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif !important;
 }
 
 .banner {
@@ -17,6 +17,14 @@
      align-items: center;
 }
 
+#content {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .4);
+    overflow: hidden;
+}
 .controlador-login {
     height: 200px;
     padding: 20px;
