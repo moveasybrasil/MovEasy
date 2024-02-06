@@ -4,16 +4,16 @@ document.querySelectorAll(".header-login").forEach((e) => {
 })
 
 function check1() {
-    document.getElementsByClassName(".s2").checked = false
-    document.getElementsByClassName(".s1").checked = true
+    document.getElementById("radio-two").checked = false
+    document.getElementById("radio-one").checked = true
 
     document.getElementById("s1").classList.add("ativo")
     document.getElementById("s2").classList.remove("ativo")
 }
 
 function check2() {
-    document.getElementsByClassName(".s2").checked = true
-    document.getElementsByClassName(".s1").checked = false
+    document.getElementById("radio-two").checked = true
+    document.getElementById("radio-one").checked = false
 
     document.getElementById("s1").classList.remove("ativo")
     document.getElementById("s2").classList.add("ativo")
@@ -23,18 +23,16 @@ $(() => {
 
     $("#button-continuar1").click(() => {
         const checked = {
-            radio_one: $("#radio-one").checked,
-            radio_two: $("#radio-two").checked,
+            radio_one: $("#radio-one")[0].checked,
+            radio_two: $("#radio-two")[0].checked,
         }
 
         console.log(checked)
 
         let camposInvalidos = false
-        let msg = "Selecione um tipo de usúario!"-
+        let msg = "Selecione um tipo de usúario!"
 
-        console.log(checked)
-
-        if ((checked.radio_one = false) || (checked.radio_two = false)) {
+        if (!checked.radio_one && !checked.radio_two) {
             camposInvalidos = true
             msg = "Selecione um tipo de usúario!"
         }
@@ -114,21 +112,23 @@ $(() => {
         }
     });
 
-
-    // kdlfkldfklkdfl
-
-
     $("#button-cadastrar1").click(() => {
         const values = {
             nome: $("#nome")[0].value,
-            cpf_or_cnpj: $("#cpf-cnpj")[0].value,
-            telefone: $("#telefone")[0].value
+            cpf_or_cnpj: $("#cpf-cnpj")[0].value.replace(/\D/g, ''),
+            telefone: $("#telefone")[0].value.replace(/\D/g, ''),
+            term: $("#termos-de-uso")[0].checked
         }
 
         console.log(values)
 
         let camposInvalidos = false
         let msg = "Os campos em vermelho estão incorretos!"
+
+        if (!values.term) {
+            camposInvalidos = true
+            msg = "Você deve aceitar os termos de uso."
+        }
 
         if (!values.telefone) {
             $('input[id="telefone"]').css("border", "2px solid red");
@@ -140,27 +140,27 @@ $(() => {
             camposInvalidos = true
             $("#telefone").addClass("invalid");
         } else {
-            $("#senha").removeClass("invalid");
-            $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
+            $("#telefone").removeClass("invalid");
+            $('input[id="telefone"]').css("border", "1px solid #bbb");
         }
 
         if (!values.cpf_or_cnpj) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "Os campos em vermelho estão incorretos!"
-        } else if (values.cpf_or_cnpj.length < 8) {
+            msg = "Os campos em vermelho estão incorretos!";
+        } else if (values.cpf_or_cnpj.length < 11) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "O seu CPF ou CNPJ deve ter mais de 11 números!"
-        } else if (values.cpf_or_cnpj.length > 14) {
+            msg = "O seu CPF ou CNPJ deve ter mais de 11 números!";
+        } else if (values.cpf_or_cnpj.length > 14 || values.cpf_or_cnpj.length === 12 || values.cpf_or_cnpj.length === 13) {
             $('input[id="cpf-cnpj"]').css("border", "2px solid red");
-            camposInvalidos = true
+            camposInvalidos = true;
             $("#cpf-cnpj").addClass("invalid");
-            msg = "O seu CNPJ não deve ter mais de 14 números!"
+            msg = "O seu CNPJ deve ter 14 números!";
         } else {
-            $("#senha").removeClass("invalid");
+            $("#cpf-cnpj").removeClass("invalid");
             $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
         }
 
@@ -178,9 +178,12 @@ $(() => {
             alert(msg);
         } else {
             SignUp();
-            msg = "Cadastro realizado com sucesso!";
         }
     });
+
+    $("#button-login").click(() => {
+        goTo("user/login");
+    })
 
     $("#button-voltar1").click(() => {
         $("#box1").show();
@@ -190,7 +193,67 @@ $(() => {
         $("#box2").show();
         $("#box3").hide();
     })
+    $("#button-voltar3").click(() => {
+        $("#box3").show();
+        $("#box4").hide();
+    })
+
+    $(document).ready(function () {
+        $('[name=telefone]').mask('(00) 0000#-0000');
+    });
+
+    $('#cpf-cnpj').mask('000.000.000-00', {
+        onKeyPress: function (cpfcnpj, e, field, options) {
+            cpfcnpj = cpfcnpj.replace(/\D/g, ''); // Remove caracteres não numéricos
+            const masks = ['000.000.000-000', '00.000.000/0000-00'];
+            const mask = (cpfcnpj.length > 11) ? masks[1] : masks[0];
+            $('#cpf-cnpj').mask(mask, options);
+        }
+    });
 })
+
+
+// Visualizar Senha
+
+var passwordInput = document.getElementById('password');
+var eyePasswordSpy1 = document.getElementById('eye-password-spy1');
+
+
+eyePasswordSpy1.addEventListener('mousedown', function () {
+    passwordInput.type = 'text';
+});
+
+eyePasswordSpy1.addEventListener('mouseup', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('mouseout', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
+
+
+var confirmedPasswordInput = document.getElementById('confirmed-password');
+var eyePasswordSpy2 = document.getElementById('eye-password-spy2');
+
+eyePasswordSpy2.addEventListener('mousedown', function () {
+    confirmedPasswordInput.type = 'text';
+});
+
+eyePasswordSpy2.addEventListener('mouseup', function () {
+    confirmedPasswordInput.type = 'password';
+});
+
+eyePasswordSpy2.addEventListener('mouseout', function () {
+    confirmedPasswordInput.type = 'password';
+});
+
+eyePasswordSpy2.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
 
 
 // slideToggle(slow) para header mobile
@@ -199,8 +262,8 @@ $(() => {
 function SignUp() {
 
     let user = {
-        document: document.getElementById("cpf-cnpj").value,
-        telephone: document.getElementById("telefone").value,
+        document: document.getElementById("cpf-cnpj").value.replace(/\D/g, ''),
+        telephone: document.getElementById("telefone").value.replace(/\D/g, ''),
         name: document.getElementById("nome").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
@@ -208,12 +271,21 @@ function SignUp() {
     }
 
     request("POST", `${serverURL}/user`, (xhr) => {
-        if(xhr.status == 200) {
-            alert(`Cadastro Realizado. ${xhr.responseText}`)
+        if (xhr.status == 200) {
+            let token = JSON.parse(xhr.responseText).token
+            let user = JSON.parse(xhr.responseText).user
+                      
+            sessionStorage.setItem(`token`, token)
+            sessionStorage.setItem(`user`, user)
+            
+            $("#box3").hide();
+            $("#box4").show();
+
+            setTimeout( ()=>{goTo("user/perfil")}, 5 * 1000)
         } else {
-            alert (`${xhr.responseText}`)
+            alert(xhr.responseText)
         }
-    }, user 
+    }, user
     )
 
 

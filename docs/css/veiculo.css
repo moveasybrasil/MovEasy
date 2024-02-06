@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.banner {
+    width: 100%;
+    background: url("./assets/images/bg-home-sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;    
+    border-top: 1px solid;
+    overflow: hidden;
+}
+.content{
+    background: url(../assets/images/pexels-daniil-ustinov-8360517.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 86.31vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.form-cadastro {    
+    margin-top: 90px;
+    height: 680px;
+    width: 430px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.info-cadastro input {
+    width: 95%; 
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background-color: #f5f5f5;
+    padding: 0 10px 0 10px;
+    margin: 10px 10px 10px 10px; 
+}
+
+.info-cadastro {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-cadastro label,
+#title-form {
+    color: #0f0000;
+    padding-left: 15px;
+}   
+
+#title-form {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.botao{
+margin-top: 20px;
+}
+#button-cadastrar {
+    display: flex;
+    width: 322px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    padding-top: 10px;
+    background-color: #e4321e;  
+    color: #FFF; 
+}
+
+@media only screen and (max-width: 768px) { 
+
+    .content{
+        background: none;  
+        width: 100%;
+        height: 100%; 
+    }
+
+    .form-cadastro {     
+        margin-top: 60px;
+        height: 650px;
+        width: 380px;
+        border-radius: 10px;
+        align-items: center;
+        border: none;
+    }
+    
+
+    .info-cadastro input {
+        width: 90%; 
+        height: 45px;
+        border-radius: 5px;
+        margin: 10px 10px 10px 10px; 
+    }
+    #button-cadastrar {
+        display: flex;
+        width: 320px;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 5px;
+        justify-content: center;
+        background-color: #e4321e;  
+        color: #FFF; 
+    }
+
+    .info-cadastro label,
+#title-form {
+    color: #0f0000;
+    padding-left: 15px;
+}   
+
+}

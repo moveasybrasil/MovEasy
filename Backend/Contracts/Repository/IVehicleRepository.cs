@@ -10,5 +10,6 @@ namespace Backend.Contracts.Repository
         Task Delete(int id);
         Task<VehicleEntity> GetByLicensePlate(string licensePlate);
         Task<IEnumerable<VehicleEntity>> Get();
+        Task<VehicleDTO> GetInfoFromLicensePlate(string licensePlate);
     }
 }
