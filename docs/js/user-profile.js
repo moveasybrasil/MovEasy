@@ -110,7 +110,7 @@ function mostrarDiv(idDiv, index) {
         div.style.display = "block";
     }
 
-    var spans = document.querySelectorAll('.sections-perfil span');
+    var spans = document.querySelectorAll('.sections-perfil span','.sections-perfil-mobile',);
     spans.forEach(function (span) {
         span.classList.remove('active-perfil');
     });
@@ -191,10 +191,10 @@ listaV.push({
 listaV.push({
 
     modelo: "Volvo FH16",
-        ano: "2015",
-        cor: "Azul",
-        placa: "ABC-1234",
-        images: "Sem imagens"
+    ano: "2015",
+    cor: "Azul",
+    placa: "ABC-1234",
+    images: "Sem imagens"
 })
 
 listaV.push({
@@ -218,4 +218,30 @@ listaV.push({
 
 for (let veiculo of listaV) {
     createVeiculo(veiculo);
+}
+
+window.addEventListener('resize', menu);
+
+function menu (event) {
+    var spDesk = document.querySelectorAll(".sections-perfil-desktop");
+    var spMobi = document.querySelectorAll(".sections-perfil-mobile");
+
+    if (window.innerWidth <= 1125) {
+        spDesk.forEach( (element => {
+            element.style.display = "none"
+        }))
+        // spDesk.style.display = "none";
+        spMobi.style.display = "flex";
+        
+    }
+    
+    if (window.innerWidth <= 1126) {
+        spMObi.forEach( (element => {
+            element.style.display = "none"
+        }))
+        // spDesk.style.display = "none";
+        spDesk.style.display = "flex";
+    } else {
+        menu()
+    }
 }
