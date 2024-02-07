@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovEasy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/saved_resource"></script>
+  <script src="./js/common.js"></script>
+
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/veiculo.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header>
+      <div class="header" id="header">
+        <div class="btn-container">
+          <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+        </div>
+        <div class="logo-header">
+          <img id="logo-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))"
+            alt="movEasy">
+        </div>
+        <div class="navigation-header" id="navigation-header">
+          <div class="btn-icon-x btn-container">
+            <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+          </div>
+          <a class="header-home" href="javascript:goTo('index')">HOME</a>
+          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+        </div>
+      </div>
+  </div>
+  </header>
+  <div class="content">
+    <div class="container-solicitacao">
+      <form action="">
+        <div class="form-cadastro">
+          <h1 id="title-form">Cadastro veiculo</h1>
+
+          <div class="info-cadastro">
+            <label for="formulario-solicitacao-descricao">Placa:</label>
+            <input type="text" placeholder="Digite a placa do seu veiculo" id="Placa" oninput="checkInputLength()"></input>
+
+            <label for="formulario-solicitacao-descricao">Nome:</label>
+            <input type="text" placeholder="Digite o nome do seu veiculo" id="Nome"></input>
+
+            <label for="formulario-solicitacao-observacao">Ano:</label>
+            <input type="observacao" placeholder="Digite o nome do seu veiculo" id="Ano"></input>
+
+            <label for="formulario-solicitacao-data">Cor:</label>
+            <input type="data" placeholder="Digite a cor do seu veiculo" id="Cor"></input>
+
+            <label for="formulario-solicitacao-contratante">Capacidade:</label>
+            <input type="contratante" placeholder="Digite a capacidade do seu veiculo" id="Capacidade"></input>
+
+            <div class="botao">
+              <div class="button-form" id="button-cadastrar">
+                <button type="button">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./js/index.js"></script>
+  <script src="./js/header.js"></script>
+</body>
