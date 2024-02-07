@@ -134,11 +134,12 @@ $(() => {
             $('input[id="telefone"]').css("border", "2px solid red");
             camposInvalidos = true
             $("#telefone").addClass("invalid");
-            msg = "O seu número de telefone não pode ter mais ou menos de 11 números! Coloque o seu DDD e o número, exemplo: 47987654321."
-        } else if (!values.telefone.length == 11) {
+            msg = "O seu número de telefone não pode estar vazio."
+        } else if (values.telefone.length < 10) {
             $('input[id="telefone"]').css("border", "2px solid red");
             camposInvalidos = true
             $("#telefone").addClass("invalid");
+            msg = "O seu número de telefone deve ter mais de 10 dígitos."
         } else {
             $("#telefone").removeClass("invalid");
             $('input[id="telefone"]').css("border", "1px solid #bbb");

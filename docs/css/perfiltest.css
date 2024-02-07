@@ -296,6 +296,15 @@
     padding-bottom: 20px;
 }
 
+#sobre-perfil {
+    display: block; 
+}
+
+.info-perfil-second-column {
+    width: 50vw;
+    margin-top: 20px 0;
+}
+
 .info-perfil {
     display: flex;
     text-align: left;
@@ -304,6 +313,10 @@
 .info-perfil p {
     font-weight: bold;
     padding-right: 8px;
+}
+
+.info-perfil-for-user {
+    display: flex;
 }
 
 .photo-veiculo-perfil {
@@ -498,9 +511,34 @@
     .sections-perfil-desketop {
         display: none;
     }
-    
+
     .sections-perfil-mobile {
         display: none;
     }
-    
+
+    #sobre-perfil {
+        display: block;
+        text-align: justify;
+        width: 100%;
+    }
+
+    .info-perfil-for-user {
+        display: block;
+    }
+
+    .info-perfil-second-column {
+        margin-top: 0;
+    }
+
+    .info-perfil p {
+        padding-bottom: 5px;
+        justify-content: none;
+    }
+
+    .info-perfil {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
 }
