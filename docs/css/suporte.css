@@ -25,6 +25,13 @@
     align-items:center;
 }
 
+#content {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .4);
+    overflow: hidden;
+}
+
 .box {
     width: 422px;
     height: 531px;

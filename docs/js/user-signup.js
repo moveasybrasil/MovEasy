@@ -115,8 +115,8 @@ $(() => {
     $("#button-cadastrar1").click(() => {
         const values = {
             nome: $("#nome")[0].value,
-            cpf_or_cnpj: $("#cpf-cnpj")[0].value,
-            telefone: $("#telefone")[0].value,
+            cpf_or_cnpj: $("#cpf-cnpj")[0].value.replace(/\D/g, ''),
+            telefone: $("#telefone")[0].value.replace(/\D/g, ''),
             term: $("#termos-de-uso")[0].checked
         }
 
@@ -140,8 +140,8 @@ $(() => {
             camposInvalidos = true
             $("#telefone").addClass("invalid");
         } else {
-            $("#senha").removeClass("invalid");
-            $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
+            $("#telefone").removeClass("invalid");
+            $('input[id="telefone"]').css("border", "1px solid #bbb");
         }
 
         if (!values.cpf_or_cnpj) {
@@ -160,7 +160,7 @@ $(() => {
             $("#cpf-cnpj").addClass("invalid");
             msg = "O seu CNPJ deve ter 14 números!";
         } else {
-            $("#senha").removeClass("invalid");
+            $("#cpf-cnpj").removeClass("invalid");
             $('input[id="cpf-cnpj"]').css("border", "1px solid #bbb");
         }
 
@@ -178,8 +178,6 @@ $(() => {
             alert(msg);
         } else {
             SignUp();
-            $("#box3").hide();
-            $("#box4").show();
         }
     });
 
@@ -201,7 +199,7 @@ $(() => {
     })
 
     $(document).ready(function () {
-        $('[name=telefone]').mask('(00) 0000-0000#');
+        $('[name=telefone]').mask('(00) 0000#-0000');
     });
 
     $('#cpf-cnpj').mask('000.000.000-00', {
@@ -264,8 +262,8 @@ eyePasswordSpy2.addEventListener('dragstart', function (event) {
 function SignUp() {
 
     let user = {
-        document: document.getElementById("cpf-cnpj").value,
-        telephone: document.getElementById("telefone").value,
+        document: document.getElementById("cpf-cnpj").value.replace(/\D/g, ''),
+        telephone: document.getElementById("telefone").value.replace(/\D/g, ''),
         name: document.getElementById("nome").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
@@ -274,9 +272,18 @@ function SignUp() {
 
     request("POST", `${serverURL}/user`, (xhr) => {
         if (xhr.status == 200) {
-            document.getElementById("response-message").innerHTML = xhr.responseText
+            let token = JSON.parse(xhr.responseText).token
+            let user = JSON.parse(xhr.responseText).user
+                      
+            sessionStorage.setItem(`token`, token)
+            sessionStorage.setItem(`user`, user)
+            
+            $("#box3").hide();
+            $("#box4").show();
+
+            setTimeout( ()=>{goTo("user/perfil")}, 5 * 1000)
         } else {
-            document.getElementById("response-message").innerHTML = xhr.responseText
+            alert(xhr.responseText)
         }
     }, user
     )

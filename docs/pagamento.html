@@ -168,10 +168,12 @@
                     <form class="form" autocomplete="off" novalidate>
                         <fieldset>
                             <label for="card-number">Card Number</label>
-                            <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+                            <div class="card_number_form">
+                                <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
+                                <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
+                                <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
+                                <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+                            </div>
                         </fieldset>
                         <fieldset>
                             <label for="card-holder">Card holder</label>
@@ -216,11 +218,12 @@
                             <label for="card-ccv">CCV</label>
                             <input type="text" id="card-ccv" maxlength="3" />
                         </fieldset>
-                        <button class="btn"><i class="fa fa-lock"></i> submit</button>
+                        <button class="btn-copia" id="limpa-campos">Limpar campos</button>
+                        <button class="btn" id="btn-submit"><i class="fa fa-lock"></i> submit</button>
                     </form>
 
                 </div>
-                
+
             </div>
 
         </div>

@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo {
+    font-weight: 700;
+}
+
+.lista-mudancas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#dados-lista {
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 90%;
+
+}
