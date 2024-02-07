@@ -230,18 +230,15 @@ function menu (event) {
         spDesk.forEach( (element => {
             element.style.display = "none"
         }))
-        // spDesk.style.display = "none";
-        spMobi.style.display = "flex";
-        
-    }
-    
-    if (window.innerWidth <= 1126) {
-        spMObi.forEach( (element => {
+        spMobi.forEach( (element => {
+            element.style.display = "flex"
+        }))
+    } else {
+        spMobi.forEach( (element => {
             element.style.display = "none"
         }))
-        // spDesk.style.display = "none";
-        spDesk.style.display = "flex";
-    } else {
-        menu()
+        spDesk.forEach( (element => {
+            element.style.display = "flex"
+        }))
     }
 }

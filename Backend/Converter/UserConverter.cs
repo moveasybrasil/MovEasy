@@ -69,7 +69,7 @@ namespace Backend.Converter
 
         private async static Task<bool> CheckIfPasswordIsValid(string password)
         {
-            if (password == null || password.Length < 8) { return false; }
+            if (password == null || password.Length < 8 || password.Length > 29) { return false; }
             return true;
         }
     }
