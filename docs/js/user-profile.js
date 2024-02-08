@@ -110,13 +110,25 @@ function mostrarDiv(idDiv, index) {
         div.style.display = "block";
     }
 
-    var spans = document.querySelectorAll('.sections-perfil span','.sections-perfil-mobile',);
+    var spans = document.querySelectorAll('.sections-perfil span', '.sections-perfil-mobile span');
     spans.forEach(function (span) {
         span.classList.remove('active-perfil');
     });
 
     if (index >= 0 && index < spans.length) {
         spans[index].classList.add('active-perfil');
+    }
+
+    var imgs = document.querySelectorAll('.mostrar-img');
+    imgs.forEach(function (img) {
+        img.classList.remove('active-img');
+    });
+
+    if (index >= 0 && index < divs.length) {
+        var img = divs[index].querySelector('.mostrar-img');
+        if (img) {
+            img.classList.add('active-img');
+        }
     }
 }
 
@@ -221,24 +233,3 @@ for (let veiculo of listaV) {
 }
 
 window.addEventListener('resize', menu);
-
-function menu (event) {
-    var spDesk = document.querySelectorAll(".sections-perfil-desktop");
-    var spMobi = document.querySelectorAll(".sections-perfil-mobile");
-
-    if (window.innerWidth <= 1125) {
-        spDesk.forEach( (element => {
-            element.style.display = "none"
-        }))
-        spMobi.forEach( (element => {
-            element.style.display = "flex"
-        }))
-    } else {
-        spMobi.forEach( (element => {
-            element.style.display = "none"
-        }))
-        spDesk.forEach( (element => {
-            element.style.display = "flex"
-        }))
-    }
-}

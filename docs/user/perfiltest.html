@@ -121,11 +121,9 @@
                             <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
                                 Informações
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
+                                onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
                         </div>
                     </div>
 
@@ -134,11 +132,9 @@
                             <span onclick="mostrarDiv('container-dados-historico', 1)">
                                 Histórico
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
+                                onclick="mostrarDiv('container-dados-historico', 1)">
                         </div>
                     </div>
 
@@ -148,11 +144,11 @@
                             <span onclick="mostrarDiv('container-dados-veiculos', 2)">
                                 Veículos
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))"
+                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                            </div>
                         </div>
                     </div>
 
@@ -161,11 +157,9 @@
                             <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
                                 Configurações
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
+                                onclick="mostrarDiv('container-dados-configuracoes', 3)">
                         </div>
                     </div>
                 </div>
@@ -188,9 +182,9 @@
                                 <div class="info-perfil">
                                     <p>Números de Telefone:</p>
                                     <div>
-                                    <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span><span
-                                        style="padding-right: 6px;"> e </span><span id="telefone2-perfil"
-                                        style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                        <span id="telefone1-perfil" style="padding-right: 6px;">(XX)
+                                            XXXXX-XXXX</span><span style="padding-right: 6px;"> e </span><span
+                                            id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
 
@@ -257,19 +251,19 @@
 
                         <div id="modelo-historico" class="item hidden">
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Data:</p><a class="data">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Origem:</p><a class="origem">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Destino:</p><a class="destino">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Valor:</p><a class="valor">Informações...</a>
                             </div>
 
@@ -309,23 +303,23 @@
 
                         <div id="modelo-veiculo" class="item hidden">
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Modelo:</p><a class="modelo">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Ano:</p><a class="ano">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Cor:</p><a class="cor">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Placa:</p><a class="placa">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Fotos:</p><a class="images">Informações...</a>
                             </div>
 
