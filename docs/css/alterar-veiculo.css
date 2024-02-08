@@ -17,8 +17,8 @@
     overflow: hidden;
 }
 .content{
-    background: url(../assets/images/pexels-daniil-ustinov-8360517.jpg);
-    background-position: center;
+    background: url(../assets/images/caminhao\ topzera.jpg);
+    background-position: center right;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100vw;
@@ -41,7 +41,7 @@
 
 .info-cadastro input {
     width: 95%; 
-    height: 35px;
+    height: 40px;
     border-radius: 5px;
     border: 1px solid #bbb;
     background-color: #f5f5f5;
@@ -74,7 +74,7 @@ margin-top: 20px;
 #button-cadastrar {
     display: flex;
     width: 322px;
-    height: 35px;
+    height: 40px;
     font-size: 20px;
     border-radius: 5px;
     justify-content: center;
@@ -132,9 +132,7 @@ margin-top: 20px;
 }  
 
 #title-form {
-
     width: 100%;
-
 }
 
 }
