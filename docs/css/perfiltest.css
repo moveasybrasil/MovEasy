@@ -185,7 +185,7 @@
     color: var(--color-text-perfil2);
     padding: 4% 2% 0 2%;
     box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
-    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.25) inset;
     -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
 }
 
@@ -209,11 +209,7 @@
     font-size: 18px;
 }
 
-.sections-perfil-desketop {
-    display: flex;
-}
-
-.sections-perfil-mobile {
+.sections-perfil img {
     display: none;
 }
 
@@ -297,12 +293,12 @@
 }
 
 #sobre-perfil {
-    display: block; 
+    display: block;
 }
 
 .info-perfil-second-column {
     width: 50vw;
-    margin-top: 20px 0;
+    margin-top: 20px;
 }
 
 .info-perfil {
@@ -428,6 +424,7 @@
         overflow: scroll;
     }
 
+
     /* --- BARRA LATERAL MOBILE --- */
 
     .barra-lateral {
@@ -478,11 +475,11 @@
 
 
 
-    /* --- DADOS DO USÚARIO MOBILE--- */
+    /* --- DADOS DE INFORMAÇÕES MOBILE--- */
 
     .container-dados {
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: hidden;
         display: flex;
         flex-direction: column;
         width: 100vw;
@@ -503,17 +500,33 @@
         border-bottom: 2px solid #000;
     }
 
+    .sections-perfil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: auto;
+        text-align: center;
+    }
+
+    .sections-perfil-desktop {
+        width: 35px;
+        height: 35px;
+    }
+
     .sections-perfil span {
-        padding-right: 5px;
-        font-size: 13px;
+        padding-right: 0;
+        font-size: 0;
+        width: 0px;
+        height: 0;
     }
 
-    .sections-perfil-desketop {
-        display: none;
-    }
-
-    .sections-perfil-mobile {
-        display: none;
+    .sections-perfil img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin-top: -25px;
+        margin-right: -15px;
     }
 
     #sobre-perfil {
@@ -527,7 +540,7 @@
     }
 
     .info-perfil-second-column {
-        margin-top: 0;
+        margin-top: -20px;
     }
 
     .info-perfil p {
@@ -540,5 +553,60 @@
         display: flex;
         flex-direction: column;
         padding-bottom: 20px;
+    }
+
+
+
+    /* --- DADOS DO HISTÓRICO  E VEÍCULO MOBILE--- */
+
+    .item {
+        width: 100%;
+        margin: 25px 0 25px 0;
+        border-left: #e4321e;
+        background-color: rgb(245, 243, 243);
+        border-style: solid;
+        padding: 0;
+    }
+
+    .info-dados-historico {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .info-dados-historico p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 0 0 0 15px;
+        background-color: rgb(219, 218, 218);
+    }
+
+    .info-dados-historico a {
+        padding: 0 0 0 15px;
+        background-color: rgb(245, 243, 243);
+    }
+
+    .info-dados-veiculo {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .info-dados-veiculo p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 0 0 0 15px;
+        background-color: rgb(219, 218, 218);
+    }
+
+    .info-dados-veiculo a {
+        padding: 0 0 0 15px;
+        background-color: rgb(245, 243, 243);
     }
 }
