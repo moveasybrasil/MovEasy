@@ -12,7 +12,7 @@
   <script src="./js/common.js"></script>
 
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/veiculo.css">
+  <link rel="stylesheet" href="./css/alterar-veiculo.css">
   <script>
     tailwind.config = {
       theme: {
@@ -53,25 +53,37 @@
   </header>
   <div class="content">
     <div class="container-solicitacao">
-      <form action="">
+      <form action="/action_page.php" method="get">
         <div class="form-cadastro">
-          <h1 id="title-form">Cadastro veiculo</h1>
-
+          <h1 id="title-form">Alterar informações</h1>
+          <h2 class="sub-title-form">dos veiculos</h2>
           <div class="info-cadastro">
+
+            <label for="formulario-solicitacao-descricao">Veiculo:</label>
+            <input list="Veiculos" placeholder="Selecione o veículo para ser alterado." name="Veiculo" id="Veiculo">
+            <datalist id="Veiculos">
+
+              <option value="Caminhão">
+              <option value="Carro de sorvete">
+              <option value="Saveiro">
+              <option value="Fiorino">
+              <option value="Carro do batman">
+            </datalist>
+            
             <label for="formulario-solicitacao-descricao">Placa:</label>
             <input type="text" placeholder="Digite a placa do seu veiculo" id="Placa" oninput="checkInputLength()"></input>
 
             <label for="formulario-solicitacao-descricao">Nome:</label>
-            <input type="text" placeholder="Digite o nome do seu veiculo" id="Nome"></input>
+            <input type="text" placeholder="Digite o nome do seu veiculo." id="Nome"></input>
 
             <label for="formulario-solicitacao-observacao">Ano:</label>
-            <input type="observacao" placeholder="Digite o nome do seu veiculo" id="Ano"></input>
+            <input type="observacao" placeholder="Digite o nome do seu veiculo." id="Ano"></input>
 
             <label for="formulario-solicitacao-data">Cor:</label>
-            <input type="data" placeholder="Digite a cor do seu veiculo" id="Cor"></input>
+            <input type="data" placeholder="Digite a cor do seu veiculo." id="Cor"></input>
 
             <label for="formulario-solicitacao-contratante">Capacidade:</label>
-            <input type="contratante" placeholder="Digite a capacidade do seu veiculo" id="Capacidade"></input>
+            <input type="contratante" placeholder="Digite a capacidade do seu veiculo." id="Capacidade"></input>
 
             <div class="botao">
               <div class="button-form" id="button-cadastrar">
