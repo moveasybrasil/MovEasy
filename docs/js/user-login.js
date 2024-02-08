@@ -58,8 +58,8 @@ $(() => {
         
                     sessionStorage.setItem(`token`, token)
                     sessionStorage.setItem(`user`, user)
-        
-                    goTo(`user/perfil`)
+
+                    setTimeout( ()=>{goTo("user/perfil")}, 1 * 1000)
                 } 
                 case 401: {
                     console.log(xhr.responseText)

@@ -177,59 +177,78 @@ for (let historico of listaH) {
 }
 
 //Objeto Veículo
+function loadVehicle() {
+    request("GET", `${serverURL}/vehicle/id`, (xhr)=>{
+        if(xhr.status == 200) {
+            JSON.parse(xhr.responseText).forEach(element => {
 
+                const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
+                $('.modelo', novoVeiculo).html(element.Name);
+                $('.ano', novoVeiculo).html(element.Year);
+                $('.cor', novoVeiculo).html(element.Colour);
+                $('.placa', novoVeiculo).html(element.LicensePlate);
+                $('.images', novoVeiculo).html(element.images);
+            
+                $("#dados-veiculos").append($(novoVeiculo));
 
-function createVeiculo(veiculo) {
-    const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
-    $('.modelo', novoVeiculo).html(veiculo.modelo);
-    $('.ano', novoVeiculo).html(veiculo.ano);
-    $('.cor', novoVeiculo).html(veiculo.cor);
-    $('.placa', novoVeiculo).html(veiculo.placa);
-    $('.images', novoVeiculo).html(veiculo.images);
-
-    $("#dados-veiculos").append($(novoVeiculo));
+            });
+        } else {
+            $("#not-add-vehicle").show()
+        }
+    }, null, null, true)
 }
 
-const listaV = []
+// function createVeiculo(veiculo) {
+//     const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
+//     $('.modelo', novoVeiculo).html(veiculo.modelo);
+//     $('.ano', novoVeiculo).html(veiculo.ano);
+//     $('.cor', novoVeiculo).html(veiculo.cor);
+//     $('.placa', novoVeiculo).html(veiculo.placa);
+//     $('.images', novoVeiculo).html(veiculo.images);
 
-listaV.push({
-    modelo: "Scania LK 140",
-    ano: "1998",
-    cor: "Laranja",
-    placa: "XAS-1545",
-    images: "Sem imagens"
-})
+//     $("#dados-veiculos").append($(novoVeiculo));
+// }
 
-listaV.push({
+// const listaV = []
 
-    modelo: "Volvo FH16",
-    ano: "2015",
-    cor: "Azul",
-    placa: "ABC-1234",
-    images: "Sem imagens"
-})
+// listaV.push({
+//     modelo: "Scania LK 140",
+//     ano: "1998",
+//     cor: "Laranja",
+//     placa: "XAS-1545",
+//     images: "Sem imagens"
+// })
 
-listaV.push({
+// listaV.push({
 
-    modelo: "Mercedes-Benz Actros",
-    ano: "2022",
-    cor: "Prata",
-    placa: "XYZ-9876",
-    images: "Sem imagens"
-})
+//     modelo: "Volvo FH16",
+//     ano: "2015",
+//     cor: "Azul",
+//     placa: "ABC-1234",
+//     images: "Sem imagens"
+// })
 
-listaV.push({
+// listaV.push({
 
-    modelo: "MAN TGX",
-    ano: "2005",
-    cor: "Vermelho",
-    placa: "DEF-5678",
-    images: "Sem imagens"
-})
+//     modelo: "Mercedes-Benz Actros",
+//     ano: "2022",
+//     cor: "Prata",
+//     placa: "XYZ-9876",
+//     images: "Sem imagens"
+// })
+
+// listaV.push({
+
+//     modelo: "MAN TGX",
+//     ano: "2005",
+//     cor: "Vermelho",
+//     placa: "DEF-5678",
+//     images: "Sem imagens"
+// })
 
 
-for (let veiculo of listaV) {
-    createVeiculo(veiculo);
-}
+// for (let veiculo of listaV) {
+//     createVeiculo(veiculo);
+// }
 
 window.addEventListener('resize', menu);
