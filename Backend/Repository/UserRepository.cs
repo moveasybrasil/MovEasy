@@ -298,7 +298,6 @@ namespace Backend.Repository
             }
 
         }
-
         public async Task<bool> ValidateUUID(string UUID)
         {
             try
