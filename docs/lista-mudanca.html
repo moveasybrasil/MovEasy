@@ -56,42 +56,42 @@
                 <div class="content">
                     <div id="lista-mudanca">
 
-                        <div style="display: block; padding-bottom: 20px;">
+                        <div style="padding-bottom: 20px;">
                             <p id="titulo" style="padding-top: 50px;">Mudanças aguardando transporte: </p>
                         </div>
 
                         <div id="dados-lista">
 
-                            <div id="modelo-mudanca" class="hidden">
+                            <div id="modelo-mudanca" class="card hidden">
                                 <div>
                                     <div class="dados-mudanca" id="valor">
-                                        <p id="real">R$</p><a class="valor">Informações...</a>
+                                        <p id="real">R$<br/><a class="valor" style="font-size:25px; font-weight: 900;">Informações...</a></p>
+                                        <div class="dados-mudanca">
+                                            <a class="data">Informações...</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div style="flex-grow: 1; word-wrap: break-word;">
+                                    <div class="dados-mudanca usuario hidden">
+                                        <p>Usuário:</p><a class="usuario">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca">
-                                        <a class="data">Informações...</a>
+                                        <p id="origem">Origem:</p><a class="origem">Informações...</a>
                                     </div>
+                                    <div class="dados-mudanca">
+                                        <p>Destino:</p><a class="destino">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca descricao hidden">
+                                        <p>Descrição:</p><a class="descricao">Informações...</a>
+                                    </div>
+                                    <button class="btn-aceite">Visualizar</button>
                                 </div>
+                                
 
-                            </div>
-                            <div>
-                                <div class="dados-mudanca hidden">
-                                    <p>Usuário:</p><a class="usuario">Informações...</a>
-                                </div>
-                                <div class="dados-mudanca">
-                                    <p>Origem:</p><a class="origem">Informações...</a>
-                                </div>
-                                <div class="dados-mudanca">
-                                    <p>Destino:</p><a class="destino">Informações...</a>
-                                </div>
-                                <div class="dados-mudanca hidden">
-                                    <p>Descrição:</p><a class="descricao">Informações...</a>
-                                </div>
-
-                                <button class="btn-aceite">Aceitar Proposta</button>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </main>
     </div>

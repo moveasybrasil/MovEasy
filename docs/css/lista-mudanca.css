@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #titulo {
@@ -27,62 +28,70 @@
 }
 
 #dados-lista {
-    border: 1px solid #000;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     display: flex;
-    text-align: center;
+    text-align: center !important;
+    flex-direction: column;
+}
+
+.card {
+    word-wrap: break-word;
 }
 
 .data {
     align-self: flex-end;
+    font-weight: 400 !important;
+    font-size: 14px !important;
 }
 
 .dados-mudanca a {
-    font-weight: 700; 
+    font-weight: 700;
+    width: 100%;
 }
 
 #modelo-mudanca {
     display: none !important;
 }
 
-#dados-lista > div{
+#dados-lista > div {
     display: flex;
-    flex-direction: row;
-}
-
-.valor {
-    font-weight: 900;
-    font-size: larger;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
 }
 
 #valor {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #e4321e;
+    background-color: #0b142f;
     color: WHITE;
     height: 100%;
     padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
 }
 
 #valor > p {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 200;
     padding: 0;
+    text-align: left;
     border-collapse: collapse;
-    align-self: flex-start;
     padding-top: 10px;
 }
 
 .btn-aceite {
     color: white;
-    background-color: #0b142f;
+    background-color:#e4321e;
     width: 70%;
     border-radius: 15px;
     font-weight: 300; 
     text-align: center;
-    margin: 30px 0 30px 0;
+    margin: 0 0 5px 0;
     padding: 15px;
     cursor: pointer;
 }
@@ -93,3 +102,15 @@
     font-weight: 900;
 }
 
+.origem, .destino {
+    display: flex;
+    font-size: 15px !important;
+    width: 100% !important;
+    margin-bottom: 10px;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+#origem {
+    margin-top: 10px;
+}
