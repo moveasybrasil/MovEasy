@@ -277,7 +277,7 @@ function SignUp() {
             let user = JSON.parse(xhr.responseText).user
                       
             sessionStorage.setItem(`token`, token)
-            sessionStorage.setItem(`user`, user)
+            sessionStorage.setItem(`user`, JSON.stringify(user))
             
             $("#box3").hide();
             $("#box4").show();

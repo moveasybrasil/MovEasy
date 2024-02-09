@@ -56,11 +56,11 @@ $(() => {
         
                     if(values.manterConectado) {
                         localStorage.setItem(`token`, token)
-                        localStorage.setItem(`user`, user)
+                        localStorage.setItem(`user`, JSON.stringify(user))
                     }
         
                     sessionStorage.setItem(`token`, token)
-                    sessionStorage.setItem(`user`, user)
+                    sessionStorage.setItem(`user`, JSON.stringify(user))
 
                     goTo("user/perfil")
                 } 
