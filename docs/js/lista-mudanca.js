@@ -64,4 +64,8 @@ $(() => {
         //lógica quando aceitar uma mudança.
 });
 
+    $(document).on('click', '#mudanca-aguardando', function() {
+        $('#mudanca-aguardando').addClass('active-perfil')
+    })
+
 });

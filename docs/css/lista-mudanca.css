@@ -7,6 +7,8 @@
     font-family: "Montserrat", sans-serif;
 }
 
+
+
 .content {
     width: 100vw;
     height: 100vh;
@@ -19,9 +21,52 @@
 #lista-mudanca {
     display: flex;
     flex-direction: column;
-    align-items: center;
+
     width: 90%;
 }
+
+#toggle-menu {
+    display: flex ;
+    width: 85% ;
+    height: 3vh ;
+    padding: 30px ; 
+    gap: 50px;
+    align-items: center;
+
+}
+
+#toggle-menu p {
+    position: relative;
+}
+
+#toggle-menu p:hover {
+    color: #e4321e;
+    cursor: pointer;
+}
+
+#toggle-menu p::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #e4321e;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+#toggle-menu p:hover::after{
+    transform: scaleX(1);
+    background: #e4321e;
+}
+
+.active-perfil {
+    color: #e4321e;
+    border-bottom: 3px solid #e4321e;
+
+}
+
 
 #titulo {
     font-weight: 700;
@@ -127,7 +172,7 @@
     display: none;
 }
 
-@media (min-width: 431px) {
+@media (min-width: 900px) {
 
 
     #lista-mudanca {
@@ -148,7 +193,10 @@
         width: 25%;
     }
 
-    .dados-mudanca, .origem, .destino, .usuario {
+    .dados-mudanca,
+    .origem,
+    .destino,
+    .usuario {
         display: flex !important;
         text-align: left;
         justify-content: flex-start;
@@ -158,7 +206,7 @@
     #origem,
     .origem,
     .destino,
-    #destino, 
+    #destino,
     .usuario,
     #titulo,
     .descricao {
@@ -168,7 +216,7 @@
     .descricao {
         align-self: center;
         padding-bottom: 10px;
-        
+
     }
 
     .usuario {
@@ -209,7 +257,18 @@
         top: 32px;
         left: 3px;
     }
+
     #valor {
         width: 70%;
+    }
+}
+
+@media (min-width: 900px) {
+    .data {
+        font-size: 20px !important;
+    }
+
+    .valor {
+        font-size: 30px !important;
     }
 }
