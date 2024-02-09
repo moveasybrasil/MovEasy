@@ -382,6 +382,7 @@
 
 /* --- DADOS DO CONTAINER VEÍCULOS E CONFIGURAÇÕES--- */
 
+.dados-perfil,
 .config-perfil,
 .add-veiculo {
     display: flex;
@@ -411,17 +412,27 @@
     height: 30px;
 }
 
+.dados-perfil {
+    padding: 10px 0;
+    width: 94%;
+}
+
+#dados-veiculo-principal {
+    margin-top: -20px;
+    width: 97%;
+}
+
 
 
 /* --- PERFIL MOBILE --- */
 
 @media (max-width: 1125px) {
-
+    
     .content {
         display: flex;
         flex-direction: column;
         height: auto;
-        overflow: scroll;
+        overflow-y: auto;
     }
 
 
@@ -478,8 +489,6 @@
     /* --- DADOS DE INFORMAÇÕES MOBILE--- */
 
     .container-dados {
-        overflow-x: hidden;
-        overflow-y: hidden;
         display: flex;
         flex-direction: column;
         width: 100vw;
@@ -504,7 +513,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100vw;
+        width: 100%;
         height: auto;
         text-align: center;
     }
@@ -546,10 +555,11 @@
     .info-perfil p {
         padding-bottom: 5px;
         justify-content: none;
+        width: 100%;
     }
 
     .info-perfil {
-        width: 100vw;
+        width: 100%;
         display: flex;
         flex-direction: column;
         padding-bottom: 20px;
@@ -608,5 +618,38 @@
     .info-dados-veiculo a {
         padding: 0 0 0 15px;
         background-color: rgb(245, 243, 243);
+    }
+
+    .dados-perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        text-align: start;
+        width: 184%;
+        height: auto;
+        margin-top: 0;
+        margin-right: 15px;
+        padding: 0;
+    }
+
+    .dados-perfil p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 0 0 0 15px;
+        background-color: rgb(219, 218, 218);
+        width: 100%;
+        margin: 0;
+    }
+
+    .dados-perfil span {
+        padding-left: 15px;
+        width: 100%;
+    }
+
+    #dados-veiculo-principal {
+        margin-top: 25px;
+        width: 100%;
     }
 }
