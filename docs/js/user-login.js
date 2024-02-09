@@ -50,6 +50,9 @@ $(() => {
                 case 200: {
                     let token = JSON.parse(xhr.responseText).token
                     let user = JSON.parse(xhr.responseText).user
+
+                    localStorage.clear();
+                    sessionStorage.clear();
         
                     if(values.manterConectado) {
                         localStorage.setItem(`token`, token)
@@ -59,7 +62,7 @@ $(() => {
                     sessionStorage.setItem(`token`, token)
                     sessionStorage.setItem(`user`, user)
 
-                    setTimeout( ()=>{goTo("user/perfil")}, 1 * 1000)
+                    goTo("user/perfil")
                 } 
                 case 401: {
                     console.log(xhr.responseText)
