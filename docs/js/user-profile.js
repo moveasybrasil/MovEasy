@@ -3,6 +3,8 @@ document.querySelectorAll(".header-login").forEach((e) => {
     e.classList.add("active")
 })
 
+if (!sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/login`) }
+
 async function sendPhoto() {
 
     const files = document.querySelector('[name=file]').files
@@ -19,31 +21,6 @@ async function sendPhoto() {
     )
 
     await setProfilePhoto()
-}
-
-if (!sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/login`) }
-
-async function setProfilePhoto() {
-
-    let url;
-    try {
-        await request("GET", `${serverURL}/user/photo`, (xhr) => {
-            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
-            console.log(url)
-            document.getElementById("photo").setAttribute('src', url)
-        }, null, null, true)
-    } catch {
-        url = `${r2URL}/user/default.jpg`
-        document.getElementById("photo").setAttribute('src', url)
-    }
-}
-
-setProfilePhoto()
-
-function logOut() {
-    localStorage.clear();
-    sessionStorage.clear();
-    goTo(`user/login`)
 }
 
 const modalPhoto = $('#modal-photo');
@@ -132,52 +109,80 @@ function mostrarDiv(idDiv, index) {
     }
 }
 
-//Objeto Histórico
+// Informações do Perfil
+async function loadProfileInfo(){
+    userId = JSON.parse(sessionStorage.getItem("user")).id ?? "XXXXXXXX"
+    userName = JSON.parse(sessionStorage.getItem("user")).name ?? "Nome Completo"
+    userEmail = JSON.parse(sessionStorage.getItem("user")).email ?? "seuemail@email.com"
 
-
-function createHistorico(historico) {
-    const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
-    $('.data', novoHistorico).html(historico.data);
-    $('.origem', novoHistorico).html(historico.origem);
-    $('.destino', novoHistorico).html(historico.destino);
-    $('.valor', novoHistorico).html(historico.valor);
-
-    $("#dados-historico").append($(novoHistorico));
+    document.getElementById("nome-usuario-perfil").innerHTML = userName
+    document.getElementById("email-perfil").innerHTML = userEmail
+    document.getElementById("id-perfil").innerHTML = userId
 }
 
-const listaH = []
+// Foto de Perfil
+async function loadProfilePhoto() {
 
-listaH.push({
-    data: "25/02/2024 - 18:30h às 19:30h",
-    origem: "Rua Francisco Vahldieck, 2726 - Bluemanu, SC - (Complemento: Cond. Fortaleza de Sagres, Apto 3015)",
-    destino: "Rua Iguaçu, 147 - Bluemanu, SC",
-    valor: "R$ 298,87"
-})
-listaH.push({
-    data: "25/02/2024 - 14:27h às 16:12h",
-    origem: "Origem: Rua São Paulo, 276 - Bluemanu, SC",
-    destino: "Rua Iguaçu, 1987 - Bluemanu, SC",
-    valor: "R$ 432,04"
-})
-listaH.push({
-    data: "24/02/2024 - 10:24h às 11:16h",
-    origem: "Origem: Rua Francisco Sênior, 987 - Bluemanu, SC",
-    destino: "Rua Jerõnimo, 577 - Bluemanu, SC - (Complemento: Casa de esquina)",
-    valor: "R$ 354,12"
-})
-listaH.push({
-    data: "24/02/2024 - 08:15h às 10:12h",
-    origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
-    destino: "Rua Carlota, 2012 - Bluemanu, SC",
-    valor: "R$ 122,12"
-})
+    let url;
+    try {
+        await request("GET", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
+            console.log(url)
+            document.getElementById("photo").setAttribute('src', url)
+        }, null, null, true)
+    } catch {
+        url = `${r2URL}/user/default.jpg`
+        document.getElementById("photo").setAttribute('src', url)
+    }
+}
 
-for (let historico of listaH) {
-    createHistorico(historico);
+//Objeto Histórico
+async function loadHistorico() {
+
+    function createHistorico(historico) {
+        const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
+        $('.data', novoHistorico).html(historico.data);
+        $('.origem', novoHistorico).html(historico.origem);
+        $('.destino', novoHistorico).html(historico.destino);
+        $('.valor', novoHistorico).html(historico.valor);
+    
+        $("#dados-historico").append($(novoHistorico));
+    }
+    
+    const listaH = []
+    
+    listaH.push({
+        data: "25/02/2024 - 18:30h às 19:30h",
+        origem: "Rua Francisco Vahldieck, 2726 - Bluemanu, SC - (Complemento: Cond. Fortaleza de Sagres, Apto 3015)",
+        destino: "Rua Iguaçu, 147 - Bluemanu, SC",
+        valor: "R$ 298,87"
+    })
+    listaH.push({
+        data: "25/02/2024 - 14:27h às 16:12h",
+        origem: "Origem: Rua São Paulo, 276 - Bluemanu, SC",
+        destino: "Rua Iguaçu, 1987 - Bluemanu, SC",
+        valor: "R$ 432,04"
+    })
+    listaH.push({
+        data: "24/02/2024 - 10:24h às 11:16h",
+        origem: "Origem: Rua Francisco Sênior, 987 - Bluemanu, SC",
+        destino: "Rua Jerõnimo, 577 - Bluemanu, SC - (Complemento: Casa de esquina)",
+        valor: "R$ 354,12"
+    })
+    listaH.push({
+        data: "24/02/2024 - 08:15h às 10:12h",
+        origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
+        destino: "Rua Carlota, 2012 - Bluemanu, SC",
+        valor: "R$ 122,12"
+    })
+    
+    for (let historico of listaH) {
+        createHistorico(historico);
+    }
 }
 
 //Objeto Veículo
-function loadVehicle() {
+async function loadVehicle() {
     request("GET", `${serverURL}/vehicle/id`, (xhr)=>{
         if(xhr.status == 200) {
             JSON.parse(xhr.responseText).forEach(element => {
@@ -198,57 +203,17 @@ function loadVehicle() {
     }, null, null, true)
 }
 
-// function createVeiculo(veiculo) {
-//     const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
-//     $('.modelo', novoVeiculo).html(veiculo.modelo);
-//     $('.ano', novoVeiculo).html(veiculo.ano);
-//     $('.cor', novoVeiculo).html(veiculo.cor);
-//     $('.placa', novoVeiculo).html(veiculo.placa);
-//     $('.images', novoVeiculo).html(veiculo.images);
+async function LoadProfile() {
+    await loadProfileInfo()
+    await loadProfilePhoto()
+    await loadHistorico()
+    await loadVehicle()
+}
 
-//     $("#dados-veiculos").append($(novoVeiculo));
-// }
+function logOut() {
+    localStorage.clear();
+    sessionStorage.clear();
+    goTo(`user/login`)
+}
 
-// const listaV = []
-
-// listaV.push({
-//     modelo: "Scania LK 140",
-//     ano: "1998",
-//     cor: "Laranja",
-//     placa: "XAS-1545",
-//     images: "Sem imagens"
-// })
-
-// listaV.push({
-
-//     modelo: "Volvo FH16",
-//     ano: "2015",
-//     cor: "Azul",
-//     placa: "ABC-1234",
-//     images: "Sem imagens"
-// })
-
-// listaV.push({
-
-//     modelo: "Mercedes-Benz Actros",
-//     ano: "2022",
-//     cor: "Prata",
-//     placa: "XYZ-9876",
-//     images: "Sem imagens"
-// })
-
-// listaV.push({
-
-//     modelo: "MAN TGX",
-//     ano: "2005",
-//     cor: "Vermelho",
-//     placa: "DEF-5678",
-//     images: "Sem imagens"
-// })
-
-
-// for (let veiculo of listaV) {
-//     createVeiculo(veiculo);
-// }
-
-window.addEventListener('resize', menu);
+LoadProfile()
