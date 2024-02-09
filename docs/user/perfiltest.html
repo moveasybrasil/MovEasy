@@ -121,10 +121,13 @@
                             <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
                                 Informações
                             </span>
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
-                                onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                            </div>
                         </div>
+
                     </div>
 
                     <div id="sections-perfil-historico" id="sections-perfil-informacoes">
@@ -132,10 +135,13 @@
                             <span onclick="mostrarDiv('container-dados-historico', 1)">
                                 Histórico
                             </span>
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
-                                onclick="mostrarDiv('container-dados-historico', 1)">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-historico', 1)">
+                            </div>
                         </div>
+
                     </div>
 
 
@@ -146,8 +152,8 @@
                             </span>
                             <div class="img-section-color">
                                 <img src="../"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))"
-                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))" alt=""
+                                    class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
                             </div>
                         </div>
                     </div>
@@ -157,9 +163,11 @@
                             <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
                                 Configurações
                             </span>
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt=""
-                                onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,62 +187,47 @@
 
                         <div class="info-perfil-for-user" id="info-perfil-for-user">
                             <div style="width: 50vw; margin: 20px 0;">
-                                <div class="info-perfil">
+
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Números de Telefone:</p>
                                     <div>
                                         <span id="telefone1-perfil" style="padding-right: 6px;">(XX)
-                                            XXXXX-XXXX</span><span style="padding-right: 6px;"> e </span><span
-                                            id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                            XXXXX-XXXX</span>
+                                        <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
 
-                                <div class="info-perfil">
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Email: </p>
-                                    <span id="email-perfil">seuemail@email.com</span>
+                                    <div>
+                                        <span id="email-perfil">seuemail@email.com</span>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="info-perfil-second-column">
-                                <div class="info-perfil">
+                            </div>
+                            <div style="width: 50vw; margin: 20px 0;">
+
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Status da Conta:</p>
-                                    <span id="status-perfil">Ativo</span>
+                                    <div>
+                                        <span id="status-perfil">Ativo</span>
+                                    </div>
                                 </div>
 
-                                <div class="info-perfil">
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>ID:</p>
-                                    <span id="id-perfil">0000001</span>
+                                    <div>
+                                        <span id="id-perfil">0000001</span>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
-                        <div class="info-perfil-for-motorista">
-                            <div class="info-perfil">
-                                <p>Veículo Princípal: </p>
-                                <span id="veiculo-perfil-motorista">Scania LK 140 | Laranja | XAS-1545</span>
-                            </div>
-                            <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
-
-                                <div class="box-img-veiculo">
-                                    <img src="../"
-                                        onerror="this.setAttribute('src', getUrl('assets/images/veiculo-perfil-test1.jpg'))"
-                                        alt="">
-                                </div>
-
-                                <div class="box-img-veiculo">
-                                    <img src="../"
-                                        onerror="this.setAttribute('src', getUrl('assets/images/veiculo-perfil-test2.jpg'))"
-                                        alt="">
-                                </div>
-
-                            </div>
-
-                            <div class="info-perfil">
-                                <p>Principais Feedbacks: </p>
-                            </div>
-
-                            <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
-
+                        <div class="info-perfil-for-motorista info-dados-perfil dados-perfil"
+                            id="dados-veiculo-principal">
+                            <p>Veículo Princípal: </p>
+                            <div>
+                                <span id="main-vehicle-perfil-motorista">Modelo | Cor | Placa</span>
                             </div>
                         </div>
 
@@ -246,6 +239,13 @@
                     <div class="info-perfil" style="display: block; padding-bottom: 20px;">
                         <p style="padding-top: 50px;">Analise o seu Histórico de Mudanças aqui:</p>
                     </div>
+
+                    <div class="info-dados-perfil add-veiculo" id="not-add-historic">
+                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/perfil-historico.png'))"
+                            alt="">
+                        <p>Você ainda não fez nenhuma Mudança.</p>
+                    </div>
+
 
                     <div id="dados-historico">
 
@@ -301,6 +301,12 @@
                             <p style="padding-top: 20px;">Todos os seus veículos:</p>
                         </div>
 
+                        <div class="info-dados-perfil add-veiculo" id="not-add-vehicle">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                            <p>Você ainda não adicionou nenhum Veículo.</p>
+                        </div>
+
                         <div id="modelo-veiculo" class="item hidden">
 
                             <div class="info-dados-perfil info-dados-veiculo">
@@ -329,7 +335,8 @@
 
                 <div class="container-dados-configuracoes mostrar-div" id="container-dados-configuracoes">
                     <div class="info-perfil" style="display: block; padding-bottom: 20px;">
-                        <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:</p>
+                        <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:
+                        </p>
                     </div>
 
                     <div class="info-perfil">
