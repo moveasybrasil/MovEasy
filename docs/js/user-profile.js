@@ -183,11 +183,11 @@ function loadVehicle() {
             JSON.parse(xhr.responseText).forEach(element => {
 
                 const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
-                $('.modelo', novoVeiculo).html(element.Name);
-                $('.ano', novoVeiculo).html(element.Year);
-                $('.cor', novoVeiculo).html(element.Colour);
-                $('.placa', novoVeiculo).html(element.LicensePlate);
-                $('.images', novoVeiculo).html(element.images);
+                $('.modelo', novoVeiculo).html(element.name);
+                $('.ano', novoVeiculo).html(element.year);
+                $('.cor', novoVeiculo).html(element.colour);
+                $('.placa', novoVeiculo).html(element.licensePlate);
+                $('.images', novoVeiculo).html("Sem imagens cadastradas");
             
                 $("#dados-veiculos").append($(novoVeiculo));
 
