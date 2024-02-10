@@ -23,7 +23,8 @@ namespace Backend.Repository
                         Address_Id,
                         Address_Id1,
                         User_Id,
-                        User_Id1
+                        User_Id1,
+                        Price
                     ) VALUE (
                         @Terms,
                         @Description,
@@ -36,12 +37,15 @@ namespace Backend.Repository
                         @Address_Id1,
                         @User_Id,
                         @User_Id1
+                        @Price
                     )
             ";
 
             int userId = await GetUserIdFromEmail(email);
 
-            ServiceEntity serviceEntity = await ServiceConverter.Convert(service, AddressId, AddressId1, userId);
+            int price = new Random().Next(10000, 100000);
+
+            ServiceEntity serviceEntity = await ServiceConverter.Convert(service, AddressId, AddressId1, userId, price);
 
             await Execute(sql, serviceEntity);
         }
@@ -92,6 +96,38 @@ namespace Backend.Repository
             ";
 
             await Execute(sql, service);
+        }
+
+        public async Task<IEnumerable<ServiceEntity>> GetMyOngoingServices (string email)
+        {
+            try
+            {
+                string sql = "SELECT Id FROM User WHERE Email = @email";
+                int id = await GetConnection().QueryFirstAsync<int>(sql, new { email });
+
+                sql = "SELECT * FROM Service WHERE Status = 1 AND (User_Id = @id OR User_Id1 = @id)";
+                return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new { id });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Nao foi possivel obter id de usuario. {ex.Message}");
+            }
+        }
+
+        public async Task<IEnumerable<ServiceEntity>> GetMyClosedServices(string email)
+        {
+            try
+            {
+                string sql = "SELECT Id FROM User WHERE Email = @email";
+                int id = await GetConnection().QueryFirstAsync<int>(sql, new { email });
+
+                sql = "SELECT * FROM Service WHERE Status = 2 AND (User_Id = @id OR User_Id1 = @id)";
+                return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new {id});
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Nao foi possivel obter id de usuario. {ex.Message}");
+            }
         }
 
         private async Task<int> GetUserIdFromEmail(string email)

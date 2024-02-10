@@ -11,5 +11,7 @@ namespace Backend.Contracts.Repository
         Task<ServiceEntity> GetById(int id);
         Task<IEnumerable<ServiceEntity>> Get();
         Task<IEnumerable<ServiceEntity>> GetAllOpenServices();
+        Task<IEnumerable<ServiceEntity>> GetMyOngoingServices(string email);
+        Task<IEnumerable<ServiceEntity>> GetMyClosedServices(string email);
     }
 }
