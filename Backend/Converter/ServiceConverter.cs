@@ -7,7 +7,7 @@ namespace Backend.Converter
 {
     public class ServiceConverter
     {
-        public async static Task<ServiceEntity> Convert(ServiceDTO service, int AddressId, int AddressId1, int userId)
+        public async static Task<ServiceEntity> Convert(ServiceDTO service, int AddressId, int AddressId1, int userId, int price)
         {
             ServiceEntity ServiceEntity = new ServiceEntity()
             {
@@ -21,7 +21,8 @@ namespace Backend.Converter
                 Address_Id = AddressId,
                 Address_Id1 = AddressId1,
                 User_Id = userId,
-                User_Id1 = 0
+                User_Id1 = 0,
+                Price = price
             };
             return ServiceEntity;
         }

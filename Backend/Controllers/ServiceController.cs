@@ -64,13 +64,44 @@ namespace Backend.Controllers
 
         [HttpGet]
         [Authorize]
-        [Route("Open")]
+        [Route("open")]
         public async Task<IActionResult> GetAllOpenServices()
         {
             try
             {
                 return Ok(await _serviceRepository.GetAllOpenServices());
             } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("ongoing")]
+        public async Task<IActionResult> GetMyOngoingServices()
+        {
+            try
+            {
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _serviceRepository.GetMyOngoingServices(email));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("closed")]
+        public async Task<IActionResult> GetMyClosedServices()
+        {
+            try
+            {
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                return Ok(await _serviceRepository.GetMyClosedServices(email));
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

@@ -138,47 +138,65 @@ async function loadProfilePhoto() {
 
 //Objeto Histórico
 async function loadHistorico() {
+    request("GET", `${serverURL}/service/closed`, (xhr)=>{
+        if(xhr.status == 200) {
+            JSON.parse(xhr.responseText).forEach(element => {
 
-    function createHistorico(historico) {
-        const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
-        $('.data', novoHistorico).html(historico.data);
-        $('.origem', novoHistorico).html(historico.origem);
-        $('.destino', novoHistorico).html(historico.destino);
-        $('.valor', novoHistorico).html(historico.valor);
+                const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
+                $('.data', novoHistorico).html(element.date);
+                $('.origem', novoHistorico).html(element.address.street);
+                $('.destino', novoHistorico).html(element.destino);
+                $('.valor', novoHistorico).html(element.price/100);
+            
+                $("#dados-historico").append($(novoHistorico));
+
+            });
+        } else {
+            $("#not-add-historic").show()
+        }
+    }, null, null, true)
+
+
+    // function createHistorico(historico) {
+    //     const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
+    //     $('.data', novoHistorico).html(historico.data);
+    //     $('.origem', novoHistorico).html(historico.origem);
+    //     $('.destino', novoHistorico).html(historico.destino);
+    //     $('.valor', novoHistorico).html(historico.valor);
     
-        $("#dados-historico").append($(novoHistorico));
-    }
+    //     $("#dados-historico").append($(novoHistorico));
+    // }
     
-    const listaH = []
+    // const listaH = []
     
-    listaH.push({
-        data: "25/02/2024 - 18:30h às 19:30h",
-        origem: "Rua Francisco Vahldieck, 2726 - Bluemanu, SC - (Complemento: Cond. Fortaleza de Sagres, Apto 3015)",
-        destino: "Rua Iguaçu, 147 - Bluemanu, SC",
-        valor: "R$ 298,87"
-    })
-    listaH.push({
-        data: "25/02/2024 - 14:27h às 16:12h",
-        origem: "Origem: Rua São Paulo, 276 - Bluemanu, SC",
-        destino: "Rua Iguaçu, 1987 - Bluemanu, SC",
-        valor: "R$ 432,04"
-    })
-    listaH.push({
-        data: "24/02/2024 - 10:24h às 11:16h",
-        origem: "Origem: Rua Francisco Sênior, 987 - Bluemanu, SC",
-        destino: "Rua Jerõnimo, 577 - Bluemanu, SC - (Complemento: Casa de esquina)",
-        valor: "R$ 354,12"
-    })
-    listaH.push({
-        data: "24/02/2024 - 08:15h às 10:12h",
-        origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
-        destino: "Rua Carlota, 2012 - Bluemanu, SC",
-        valor: "R$ 122,12"
-    })
+    // listaH.push({
+    //     data: "25/02/2024 - 18:30h às 19:30h",
+    //     origem: "Rua Francisco Vahldieck, 2726 - Bluemanu, SC - (Complemento: Cond. Fortaleza de Sagres, Apto 3015)",
+    //     destino: "Rua Iguaçu, 147 - Bluemanu, SC",
+    //     valor: "R$ 298,87"
+    // })
+    // listaH.push({
+    //     data: "25/02/2024 - 14:27h às 16:12h",
+    //     origem: "Origem: Rua São Paulo, 276 - Bluemanu, SC",
+    //     destino: "Rua Iguaçu, 1987 - Bluemanu, SC",
+    //     valor: "R$ 432,04"
+    // })
+    // listaH.push({
+    //     data: "24/02/2024 - 10:24h às 11:16h",
+    //     origem: "Origem: Rua Francisco Sênior, 987 - Bluemanu, SC",
+    //     destino: "Rua Jerõnimo, 577 - Bluemanu, SC - (Complemento: Casa de esquina)",
+    //     valor: "R$ 354,12"
+    // })
+    // listaH.push({
+    //     data: "24/02/2024 - 08:15h às 10:12h",
+    //     origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
+    //     destino: "Rua Carlota, 2012 - Bluemanu, SC",
+    //     valor: "R$ 122,12"
+    // })
     
-    for (let historico of listaH) {
-        createHistorico(historico);
-    }
+    // for (let historico of listaH) {
+    //     createHistorico(historico);
+    // }
 }
 
 //Objeto Veículo
