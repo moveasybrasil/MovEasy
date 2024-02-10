@@ -18,7 +18,7 @@
 
 }
 
-#lista-mudanca {
+#lista-mudanca, #lista-pendente {
     display: flex;
     flex-direction: column;
 
@@ -91,11 +91,11 @@
     width: 100%;
 }
 
-#modelo-mudanca {
+#modelo-mudanca, #mudanca-pendente {
     display: none !important;
 }
 
-#dados-lista>div {
+#dados-lista>div, #dados-pendente > div {
     display: flex;
     border: 1px solid #000;
     border-radius: 5px;
@@ -103,13 +103,13 @@
 
 }
 
-#img-perfil {
+#img-perfil, #img-perfil-pendente {
     width: 24px;
     height: 24px;
     display: flex;
 }
 
-#valor {
+#valor, #valor-pendente {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -123,7 +123,7 @@
     align-items: center;
 }
 
-#valor>p {
+#valor>p, #valor-pendente > p {
     font-size: 10px;
     font-weight: 200;
     padding: 0;
@@ -160,7 +160,7 @@
     padding: 0 5px;
 }
 
-#origem {
+#origem, #origem-pendente {
     margin-top: 10px;
 }
 
@@ -168,18 +168,18 @@
     display: none;
 }
 
-#img-perfil {
+#img-perfil, #img-perfil-pendente {
     display: none;
 }
 
 @media (min-width: 900px) {
 
 
-    #lista-mudanca {
+    #lista-mudanca, #lista-pendente {
         width: 85%;
     }
 
-    #container-lista {
+    #container-lista, #container-list-pendente {
         display: flex;
         justify-content: left;
         width: 100%;
@@ -204,11 +204,14 @@
     }
 
     #origem,
+    #origem-pendente,
     .origem,
     .destino,
     #destino,
+    #destino-pendente,
     .usuario,
     #titulo,
+    #titulo-pendente,
     .descricao {
         font-size: 23px !important;
     }
@@ -229,7 +232,7 @@
         padding-bottom: 15px;
     }
 
-    #btn-visualizar {
+    #btn-visualizar, #btn-visualizar-pendente {
         display: none;
     }
 
@@ -239,17 +242,17 @@
 
     }
 
-    #container-list {
+    #container-list, #container-lista-pendente {
         display: flex;
         flex-direction: column;
     }
 
-    #container-list button {
+    #container-list button, #container-lista-pendente button {
         align-self: center;
         flex-grow: 0;
     }
 
-    #img-perfil {
+    #img-perfil, #img-perfil-pendente {
         display: flex;
         width: 24px;
         height: 24px;
@@ -258,7 +261,7 @@
         left: 3px;
     }
 
-    #valor {
+    #valor, #valor-pendente {
         width: 70%;
     }
 }
