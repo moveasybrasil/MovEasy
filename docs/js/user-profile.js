@@ -114,10 +114,24 @@ async function loadProfileInfo(){
     userId = JSON.parse(sessionStorage.getItem("user")).id ?? "XXXXXXXX"
     userName = JSON.parse(sessionStorage.getItem("user")).name ?? "Nome Completo"
     userEmail = JSON.parse(sessionStorage.getItem("user")).email ?? "seuemail@email.com"
+    userTel1 = JSON.parse(sessionStorage.getItem("user")).telephone1 ?? ""
+    userTel2 = JSON.parse(sessionStorage.getItem("user")).telephone2 ?? ""
+    userAbout= JSON.parse(sessionStorage.getItem("user")).type == 0 ? 
+        "Sou um cliente da MovEasy. Estou aqui para solicitar mudanças" 
+        :
+        "Sou um motorista certificado pela MovEasy, compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!."
+    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ? 
+        "Cliente"
+        :
+        "Prestador de Serviço"
 
     document.getElementById("nome-usuario-perfil").innerHTML = userName
     document.getElementById("email-perfil").innerHTML = userEmail
     document.getElementById("id-perfil").innerHTML = userId
+    document.getElementById("telefone1-perfil").innerHTML = userTel1
+    document.getElementById("telefone2-perfil").innerHTML = userTel2
+    document.getElementById("sobre-perfil").innerHTML = userAbout
+    document.getElementById("tipo-perfil").innerHTML = userType
 }
 
 // Foto de Perfil
@@ -138,15 +152,19 @@ async function loadProfilePhoto() {
 
 //Objeto Histórico
 async function loadHistorico() {
+    function getAddressFromAddressDto(address) {
+        return `${address.street} ${address.number}, ${address.district}, ${address.city}-${address.fu}`
+    }
+
     request("GET", `${serverURL}/service/closed`, (xhr)=>{
         if(xhr.status == 200) {
             JSON.parse(xhr.responseText).forEach(element => {
 
                 const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
-                $('.data', novoHistorico).html(element.date);
-                $('.origem', novoHistorico).html(element.address.street);
-                $('.destino', novoHistorico).html(element.address1.street);
-                $('.valor', novoHistorico).html(element.price/100);
+                $('.data', novoHistorico).html((new Date(element.date)).toLocaleString("pt-BR"));
+                $('.origem', novoHistorico).html(getAddressFromAddressDto(element.address));
+                $('.destino', novoHistorico).html(getAddressFromAddressDto(element.address1));
+                $('.valor', novoHistorico).html(`R$ ${element.price}`);
             
                 $("#dados-historico").append($(novoHistorico));
 
@@ -155,48 +173,6 @@ async function loadHistorico() {
             $("#not-add-historic").show()
         }
     }, null, null, true)
-
-
-    // function createHistorico(historico) {
-    //     const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
-    //     $('.data', novoHistorico).html(historico.data);
-    //     $('.origem', novoHistorico).html(historico.origem);
-    //     $('.destino', novoHistorico).html(historico.destino);
-    //     $('.valor', novoHistorico).html(historico.valor);
-    
-    //     $("#dados-historico").append($(novoHistorico));
-    // }
-    
-    // const listaH = []
-    
-    // listaH.push({
-    //     data: "25/02/2024 - 18:30h às 19:30h",
-    //     origem: "Rua Francisco Vahldieck, 2726 - Bluemanu, SC - (Complemento: Cond. Fortaleza de Sagres, Apto 3015)",
-    //     destino: "Rua Iguaçu, 147 - Bluemanu, SC",
-    //     valor: "R$ 298,87"
-    // })
-    // listaH.push({
-    //     data: "25/02/2024 - 14:27h às 16:12h",
-    //     origem: "Origem: Rua São Paulo, 276 - Bluemanu, SC",
-    //     destino: "Rua Iguaçu, 1987 - Bluemanu, SC",
-    //     valor: "R$ 432,04"
-    // })
-    // listaH.push({
-    //     data: "24/02/2024 - 10:24h às 11:16h",
-    //     origem: "Origem: Rua Francisco Sênior, 987 - Bluemanu, SC",
-    //     destino: "Rua Jerõnimo, 577 - Bluemanu, SC - (Complemento: Casa de esquina)",
-    //     valor: "R$ 354,12"
-    // })
-    // listaH.push({
-    //     data: "24/02/2024 - 08:15h às 10:12h",
-    //     origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
-    //     destino: "Rua Carlota, 2012 - Bluemanu, SC",
-    //     valor: "R$ 122,12"
-    // })
-    
-    // for (let historico of listaH) {
-    //     createHistorico(historico);
-    // }
 }
 
 //Objeto Veículo
@@ -226,6 +202,7 @@ async function LoadProfile() {
     await loadProfilePhoto()
     await loadHistorico()
     await loadVehicle()
+    mostrarDiv('container-dados-informacoes', 0)
 }
 
 function logOut() {

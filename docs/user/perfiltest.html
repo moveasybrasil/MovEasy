@@ -179,9 +179,7 @@
                         <div class="info-perfil-for-motorista">
                             <div class="info-perfil" id="sobre-perfil" style="padding-bottom: 20px;">
                                 <p>Sobre: </p>
-                                <span>Sou um motorista certificado pela movEasy, compremetido em
-                                    fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma
-                                    experiência tranquila e sem complicações durante a sua mudança!.</span>
+                                <span id="sobre-perfil">Sou um cliente da MovEasy.</span>
                             </div>
                         </div>
 
@@ -191,8 +189,8 @@
                                 <div class="info-dados-perfil dados-perfil">
                                     <p>Números de Telefone:</p>
                                     <div>
-                                        <span id="telefone1-perfil" style="padding-right: 6px;">(XX)
-                                            XXXXX-XXXX</span>
+                                        <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                            <p></p>
                                         <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
@@ -285,7 +283,7 @@
                             <p>Adicionar Veículo</p>
                         </div>
 
-                        <div class="info-dados-perfil add-veiculo">
+                        <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
                             <img src="../"
                                 onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="">
                             <p>Editar Veículo</p>
@@ -341,7 +339,7 @@
 
                     <div class="info-perfil">
                         <p>Tipo de Conta:</p>
-                        <span id="tipo-perfil">Prestador de Serviço</span>
+                        <span id="tipo-perfil">Cliente</span>
                     </div>
 
                     <div class="info-dados-perfil config-perfil">
