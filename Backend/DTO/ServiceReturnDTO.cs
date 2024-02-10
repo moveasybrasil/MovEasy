@@ -14,6 +14,6 @@
         public AddressDTO Address1 { get; set; }
         public int User_Id { get; set; }
         public int User_Id1 { get; set; }
-        public int Price { get; set; }
+        public float Price { get; set; }
     }
 }
