@@ -69,12 +69,6 @@ namespace Backend.Repository
             return await GetConnection().QueryFirstAsync<ServiceEntity>(sql, new { id });
         }
 
-        public async Task<IEnumerable<ServiceEntity>> GetAllOpenServices()
-        {
-            string sql = "SELECT * FROM Service WHERE Status = 0";
-            return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql);
-        }
-
         public async Task Update(ServiceEntity service)
         {
             string sql = @"
@@ -98,7 +92,15 @@ namespace Backend.Repository
             await Execute(sql, service);
         }
 
-        public async Task<IEnumerable<ServiceEntity>> GetMyOngoingServices (string email)
+        public async Task<IEnumerable<ServiceReturnDTO>> GetAllOpenServices()
+        {
+            string sql = "SELECT * FROM Service WHERE Status = 0";
+            IEnumerable<ServiceEntity> ServiceEntityList = (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql);
+
+            return await GetServiceReturnFromEntity(ServiceEntityList);
+        }
+
+        public async Task<IEnumerable<ServiceReturnDTO>> GetMyOngoingServices (string email)
         {
             try
             {
@@ -106,7 +108,9 @@ namespace Backend.Repository
                 int id = await GetConnection().QueryFirstAsync<int>(sql, new { email });
 
                 sql = "SELECT * FROM Service WHERE Status = 1 AND (User_Id = @id OR User_Id1 = @id)";
-                return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new { id });
+                IEnumerable<ServiceEntity> ServiceEntityList = (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new { id });
+
+                return await GetServiceReturnFromEntity(ServiceEntityList);
             }
             catch (Exception ex)
             {
@@ -114,7 +118,7 @@ namespace Backend.Repository
             }
         }
 
-        public async Task<IEnumerable<ServiceEntity>> GetMyClosedServices(string email)
+        public async Task<IEnumerable<ServiceReturnDTO>> GetMyClosedServices(string email)
         {
             try
             {
@@ -122,7 +126,9 @@ namespace Backend.Repository
                 int id = await GetConnection().QueryFirstAsync<int>(sql, new { email });
 
                 sql = "SELECT * FROM Service WHERE Status = 2 AND (User_Id = @id OR User_Id1 = @id)";
-                return (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new {id});
+                IEnumerable<ServiceEntity> ServiceEntityList = (IEnumerable<ServiceEntity>)await GetConnection().QueryAsync<ServiceEntity>(sql, new {id});
+
+                return await GetServiceReturnFromEntity(ServiceEntityList);
             }
             catch (Exception ex)
             {
@@ -141,6 +147,39 @@ namespace Backend.Repository
             {
                 throw new Exception($"Nao foi possivel obter id de usuario. {ex.Message}");
             }
+        }
+
+        private async Task<IEnumerable<ServiceReturnDTO>> GetServiceReturnFromEntity(IEnumerable<ServiceEntity> ServiceEntityList)
+        {
+            List<ServiceReturnDTO> ServiceReturnDTOList = new List<ServiceReturnDTO>();
+            foreach (var item in ServiceEntityList)
+            {
+                AddressDTO address = await GetAddressDtoFromId(item.Address_Id);
+                AddressDTO address1 = await GetAddressDtoFromId(item.Address_Id1);
+                ServiceReturnDTOList.Add(await ServiceConverter.Deconvert(item, address, address1));
+            }
+            return ServiceReturnDTOList;
+        }
+
+        private async Task<AddressDTO> GetAddressDtoFromId (int id)
+        {
+            string sql = @"SELECT
+                    Address.Street AS Street,
+                    Address.PostalCode AS PostalCode,
+                    Address.Number AS Number,
+                    Address.Address2 AS Address2,
+                    District.Name AS District,
+                    City.Name AS City,
+                    State.FU AS FU
+                FROM
+                    Address
+                    INNER JOIN District ON Address.District_Id = District.Id
+                    INNER JOIN City ON District.City_Id = City.Id
+                    INNER JOIN State ON City.State_Id = State.Id
+                WHERE
+                    Address.Id = @id
+            ";
+            return await GetConnection().QueryFirstAsync<AddressDTO>(sql, new { id });
         }
     }
 }

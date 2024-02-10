@@ -26,5 +26,26 @@ namespace Backend.Converter
             };
             return ServiceEntity;
         }
+
+        public async static Task<ServiceReturnDTO> Deconvert(ServiceEntity service, AddressDTO address, AddressDTO address1)
+        {
+            ServiceReturnDTO ServiceReturnDTO = new ServiceReturnDTO()
+            {
+                Id = service.Id,
+                Terms = service.Terms,
+                Description = service.Description,
+                OriginDescription = service.OriginDescription,
+                Status = service.Status,
+                DestinationDescription = service.DestinationDescription,
+                Date = service.Date,
+                Obs = service.Obs,
+                Address = address,
+                Address1 = address1,
+                User_Id = service.User_Id,
+                User_Id1 = service.User_Id1,
+                Price = service.Price / 100
+            };
+            return ServiceReturnDTO;
+        }
     }
 }

@@ -145,7 +145,7 @@ async function loadHistorico() {
                 const novoHistorico = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
                 $('.data', novoHistorico).html(element.date);
                 $('.origem', novoHistorico).html(element.address.street);
-                $('.destino', novoHistorico).html(element.destino);
+                $('.destino', novoHistorico).html(element.address1.street);
                 $('.valor', novoHistorico).html(element.price/100);
             
                 $("#dados-historico").append($(novoHistorico));
