@@ -48,7 +48,6 @@ $(() => {
 });
 
 $(() => {
-
     $(document).on('click', '#btn-visualizar', function () {
         $('.usuario, .descricao', $(this).closest('.card')).removeClass('hidden').hide().slideDown();
         $(this).hide();
@@ -68,14 +67,16 @@ $(document).on('click', '#mudanca-aguardando', function () {
     $(this).addClass('active-perfil')
     $('#mudanca-aberta').removeClass('active-perfil')
     $('#lista-mudanca').hide();
-    $('#lista-pendente').show();
+    $('.pendente').addClass('flex')
+    $('.pendente').show();
+    
 });
 
 $(document).on('click', '#mudanca-aberta', function () {
     $(this).addClass('active-perfil')
     $('#mudanca-aguardando').removeClass('active-perfil')
     $('#lista-mudanca').show();
-    $('#lista-pendente').hide();
+    $('.pendente').removeClass('flex').hide();
 
 });
 
@@ -87,7 +88,7 @@ $(document).on('click', '#mudanca-aberta', function () {
 $(() => {
 
     function criarListaPendente(item) {
-        const novoItem = $("#modelo-pendente").clone().removeAttr(`id`).removeClass('hidden');
+        const novoItem = $("#modelo-pendente").clone().removeAttr(`id`).hide();
         $('.data', novoItem).html(item.data);
         $('.usuario', novoItem).html(item.usuario);
         $('.origem', novoItem).html(item.origem);
@@ -117,9 +118,8 @@ $(() => {
 $(() => {
 
     $(document).on('click', '#btn-visualizar-pendente', function () {
-        $('.usuario, .descricao', $(this).closest('.card')).removeClass('hidden').hide().slideDown();
+        $('.usuario, .descricao', $(this).closest('.pendente')).removeClass('hidden').hide().slideDown();
         $(this).hide();
-        console.log($('#btn-aceite-pendente'));
-        $('.btn-aceite', $(this.closest('.card'))).show();
+        $('#btn-visualizar-pendente', $(this.closest('.pendente'))).show();
     });
 });
