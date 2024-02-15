@@ -14,6 +14,9 @@
 
     <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -101,34 +104,80 @@
                         </span>
                     </div>
 
-                    <div class="boxes-sobre">
-                        <div class="box-sobre">
-                            <h2 class="font-bold text-[#e4321e]">Mudanças</h2>
+                    <div class="cards-sobre">
 
-                            <span>
-                                Somos uma plataforma focada em agendamento de mudanças, tanto para prestadores de
-                                serviço quanto para usuários
-                            </span>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h2 class="font-bold">Mudanças</h2>
+                                    <span class="material-symbols-outlined icons-sobre" id="icon-truck-sobre">
+                                        local_shipping
+                                    </span>
+                                </div>
+                                <div class="card-back">
+                                    <span>
+                                        Somos uma plataforma focada no agendamento de mudanças, tanto para prestadores
+                                        de serviços quanto para usuários
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="box-sobre">
-                            <h2 class="font-bold text-[#e4321e]">Facilidade</h2>
-
-                            <span>
-                                Visamos a facilidade, praticidade e eficiencia para cada mudança feita em nossa
-                                plataforma
-                            </span>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div>
+                                        <h2 class="font-bold">Profissionais</h2>
+                                    </div>
+                                    <div>
+                                        <span class="material-symbols-outlined icons-sobre" id="icon-people-sobre">
+                                            person
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <span>
+                                        Conectamos motoristas profissionais, capacitados e proativos aos nossos usuários
+                                        para garantir mudanças tranquilas
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="box-sobre">
-                            <h2 class="font-bold text-[#e4321e]">Tranquilidade</h2>
-
-                            <span>
-                                Tudo para que quem utiliza nossa plataforma possa se sentir tranquilo, nesse processo
-                                que pode ser complicado
-                            </span>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h2 class="font-bold">Facilidade</h2>
+                                    <span class="material-symbols-outlined icons-sobre" id="icon-smile-sobre">
+                                        sentiment_very_satisfied
+                                    </span>
+                                </div>
+                                <div class="card-back">
+                                    <span>
+                                        Visamos à facilidade, praticidade e eficiência para cada mudança realizada em
+                                        nossa plataforma
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h2 class="font-bold">Plataforma</h2>
+                                    <span class="material-symbols-outlined icons-sobre" id="icon-plataform-sobre">
+                                        devices
+                                    </span>
+                                </div>
+                                <div class="card-back">
+                                    <span>
+                                        Tudo isso em uma plataforma fácil, organizada, acessível e prática tanto para
+                                        usuários
+                                        quanto para profissionais
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -261,7 +310,6 @@
                     <div class="texto-objetivo">
                         <div class="font-bold w-full h-auto text-center" style="font-size: 4vh;">
                             <h2 class="text-5xl">Sobre Nós</h2>
-                            <hr id="hr-objetivo">
                         </div>
                         <pre>
 
@@ -303,7 +351,6 @@
                     <div class="texto-objetivo">
                         <div class="font-bold w-full h-auto text-center" style="font-size: 4vh;">
                             <h2 class="text-5xl">Nossa História</h2>
-                            <hr id="hr-historia">
                         </div>
                         <pre>
 
@@ -367,35 +414,61 @@
             <section id="nossos-integrantes">
                 <div class="nossos-integrantes">
 
-                    <h2 class="text-5xl">Intregrantes</h2>
+                    <h2 class="text-5xl text-center text-[#e4321e] font-bold">Intregrantes</h2>
 
                     <div class="boxes-integrantes">
 
-                        <div class="box-integrantes" id="eduardo-integrantes">
-                            <div class="img">
-                            </div>
-                            <span class="font-bold text-[#e4321e]">Eduardo</span>
-                            <p class="job"> Líder</p>
-                            <button> LinkedIn
-                            </button>
-                        </div>
-
                         <div class="box-integrantes" id="ricardo-integrantes">
-                            <div class="img">
+                            <div class="img-integrantes">
+                                <img src=""
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil_ricardo.jpg'))"
+                                    alt="Foto de Ricardo">
                             </div>
                             <span class="font-bold text-[#e4321e]">Ricardo</span>
-                            <p class="job"> Scrum Master</p>
-                            <button> LinkedIn
-                            </button>
+                            <div>
+                                <p class="job"> Full Stack e Scrum Master</p>
+                                <p class="job"> Foco em Back End</p>
+                            </div>
+                            <div>
+                                <button> LinkedIn
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="box-integrantes" id="eduardo-integrantes">
+                            <div class="img-integrantes">
+                                <img src="" onerror="this.setAttribute('src', getUrl('assets/images/perfil_edu.jpg'))"
+                                    alt="Foto do Eduardo">
+                            </div>
+                            <div>
+                                <span class="font-bold text-[#e4321e]">Eduardo</span>
+                            </div>
+                            <div>
+                                <p class="job"> Full Stack e Lider</p>
+                                <p class="job"> Foco em Front End</p>
+                            </div>
+                            <div>
+                                <button> LinkedIn
+                                </button>
+                            </div>
                         </div>
 
                         <div class="box-integrantes" id="luiz-integrantes">
-                            <div class="img">
+                            <div class="img-integrantes">
+                                <img src="" onerror="this.setAttribute('src', getUrl('assets/images/perfil_luiz.jpg'))"
+                                    alt="Foto do Luiz">
                             </div>
-                            <span class="font-bold text-[#e4321e]">Luiz</span>
-                            <p class="job"> Marketing Digital</p>
-                            <button> LinkedIn
-                            </button>
+                            <div>
+                                <span class="font-bold text-[#e4321e]">Luiz</span>
+                            </div>
+                            <div>
+                                <p class="job"> Full Stack</p>
+                                <p class="job"> Foco em Back End</p>
+                            </div>
+                            <div>
+                                <button> LinkedIn
+                                </button>
+                            </div>
                         </div>
 
                     </div>
@@ -403,30 +476,62 @@
                     <div class="boxes-integrantes">
 
                         <div class="box-integrantes" id="djordhan-integrantes">
-                            <div class="img">
+                            <div class="img-integrantes">
+                                <img src=""
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil_dj.jpg'))"
+                                    alt="Foto do Djordhan">
                             </div>
-                            <span class="font-bold text-[#e4321e]">Djordhan</span>
-                            <p class="job"> Front End</p>
-                            <button> LinkedIn
-                            </button>
+                            <div>
+                                <span class="font-bold text-[#e4321e]">Djordhan</span>
+                            </div>
+                            <div>
+                                <p class="job"> Full Stack</p>
+                                <p class="job"> Foco em Front End</p>
+                            </div>
+                            <div>
+                                <button> LinkedIn
+                                </button>
+                            </div>
                         </div>
 
                         <div class="box-integrantes" id="luciano-integrantes">
-                            <div class="img">
+                            <div class="img-integrantes">
+                                <img src=""
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil_luciano.jpg'))"
+                                    alt="Foto do Luciano">
                             </div>
-                            <span class="font-bold text-[#e4321e]">Luciano</span>
-                            <p class="job"> Front End</p>
-                            <button> LinkedIn
-                            </button>
+                            <div>
+                                <span class="font-bold text-[#e4321e]">Luciano</span>
+                            </div>
+                            <div>
+                                <p class="job"> Full Stack</p>
+                                <p class="job"> Foco em Front End</p>
+                            </div>
+                            <div>
+                                <button> LinkedIn
+                                </button>
+                            </div>
                         </div>
 
                         <div class="box-integrantes" id="victor-integrantes">
-                            <div class="img">
+                            <div class="img-integrantes">
+                                <img src=""
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil_victor.jpg'))"
+                                    alt="Foto do Victor">
                             </div>
-                            <span class="font-bold text-[#e4321e]">Victor</span>
-                            <p class="job"> Product Owner</p>
-                            <button> LinkedIn
-                            </button>
+                            <div>
+                                <span class="font-bold text-[#e4321e]">Victor</span>
+                            </div>
+                            <div>
+                                <p class="job"> Full Stack e Product Owner</p>
+                                <p class="job"> Foco em Front End</p>
+                            </div>
+                            <div>
+
+                                <button> LinkedIn
+                                </button>
+                            </div>
+
                         </div>
 
                     </div>
