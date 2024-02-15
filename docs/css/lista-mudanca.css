@@ -201,6 +201,10 @@
         width: 100%;
     }
 
+    .pendente {
+        width: 85%;
+    }
+
     .dados-cont {
         width: 25%;
     }
