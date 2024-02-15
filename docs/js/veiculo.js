@@ -1,31 +1,50 @@
 function checkInputLength() {
-    let input = document.getElementById('Placa');
-    let inputValue = input.value;
+    let inputValue = document.getElementById("Placa").value;
+    
+    console.log(inputValue.length);    
+    
+    let maxCaracteres = 7;
 
-
-    let caracteres = 7;
-
-    if (input.length >= caracteres ) {
-        searchPlateInformation(inputValue);
+    if (inputValue.length === maxCaracteres) {
+      searchPlateInformation(inputValue);
     }
-    console.log(inputValue);
-    console.log(caracteres)
+    // console.log(inputValue);
+    // console.log(maxCaracteres);
 }
 
-function searchPlateInformation(placa) {
+async function searchPlateInformation(placa) {
 
-    let apiUrl = 'https://placafipe.com/placa/' + placa;
+  let apiUrl = 'https://placafipe.com/placa/' + placa;
 
-    fetch(apiUrl)
+  let headers = new Headers();
 
-      .then(response => response.json())
+  headers.append("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+  headers.append("Content-Type", "text/html; charset=UTF-8");
+  headers.append("Access-Control-Allow-Origin", "*");
+  headers.append("Access-Control-Allow-Methods", 'POST,PATCH,OPTIONS');
 
-      .then(data => {
 
-        displayResult(data);
-      })        
+  let request = new Request(apiUrl, {
+    headers,
+    
+  })
+
+  let res = await fetch(request);
+  let data = await res.text();
+
+  console.log(data);
+
+
+  // fetch(apiUrl)
+
+  //     .then(response => response.json())
+
+  //     .then(data => {
+
+  //       displayResult(data);
+  //     })        
       
-      .catch(error => console.error('Erro ao buscar informações da placa:', error));
+  //     .catch(error => console.error('Erro ao buscar informações da placa:', error));
 
   }
 
