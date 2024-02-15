@@ -3,7 +3,7 @@ document.querySelectorAll(".header-login").forEach( (e) => {
     e.classList.add("active")
 })
 
-if(sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/perfil`)}
+if(sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/perfiltest`)}
 
 $(() => {
     $("#btn-logar").click(() => {
@@ -62,7 +62,7 @@ $(() => {
                     sessionStorage.setItem(`token`, token)
                     sessionStorage.setItem(`user`, JSON.stringify(user))
 
-                    goTo("user/perfil")
+                    goTo("user/perfiltest")
                 } 
                 case 401: {
                     console.log(xhr.responseText)

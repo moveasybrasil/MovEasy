@@ -47,7 +47,7 @@
                     <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
-                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+                        href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
                 </div>
             </div>
         </header>
@@ -60,13 +60,13 @@
                     </div>
 
                     <div id="lista-mudanca-pendente">
-                        <div id="dados-lista-pendete" class="hidden">
+                        <div id="dados-lista-pendente" class="hidden">
                             <p>Você não possui mudanças pendentes</p>
-                            <div id="modelo-pendente" class="card hidden">
+                            <div id="modelo-pendente" class="pendente hidden">
                                 
                                 <div class="dados-cont">
                                     <div class="dados-mudanca" id="valor-pendente">
-                                        <p id="real-pendente">R$<br /><a class="valor"
+                                        <p>R$<br /><a class="valor"
                                                 style="font-size:25px; font-weight: 900;">Informações...</a></p>
                                         <div class="dados-mudanca">
                                             <a class="data">Informações...</a>
@@ -89,6 +89,7 @@
                                         <p>Descrição:</p><a class="descricao">Informações...</a>
                                     </div>
                                     <button class="btn-bot" id="btn-visualizar-pendente">Visualizar</button>
+                                    <button class="btn-bot" id="btn-cancelar">Desistir</button>
                                 </div>
 
                             </div>
@@ -123,10 +124,10 @@
                                         <p>Usuário:</p><a class="usuario">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca">
-                                        <p id="origem">Origem:</p><a class="origem">Informações...</a>
+                                        <p id="origem-pendente">Origem:</p><a class="origem">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca">
-                                        <p id="destino">Destino:</p><a class="destino">Informações...</a>
+                                        <p id="destino-pendente">Destino:</p><a class="destino">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca descricao hidden">
                                         <p>Descrição:</p><a class="descricao">Informações...</a>
