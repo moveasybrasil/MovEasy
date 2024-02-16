@@ -47,47 +47,95 @@
                     <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
-                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+                        href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
                 </div>
             </div>
         </header>
         <main>
             <section>
                 <div class="content">
-                    <div id="lista-mudanca">
+                    <div id="toggle-menu">
+                        <p id="mudanca-aberta" class="active-perfil">Aberto</p>
+                        <p id="mudanca-aguardando" class="">Pendente</p>
+                    </div>
 
-                        <div style="padding-bottom: 20px;">
-                            <p id="titulo" style="padding-top: 50px;">Mudanças aguardando transporte: </p>
-                        </div>
-
-                        <div id="dados-lista">
-
-                            <div id="modelo-mudanca" class="card hidden">
-                                <div>
-                                    <div class="dados-mudanca" id="valor">
-                                        <p id="real">R$<br/><a class="valor" style="font-size:25px; font-weight: 900;">Informações...</a></p>
+                    <div id="lista-mudanca-pendente">
+                        <div id="dados-lista-pendente" class="hidden">
+                            <p>Você não possui mudanças pendentes</p>
+                            <div id="modelo-pendente" class="pendente hidden">
+                                
+                                <div class="dados-cont">
+                                    <div class="dados-mudanca" id="valor-pendente">
+                                        <p>R$<br /><a class="valor"
+                                                style="font-size:25px; font-weight: 900;">Informações...</a></p>
                                         <div class="dados-mudanca">
                                             <a class="data">Informações...</a>
                                         </div>
                                     </div>
-                                    
                                 </div>
-                                <div style="flex-grow: 1; word-wrap: break-word;">
+                                <div style="flex-grow: 1" id="container-list-pendente">
+                                    <img src="./assets/images/default.jpg" alt="" id="img-perfil-pendente">
                                     <div class="dados-mudanca usuario hidden">
+
                                         <p>Usuário:</p><a class="usuario">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca">
-                                        <p id="origem">Origem:</p><a class="origem">Informações...</a>
+                                        <p id="origem-pendente">Origem:</p><a class="origem">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca">
-                                        <p>Destino:</p><a class="destino">Informações...</a>
+                                        <p id="destino-pendente">Destino:</p><a class="destino">Informações...</a>
                                     </div>
                                     <div class="dados-mudanca descricao hidden">
                                         <p>Descrição:</p><a class="descricao">Informações...</a>
                                     </div>
-                                    <button class="btn-aceite">Visualizar</button>
+                                    <button class="btn-bot" id="btn-visualizar-pendente">Visualizar</button>
+                                    <button class="btn-bot" id="btn-cancelar">Desistir</button>
                                 </div>
-                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="lista-mudanca">
+
+                        <!-- <div style="padding-bottom: 20px;" id="container-lista">
+                            <p id="titulo" style="padding-top: 50px;">Mudanças aguardando transporte: </p>
+                        </div> -->
+
+
+
+                        <div id="dados-lista">
+
+                            <div id="modelo-mudanca" class="card hidden">
+                                <div class="dados-cont">
+                                    <div class="dados-mudanca" id="valor">
+                                        <p id="real">R$<br /><a class="valor"
+                                                style="font-size:25px; font-weight: 900;">Informações...</a></p>
+                                        <div class="dados-mudanca">
+                                            <a class="data">Informações...</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div style="flex-grow: 1" id="container-list">
+                                    <img src="./assets/images/default.jpg" alt="" id="img-perfil">
+                                    <div class="dados-mudanca usuario hidden">
+
+                                        <p>Usuário:</p><a class="usuario">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="origem-pendente">Origem:</p><a class="origem">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="destino-pendente">Destino:</p><a class="destino">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca descricao hidden">
+                                        <p>Descrição:</p><a class="descricao">Informações...</a>
+                                    </div>
+                                    <button class="btn-bot btn-aceite">Aceitar</button>
+                                    <button class="btn-bot" id="btn-visualizar">Visualizar</button>
+                                </div>
+
 
                             </div>
                         </div>

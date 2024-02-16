@@ -95,11 +95,11 @@ async function renewToken() {
     
                 if(sessionStorage.getItem(`token`) === localStorage.getItem(`token`)) {
                     localStorage.setItem(`token`, token)
-                    localStorage.setItem(`user`, user)
+                    localStorage.setItem(`user`, JSON.stringify(user))
                 }
                 
                 sessionStorage.setItem(`token`, token)
-                sessionStorage.setItem(`user`, user)
+                sessionStorage.setItem(`user`, JSON.stringify(user))
             }
         }, null, null, true)
     } 

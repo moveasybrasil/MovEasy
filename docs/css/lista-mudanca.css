@@ -7,21 +7,66 @@
     font-family: "Montserrat", sans-serif;
 }
 
+
+
 .content {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-#lista-mudanca {
+#lista-mudanca, #lista-pendente {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+
+    width: 90%;
 }
+
+#toggle-menu {
+    display: flex ;
+    width: 85% ;
+    height: 3vh ;
+    padding: 30px ; 
+    gap: 50px;
+    align-items: center;
+
+}
+
+#toggle-menu p {
+    position: relative;
+}
+
+#toggle-menu p:hover {
+    color: #e4321e;
+    cursor: pointer;
+}
+
+#toggle-menu p::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #e4321e;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+#toggle-menu p:hover::after{
+    transform: scaleX(1);
+    background: #e4321e;
+}
+
+.active-perfil {
+    color: #e4321e;
+    border-bottom: 3px solid #e4321e;
+
+}
+
 
 #titulo {
     font-weight: 700;
@@ -35,10 +80,6 @@
     flex-direction: column;
 }
 
-.card {
-    word-wrap: break-word;
-}
-
 .data {
     align-self: flex-end;
     font-weight: 400 !important;
@@ -50,32 +91,39 @@
     width: 100%;
 }
 
-#modelo-mudanca {
+#modelo-mudanca, #mudanca-pendente {
     display: none !important;
 }
 
-#dados-lista > div {
+#dados-lista>div {
     display: flex;
     border: 1px solid #000;
     border-radius: 5px;
     margin-bottom: 10px;
-    
+
 }
 
-#valor {
+#img-perfil, #img-perfil-pendente {
+    width: 24px;
+    height: 24px;
+    display: flex;
+}
+
+#valor, #valor-pendente {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #0b142f;
     color: WHITE;
     height: 100%;
+    width: 90px;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
 }
 
-#valor > p {
+#valor>p, #valor-pendente > p {
     font-size: 10px;
     font-weight: 200;
     padding: 0;
@@ -84,25 +132,26 @@
     padding-top: 10px;
 }
 
-.btn-aceite {
+.btn-bot {
     color: white;
-    background-color:#e4321e;
+    background-color: #e4321e;
     width: 70%;
     border-radius: 15px;
-    font-weight: 300; 
+    font-weight: 300;
     text-align: center;
     margin: 0 0 5px 0;
     padding: 15px;
     cursor: pointer;
 }
 
-.btn-aceite:hover {
+.btn-bot:hover {
     background-color: #e4321e;
     transition: 0.4ms;
     font-weight: 900;
 }
 
-.origem, .destino {
+.origem,
+.destino {
     display: flex;
     font-size: 15px !important;
     width: 100% !important;
@@ -111,6 +160,138 @@
     padding: 0 5px;
 }
 
-#origem {
+#origem, #origem-pendente {
     margin-top: 10px;
+}
+
+.btn-aceite {
+    display: none;
+}
+
+#img-perfil, #img-perfil-pendente {
+    display: none;
+}
+
+.pendente {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center !important;
+    width: 90%;
+
+}
+
+#lista-mudanca-pendente {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+
+
+    #lista-mudanca, #lista-pendente {
+        width: 85%;
+    }
+
+    #container-lista, #container-list-pendente {
+        display: flex;
+        justify-content: left;
+        width: 100%;
+    }
+
+    .pendente {
+        width: 85%;
+    }
+
+    .dados-cont {
+        width: 25%;
+    }
+
+    .btn-bot {
+        width: 25%;
+    }
+
+    .dados-mudanca,
+    .origem,
+    .destino,
+    .usuario {
+        display: flex !important;
+        text-align: left;
+        justify-content: flex-start;
+        padding: 5px 5px 5px 10px;
+    }
+
+    #origem,
+    #origem-pendente,
+    .origem,
+    .destino,
+    #destino,
+    #destino-pendente,
+    .usuario,
+    #titulo,
+    #titulo-pendente,
+    .descricao {
+        font-size: 23px !important;
+    }
+
+    .descricao {
+        align-self: center;
+        padding-bottom: 10px;
+
+    }
+
+    .usuario {
+        padding-left: 30px;
+    }
+
+    .dados-mudanca p {
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+
+    #btn-visualizar, #btn-visualizar-pendente {
+        display: none;
+    }
+
+    .btn-aceite {
+        display: flex !important;
+        justify-content: center;
+
+    }
+
+    #container-list, #container-list-pendente {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container-list button, #container-list-pendente button {
+        align-self: center;
+        flex-grow: 0;
+    }
+
+    #img-perfil, #img-perfil-pendente {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        top: 32px;
+        left: 3px;
+    }
+
+    #valor, #valor-pendente {
+        width: 70%;
+    }
+}
+
+@media (min-width: 900px) {
+    .data {
+        font-size: 20px !important;
+    }
+
+    .valor {
+        font-size: 30px !important;
+    }
 }

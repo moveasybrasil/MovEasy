@@ -13,7 +13,7 @@ namespace Backend.Repository
             string sql = @" INSERT INTO Vehicle (LicensePlate, Year, Capacity, Name)
                                           VALUE (@licensePlate, @year, @capacity, @name)
                           ; SELECT LAST_INSERT_ID();";
-            int vehicleId = await Execute(sql, vehicle);
+            int vehicleId = await GetConnection().QueryFirstAsync<int>(sql, vehicle);
 
             sql = "SELECT Id FROM User WHERE Email = @email";
             int userId = await GetConnection().QueryFirstAsync<int>(sql, new { email });
