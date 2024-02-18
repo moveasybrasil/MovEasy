@@ -1,26 +1,125 @@
-function createItemList(item) {
-    const newItem = $('#info-mudanca').clone().removeAttr('id').removeClass('hidden');
-    $('data', newItem).html(item.data);
-    $('usuario', newItem).html(item.usuario);
-    $('origem', newItem).html(item.origem);
-    $('destino', newItem).html(item.destino);
-    $('descricao', newItem).html(item.descricao);
-    $('valor', newItem).html(item.valor);
+$(() => {
 
-    $('#dados-lista').append($(item));
-}
+    function criarListaMudanca(item) {
+        const novoItem = $("#modelo-mudanca").clone().removeAttr(`id`).removeClass('hidden');
+        $('.data', novoItem).html(item.data);
+        $('.usuario', novoItem).html(item.usuario);
+        $('.origem', novoItem).html(item.origem);
+        $('.destino', novoItem).html(item.destino);
+        $('.descricao', novoItem).html(item.descricao);
+        $('.valor', novoItem).html(item.valor);
 
-const listaMudanca = []
+        $('#dados-lista').append($(novoItem));
+    }
 
-listaMudanca.push({
-    data: "24/02/2024 - 08:15h às 10:12h",
-    usuario: "Eduardo",
-    origem: "Origem: Rua Pindamonhangaba, 3132 - Bluemanu, SC",
-    destino: "Rua Carlota, 2012 - Bluemanu, SC",
-    descricao: "Mudança completa, apartamento no 3º andar",
-    valor: "R$ 899,87"
-})
+    const listaMudanca = []
 
-for (let item of listaMudanca) {
-    createItemList(item);
-}
+    listaMudanca.push({
+        data: "24/02/2024<br/> 08:15h às 10:12h",
+        usuario: "Eduardo ★ 4.99",
+        origem: "Rua Pindamonhangaba, 3132 - Blumenau, SC",
+        destino: "Rua Carlota, 2012 - Blumenau, SC",
+        descricao: "Mudança completa, apartamento no 3º andar",
+        valor: "899,87"
+    })
+
+    listaMudanca.push({
+        data: "25/02/2024<br/> 14:27h às 16:12h",
+        usuario: "Victor ★ 5.00",
+        origem: "Rua São Paulo, 276 - Blumenau, SC",
+        destino: "Rua Iguaçu, 1987 - Blumenau, SC",
+        descricao: "Geladeira e Freezer apenas, casa",
+        valor: "152,04"
+    });
+
+    listaMudanca.push({
+        data: "29/02/2024<br/> 10:24h às 11:16h",
+        usuario: "Luiz ★ 4.98",
+        origem: "Rua Francisco Sênior, 987 - Blumenau, SC",
+        destino: "Rua Jerõnimo, 577 - Gaspar, SC",
+        descricao: "Sofá, apartamento 8º andar",
+        valor: "454,12"
+    })
+
+    for (let item of listaMudanca) {
+        criarListaMudanca(item);
+    }
+
+});
+
+$(() => {
+    $(document).on('click', '#btn-visualizar', function () {
+        $('.usuario, .descricao', $(this).closest('.card')).removeClass('hidden').hide().slideDown();
+        $(this).hide();
+        console.log($('#btn-aceite'));
+        $('.btn-aceite', $(this.closest('.card'))).show();
+    });
+
+    $(document).on('click', '.btn-aceite', $this.closest('.card'), function () {
+        //lógica quando aceitar uma mudança.
+    });
+
+});
+
+//adiciona cor ao submenu de escolha
+
+$(document).on('click', '#mudanca-aguardando', function () {
+    $(this).addClass('active-perfil')
+    $('#mudanca-aberta').removeClass('active-perfil')
+    $('#lista-mudanca').hide();
+    $('.pendente').addClass('flex')
+    $('.pendente').show();
+    
+});
+
+$(document).on('click', '#mudanca-aberta', function () {
+    $(this).addClass('active-perfil')
+    $('#mudanca-aguardando').removeClass('active-perfil')
+    $('#lista-mudanca').show();
+    $('.pendente').removeClass('flex').hide();
+
+});
+
+
+
+// Lógica lista mudanças pendentes
+
+
+$(() => {
+
+    function criarListaPendente(item) {
+        const novoItem = $("#modelo-pendente").clone().removeAttr(`id`).hide();
+        $('.data', novoItem).html(item.data);
+        $('.usuario', novoItem).html(item.usuario);
+        $('.origem', novoItem).html(item.origem);
+        $('.destino', novoItem).html(item.destino);
+        $('.descricao', novoItem).html(item.descricao);
+        $('.valor', novoItem).html(item.valor);
+
+        $('#lista-mudanca-pendente').append($(novoItem));
+    }
+    const listaPendente = []
+
+    listaPendente.push({
+        data: "29/02/2024<br/> 19:15h às 23:12h",
+        usuario: "Ricardo ★ 1.99",
+        origem: "Rua da Mangueira, 132 - Indaial, SC",
+        destino: "Rua da Figueira, 2012 - Londrina, PR",
+        descricao: "apartamento no 3º andar",
+        valor: "1899,87"
+    });
+
+    for (let item of listaPendente) {
+        criarListaPendente(item);
+    }
+
+});
+
+$(() => {
+
+    $(document).on('click', '#btn-visualizar-pendente', function () {
+        $('.usuario, .descricao', $(this).closest('.pendente')).removeClass('hidden').hide().slideDown();
+        $(this).hide();
+        $('#btn-visualizar-pendente', $(this.closest('.pendente'))).show();
+    });
+});

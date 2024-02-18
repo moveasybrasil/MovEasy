@@ -47,7 +47,7 @@
                     <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
-                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+                        href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
                 </div>
             </div>
         </header>
@@ -121,12 +121,13 @@
                             <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
                                 Informações
                             </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/informacoes-perfil.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                            </div>
                         </div>
 
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div>
                     </div>
 
                     <div id="sections-perfil-historico" id="sections-perfil-informacoes">
@@ -134,12 +135,13 @@
                             <span onclick="mostrarDiv('container-dados-historico', 1)">
                                 Histórico
                             </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/historico-perfil.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-historico', 1)">
+                            </div>
                         </div>
 
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div>
                     </div>
 
 
@@ -148,11 +150,11 @@
                             <span onclick="mostrarDiv('container-dados-veiculos', 2)">
                                 Veículos
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))" alt=""
+                                    class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                            </div>
                         </div>
                     </div>
 
@@ -161,11 +163,11 @@
                             <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
                                 Configurações
                             </span>
-                        </div>
-
-                        <div class="sections-perfil-mobile">
-                            <img onclick="mostrarDivMobile('container-dados-historico', 0)" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))" alt=""
+                                    onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,70 +179,53 @@
                         <div class="info-perfil-for-motorista">
                             <div class="info-perfil" id="sobre-perfil" style="padding-bottom: 20px;">
                                 <p>Sobre: </p>
-                                <span>Sou um motorista certificado pela movEasy, compremetido em
-                                    fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma
-                                    experiência tranquila e sem complicações durante a sua mudança!.</span>
+                                <span id="sobre-perfil">Sou um cliente da MovEasy.</span>
                             </div>
                         </div>
 
                         <div class="info-perfil-for-user" id="info-perfil-for-user">
                             <div style="width: 50vw; margin: 20px 0;">
-                                <div class="info-perfil">
+
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Números de Telefone:</p>
                                     <div>
-                                    <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span><span
-                                        style="padding-right: 6px;"> e </span><span id="telefone2-perfil"
-                                        style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                        <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                            <p></p>
+                                        <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
 
-                                <div class="info-perfil">
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Email: </p>
-                                    <span id="email-perfil">seuemail@email.com</span>
+                                    <div>
+                                        <span id="email-perfil">seuemail@email.com</span>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="info-perfil-second-column">
-                                <div class="info-perfil">
+                            </div>
+                            <div style="width: 50vw; margin: 20px 0;">
+
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>Status da Conta:</p>
-                                    <span id="status-perfil">Ativo</span>
+                                    <div>
+                                        <span id="status-perfil">Ativo</span>
+                                    </div>
                                 </div>
 
-                                <div class="info-perfil">
+                                <div class="info-dados-perfil dados-perfil">
                                     <p>ID:</p>
-                                    <span id="id-perfil">0000001</span>
+                                    <div>
+                                        <span id="id-perfil">0000001</span>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
-                        <div class="info-perfil-for-motorista">
-                            <div class="info-perfil">
-                                <p>Veículo Princípal: </p>
-                                <span id="veiculo-perfil-motorista">Scania LK 140 | Laranja | XAS-1545</span>
-                            </div>
-                            <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
-
-                                <div class="box-img-veiculo">
-                                    <img src="../"
-                                        onerror="this.setAttribute('src', getUrl('assets/images/veiculo-perfil-test1.jpg'))"
-                                        alt="">
-                                </div>
-
-                                <div class="box-img-veiculo">
-                                    <img src="../"
-                                        onerror="this.setAttribute('src', getUrl('assets/images/veiculo-perfil-test2.jpg'))"
-                                        alt="">
-                                </div>
-
-                            </div>
-
-                            <div class="info-perfil">
-                                <p>Principais Feedbacks: </p>
-                            </div>
-
-                            <div class="photo-veiculo-perfil" id="photo-veiculo-perfil">
-
+                        <div class="info-perfil-for-motorista info-dados-perfil dados-perfil"
+                            id="dados-veiculo-principal">
+                            <p>Veículo Princípal: </p>
+                            <div>
+                                <span id="main-vehicle-perfil-motorista">Modelo | Cor | Placa</span>
                             </div>
                         </div>
 
@@ -253,23 +238,30 @@
                         <p style="padding-top: 50px;">Analise o seu Histórico de Mudanças aqui:</p>
                     </div>
 
+                    <div class="info-dados-perfil add-veiculo" id="not-add-historic" style="display: none;">
+                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                            alt="">
+                        <p>Você ainda não fez nenhuma Mudança.</p>
+                    </div>
+
+
                     <div id="dados-historico">
 
                         <div id="modelo-historico" class="item hidden">
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Data:</p><a class="data">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Origem:</p><a class="origem">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Destino:</p><a class="destino">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-historico">
                                 <p>Valor:</p><a class="valor">Informações...</a>
                             </div>
 
@@ -291,7 +283,7 @@
                             <p>Adicionar Veículo</p>
                         </div>
 
-                        <div class="info-dados-perfil add-veiculo">
+                        <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
                             <img src="../"
                                 onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="">
                             <p>Editar Veículo</p>
@@ -307,25 +299,31 @@
                             <p style="padding-top: 20px;">Todos os seus veículos:</p>
                         </div>
 
+                        <div class="info-dados-perfil add-veiculo" id="not-add-vehicle" style="display: none;">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                            <p>Você ainda não adicionou nenhum Veículo.</p>
+                        </div>
+
                         <div id="modelo-veiculo" class="item hidden">
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Modelo:</p><a class="modelo">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Ano:</p><a class="ano">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Cor:</p><a class="cor">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Placa:</p><a class="placa">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil">
+                            <div class="info-dados-perfil info-dados-veiculo">
                                 <p>Fotos:</p><a class="images">Informações...</a>
                             </div>
 
@@ -335,12 +333,13 @@
 
                 <div class="container-dados-configuracoes mostrar-div" id="container-dados-configuracoes">
                     <div class="info-perfil" style="display: block; padding-bottom: 20px;">
-                        <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:</p>
+                        <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:
+                        </p>
                     </div>
 
                     <div class="info-perfil">
                         <p>Tipo de Conta:</p>
-                        <span id="tipo-perfil">Prestador de Serviço</span>
+                        <span id="tipo-perfil">Cliente</span>
                     </div>
 
                     <div class="info-dados-perfil config-perfil">

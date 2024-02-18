@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovEasy</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/saved_resource"></script>
+    <script src="./js/common.js"></script>
+
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/lista-mudanca.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <header>
+            <div class="header" id="header">
+                <div class="btn-container">
+                    <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+                </div>
+                <div class="logo-header">
+                    <img id="logo-img" src="../"
+                        onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+                </div>
+                <div class="navigation-header" id="navigation-header">
+                    <div class="btn-icon-x btn-container">
+                        <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+                    </div>
+                    <a class="header-home" href="javascript:goTo('index')">HOME</a>
+                    <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+                    <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+                    <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+                    <a class="header-login"
+                        href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <div class="content">
+                    <div id="toggle-menu">
+                        <p id="mudanca-aberta" class="active-perfil">Aberto</p>
+                        <p id="mudanca-aguardando" class="">Pendente</p>
+                    </div>
+
+                    <div id="lista-mudanca-pendente">
+                        <div id="dados-lista-pendente" class="hidden">
+                            <p>Você não possui mudanças pendentes</p>
+                            <div id="modelo-pendente" class="pendente hidden">
+                                
+                                <div class="dados-cont">
+                                    <div class="dados-mudanca" id="valor-pendente">
+                                        <p>R$<br /><a class="valor"
+                                                style="font-size:25px; font-weight: 900;">Informações...</a></p>
+                                        <div class="dados-mudanca">
+                                            <a class="data">Informações...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="flex-grow: 1" id="container-list-pendente">
+                                    <img src="./assets/images/default.jpg" alt="" id="img-perfil-pendente">
+                                    <div class="dados-mudanca usuario hidden">
+
+                                        <p>Usuário:</p><a class="usuario">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="origem-pendente">Origem:</p><a class="origem">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="destino-pendente">Destino:</p><a class="destino">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca descricao hidden">
+                                        <p>Descrição:</p><a class="descricao">Informações...</a>
+                                    </div>
+                                    <button class="btn-bot" id="btn-visualizar-pendente">Visualizar</button>
+                                    <button class="btn-bot" id="btn-cancelar">Desistir</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="lista-mudanca">
+
+                        <!-- <div style="padding-bottom: 20px;" id="container-lista">
+                            <p id="titulo" style="padding-top: 50px;">Mudanças aguardando transporte: </p>
+                        </div> -->
+
+
+
+                        <div id="dados-lista">
+
+                            <div id="modelo-mudanca" class="card hidden">
+                                <div class="dados-cont">
+                                    <div class="dados-mudanca" id="valor">
+                                        <p id="real">R$<br /><a class="valor"
+                                                style="font-size:25px; font-weight: 900;">Informações...</a></p>
+                                        <div class="dados-mudanca">
+                                            <a class="data">Informações...</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div style="flex-grow: 1" id="container-list">
+                                    <img src="./assets/images/default.jpg" alt="" id="img-perfil">
+                                    <div class="dados-mudanca usuario hidden">
+
+                                        <p>Usuário:</p><a class="usuario">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="origem-pendente">Origem:</p><a class="origem">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca">
+                                        <p id="destino-pendente">Destino:</p><a class="destino">Informações...</a>
+                                    </div>
+                                    <div class="dados-mudanca descricao hidden">
+                                        <p>Descrição:</p><a class="descricao">Informações...</a>
+                                    </div>
+                                    <button class="btn-bot btn-aceite">Aceitar</button>
+                                    <button class="btn-bot" id="btn-visualizar">Visualizar</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </main>
+    </div>
+</body>
+<script src="./js/lista-mudanca.js"></script>
+
+</html>
