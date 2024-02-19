@@ -56,16 +56,20 @@
     padding: 6% 6% 0 6%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
 }
 
 .cards-sobre {
-    width: auto;
+    width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     margin: 5%;
-    gap: 10%;
+    gap: 5%;
 }
 
 .box-sobre {
@@ -87,9 +91,14 @@
     font-size: 45px;
 }
 
+.card-mobile-sobre {
+    width: auto;
+    height: auto;
+}
+
 .card {
-    width: 250px;
-    height: 250px;
+    width: 235px;
+    height: 300px;
     perspective: 1000px;
 }
 
@@ -285,6 +294,11 @@
     align-items: center;
     justify-content: center;
     filter: grayscale(20%);
+    flex-direction: column;
+}
+
+.img-historia-2 {
+    display: none;
 }
 
 #moveasy-team-image {
@@ -306,8 +320,10 @@
 .nossos-integrantes {
     width: 100%;
     height: auto;
-    padding: 6% 6% 0 6%;
+    padding: 6%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     background-color: #0b142f;
     color: #FFF;
@@ -326,13 +342,14 @@
     width: 250px;
     height: 354px;
     background: #e4321e;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 1px 5px 60px 0px #100a886b;
     margin: 0 2%;
     padding-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     flex-direction: column;
     border: 2px solid #FFF;
 }
@@ -345,6 +362,16 @@
 .img-integrantes img {
     border-radius: 50%;
     border: 2px solid #FFF;
+}
+
+.informations-integrantes {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .box-integrantes span {
@@ -365,23 +392,10 @@
     font-size: 12px;
 }
 
-.box-integrantes .img {
-    width: 70px;
-    height: 70px;
-    background: #ffffff;
-    border-radius: 50%;
-    margin: auto;
-    margin-top: 25px;
-}
-
-.box-integrantes button {
-    padding: 8px 25px;
+.box-integrantes a {
     display: block;
-    margin: auto;
-    border-radius: 8px;
     border: none;
-    margin-top: 30px;
-    background: #e4321e;
+    text-decoration: none;
     color: #ffffff;
     font-weight: 600;
 }
@@ -398,6 +412,17 @@
 
     /* --- BANNER --- */
 
+    .banner-inicial {
+        width: 100%;
+        height: 48vh;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -25px;
+    }
+
     .texto-inicial {
         width: 100%;
         height: auto;
@@ -409,24 +434,16 @@
 
     /* --- SOBRE INICIAL --- */
 
-    .sobre-nos {
-        width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .img-nos-1 {
-        display: none;
-    }
-
-    .texto-nos {
+    .sobre-inicial {
         width: 100%;
         height: auto;
         padding: 6%;
-        text-align: justify;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cards-sobre {
+        display: none;
     }
 
 
@@ -476,12 +493,14 @@
         width: 100%;
         height: auto;
         padding: 2%;
+        padding-bottom: 0;
     }
 
     .todos-valores-2 {
         width: 100%;
         height: auto;
         padding: 2%;
+        padding-top: 0;
     }
 
 
@@ -521,6 +540,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        filter: grayscale(20%);
     }
 
     #moveasy-team-image {
@@ -530,7 +551,15 @@
 
 
     /* --- INTEGRANTES --- */
-    
+
+    .nossos-integrantes {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .boxes-integrantes {
         width: 100%;
         height: auto;
@@ -538,72 +567,70 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 2%;
+        margin: 0;
     }
-    
+
     .box-integrantes {
-        width: 80%;
-        height: 15%;
+        width: 280px;
+        height: 150px;
         background: #e4321e;
-        border-radius: 15px;
+        border-radius: 10px;
         box-shadow: 1px 5px 60px 0px #100a886b;
-        margin: 0 2%;
-        padding-top: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: row;
         border: 2px solid #FFF;
+        padding: 0;
+        margin: 2%;
     }
-    
+
     .img-integrantes {
-        width: 120px;
-        height: 120px;
+        width: 90px;
+        height: 90px;
+        position: relative;
+        left: -10px;
     }
-    
+
     .img-integrantes img {
         border-radius: 50%;
         border: 2px solid #FFF;
     }
-    
+
+    .informations-integrantes {
+        width: 80%;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
     .box-integrantes span {
         font-weight: 600;
         color: #ffffff;
         text-align: center;
         display: block;
-        padding-top: 10px;
         font-size: large;
     }
-    
+
     .box-integrantes .job {
         font-weight: 400;
         color: #ffffff;
         display: block;
         text-align: center;
-        padding-top: 3px;
         font-size: 12px;
     }
-    
-    .box-integrantes .img {
-        width: 70px;
-        height: 70px;
-        background: #ffffff;
-        border-radius: 50%;
-        margin: auto;
-        margin-top: 25px;
-    }
-    
-    .box-integrantes button {
-        padding: 8px 25px;
+
+    .box-integrantes a {
         display: block;
-        margin: auto;
-        border-radius: 8px;
         border: none;
-        margin-top: 30px;
-        background: #e4321e;
+        text-decoration: none;
         color: #ffffff;
         font-weight: 600;
     }
-    
+
     .box-integrantes button:hover {
         background: #e4321e65;
     }
