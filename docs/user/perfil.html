@@ -48,6 +48,9 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
                         href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+                    <a class="header-moving"
+                        href="javascript:goTo(isTokenValid() ? 'solicitacao : 'user/login')">MUDANÇAS</a>
+
                 </div>
             </div>
         </header>
@@ -67,15 +70,16 @@
                             <span id="fecha-modal" class="text-4xl m-6">X</span>
                         </div>
                         <img id="photo-change" src="../assets/images/default.jpg"
-                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+                            onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
 
                         <label id="photo-input-label">
                             Selecionar arquivo
-                            <input style="display: none" id="photo-input" type="file" name="file" onchange="fileChanged()">
+                            <input style="display: none" id="photo-input" type="file" name="file"
+                                onchange="fileChanged()">
                         </label>
-                        
+
                         <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
-                       
+
                     </div>
 
 

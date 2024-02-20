@@ -56,6 +56,8 @@
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
           <a class="header-login"
             href="javascript:!!sessionStorage.getItem(`token`) ? goTo('user/perfiltest') : goTo('user/login')">LOGIN</a>
+          <a class="header-moving" href="javascript:goTo(isTokenValid() ? 'solicitacao : 'user/login')">MUDANÇAS</a>
+
         </div>
       </div>
     </header>
