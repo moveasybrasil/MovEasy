@@ -16,17 +16,18 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    overflow: auto;
-    border-top: 1px solid;
-    height: 100vh;
+    background-color: #FFF;
     width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container-cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 125px;
 }
 
 #content {
@@ -239,29 +240,29 @@ input[type="number"] {
 /* --- BUTTON-BOXES --- */
 
 .button-box {
-  width: 50%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e4321e;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  font-size: large;
-  cursor: pointer;
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4321e;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #e4321e;
-  border-radius: 5px;
+    background-color: #e4321e;
+    border-radius: 5px;
 }
 
 .button-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 34px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 34px;
 }
 
 #button-voltar1 {
@@ -327,13 +328,19 @@ button:hover {
 @media (max-width: 550px) {
 
     .banner {
-        background: #FFF;
+        background-color: #FFF;
+        background-image: none;
         width: 100vw;
         height: 100dvh;
         background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    #content {
+        background-image: none;
+        background-color: #FFF;
     }
 
     .container-cadastro {
