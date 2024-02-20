@@ -1,62 +1,82 @@
 function checkInputLength() {
-    let input = document.getElementById('Placa');
-    let inputValue = input.value;
+    let inputValue = document.getElementById("Placa").value;
+    let maxCaracteres = 7;
 
-
-    let caracteres = 7;
-
-    if (input.length >= caracteres ) {
-        searchPlateInformation(inputValue);
+    if (inputValue.length === maxCaracteres) {
+      searchPlateInformation(inputValue);
     }
-    console.log(inputValue);
-    console.log(caracteres)
 }
 
-function searchPlateInformation(placa) {
+// trocar rota aqui para rota da api do server do projeto git
+const baseURL = `https://localhost:7014`;
 
-    let apiUrl = 'https://placafipe.com/placa/' + placa;
+async function searchPlateInformation(placa) {
 
-    fetch(apiUrl)
+  let res = await fetch(baseURL + `/vehicle/info/${placa}`,{
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+  let data = await res.json();
 
-      .then(response => response.json())
+  displayResult(data);
 
-      .then(data => {
-
-        displayResult(data);
-      })        
-      
-      .catch(error => console.error('Erro ao buscar informações da placa:', error));
-
-  }
+}
 
   function displayResult(data) {
 
     console.log(data);
 
-    // resultDiv.innerHTML = '<h2>Informações da Placa:</h2>' +
 
-    //                       '<p>Modelo: ' + data.modelo + '</p>' +
+    let inputNome = document.getElementById('Nome');
+    inputNome.value = data['name']
 
-    //                       '<p>Cor: ' + data.cor + '</p>' +
+    let inputCor = document.getElementById('Cor');
+    inputCor.value = data['colour']
 
-    //                       '<p>Ano: ' + data.ano + '</p>';
+    let inputAno = document.getElementById('Ano');
+    inputAno.value = data['year']
+
+    let inputCapacidade = document.getElementById('Capacidade');
+    inputCapacidade.value = 5
 
   }
 
 
+async function register(){
 
-// $(() => {    
-//     function PegarPlaca() {
-//         let placa = $('#Placa').val();
-//     }
+  let valorNome = document.getElementById('Nome').value;
+  let valorCor = document.getElementById('Cor').value;
+  let valorAno = document.getElementById('Ano').value;
+  let valorPlaca = document.getElementById('Placa').value;
+  let valorCapacidade = document.getElementById('Capacidade').value;
 
-//     let url = `https://placafipe.com/placa/{placa}`;
-
-//     fetch(url)
-//     .then(response => {
-//         console.log(Resposta, response)
-//         return response.json();
-//     })
-// });  
+  sendData(valorNome, valorPlaca, valorCor, valorAno, valorCapacidade)
 
 
+}
+
+
+async function sendData(nome, placa, cor, ano, capacidade){
+
+  let req = new Request(
+    baseURL + `/vehicle/register`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "licensePlate": placa,
+        "year": ano,
+        "capacity": capacidade,
+        "name": nome,
+        "colour": cor,
+      }),
+      mode: `cors`,      
+    }
+  )
+
+  let res = await fetch(req);
+
+  alert('OK!')
+}

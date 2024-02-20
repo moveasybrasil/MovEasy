@@ -20,6 +20,7 @@ builder.Services.AddTransient<ICityRepository, CityRepository>();
 builder.Services.AddTransient<IDistrictRepository, DistrictRepository>();
 builder.Services.AddTransient<IAddressRepository, AddressRepository>();
 builder.Services.AddTransient<IVehicleRepository, VehicleRepository>();
+builder.Services.AddTransient<IVehicleInfoRepository, VehicleInfoRepository>();
 builder.Services.AddTransient<IServiceRepository, ServiceRepository>();
 builder.Services.AddCors();
 
@@ -91,7 +92,7 @@ app.MapControllers();
 app.UseCors(x => {
     x.AllowAnyOrigin();
     x.AllowAnyMethod();
-    x.AllowAnyHeader();
+    x.AllowAnyHeader();    
 });
 
 app.Run();
