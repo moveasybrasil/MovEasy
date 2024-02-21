@@ -80,4 +80,8 @@ if(isTokenValid()) {
     })
 }
 
+// click logo header //
 
+document.querySelector('#logo-img').addEventListener('click', function() {
+    goTo('index')
+});
