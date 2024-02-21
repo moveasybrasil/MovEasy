@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/perfiltest.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -48,7 +51,7 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
                         href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
-                        <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
+                    <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
 
                 </div>
             </div>
@@ -59,6 +62,13 @@
                 <div class="img-perfil" id="img-perfil">
                     <img id="photo" src="../assets/images/default.jpg"
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+
+                    <div class="edited-photo-perfil">
+                        <span class="material-symbols-outlined" id="photo-input" onchange="fileChanged()">
+                            edit
+                        </span>
+                    </div>
+
                     <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
