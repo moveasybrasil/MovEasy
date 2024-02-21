@@ -53,6 +53,21 @@
     background-color: var(--color-background-perfil3);
 }
 
+.edited-photo-perfil {
+    position: relative;
+    left: 160px;
+    bottom: 60px;
+    border: 2px solid #000;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 #rating-conquistas-usuario {
     display: flex;
     font-weight: bold;
@@ -472,6 +487,21 @@
         background-color: var(--color-background-perfil3);
     }
 
+    .edited-photo-perfil {
+        position: relative;
+        left: 120px;
+        bottom: 45px;
+        border: 2px solid #000;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
     #rating-conquistas-usuario {
         display: flex;
         font-weight: bold;
@@ -676,15 +706,9 @@
     .logout-mobile {
         display: flex;
         background-color: var(--color-background-perfil3);
-        color: var(--color-text-perfil2);
+        color: red;
         justify-content: center;
         align-content: center;
         font-size: large;
-        color: #FF0000;
-    }
-
-    .logout-mobile:hover {
-        cursor: pointer;
-        color: var(--color-hover-perfil);
     }
 }
