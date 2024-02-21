@@ -56,7 +56,7 @@ $(() => {
     });
 
     $(document).on('click', '.btn-aceite', $this.closest('.card'), function () {
-        //lógica quando aceitar uma mudança.
+        window.location.href = goTo('perfiltest')
     });
 
 });
@@ -69,7 +69,7 @@ $(document).on('click', '#mudanca-aguardando', function () {
     $('#lista-mudanca').hide();
     $('.pendente').addClass('flex')
     $('.pendente').show();
-    
+
 });
 
 $(document).on('click', '#mudanca-aberta', function () {
@@ -123,3 +123,43 @@ $(() => {
         $('#btn-visualizar-pendente', $(this.closest('.pendente'))).show();
     });
 });
+
+
+async function loadHistorico() {
+    function getAddressFromAddressDto(address) {
+        return `${address.street} ${address.number}, ${address.district}, ${address.city}-${address.fu}`
+    }
+    function getUserFromUserDto(user) {
+        return `${user.name}`
+    }
+
+    request("GET", `${serverURL}/service/closed`, (xhr) => {   //Aqui preciso adicionar o status da mudança que farei.
+        if (xhr.status == 200) {
+            JSON.parse(xhr.responseText).forEach(element => {
+
+                const novoItem = $("#modelo-historico").clone().removeAttr(`id`).removeClass('hidden');
+                $('.data', novoItem).html((new Date(element.date)).toLocaleString("pt-BR"));
+                $('.usuario', novoItem).html(getUserFromUserDto(element.name))
+                $('.origem', novoItem).html(getAddressFromAddressDto(element.address));
+                $('.destino', novoItem).html(getAddressFromAddressDto(element.address1));
+                $('.valor', novoItem).html(`R$ ${element.price}`);
+
+                $("#dados-lista").append($(novoItem));
+
+            });
+        } else {
+            $("#not-add-historic").show()
+        }
+    }, null, null, true)
+}
+
+
+// //const novoItem = $("#modelo-mudanca").clone().removeAttr(`id`).removeClass('hidden');
+// $('.data', novoItem).html(item.data);
+// $('.usuario', novoItem).html(item.usuario);
+// $('.origem', novoItem).html(item.origem);
+// $('.destino', novoItem).html(item.destino);
+// $('.descricao', novoItem).html(item.descricao);
+// $('.valor', novoItem).html(item.valor);
+
+// $('#dados-lista').append($(novoItem));

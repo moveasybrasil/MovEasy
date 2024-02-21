@@ -9,10 +9,9 @@ $(() => {
     $("#btn-logar").click(() => {
         const values = {
             email: $("#email-login")[0].value,
-            senha: $("#senha-login")[0].value,
-            manterConectado: $("#manterConectado")[0].checked
+            senha: $("#senha-login")[0].value    
         }
-
+        
         if (!values.email) {
             alert("Email não informado!");
             $("#email-login").addClass("invalid");
