@@ -79,7 +79,7 @@ margin-top: 20px;
     border-radius: 5px;
     justify-content: center;
     margin: 0 auto 0 auto;
-    padding-top: 10px;
+    padding-top: 5px;
     background-color: #e4321e;  
     color: #FFF; 
 }
@@ -104,8 +104,7 @@ margin-top: 20px;
         width: 380px;
         border-radius: 10px;
         align-items: center;
-        border: none;
-    
+        border: none
     }
     
 
@@ -119,7 +118,7 @@ margin-top: 20px;
         display: flex;
         width: 320px;
         height: 50px;
-        font-size: 20px;
+        font-size: 25px;
         border-radius: 5px;
         justify-content: center;
         background-color: #e4321e;  

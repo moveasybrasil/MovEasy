@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    margin-top: 100px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #0f0000;
+}
+
+h1 {
+    text-align: center;
+   
+}
+
+.container h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group .editable {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 40px;
+    outline: none;
+    resize: vertical;
+}
+
+.form-group .editable[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: #999;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e4321e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #e4321e;
+}
+
+
+/* @media only screen and (max-width: 768px)  */
+
+    
