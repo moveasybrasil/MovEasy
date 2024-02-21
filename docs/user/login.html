@@ -47,8 +47,7 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login"
-            href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
         </div>
       </div>
     </header>
@@ -57,39 +56,44 @@
       <div class="banner2">
         <form action="">
           <div class="corpo">
+
             <div class="menu-login">
+
+              <div class="titulo-login">
+                <h1 class="title-box text-center">Login</h1>
+              </div>
+
               <div class="controlador-login">
                 <div class="logar-email">
-                  <label for="login-email" class=""><strong>Email:</strong></label>
+                  <label for="login-email" class="">Email:</label>
                   <input type="text" id="email-login" class="" placeholder="Digite o seu email"></input>
                 </div>
                 <div class="logar-senha">
-                  <label for="login-senha" class=""><strong>Senha:</strong></label>
+                  <label for="login-senha" class="">Senha:</label>
                   <input type="password" id="senha-login" class="" placeholder="Digite a sua senha"></input>
                 </div>
               </div>
 
-              <div class="botao-logar">
-                <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
-              </div>
-
-              <div class="">
-                <div class="campos flex mt-4">
-                  <input type="checkbox" class="bg-zinc-300" id="manterConectado"></input>
-                  <span class="text-sm text-blue-800 font-bold" placeholder="Manter conectado">Manter
-                    conectado?</span>
-
-                  <div>
-                    <button type="button" class="recuperar-senha text-black text-lg font-normal font-['Inter']"
-                      onclick="goTo('user/recovery/email')">
+              <div style="margin-top: 25px;">
+                <div class="">
+                  <div class="campos flex ">
+                    <button type="button" class="recuperar-senha" onclick="goTo('user/recovery/email')">
                       Esqueceu a senha?</button>
                   </div>
                 </div>
+                <div class="botao-logar">
+                  <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
+                </div>
               </div>
-              <div class="texto-cadastro text-black text-lg font-normal font-['Inter']">Nao possui cadastro?</div>
-              <div>
-                <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
-                  class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+
+              <div style="margin-top: 25px;">
+                <div class="recuperar-senha">
+                  Nao possui cadastro?
+                </div>
+                <div>
+                  <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
+                    class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+                </div>
               </div>
 
             </div>
