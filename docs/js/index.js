@@ -8,4 +8,6 @@ $(() => {
         goTo('solicitacao')
 
     });
+
     });
+
