@@ -41,6 +41,7 @@
 }
 
 
+
 /* --- BOXES --- */
 
 .box {
@@ -104,6 +105,8 @@
     font-size: 15px;
     padding-bottom: 10px;
 }
+
+
 
 /* --- SWITCH --- */
 
@@ -184,6 +187,8 @@
     border: 2px solid #E53420;
     border-radius: 5px;
 }
+
+
 
 /* --- INFO-BOXES --- */
 
@@ -310,6 +315,8 @@ button:hover {
     height: 50px;
     font-size: large;
 }
+
+
 
 /* --- CHECKBOX E TERMOS DE USO --- */
 
