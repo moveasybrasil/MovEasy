@@ -8,7 +8,6 @@
 }
 
 .container {
-    margin-top: 100px;
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -22,7 +21,10 @@ h1 {
     text-align: center;
    
 }
-
+.container {
+    margin-top: 150px;
+    width: 100%;
+}
 .container h1 {
     font-size: 25px;
     font-weight: bold;
@@ -71,6 +73,12 @@ h1 {
 }
 
 
-/* @media only screen and (max-width: 768px)  */
+ @media only screen and (max-width: 768px)  {
+    
+    .container {
+        margin-top: 150px;
+        width: 100%;
+    }
+}
 
     
