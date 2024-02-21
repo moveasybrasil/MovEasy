@@ -48,7 +48,7 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
                         href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
-                        <a class="header-moving" href="javascript:goTo(isTokenValid() ? 'solicitacao' : 'user/login')">MUDANÇAS</a>
+                        <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
 
                 </div>
             </div>
@@ -154,8 +154,8 @@
                             </span>
                             <div class="img-section-color">
                                 <img src="../"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))" alt=""
-                                    class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                                     <p>Números de Telefone:</p>
                                     <div>
                                         <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
-                                            <p></p>
+                                        <p></p>
                                         <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
@@ -241,7 +241,8 @@
                     </div>
 
                     <div class="info-dados-perfil add-veiculo" id="not-add-historic" style="display: none;">
-                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                        <img src="../"
+                            onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
                             alt="">
                         <p>Você ainda não fez nenhuma Mudança.</p>
                     </div>
