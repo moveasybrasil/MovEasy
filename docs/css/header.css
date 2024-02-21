@@ -55,6 +55,7 @@ header {
 #logo-img {
     width: 300px;
     height: 70px;
+    cursor: pointer;
 }
 
 .btn-container {
