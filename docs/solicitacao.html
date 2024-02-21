@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/solicitacao.css">
-  <script src="./js/solicitacao.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -47,8 +47,8 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
-          <a class="header-moving" href="javascript:goTo(isTokenValid() ? 'solicitacao' : 'user/login')">MUDANÇAS</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+          <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
         </div>
       </div>
     </header>
@@ -150,6 +150,7 @@
       </div>
     </div>
   </div>
+  <script src="./js/header.js"></script>
+  <script src="./js/solicitacao.js"></script>
 </body>
-
 </html>
