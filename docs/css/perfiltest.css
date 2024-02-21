@@ -424,6 +424,10 @@
     width: 97%;
 }
 
+.logout-mobile {
+    display: none;
+}
+
 
 
 /* --- PERFIL MOBILE --- */
@@ -578,7 +582,7 @@
 
 
 
-    /* --- DADOS DO HISTÓRICO  E VEÍCULO MOBILE--- */
+    /* --- DADOS DO HISTÓRICO E VEÍCULO MOBILE--- */
 
     .item {
         width: 100%;
@@ -663,5 +667,24 @@
     #dados-veiculo-principal {
         margin-top: 25px;
         width: 100%;
+    }
+
+
+
+    /* --- CONFIGURAÇÕES MOBILE--- */
+
+    .logout-mobile {
+        display: flex;
+        background-color: var(--color-background-perfil3);
+        color: var(--color-text-perfil2);
+        justify-content: center;
+        align-content: center;
+        font-size: large;
+        color: #FF0000;
+    }
+
+    .logout-mobile:hover {
+        cursor: pointer;
+        color: var(--color-hover-perfil);
     }
 }

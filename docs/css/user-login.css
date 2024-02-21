@@ -8,7 +8,7 @@
 }
 
 .banner {
-    background: url(../assets/images/Imagem-login.jpeg);
+    background-image: url(../assets/images/Imagem-login.jpeg);
     width: 100vw;
     height: 100dvh;
     background-size: cover;
@@ -24,7 +24,11 @@
     width: 100vw;
     background-color: rgba(0, 0, 0, .4);
     overflow: hidden;
+    background-color: #FFF;
+    background-image: url(../assets/images/Imagem-login.jpeg);
+    background-size: cover;
 }
+
 .controlador-login {
     height: 200px;
     padding: 20px;
@@ -123,7 +127,14 @@
     background-repeat: no-repeat;
     background-size: cover;   
     background-position: 35%;   
+    background-color: #FFF;
   }
+
+  #content {
+    background-image: none;
+    background-color: #FFF;
+  }
+
   .menu-login {
     width: 380px;
     height: 425px;
