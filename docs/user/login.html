@@ -54,53 +54,51 @@
     </header>
 
     <div id="content">
-      <div class="banner2">
-        <form action="">
-          <div class="corpo">
+      <form action="">
+        <div class="corpo">
 
-            <div class="menu-login">
+          <div class="menu-login">
 
-              <div class="titulo-login">
-                <h1 class="title-box text-center">Login</h1>
+            <div class="titulo-login">
+              <h1 class="title-box text-center">Login</h1>
+            </div>
+
+            <div class="controlador-login">
+              <div class="logar-email">
+                <label for="login-email" class="">Email:</label>
+                <input type="text" id="email-login" class="" placeholder="Digite o seu email"></input>
               </div>
-
-              <div class="controlador-login">
-                <div class="logar-email">
-                  <label for="login-email" class="">Email:</label>
-                  <input type="text" id="email-login" class="" placeholder="Digite o seu email"></input>
-                </div>
-                <div class="logar-senha">
-                  <label for="login-senha" class="">Senha:</label>
-                  <input type="password" id="senha-login" class="" placeholder="Digite a sua senha"></input>
-                </div>
+              <div class="logar-senha">
+                <label for="login-senha" class="">Senha:</label>
+                <input type="password" id="senha-login" class="" placeholder="Digite a sua senha"></input>
               </div>
+            </div>
 
-              <div style="margin-top: 25px;">
-                <div class="">
-                  <div class="campos flex ">
-                    <button type="button" class="recuperar-senha" onclick="goTo('user/recovery/email')">
-                      Esqueceu a senha?</button>
-                  </div>
-                </div>
-                <div class="botao-logar">
-                  <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
+            <div style="margin-top: 25px;">
+              <div class="">
+                <div class="campos flex ">
+                  <button type="button" class="recuperar-senha" onclick="goTo('user/recovery/email')">
+                    Esqueceu a senha?</button>
                 </div>
               </div>
-
-              <div style="margin-top: 25px;">
-                <div class="recuperar-senha">
-                  Nao possui cadastro?
-                </div>
-                <div>
-                  <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
-                    class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
-                </div>
+              <div class="botao-logar">
+                <button type="button" id="btn-logar" class="rounded-[10px] font-bold text-lg shadow">Login</button>
               </div>
+            </div>
 
+            <div style="margin-top: 25px;">
+              <div class="recuperar-senha">
+                Nao possui cadastro?
+              </div>
+              <div>
+                <button type="button" id="btn-cadastrar" onclick="goTo('user/cadastro')"
+                  class="rounded-[10px] font-bold text-lg shadow">Cadastrar</button>
+              </div>
             </div>
 
           </div>
-      </div>
+
+        </div>
     </div>
   </div>
 
