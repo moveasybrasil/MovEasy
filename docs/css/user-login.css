@@ -43,6 +43,7 @@
 .menu-login {
     width: 422px;
     height: 531px;
+    margin: 0 auto;
     background-color: #FFF;
     border-radius: 10px;
     padding: 20px 50px;
@@ -121,7 +122,7 @@
 }
 
 .corpo {
-    margin-top: 45%;
+    margin-top: 7vh;
     display: flex;
     align-items: center;
     justify-content: center;
