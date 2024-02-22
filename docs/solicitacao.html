@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/solicitacao.css">
-  <script src="./js/solicitacao.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -47,6 +47,7 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
           <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
         </div>
       </div>
@@ -59,23 +60,23 @@
         <form action="/formulario-solicitacao" method="post" style="height: 100%;">
 
           <div class="form" id="form-continuar-solicitacao">
-            <h1 id="title-form">Dados gerais</h1>
+            <h1 class="title-form">Dados gerais</h1>
 
             <div class="info-formes-solicitacao">
               <label for="formulario-solicitacao-termos">Termos de serviço:</label>
               <input type="text" placeholder="Qual tipo de frete" id="Termos"></input>
 
               <label for="formulario-solicitacao-observacao">Observação:</label>
-              <input type="observacao" placeholder="Observação" id="Observacao"></input>
+              <input type="text" placeholder="Observação" id="Observacao"></input>
 
-              <label for="formulario-solicitacao-descricao origem">Descrição de origem:</label>
-              <input type="descricao origem" placeholder="Descrição de origem" id="descricao origem"></input>
+              <label for="formulario-solicitacao-descricao-origem">Descrição de origem:</label>
+              <input type="text" placeholder="Descrição de origem" id="descricao-origem"></input>
 
-              <label for="formulario-solicitacao-descricao destino">Descrição de destino:</label>
-              <input type="descricao destino" placeholder="Descrição de destino" id="descricao destino"></input>
+              <label for="formulario-solicitacao-descricao-destino">Descrição de destino:</label>
+              <input type="text" placeholder="Descrição de destino" id="descricao-destino"></input>
 
               <label for="formulario-solicitacao-data">Data:</label>
-              <input type="data" placeholder="Qual a data" id="Data"></input>
+              <input type="text" placeholder="Qual a data" id="Data"></input>
 
               <div class="button-container" id="button-continuar">
                 <button type="button" class="button-form">Continuar</button>
@@ -84,71 +85,74 @@
           </div>
 
           <div class="form" id="form-continuar2-solicitacao" style="display: none">
-            <h1 id="title-form">Dados de origem</h1>
+            <h1 class="title-form">Dados de origem</h1>
 
             <div class="info-formes-solicitacao">
               <label for="formulario-solicitacao-cep">CEP:</label>
               <input type="text" placeholder="CEP" id="Cep"></input>
 
               <label for="formulario-solicitacao-rua">Rua:</label>
-              <input type="rua" placeholder="Rua" id="Rua"></input>
+              <input type="text" placeholder="Rua" id="Rua"></input>
 
               <label for="formulario-solicitacao-endereco">Endereço:</label>
-              <input type="endereco" placeholder="Nada" id="Endereco"></input>
+              <input type="text" placeholder="Nada" id="Endereco"></input>
 
               <label for="formulario-solicitacao-distrito">Distrito:</label>
-              <input type="distrito" placeholder="Nada" id="Distrito"></input>
+              <input type="text" placeholder="Nada" id="Distrito"></input>
 
               <label for="formulario-solicitacao-cidade">Cidade:</label>
-              <input type="cidade" placeholder="Nada" id="Cidade"></input>
+              <input type="text" placeholder="Nada" id="Cidade"></input>
 
               <label for="formulario-solicitacao-sigla">UF:</label>
-              <input type="sigla" placeholder="Qual seu estado" id="Sigla"></input>
+              <input type="text" placeholder="Qual seu estado" id="Sigla"></input>
 
               <label for="formulario-solicitacao-numero">Número:</label>
-              <input type="numero" placeholder="Nada" id="Numero"></input>
+              <input type="text" placeholder="Nada" id="Numero"></input>
 
               <div class="button-container">
                 <button type="button" class="button-form button-voltar" id="button-voltar"> &lt; </button>
-                <button type="button" class="button-form" id="button-continuar2">Continuar2</button>
+                <button type="button" class="button-form" id="button-continuar2">Continuar</button>
               </div>
             </div>
           </div>
 
           <div class="form" id="form-finalizar-solicitacao" style="display: none">
-            <h1 id="title-form">Dados de destino</h1>
+            <h1 class="title-form">Dados de destino</h1>
 
             <div class="info-formes-solicitacao">
               <label for="formulario-solicitacao-cep">CEP:</label>
               <input type="text" placeholder="CEP" id="Cep"></input>
 
               <label for="formulario-solicitacao-rua">Rua:</label>
-              <input type="rua" placeholder="Rua" id="Rua"></input>
+              <input type="text" placeholder="Rua" id="Rua"></input>
 
               <label for="formulario-solicitacao-endereco">Endereço:</label>
-              <input type="endereco" placeholder="Nada" id="Endereco"></input>
+              <input type="text" placeholder="Nada" id="Endereco"></input>
 
               <label for="formulario-solicitacao-distrito">Distrito:</label>
-              <input type="distrito" placeholder="Nada" id="Distrito"></input>
+              <input type="text" placeholder="Nada" id="Distrito"></input>
 
               <label for="formulario-solicitacao-cidade">Cidade:</label>
-              <input type="cidade" placeholder="Nada" id="Cidade"></input>
+              <input type="text" placeholder="Nada" id="Cidade"></input>
 
               <label for="formulario-solicitacao-sigla">UF:</label>
-              <input type="sigla" placeholder="Qual seu estado" id="Sigla"></input>
+              <input type="text" placeholder="Qual seu estado" id="Sigla"></input>
 
               <label for="formulario-solicitacao-numero">Número:</label>
-              <input type="numero" placeholder="Nada" id="Numero"></input>
+              <input type="text" placeholder="Nada" id="Numero"></input>
 
-            <div class="button-container">
-              <button type="button" class="button-form button-voltar" id="button-voltar2"> &lt; </button>
-              <button type="button" class="button-form" id="Enviar">Enviar</button>
+              <div class="button-container">
+                <button type="button" class="button-form button-voltar" id="button-voltar2"> &lt; </button>
+                <button type="button" class="button-form" id="Enviar">Enviar</button>
+              </div>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <script src="./js/header.js"></script>
+  <script src="./js/solicitacao.js"></script>
 </body>
 
 </html>

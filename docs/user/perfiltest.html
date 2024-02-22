@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/perfiltest.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -48,6 +51,8 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-login"
                         href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+                    <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
+
                 </div>
             </div>
         </header>
@@ -57,6 +62,13 @@
                 <div class="img-perfil" id="img-perfil">
                     <img id="photo" src="../assets/images/default.jpg"
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+
+                    <div class="edited-photo-perfil">
+                        <span class="material-symbols-outlined" id="photo-input" onchange="fileChanged()">
+                            edit
+                        </span>
+                    </div>
+
                     <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
@@ -89,19 +101,7 @@
                                     onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
                                     alt="">
                             </div>
-                            <div>
-                                <img id="conquista-img" src="../"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
-                                    alt="">
-                            </div>
                         </div>
-
-                        <!-- <div id="icons-conquistas-motorista">
-                            <img id="conquista-img" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                            <img id="conquista-img" src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))" alt="">
-                        </div> -->
                     </div>
                 </div>
                 <div class="btn-logout">
@@ -152,8 +152,8 @@
                             </span>
                             <div class="img-section-color">
                                 <img src="../"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))" alt=""
-                                    class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                                     <p>Números de Telefone:</p>
                                     <div>
                                         <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
-                                            <p></p>
+                                        <p></p>
                                         <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
                                     </div>
                                 </div>
@@ -239,7 +239,8 @@
                     </div>
 
                     <div class="info-dados-perfil add-veiculo" id="not-add-historic" style="display: none;">
-                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                        <img src="../"
+                            onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
                             alt="">
                         <p>Você ainda não fez nenhuma Mudança.</p>
                     </div>
@@ -353,6 +354,11 @@
                             alt="">
                         <p>Trocar Tipo de Conta</p>
                     </div>
+
+                    <div class="logout-mobile">
+                        <p class="" onclick="logOut()">Sair da Conta</p>
+                    </div>
+
 
                 </div>
 

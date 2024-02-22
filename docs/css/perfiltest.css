@@ -53,6 +53,21 @@
     background-color: var(--color-background-perfil3);
 }
 
+.edited-photo-perfil {
+    position: relative;
+    left: 160px;
+    bottom: 60px;
+    border: 2px solid #000;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 #rating-conquistas-usuario {
     display: flex;
     font-weight: bold;
@@ -424,6 +439,10 @@
     width: 97%;
 }
 
+.logout-mobile {
+    display: none;
+}
+
 
 
 /* --- PERFIL MOBILE --- */
@@ -466,6 +485,21 @@
         width: 100%;
         height: 100%;
         background-color: var(--color-background-perfil3);
+    }
+
+    .edited-photo-perfil {
+        position: relative;
+        left: 120px;
+        bottom: 45px;
+        border: 2px solid #000;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
     }
 
     #rating-conquistas-usuario {
@@ -578,7 +612,7 @@
 
 
 
-    /* --- DADOS DO HISTÓRICO  E VEÍCULO MOBILE--- */
+    /* --- DADOS DO HISTÓRICO E VEÍCULO MOBILE--- */
 
     .item {
         width: 100%;
@@ -663,5 +697,18 @@
     #dados-veiculo-principal {
         margin-top: 25px;
         width: 100%;
+    }
+
+
+
+    /* --- CONFIGURAÇÕES MOBILE--- */
+
+    .logout-mobile {
+        display: flex;
+        background-color: var(--color-background-perfil3);
+        color: red;
+        justify-content: center;
+        align-content: center;
+        font-size: large;
     }
 }
