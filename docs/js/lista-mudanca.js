@@ -124,3 +124,35 @@ $(() => {
     });
 });
 
+
+// $(document).ready(function() {
+//     // Função para buscar os dados do servidor quando a página carregar
+//     buscarDadosDoServidor();
+// });
+
+// async function buscarDadosDoServidor() {
+//     try {
+//         const response = await fetch('url_do_seu_servidor_csharp');
+//         if (!response.ok) {
+//             throw new Error('Erro ao buscar os dados do servidor');
+//         }
+//         const data = await response.json();
+
+//         // Preencher os campos do formulário com os dados recebidos
+//         data.forEach(element => {
+//             var novoModelo = $('#modelo-mudanca').clone().removeAttr('id').removeClass('hidden');
+//             $('.valor', novoModelo).text(element.valor);
+//             $('.data', novoModelo).text(element.data);
+//             $('.usuario', novoModelo).text(element.usuario);
+//             $('.origem', novoModelo).text(element.origem);
+//             $('.destino', novoModelo).text(element.destino);
+//             $('.descricao', novoModelo).text(element.descricao);
+
+//             // Adicionar o novo modelo preenchido ao formulário
+//             $('#dados-lista').append(novoModelo);
+//         });
+
+//     } catch (error) {
+//         console.error('Erro ao buscar os dados do servidor:', error);
+//     }
+// }
