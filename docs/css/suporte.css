@@ -18,8 +18,9 @@
 
 .container-suporte {
     /* display: flex; */
-    height: (100vh - 163px);
-    margin-top: 140px;
+    height: calc(100vh - 163px);
+    position: relative;
+    top: -150px;
     width: 100vw;
     justify-content:center;
     align-items:center;
@@ -151,7 +152,7 @@ button:hover {
 
 @media (min-width: 1100px) {
     .container-suporte{
-        margin-left: 150px;
+        margin: 150px;
     }
  
     .banner {
