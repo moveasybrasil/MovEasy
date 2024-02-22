@@ -12,45 +12,42 @@
     background: url("./assets/images/bg-home-sm.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom;    
+    background-position: bottom;
     border-top: 1px solid;
     overflow: hidden;
 }
-.content{
+
+.content {
     background: url(../assets/images/pexels-daniil-ustinov-8360517.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 86.31vh;
+    width: 100%;
+    height: 87vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: rgba(0, 0, 0, .5);
 }
 
-.form-cadastro {    
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Reduzindo a largura para ocupar 80% da largura da tela */
-    max-width: 430px; /* Definindo uma largura máxima para evitar que a caixa fique muito larga */
-    background-color: #fff;
-    border: 1px solid #bbb;
+.form-cadastro {
+    width: 422px;
+    height: 680px;
+    background-color: #FFF;
     border-radius: 10px;
-    padding: 20px; /* Adicionando um preenchimento interno */
-    box-sizing: border-box; /* Garantindo que o preenchimento seja incluído na largura total */
+    padding: 20px 50px 20px 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .info-cadastro input {
-    width: 95%; 
+    width: 100%;
     height: 50px;
     border-radius: 5px;
     border: 1px solid #bbb;
     background-color: #f5f5f5;
     padding: 0 10px 0 10px;
-    margin: 10px 10px 10px 10px; 
+    margin: 10px 10px 10px 0px;
 }
 
 .info-cadastro {
@@ -62,7 +59,7 @@
 .info-cadastro label {
     color: #0f0000;
     padding-left: 15px;
-}   
+}
 
 #title-form {
     margin-top: 20px;
@@ -72,67 +69,33 @@
     padding-bottom: 20px;
 }
 
-.botao{
-margin-top: 20px;
+.botao {
+    margin-top: 20px;
 }
+
 #button-cadastrar {
     display: flex;
     width: 322px;
     height: 50px;
     font-size: 20px;
+    font-weight: bold;
     border-radius: 5px;
     justify-content: center;
     margin: 0 auto 0 auto;
-    padding-top: 10px;
-    background-color: #e4321e;  
-    color: #FFF; 
+    align-items: center;
+    background-color: #e4321e;
+    color: #FFF;
 }
 
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 768px) {
 
-    .content{
-        background: none;  
+    .content {
+        background-image: none;
+        background-color: #FFF;
         width: 100%;
-        height: 100%; 
-    }
-
-    .form-cadastro {     
-        margin-top: 60px;
-        height: 650px;
-        width: 380px;
-        border-radius: 10px;
-        align-items: center;
-        border: none;
-    
-    }
-    
-
-    .info-cadastro input {
-        width: 95%; 
-        height: 45px;
-        border-radius: 5px;
-        margin: 10px 10px 10px 10px; 
-    }
-    #button-cadastrar {
+        height: 100%;
         display: flex;
-        width: 320px;
-        height: 50px;
-        font-size: 20px;
-        border-radius: 5px;
+        align-items: center;
         justify-content: center;
-        background-color: #e4321e;  
-        color: #FFF; 
     }
-
-    .info-cadastro label {
-    color: #0f0000;
-    padding-left: 15px;
-}  
-
-#title-form {
-
-    width: 100%;
-
-}
-
 }
