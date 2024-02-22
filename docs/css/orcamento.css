@@ -9,6 +9,7 @@
 
 .container {
     max-width: 600px;
+    margin-top: 150px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -74,11 +75,8 @@ h1 {
 
 
  @media only screen and (max-width: 768px)  {
+
     
-    .container {
-        margin-top: 150px;
-        width: 100%;
-    }
 }
 
     

@@ -16,3 +16,18 @@
         
         alert("Orçamento enviado!");
     }
+
+
+// Recupera os valores armazenados na localStorage
+var termos = localStorage.getItem('termos');
+var observacao = localStorage.getItem('observacao');
+var descricaoOrigem = localStorage.getItem('descricaoOrigem');
+var descricaoDestino = localStorage.getItem('descricaoDestino');
+var data = localStorage.getItem('data');
+
+// Use os valores conforme necessário
+console.log("Termos:", termos);
+console.log("Observação:", observacao);
+console.log("Descrição de origem:", descricaoOrigem);
+console.log("Descrição de destino:", descricaoDestino);
+console.log("Data:", data);
