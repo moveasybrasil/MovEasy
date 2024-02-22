@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovEasy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/saved_resource"></script>
+  <script src="./js/common.js"></script>
+
+
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/orcamento.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="banner bg-local">
+    <header>
+      <div class="header" id="header">
+        <div class="btn-container">
+          <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+        </div>
+        <div class="logo-header">
+          <img id="logo-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))"
+            alt="movEasy">
+        </div>
+        <div class="navigation-header" id="navigation-header">
+          <div class="btn-icon-x btn-container">
+            <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+          </div>
+          <a class="header-home" href="javascript:goTo('index')">HOME</a>
+          <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+          <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+          <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+        </div>
+      </div>
+  </div>
+  </header>
+  <div class="content">
+    <div class="container-solicitacao">
+      <form action="">
+        <div class="container">
+            <h1>Orçamento</h1>
+            <div class="form-group">
+                <label for="name">Endereço inicial:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Endereço final:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Valor:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <a href="pagamento.html" class="btn" onclick="submitForm()">Seguir para pagamento</a>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./js/index.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/orcamento.js"></script>  
+</body>

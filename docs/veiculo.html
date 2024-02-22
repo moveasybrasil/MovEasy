@@ -11,6 +11,7 @@
   <script src="./js/saved_resource"></script>
   <script src="./js/common.js"></script>
 
+
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/veiculo.css">
   <script>
@@ -58,7 +59,7 @@
       <form action="">
         <div class="form-cadastro">
           <h1 id="title-form">Cadastro veiculo</h1>
-
+          
           <div class="info-cadastro">
             <label for="formulario-solicitacao-descricao">Placa:</label>
             <input type="text" placeholder="Digite a placa do seu veiculo" id="Placa"
@@ -78,7 +79,7 @@
 
             <div class="botao">
               <div class="button-form" id="button-cadastrar">
-                <button type="button">Cadastrar</button>
+                <button id="botaoEnviar" onclick="register()" type="button">Cadastrar</button>
               </div>
             </div>
           </div>
@@ -87,6 +88,7 @@
       </form>
     </div>
   </div>
+  
   <div id="poplinkedin" popover>
     <span>Clique no nome do integrante que gostaria de conhecer:</span>
     <div>
@@ -176,4 +178,5 @@
 
   <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/veiculo.js"></script>  
 </body>
