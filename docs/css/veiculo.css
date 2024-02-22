@@ -30,13 +30,17 @@
 }
 
 .form-cadastro {    
-    margin-top: 90px;
-    height: 680px;
-    width: 430px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Reduzindo a largura para ocupar 80% da largura da tela */
+    max-width: 430px; /* Definindo uma largura máxima para evitar que a caixa fique muito larga */
     background-color: #fff;
     border: 1px solid #bbb;
     border-radius: 10px;
-    align-items: center;
+    padding: 20px; /* Adicionando um preenchimento interno */
+    box-sizing: border-box; /* Garantindo que o preenchimento seja incluído na largura total */
 }
 
 .info-cadastro input {
