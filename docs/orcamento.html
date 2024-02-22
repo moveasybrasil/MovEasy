@@ -11,8 +11,9 @@
   <script src="./js/saved_resource"></script>
   <script src="./js/common.js"></script>
 
+
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/alterar-veiculo.css">
+  <link rel="stylesheet" href="./css/orcamento.css">
   <script>
     tailwind.config = {
       theme: {
@@ -46,7 +47,6 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
           <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
         </div>
       </div>
@@ -54,49 +54,28 @@
   </header>
   <div class="content">
     <div class="container-solicitacao">
-      <form action="/action_page.php" method="get">
-        <div class="form-cadastro">
-          <h1 id="title-form">Alterar informações</h1>
-          <h2 class="sub-title-form">dos veiculos</h2>
-          <div class="info-cadastro">
-
-            <label for="formulario-solicitacao-descricao">Veiculo:</label>
-            <input list="Veiculos" placeholder="Selecione o veículo para ser alterado." name="Veiculo" id="Veiculo">
-            <datalist id="Veiculos">
-
-              <option value="Caminhão">
-              <option value="Carro de sorvete">
-              <option value="Saveiro">
-              <option value="Fiorino">
-              <option value="Carro do batman">
-            </datalist>
-            
-            <label for="formulario-solicitacao-descricao">Placa:</label>
-            <input type="text" placeholder="Digite a placa do seu veículo" id="Placa" oninput="checkInputLength()"></input>
-
-            <label for="formulario-solicitacao-descricao">Nome:</label>
-            <input type="text" placeholder="Digite o nome do seu veículo." id="Nome"></input>
-
-            <label for="formulario-solicitacao-observacao">Ano:</label>
-            <input type="observacao" placeholder="Digite o nome do seu veículo." id="Ano"></input>
-
-            <label for="formulario-solicitacao-data">Cor:</label>
-            <input type="data" placeholder="Digite a cor do seu veículo." id="Cor"></input>
-
-            <label for="formulario-solicitacao-contratante">Capacidade:</label>
-            <input type="contratante" placeholder="Digite a capacidade do seu veículo." id="Capacidade"></input>
-
-            <div class="botao">
-              <div class="button-form" id="button-cadastrar">
-                <button type="button">Cadastrar</button>
-              </div>
+      <form action="">
+        <div class="container">
+            <h1>Orçamento</h1>
+            <div class="form-group">
+                <label for="name">Endereço inicial:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
             </div>
-          </div>
-
+            <div class="form-group">
+                <label for="email">Endereço final:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Valor:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <a href="pagamento.html" class="btn" onclick="submitForm()">Seguir para pagamento</a>
+        </div>
         </div>
       </form>
     </div>
   </div>
   <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/orcamento.js"></script>  
 </body>

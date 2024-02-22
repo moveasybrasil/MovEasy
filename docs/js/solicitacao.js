@@ -82,3 +82,17 @@ $(document).ready(function() {
     // Chame a função para buscar os dados do banco de dados quando a página carregar
     buscarDadosDoBanco();
 });
+
+// Obtém os valores dos campos de entrada
+var termos = document.getElementById('Termos').value;
+var observacao = document.getElementById('Observacao').value;
+var descricaoOrigem = document.getElementById('descricao-origem').value;
+var descricaoDestino = document.getElementById('descricao-destino').value;
+var data = document.getElementById('Data').value;
+
+// Armazena os valores na localStorage
+localStorage.setItem('termos', termos);
+localStorage.setItem('observacao', observacao);
+localStorage.setItem('descricaoOrigem', descricaoOrigem);
+localStorage.setItem('descricaoDestino', descricaoDestino);
+localStorage.setItem('data', data);
