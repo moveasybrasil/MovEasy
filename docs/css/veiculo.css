@@ -15,6 +15,7 @@
     background-position: bottom;
     border-top: 1px solid;
     overflow: hidden;
+    background-color: #FFF;
 }
 
 .content {
@@ -92,10 +93,14 @@
     .content {
         background-image: none;
         background-color: #FFF;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 75vh;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .form-cadastro {
+        box-shadow: none;
     }
 }
