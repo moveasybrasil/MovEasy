@@ -56,7 +56,7 @@ $(() => {
     });
 
     $(document).on('click', '#btn-aceitar', function () {
-        goTo('user/perfiltest');
+        goTo('user/perfil');
     });
 
 });
