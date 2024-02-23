@@ -66,14 +66,13 @@ async function searchPlateInformation(placa) {
 
 async function register(){
 
-
   let valorNome = document.getElementById('Nome').value;
   let valorCor = document.getElementById('Cor').value;
   let valorAno = document.getElementById('Ano').value;
   let valorPlaca = document.getElementById('Placa').value;
   let valorCapacidade = document.getElementById('Capacidade').value;
 
-  request("POST", `${serverURL}/vehicle/${placa} `, (xhr) => {
+  request("POST", `${serverURL}/vehicle`, (xhr) => {
     console.log(xhr.responseText)
   }, {
     LicensePlate: valorPlaca,
