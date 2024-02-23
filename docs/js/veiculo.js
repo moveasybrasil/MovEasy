@@ -8,7 +8,7 @@ function checkInputLength() {
 }
 
 // trocar rota aqui para rota da api do server do projeto git
-const baseURL = `https://localhost:7014`;
+const baseURL = `Server=mysql-1e882686-moveasy.a.aivencloud.com;Port=11197`;
 
 async function searchPlateInformation(placa) {
 
@@ -65,6 +65,7 @@ async function searchPlateInformation(placa) {
 
 
 async function register(){
+
 
   let valorNome = document.getElementById('Nome').value;
   let valorCor = document.getElementById('Cor').value;

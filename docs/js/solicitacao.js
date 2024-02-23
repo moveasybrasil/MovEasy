@@ -204,23 +204,27 @@ function salvarDadosLocalmente() {
     let dadosOrigem = {}, dadosDestino = {};
 
     Object.keys(campos).forEach(id => {
-        const valor = document.getElementById(id).value;
-        if (!id.value) {
-            id.value == 'zero';
-        }
-        const chave = campos[id];
-
-        if (id.includes('Orig')) {
-            dadosOrigem[chave] = valor;
+        const element = document.getElementById(id);
+        if (element) {
+            const valor = element.value;
+            const chave = campos[id]; // Move this line here
+            if (id.includes('Orig')) {
+                dadosOrigem[chave] = valor;
+            } else {
+                dadosDestino[chave] = valor;
+            }
         } else {
-            dadosDestino[chave] = valor;
+            console.error(`Element with ID '${id}' not found.`);
         }
     });
 
     localStorage.setItem('dadosOrigem', JSON.stringify(dadosOrigem));
     localStorage.setItem('dadosDestino', JSON.stringify(dadosDestino));
+
+    console.log(dadosOrigem);
+    console.log(dadosDestino);
 }
 
 function redirecionarParaPaginaOrcamento() {
-    window.location.href = 'pagina/orcamento.html';
+    //window.location.href = 'orcamento.html';
 }
