@@ -66,7 +66,7 @@ namespace Backend.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Você não pode editar um veículo que não pertence a você!");
+                throw new Exception($"Você não pode editar um veículo que não pertence a você! {ex.Message}");
             }
         }
 
