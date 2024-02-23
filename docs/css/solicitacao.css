@@ -52,13 +52,12 @@ form {
 .title-form {
     color: #000;
     font-weight: bold;
-    margin-top: 10px; /* Espaçamento entre rótulos e campos de entrada */
 }
 
 .title-form {
     text-align: center;
     font-size: 25px;
-    padding-bottom: 20px;
+
 }
 
 .info-formes-solicitacao input {
@@ -90,3 +89,87 @@ form {
     flex-grow: 1;
     cursor: pointer; /* Adiciona cursor de ponteiro nos botões */
 }
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+    margin: 10px 10px 30px 10px;
+}
+
+.tag {
+    border: 1px dashed black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.selected
+{
+    background-color: #e4321e;
+    color: white;
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.container-tags h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.consulta-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .consulta-form > label {
+    margin-right:10px;
+  }
+  
+  .consultar-cep {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .consulta-form input[type="text"] {
+    padding-right: 40px; /* Ajuste conforme necessário para dar espaço ao botão */
+    width: 200px; /* Ajuste conforme necessário */
+    height: 30px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc; /* Adicione estilos de borda conforme necessário */
+    border-radius: 4px; /* Adicione bordas arredondadas conforme necessário */
+  }
+  
+  .consulta-form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%; /* O botão deve ter a mesma altura que o campo de entrada */
+    padding: 0 10px; /* Ajuste conforme necessário para o espaçamento interno do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remova a borda do botão */
+    border-top-right-radius: 4px; /* Arredonde apenas o canto superior direito do botão */
+    border-bottom-right-radius: 4px; /* Arredonde apenas o canto inferior direito do botão */
+    cursor: pointer; /* Altere o cursor ao pairar sobre o botão */
+  }
+  
+  .consulta-form button:hover {
+    background-color: #0056b3; /* Altere a cor de fundo ao passar o mouse sobre o botão */
+  }
+
+  .campo-vazio {
+    border: 1px solid red;
+  }
+
+  

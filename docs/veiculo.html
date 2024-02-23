@@ -48,13 +48,14 @@
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
           <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
-          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
+          <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
 
         </div>
       </div>
   </div>
   </header>
-  <div class="content">
+
+  <div class="content" id="content">
     <div class="container-solicitacao">
       <form action="">
         <div class="form-cadastro">
@@ -62,7 +63,8 @@
           
           <div class="info-cadastro">
             <label for="formulario-solicitacao-descricao">Placa:</label>
-            <input type="text" placeholder="Digite a placa do seu veiculo" id="Placa" oninput="checkInputLength()"></input>
+            <input type="text" placeholder="Digite a placa do seu veiculo" id="Placa"
+              oninput="checkInputLength()"></input>
 
             <label for="formulario-solicitacao-descricao">Nome:</label>
             <input type="text" placeholder="Digite o nome do seu veiculo" id="Nome"></input>
@@ -87,6 +89,94 @@
       </form>
     </div>
   </div>
+  
+  <div id="poplinkedin" popover>
+    <span>Clique no nome do integrante que gostaria de conhecer:</span>
+    <div>
+      <img src="./assets/images/perfil_dj.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/djordhan-eyng-369b1a288/">Djordhan da Rosa Eyng</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_edu.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/eduardorauber/">Eduardo Bolson Rauber</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_luciano.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/luciano-francisco-dias-b094391ab/">Luciano
+        Francisco
+        Dias</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_luiz.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/luizeduardooo/">Luiz Eduardo Andrzejewski</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_ricardo.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/rbmees/">Ricardo Berri Mees</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_victor.jpg" alt="">
+      <a class="nome-linkedin" href="https://www.linkedin.com/in/victor-matheus-da-costa-mariano-444ab6244/">Victor
+        Matheus da Costa Mariano</a>
+    </div>
+  </div>
+
+  <div id="popgithub" popover>
+    <span>Clique para ir ao portifólio:</span>
+    <div>
+      <img src="./assets/images/perfil_dj.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/Djordhan-Eyng">Djordhan da Rosa Eyng</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_edu.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/edurauber">Eduardo Bolson Rauber</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_luciano.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/lucianodias426">Luciano
+        Francisco
+        Dias</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_luiz.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/luizeduardooo">Luiz Eduardo Andrzejewski</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_ricardo.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/Dekayra">Ricardo Berri Mees</a>
+    </div>
+    <div>
+      <img src="./assets/images/perfil_victor.jpg" alt="">
+      <a class="nome-linkedin" href="https://github.com/Victtoor">Victor
+        Matheus da Costa Mariano</a>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="footer">
+
+    <div class="footer-icon flex">
+      <div class="in-iconbg ft-icon">
+        <div class="ft-icon" id="in-icon">
+        </div>
+      </div>
+      <div class="ft-icon" id="fb-icon">
+        <img src="./assets/images/facebook-f.svg" class="ftr_icon" id="facebook_icon" alt="icone facebook" srcset="">
+      </div>
+      <div class="git-iconbg ft-icon" id="ft-icon">
+        <div class="ft-icon" id="git-icon">
+        </div>
+      </div>
+      <div class="ft-icon" id="insta-icon">
+        <img src="./assets/images/instagram(1).svg" class="ftr_icon" id="instagram_icon" alt="icone instagram"
+          srcset="">
+      </div>
+    </div>
+    <span class="text-sm">movEasy Tecnologia. © 2024.</span>
+  </div>
+  </footer>
+
   <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
   <script src="./js/veiculo.js"></script>  

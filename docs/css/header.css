@@ -14,11 +14,11 @@ header {
 
 #header {
     width: 100%;
-    height: 130px;
+    height: 105px;
     background-color: var(--color-background);
     justify-content: space-between;
-    padding: 0 7%;
-    font-size: 20px;
+    padding: 0 3%;
+    font-size: 15px;
     color: var(--color-text);
 }
 
@@ -53,8 +53,8 @@ header {
 }
 
 #logo-img {
-    width: 300px;
-    height: 70px;
+    width: 225px;
+    height: 54px;
     cursor: pointer;
 }
 
@@ -87,6 +87,7 @@ header {
     background-color: var(--color-active);
     background-size: 0.5%;
     border-radius: 5px;
+    pointer-events: painted;
 }
 
 
@@ -215,7 +216,8 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 5px;
+    padding: 25px 0;
+    gap: 15px;
 }
 
 .footer-icons {
@@ -233,7 +235,7 @@ header {
 
 .footer-icon {
     gap: 15px;
-    width: 400px;
+    width: 300px;
     justify-content: center;
     align-items: center;
 }

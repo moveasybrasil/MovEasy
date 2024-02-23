@@ -12,7 +12,10 @@
     <script src="../js/common.js"></script>
 
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/perfiltest.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -46,51 +49,323 @@
                     <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
                     <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+                    <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
                     <a class="header-login"
-                        href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
-                        <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
+                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
 
                 </div>
             </div>
         </header>
-        <div id="content">
-            <div class="">
-                <div class="container flex px-8">
-                    <button name="dados-cadastro" id="btn-dados-cadastro" class="button-container">Dados do
-                        Cadastro</button>
-                    <button name="dados-pessoais" id="btn-dados-pessoais" class="button-container">Dados
-                        Pessoais</button>
-                </div>
-                <div class="container-dados mx-2">
+
+        <div class="content" id="content">
+            <div class="barra-lateral">
+                <div class="img-perfil" id="img-perfil">
                     <img id="photo" src="../assets/images/default.jpg"
-                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))" width="100px">
-                    <div id="modal-photo" class="modal">
-                        <div class="flex justify-end w-1/2">
-                            <span id="fecha-modal" class="text-4xl m-6">X</span>
+                        onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+
+                    <div class="edited-photo-perfil">
+                        <span class="material-symbols-outlined" id="photo-input" onchange="fileChanged()">
+                            edit
+                        </span>
+                    </div>
+
+                    <div id="modal-photo" class="modal" style="position: absolute;">
+                        <div class="fechar-modal">
+                            <span id="fecha-modal">X</span>
                         </div>
-                        <img id="photo-change" src="../assets/images/default.jpg"
-                            onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
-
-                        <label id="photo-input-label">
-                            Selecionar arquivo
-                            <input style="display: none" id="photo-input" type="file" name="file"
-                                onchange="fileChanged()">
-                        </label>
-
+                        <div>
+                            <div class="photo-change">
+                                <img id="photo-change" src="../assets/images/default.jpg"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+                                <div class="photo-select-archive">
+                                    <label id="photo-input-label">
+                                        <img src="../"
+                                            onerror="this.setAttribute('src', getUrl('assets/images/camera-trocar-foto.png'))"
+                                            alt="">
+                                        <input style="display: none" id="photo-input" type="file" name="file"
+                                            onchange="fileChanged()">
+                                </div>
+                            </div>
+                            </label>
+                        </div>
                         <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                    </div>
+                </div>
+                <div id="rating-conquistas-usuario">
+                    <p id="nome-usuario">★ 4.98</p>
+                    <div id="conquistas-usuario">
+                        <p id="conquista-txt-usuario">———— Conquistas ————</p>
+                        <div id="icons-conquistas-usuario">
+                            <div>
+                                <img id="conquista-img" src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/conquista-user.png'))"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-logout">
+                    <p class="" onclick="logOut()">Sair da Conta</p>
+                </div>
+            </div>
+
+            <div class="container-dados">
+
+                <div class="nome-usuario-perfil">
+                    <span id="nome-usuario-perfil">NOME COMPLETO</span>
+                </div>
+
+                <div class="sections-perfil">
+                    <div class="sections-perfil-informacoes" id="sections-perfil-informacoes">
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                                Informações
+                            </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/informacoes-perfil.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-informacoes', 0)" class="active-perfil">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="sections-perfil-historico" id="sections-perfil-informacoes">
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-historico', 1)">
+                                Histórico
+                            </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/historico-perfil.png'))"
+                                    alt="" onclick="mostrarDiv('container-dados-historico', 1)">
+                            </div>
+                        </div>
 
                     </div>
 
 
+                    <div id="sections-perfil-veiculos" id="sections-perfil-informacoes">
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-veiculos', 2)">
+                                Veículos
+                            </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sections-perfil-configuracoes" id="sections-perfil-informacoes">
+                        <div class="sections-perfil-desktop">
+                            <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                                Configurações
+                            </span>
+                            <div class="img-section-color">
+                                <img src="../"
+                                    onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))" alt=""
+                                    onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-end flex p-8">
-                    <button name="logout" id="btn-logout" class="" onclick="logOut()">Logout</button>
+
+                <div class="mostrar-div" id="container-dados-informacoes">
+
+                    <div class="container-informacoes" id="container-informacoes">
+
+                        <div class="info-perfil-for-motorista">
+                            <div class="info-perfil" id="sobre-perfil" style="padding-bottom: 20px;">
+                                <p>Sobre: </p>
+                                <span id="sobre-perfil">Sou um cliente da MovEasy.</span>
+                            </div>
+                        </div>
+
+                        <div class="info-perfil-for-user" id="info-perfil-for-user">
+                            <div style="width: 50vw; margin: 20px 0;">
+
+                                <div class="info-dados-perfil dados-perfil">
+                                    <p>Números de Telefone:</p>
+                                    <div>
+                                        <span id="telefone1-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                        <p></p>
+                                        <span id="telefone2-perfil" style="padding-right: 6px;">(XX) XXXXX-XXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-dados-perfil dados-perfil">
+                                    <p>Email: </p>
+                                    <div>
+                                        <span id="email-perfil">seuemail@email.com</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="width: 50vw; margin: 20px 0;">
+
+                                <div class="info-dados-perfil dados-perfil">
+                                    <p>Status da Conta:</p>
+                                    <div>
+                                        <span id="status-perfil">Ativo</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-dados-perfil dados-perfil">
+                                    <p>ID:</p>
+                                    <div>
+                                        <span id="id-perfil">0000001</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-perfil-for-motorista info-dados-perfil dados-perfil"
+                            id="dados-veiculo-principal">
+                            <p>Veículo Principal: </p>
+                            <div>
+                                <span id="main-vehicle-perfil-motorista">Modelo | Cor | Placa</span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
+                <div class="container-dados-historico mostrar-div" id="container-dados-historico">
+
+                    <div class="info-perfil" style="display: block; padding-bottom: 20px;">
+                        <p style="padding-top: 50px;">Analise o seu Histórico de Mudanças aqui:</p>
+                    </div>
+
+                    <div class="info-dados-perfil add-veiculo" id="not-add-historic" style="display: none;">
+                        <img src="../"
+                            onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
+                            alt="">
+                        <p>Você ainda não fez nenhuma Mudança.</p>
+                    </div>
+
+
+                    <div id="dados-historico">
+
+                        <div id="modelo-historico" class="item hidden">
+
+                            <div class="info-dados-perfil info-dados-historico">
+                                <p>Data:</p><a class="data">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-historico">
+                                <p>Origem:</p><a class="origem">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-historico">
+                                <p>Destino:</p><a class="destino">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-historico">
+                                <p>Valor:</p><a class="valor">Informações...</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-dados-veiculos mostrar-div" id="container-dados-veiculos">
+                    <div class="info-perfil" style="display: block; padding-bottom: 20px;">
+                        <p style="padding-top: 50px;">Analise e adicione novos Veículos aqui:</p>
+                    </div>
+
+                    <div id="dados-veiculos">
+
+                        <div class="info-dados-perfil add-veiculo" onclick="goTo('veiculo')">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/adicionar-veiculo.png'))"
+                                alt="">
+                            <p>Adicionar Veículo</p>
+                        </div>
+
+                        <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="">
+                            <p>Editar Veículo</p>
+                        </div>
+
+                        <div class="info-dados-perfil add-veiculo">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                            <p>Selecionar Veículo Principal</p>
+                        </div>
+
+                        <div class="info-perfil" style="display: block; padding-bottom: 20px;">
+                            <p style="padding-top: 20px;">Todos os seus veículos:</p>
+                        </div>
+
+                        <div class="info-dados-perfil add-veiculo" id="not-add-vehicle" style="display: none;">
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                            <p>Você ainda não adicionou nenhum Veículo.</p>
+                        </div>
+
+                        <div id="modelo-veiculo" class="item hidden">
+
+                            <div class="info-dados-perfil info-dados-veiculo">
+                                <p>Modelo:</p><a class="modelo">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-veiculo">
+                                <p>Ano:</p><a class="ano">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-veiculo">
+                                <p>Cor:</p><a class="cor">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-veiculo">
+                                <p>Placa:</p><a class="placa">Informações...</a>
+                            </div>
+
+                            <div class="info-dados-perfil info-dados-veiculo">
+                                <p>Fotos:</p><a class="images">Informações...</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-dados-configuracoes mostrar-div" id="container-dados-configuracoes">
+                    <div class="info-perfil" style="display: block; padding-bottom: 20px;">
+                        <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:
+                        </p>
+                    </div>
+
+                    <div class="info-perfil">
+                        <p>Tipo de Conta:</p>
+                        <span id="tipo-perfil">Cliente</span>
+                    </div>
+
+                    <div class="info-dados-perfil config-perfil">
+                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/alterar-dados.png'))"
+                            alt="">
+                        <p>Alterar suas Informações</p>
+                    </div>
+
+                    <div class="info-dados-perfil config-perfil">
+                        <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/trocar-usuario.png'))"
+                            alt="">
+                        <p>Trocar Tipo de Conta</p>
+                    </div>
+
+                    <div class="logout-mobile">
+                        <p class="" onclick="logOut()">Sair da Conta</p>
+                    </div>
+
+
+                </div>
+
             </div>
-
-
         </div>
 
+    </div>
     </div>
 
     <script src="../js/header.js"></script>
