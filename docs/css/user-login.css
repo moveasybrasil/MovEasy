@@ -20,6 +20,7 @@
 #content {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, .4);
@@ -121,7 +122,6 @@
 }
 
 .corpo {
-    margin-top: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,5 +145,9 @@
     #content {
         background-image: none;
         background-color: #FFF;
+    }
+
+    .menu-login {
+        box-shadow: none
     }
 }

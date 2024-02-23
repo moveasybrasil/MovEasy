@@ -5,14 +5,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MovEasy</title>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./js/saved_resource"></script>
   <script src="./js/common.js"></script>
 
+
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/faq.css">
+  <link rel="stylesheet" href="./css/orcamento.css">
   <script>
     tailwind.config = {
       theme: {
@@ -46,27 +47,35 @@
           <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
           <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
           <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
-          <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
           <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
-
         </div>
       </div>
-    </header>
-
-    <div id="content">
-      <div id="faq" class="ml-4 sm:ml-14 md:ml-20 lg:ml-28 mt-28 ">
-        <div id="modelo" class="item hidden">
-          <a class="pergunta text-4xl">Pergunta...</a>
-          <a class="resposta text-2xl">Resposta...</a>
+  </div>
+  </header>
+  <div class="content">
+    <div class="container-solicitacao">
+      <form action="">
+        <div class="container">
+            <h1>Orçamento</h1>
+            <div class="form-group">
+                <label for="name">Endereço inicial:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Endereço final:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Valor:</label>
+                <div class="editable" contenteditable="true" data-placeholder=""></div>
+            </div>
+            <a href="pagamento.html" class="btn" onclick="submitForm()">Seguir para pagamento</a>
         </div>
-      </div>
+        </div>
+      </form>
     </div>
-
   </div>
-
-  </div>
-  <script src="./js/faq.js"></script>
+  <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/orcamento.js"></script>  
 </body>
-
-</html>
