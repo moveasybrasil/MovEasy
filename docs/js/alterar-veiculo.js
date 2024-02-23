@@ -41,6 +41,9 @@ function alterarVeiculo() {
 
   request("PUT", `${serverURL}/vehicle`, (xhr) => {
     console.log(xhr.responseText)
+    if(xhr.status != 200) {
+      alert(xhr.responseText)
+    }
   }, {
     id: veiculo,
     licensePlate: placa,
@@ -84,7 +87,7 @@ request("GET", `${serverURL}/vehicle/id`, (xhr) => {
       response.forEach(element => {
         let option = document.createElement("option")
         option.value = element.id
-        option.innerHTML = element.name
+        option.innerHTML = element.licensePlate + " - " + element.name
         datalist.appendChild(option)
       });
     }
