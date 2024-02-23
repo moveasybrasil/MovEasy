@@ -147,4 +147,7 @@
         background-color: #FFF;
     }
 
+    .menu-login {
+        box-shadow: none
+    }
 }
