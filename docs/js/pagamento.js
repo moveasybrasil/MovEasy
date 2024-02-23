@@ -154,7 +154,7 @@ $('#btn-continua').click(() => {
   $('#meu-modal').css('display', 'flex');
 
   $('#voltar-pix').click(() => {
-    goTo("user/perfiltest")
+    goTo("user/perfil")
   });
 });
 
@@ -185,7 +185,7 @@ $('#btn-enviar').click(() => {
   //     }
   // });
   $('#voltar').click(() => {
-    goTo("user/perfiltest")
+    goTo("user/perfil")
   })
 });
 
