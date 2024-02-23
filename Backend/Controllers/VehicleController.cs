@@ -56,9 +56,15 @@ namespace Backend.Controllers
         [Authorize]
         public async Task<IActionResult> Update(VehicleEntity vehicle)
         {
-            string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
-            await _vehicleRepository.Update(vehicle, email);
-            return Ok();
+            try
+            {
+                string email = Authentication.GetClaimValueFromToken(HttpContext, ClaimTypes.Email);
+                await _vehicleRepository.Update(vehicle, email);
+                return Ok();
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]

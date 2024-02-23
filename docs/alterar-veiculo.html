@@ -1,6 +1,4 @@
-!DOCTYPE html>
 <html>
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +52,7 @@
   </div>
   <div class="content">
     <div class="container-solicitacao">
-      <form action="/action_page.php" method="get" id="veiculoForm" onsubmit="return validateForm()">
+      <form method="get" id="veiculoForm" onsubmit="return validateForm()">
         <div class="form-cadastro">
           <h1 id="title-form">Alterar Veículo</h1>
           <div class="info-cadastro">
@@ -62,12 +60,6 @@
             <label for="formulario-solicitacao-descricao">Veiculo:</label>
             <input list="Veiculos" placeholder="Selecione o veículo para ser alterado." name="Veiculo" id="Veiculo">
             <datalist id="Veiculos">
-
-              <option value="Caminhão">
-              <option value="Carro de sorvete">
-              <option value="Saveiro">
-              <option value="Fiorino">
-              <option value="Carro do batman">
             </datalist>
 
             <label for="formulario-solicitacao-descricao">Placa:</label>
@@ -87,7 +79,7 @@
 
             <div class="botao">
               <div class="button-form" id="button-cadastrar">
-                <button type="submit">Alterar</button>
+                <button type="button" onclick="alterarVeiculo()">Alterar</button>
               </div>
             </div>
           </div>
