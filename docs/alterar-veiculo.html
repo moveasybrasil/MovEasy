@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 
 <head>
@@ -50,11 +50,11 @@
           <a class="header-login" href="javascript:goTo(isTokenValid() ? 'user/perfiltest' : 'user/login')">LOGIN</a>
         </div>
       </div>
+    </header>
   </div>
-  </header>
   <div class="content">
     <div class="container-solicitacao">
-      <form action="/action_page.php" method="get">
+      <form action="/action_page.php" method="get" id="veiculoForm" onsubmit="return validateForm()">
         <div class="form-cadastro">
           <h1 id="title-form">Alterar informações</h1>
           <h2 class="sub-title-form">dos veiculos</h2>
@@ -72,23 +72,23 @@
             </datalist>
             
             <label for="formulario-solicitacao-descricao">Placa:</label>
-            <input type="text" placeholder="Digite a placa do seu veículo" id="Placa" oninput="checkInputLength()"></input>
+            <input type="text" placeholder="Digite a placa do seu veículo" id="Placa"></input>
 
             <label for="formulario-solicitacao-descricao">Nome:</label>
             <input type="text" placeholder="Digite o nome do seu veículo." id="Nome"></input>
 
             <label for="formulario-solicitacao-observacao">Ano:</label>
-            <input type="observacao" placeholder="Digite o nome do seu veículo." id="Ano"></input>
+            <input type="text" placeholder="Digite o ano do seu veículo." id="Ano"></input>
 
             <label for="formulario-solicitacao-data">Cor:</label>
-            <input type="data" placeholder="Digite a cor do seu veículo." id="Cor"></input>
+            <input type="text" placeholder="Digite a cor do seu veículo." id="Cor"></input>
 
             <label for="formulario-solicitacao-contratante">Capacidade:</label>
-            <input type="contratante" placeholder="Digite a capacidade do seu veículo." id="Capacidade"></input>
+            <input type="text" placeholder="Digite a capacidade do seu veículo." id="Capacidade"></input>
 
             <div class="botao">
               <div class="button-form" id="button-cadastrar">
-                <button type="button">Cadastrar</button>
+                <button type="submit">Alterar</button>
               </div>
             </div>
           </div>
@@ -99,4 +99,6 @@
   </div>
   <script src="./js/index.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/alterar-veiculo.js"></script>
+
 </body>

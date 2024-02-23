@@ -8,11 +8,11 @@ function checkInputLength() {
 }
 
 // trocar rota aqui para rota da api do server do projeto git
-const baseURL = `https://localhost:7014`;
+const baseURL = `Server=mysql-1e882686-moveasy.a.aivencloud.com;Port=11197`;
 
 async function searchPlateInformation(placa) {
 
-  let res = await fetch(baseURL + `/vehicle/info/${placa}`,{
+  let res = await fetch(baseURL + `/vehicle/${placa}`,{
     headers: {
       'Content-Type': 'application/json',
     }
@@ -44,6 +44,7 @@ async function searchPlateInformation(placa) {
 
 
 async function register(){
+
 
   let valorNome = document.getElementById('Nome').value;
   let valorCor = document.getElementById('Cor').value;
@@ -80,3 +81,14 @@ async function sendData(nome, placa, cor, ano, capacidade){
 
   alert('OK!')
 }
+
+request("GET", `${serverURL}/vehicle/${placa}`, (xhr) => {
+
+	console.log(xhr.responseText)
+        if (xhr.status == 200) {
+            	// codigo se der certo
+        } else {
+	    	// Codigo se der erro
+	}
+
+}, null, null, true)
