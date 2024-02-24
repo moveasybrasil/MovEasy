@@ -72,8 +72,6 @@ request("GET", `${serverURL}/vehicle/${placa} `, (xhr) => {
 
   // displayResult(data);
 
-}
-
   // function displayResult(data) {
 
   //   console.log(data);
