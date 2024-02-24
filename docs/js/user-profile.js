@@ -110,20 +110,20 @@ function mostrarDiv(idDiv, index) {
 }
 
 // Informações do Perfil
-async function loadProfileInfo(){
+async function loadProfileInfo() {
     userId = JSON.parse(sessionStorage.getItem("user")).id ?? "XXXXXXXX"
-    userName = JSON.parse(sessionStorage.getItem("user")).name ?? "Nome Completo"
-    userEmail = JSON.parse(sessionStorage.getItem("user")).email ?? "seuemail@email.com"
-    userTel1 = JSON.parse(sessionStorage.getItem("user")).telephone1 ?? ""
-    userTel2 = JSON.parse(sessionStorage.getItem("user")).telephone2 ?? ""
-    userAbout= JSON.parse(sessionStorage.getItem("user")).type == 0 ? 
-        "Sou um cliente da MovEasy. Estou aqui para solicitar mudanças" 
+    userName = JSON.parse(sessionStorage.getItem("user")).name ?? "Não Informado"
+    userEmail = JSON.parse(sessionStorage.getItem("user")).email ?? "Não Informado"
+    userTel1 = JSON.parse(sessionStorage.getItem("user")).telephone1 ?? "Não Informado"
+    userTel2 = JSON.parse(sessionStorage.getItem("user")).telephone2 ?? "Não Informado"
+    userAbout = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
+        "Sou um cliente da MovEasy e estou aqui para solicitar mudanças!"
         :
-        "Sou um motorista certificado pela MovEasy, compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!."
-    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ? 
+        "Sou um motorista certificado pela MovEasy, compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!"
+    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
         "Cliente"
         :
-        "Prestador de Serviço"
+        "Prestador de Serviço";
 
     document.getElementById("nome-usuario-perfil").innerHTML = userName
     document.getElementById("email-perfil").innerHTML = userEmail
@@ -131,7 +131,7 @@ async function loadProfileInfo(){
     document.getElementById("telefone1-perfil").innerHTML = userTel1
     document.getElementById("telefone2-perfil").innerHTML = userTel2
     document.getElementById("sobre-perfil").innerHTML = userAbout
-    document.getElementById("tipo-perfil").innerHTML = userType
+    document.getElementById("tipo-perfil").innerHTML = userType;
 }
 
 // Foto de Perfil
@@ -178,8 +178,8 @@ async function loadHistorico() {
 
 //Objeto Veículo
 async function loadVehicle() {
-    request("GET", `${serverURL}/vehicle/id`, (xhr)=>{
-        if(xhr.status == 200) {
+    request("GET", `${serverURL}/vehicle/id`, (xhr) => {
+        if (xhr.status == 200) {
             JSON.parse(xhr.responseText).forEach(element => {
 
                 const novoVeiculo = $("#modelo-veiculo").clone().removeAttr(`id`).removeClass('hidden');
@@ -188,8 +188,10 @@ async function loadVehicle() {
                 $('.cor', novoVeiculo).html(element.colour);
                 $('.placa', novoVeiculo).html(element.licensePlate);
                 $('.images', novoVeiculo).html("Sem imagens cadastradas");
-            
+
                 $("#dados-veiculos").append($(novoVeiculo));
+
+                $("#not-add-vehicle").hide()
 
             });
         } else {
