@@ -31,3 +31,33 @@ console.log("Observação:", observacao);
 console.log("Descrição de origem:", descricaoOrigem);
 console.log("Descrição de destino:", descricaoDestino);
 console.log("Data:", data);
+
+
+function exibirDadosNaPaginaOrcamento() {
+
+    // Recupera os dados salvos no localStorage    const dadosOrigem = JSON.parse(localStorage.getItem('dadosOrigem'));
+
+    const dadosDestino = JSON.parse(localStorage.getItem('dadosDestino'));
+
+
+    // Verifica se os dados foram encontrados no localStorage   
+    
+        if (dadosOrigem && dadosDestino) {
+
+        // Exibe os dados na página de destino        
+        document.getElementById('dados-origem').textContent = JSON.stringify(dadosOrigem);
+
+        document.getElementById('dados-destino').textContent = JSON.stringify(dadosDestino);
+
+        document.getElementById('origem').textContent = `${dadosOrigem.enderecoOrig} + ' ' + ${cidadeOrig}`;
+
+
+
+    } else {
+
+        // Caso os dados não sejam encontrados, exibe uma mensagem de erro
+
+        console.error('Dados de origem e/ou destino não encontrados no localStorage.');
+    }
+
+    }
