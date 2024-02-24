@@ -3,7 +3,6 @@ using Backend.Converter;
 using Backend.DTO;
 using Backend.Entity;
 using Backend.Infrastructure;
-using BingMapsRESTToolkit;
 using Dapper;
 using System.Text.Json;
 

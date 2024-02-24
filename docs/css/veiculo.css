@@ -34,7 +34,7 @@
 
 .form-cadastro {
     width: 422px;
-    height: 680px;
+    height: 531px;
     background-color: #FFF;
     border-radius: 10px;
     padding: 20px 50px 20px 50px;
@@ -48,7 +48,8 @@
     border: 1px solid #bbb;
     background-color: #f5f5f5;
     padding: 0 10px 0 10px;
-    margin: 10px 10px 10px 0px;
+    margin: 15px 15px 15px 0px;
+    font-size: 16px;
 }
 
 .info-cadastro {
@@ -58,8 +59,7 @@
 }
 
 .info-cadastro label {
-    color: #0f0000;
-    padding-left: 15px;
+    color: #000;
 }
 
 #title-form {
@@ -71,10 +71,6 @@
 }
 
 .botao {
-    margin-top: 20px;
-}
-
-#button-cadastrar {
     display: flex;
     width: 322px;
     height: 50px;
@@ -86,6 +82,34 @@
     align-items: center;
     background-color: #e4321e;
     color: #FFF;
+}
+
+.botao:hover {
+    cursor: pointer;
+}
+
+#button-continuar {
+    margin-top: 45px;
+    position: relative;
+    bottom: 20px;
+}
+
+#button-voltar {
+    width: 15%;
+    margin-top: 45px;
+    position: relative;
+    bottom: 20px;
+}
+
+#button-cadastrar {
+    width: 83%;
+    margin-top: 45px;
+    position: relative;
+    bottom: 20px;
+}
+
+#box2 {
+    display: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -101,6 +125,11 @@
     }
 
     .form-cadastro {
+        width: 422px;
+        height: 531px;
+        background-color: #FFF;
+        border-radius: 10px;
+        padding: 20px 50px 20px 50px;
         box-shadow: none;
     }
 }
