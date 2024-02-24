@@ -1,3 +1,13 @@
+:root {
+    --color-background-perfil: #010616;
+    --color-background-perfil2: #e4321e;
+    --color-background-perfil3: #FFF;
+    --color-text-perfil: #FFF;
+    --color-text-perfil2: #000;
+    --color-active-perfil: #e4321e;
+    --color-hover-perfil: #e4321e;
+}
+
 @font-face {
     font-family: Montserrat;
     src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
@@ -7,50 +17,102 @@
     font-family: Montserrat, sans-serif;
 }
 
-.container {
-    height: 10vh;
-    align-items: self-end;
+.content {
+    display: flex;
+    height: 86vh;
+    overflow: hidden;
 }
 
-.button-container {
-    height: 50px;
-    width: 100px;
-    border-radius: 10px 10px 0 0;
+
+
+/* --- BARRA LATERAL --- */
+
+.barra-lateral {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 550px;
+    height: 101%;
+    background-color: var(--color-background-perfil3);
+    color: var(--color-text-perfil2);
+    padding: 4% 0;
 }
 
-#btn-dados-cadastro {
-    background-color: #D9D9D9;
-}
-
-#btn-dados-pessoais {
-    background-color: #e9e9e9;
-}
-
-.container-dados {
-    background-color: #d9d9d9;
-    height: 60dvh;
-    width: 95vw;
-    align-self: center;
-}
-
-.container-end {
-    justify-content: end;
-}
-
-#btn-logout {
-    background-color:#e4321e;
-    color: #FFF;
-    height: 50px;
-    width: 100px;
-    border-radius: 10px;
-    justify-content: center;
-    align-content: center;
-    font-weight: 400;
+#img-perfil {
+    background-color: var(--color-background-perfil3);
+    width: 200px;
+    height: 200px;
 }
 
 #photo {
     cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background-perfil3);
 }
+
+.edited-photo-perfil {
+    position: relative;
+    left: 160px;
+    bottom: 60px;
+    border: 2px solid #000;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#rating-conquistas-usuario {
+    display: flex;
+    font-weight: bold;
+    padding-top: 20px;
+    flex-direction: column;
+    gap: 35px;
+    height: 450px;
+    align-items: center;
+    width: 250px;
+    text-align: center;
+}
+
+#conquista-txt-usuario {
+    margin-bottom: 25px;
+}
+
+#icons-conquistas-usuario {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    height: 300px;
+    width: 250px;
+}
+
+#icons-conquistas-usuario img {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-logout {
+    background-color: var(--color-background-perfil3);
+    color: var(--color-text-perfil2);
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+}
+
+.btn-logout:hover {
+    cursor: pointer;
+    color: var(--color-hover-perfil);
+}
+
+
+
+/* --- MODAL DA FOTO DE PERFIL --- */
 
 .modal {
     display: none;
@@ -58,38 +120,63 @@
 
 .show {
     position: absolute;
-    background-color: rgba(0, 0,0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     top: 15%;
     bottom: 15%;
-    left: 15%;
+    left: 40%;
     right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
-    backdrop-filter: grayscale(30%);
+    backdrop-filter: grayscale(50%);
 }
 
 #modal-photo {
-    width: 70%;
-    height: 70%
+    width: 40%;
+    height: 50%;
+    position: absolute;
 }
 
-#fecha-modal {
-    color: white;
+.fechar-modal {
+    height: 10%;
+    width: 100%;
+    text-align: end;
+    font-size: 30px;
+    padding-right: 5%;
+}
+
+#photo-input-label {
     cursor: pointer;
-    font-weight: 700;
+}
+
+.photo-select-archive {
+    z-index: 5;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    height: 3%;
+    width: 3%;
+}
+
+.photo-select-archive img {
+    width: 100%;
+    height: 100%;
+}
+
+.photo-change {
+    z-index: 1;
 }
 
 #photo-change {
+    z-index: 1;
     height: 250px;
     width: 250px;
     border-radius: 50%;
 }
 
 #btn-photo-send {
-    background-color:#e4321e;
+    background-color: #e4321e;
     color: #FFF;
     height: 50px;
     width: 100px;
@@ -97,4 +184,532 @@
     justify-content: center;
     align-content: center;
     font-weight: 400;
+}
+
+
+
+/* --- DADOS DO USÚARIO --- */
+
+.container-dados {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    background-color: var(--color-background-perfil3);
+    color: var(--color-text-perfil2);
+    padding: 4% 2% 0 2%;
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.25) inset;
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
+}
+
+
+
+/* --- DADOS DO CONTAINER INFORMAÇÕES --- */
+
+.nome-usuario-perfil {
+    width: 100%;
+    height: auto;
+    font-size: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #000;
+}
+
+.sections-perfil {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.sections-perfil img {
+    display: none;
+    cursor: pointer;
+}
+
+.sections-perfil span {
+    font-size: 17px;
+}
+
+.sections-perfil span:hover {
+    cursor: pointer;
+    color: var(--color-hover-perfil);
+}
+
+.active-perfil {
+    color: var(--color-active-perfil);
+    background-color: var(--color-background-perfil3);
+    border-bottom: 3px solid #e4321e;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+#sections-perfil-informacoes span::after,
+#sections-perfil-historico span::after,
+#sections-perfil-veiculos span::after,
+#sections-perfil-configuracoes span::after {
+    content: '';
+    display: block;
+    position: relative;
+    bottom: 1;
+    left: 1;
+    height: 5px;
+    border-top: 2px solid #FFF;
+    background-color: var(--color-hover-perfil);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 30px;
+}
+
+#sections-perfil-informacoes span::after {
+    width: 106px;
+}
+
+#sections-perfil-historico span::after {
+    width: 75px;
+}
+
+#sections-perfil-veiculos span::after {
+    width: 70px;
+}
+
+#sections-perfil-configuracoes span::after {
+    width: 122px;
+}
+
+#sections-perfil-informacoes span:hover::after,
+#sections-perfil-historico span:hover::after,
+#sections-perfil-veiculos span:hover::after,
+#sections-perfil-configuracoes span:hover::after,
+#sections-perfil-informacoes span.active::after,
+#sections-perfil-historico span.active::after,
+#sections-perfil-veiculos span.active::after,
+#sections-perfil-configuracoes span.active::after {
+    transform: scaleX(1);
+}
+
+#sections-perfil-informacoes span.active::after,
+#sections-perfil-historico span.active::after,
+#sections-perfil-veiculos span.active::after,
+#sections-perfil-configuracoes span.active::after {
+    height: 0;
+}
+
+.container-informacoes {
+    display: block;
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+.container-informacoes p {
+    padding-bottom: 20px;
+}
+
+#sobre-perfil {
+    display: block;
+}
+
+.info-perfil-second-column {
+    width: 50vw;
+    margin-top: 20px;
+}
+
+.info-perfil {
+    display: flex;
+    text-align: left;
+}
+
+.info-perfil p {
+    font-weight: bold;
+    padding-right: 8px;
+}
+
+.info-perfil-for-user {
+    display: flex;
+}
+
+.photo-veiculo-perfil {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.photo-veiculo-perfil img {
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.todas-conquistas-perfil {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.todas-conquistas-perfil img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+
+
+/* --- DADOS DO CONTAINER HISTÓRICO --- */
+
+.item {
+    width: 100%;
+    margin: 25px 0 25px 0;
+    border-left: #e4321e;
+    background-color: rgb(245, 243, 243);
+    border-style: solid;
+    padding: 5px 0;
+}
+
+.info-dados-perfil {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.info-dados-perfil p {
+    display: flex;
+    width: auto;
+    height: auto;
+    font-weight: bold;
+    padding: 0 5px 0 15px;
+}
+
+.modelo,
+.placa,
+.data,
+.origem,
+.destino,
+.valor {
+    display: block;
+    width: 100%;
+}
+
+
+
+/* --- DADOS DO CONTAINER VEÍCULOS E CONFIGURAÇÕES--- */
+
+.dados-perfil,
+.config-perfil,
+.add-veiculo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin: 25px 0 25px 0;
+    border-left: #e4321e;
+    background-color: rgb(245, 243, 243);
+    border-style: solid;
+}
+
+.config-perfil:hover,
+.add-veiculo:hover {
+    cursor: pointer;
+}
+
+.config-perfil p,
+.add-veiculo p {
+    margin-left: -20px;
+}
+
+.config-perfil img,
+.add-veiculo img {
+    margin: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.dados-perfil {
+    padding: 10px 0;
+    width: 94%;
+}
+
+#dados-veiculo-principal {
+    margin-top: -20px;
+    width: 97%;
+}
+
+.logout-mobile {
+    display: none;
+}
+
+
+
+/* --- PERFIL MOBILE --- */
+
+@media (max-width: 1125px) {
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+    }
+
+
+    /* --- BARRA LATERAL MOBILE --- */
+
+    .barra-lateral {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 220px;
+        background-color: var(--color-background-perfil3);
+        color: var(--color-text-perfil2);
+        margin: 5% 0 0 0;
+        padding: 0;
+    }
+
+    #img-perfil {
+        background-color: var(--color-background-perfil3);
+        width: 150px;
+        height: 150px;
+    }
+
+    #photo {
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid #000;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-background-perfil3);
+    }
+
+    .edited-photo-perfil {
+        position: relative;
+        left: 120px;
+        bottom: 45px;
+        border: 2px solid #000;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    #rating-conquistas-usuario {
+        display: flex;
+        font-weight: bold;
+        padding-top: 10px;
+        flex-direction: column;
+        height: 25px;
+        align-items: center;
+        width: auto;
+    }
+
+    #conquista-txt-usuario,
+    #icons-conquistas-usuario,
+    #icons-conquistas-usuario img,
+    .btn-logout,
+    .btn-logout:hover {
+        display: none;
+    }
+
+
+
+    /* --- DADOS DE INFORMAÇÕES MOBILE--- */
+
+    .container-dados {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100%;
+        background-color: var(--color-background-perfil3);
+        color: var(--color-text-perfil2);
+        padding: 4% 4% 0 4%;
+        box-shadow: none;
+    }
+
+    .nome-usuario-perfil {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        font-size: 15px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #000;
+    }
+
+    .sections-perfil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        gap: 15%;
+    }
+
+    .sections-perfil-desktop {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sections-perfil span {
+        padding-right: 0;
+        font-size: 0;
+        width: 0px;
+        height: 0;
+    }
+
+    .sections-perfil img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin-top: -25px;
+        margin-right: -15px;
+    }
+
+    .active-perfil {
+        color: none;
+        background-color: var(--color-background-perfil3);
+        border-bottom: none;
+        padding-bottom: none;
+        cursor: pointer;
+    }
+
+    #sobre-perfil {
+        display: block;
+        text-align: justify;
+        width: 100%;
+    }
+
+    .info-perfil-for-user {
+        display: block;
+    }
+
+    .info-perfil-second-column {
+        margin-top: -20px;
+    }
+
+    .info-perfil p {
+        padding-bottom: 5px;
+        justify-content: none;
+        width: 100%;
+    }
+
+    .info-perfil {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+
+
+    /* --- DADOS DO HISTÓRICO E VEÍCULO MOBILE--- */
+
+    .item {
+        width: 100%;
+        margin: 25px 0 25px 0;
+        border-left: #e4321e;
+        background-color: rgb(245, 243, 243);
+        border-style: solid;
+        padding: 0;
+    }
+
+    .info-dados-historico {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .info-dados-historico p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 2px 0 2px 15px;
+        background-color: rgb(219, 218, 218);
+    }
+
+    .info-dados-historico a {
+        padding: 2px 0 2px 15px;
+        background-color: rgb(245, 243, 243);
+    }
+
+    .info-dados-veiculo {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .info-dados-veiculo p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 2px 0 2px 15px;
+        background-color: rgb(219, 218, 218);
+    }
+
+    .info-dados-veiculo a {
+        padding: 2px 0 2px 15px;
+        background-color: rgb(245, 243, 243);
+    }
+
+    .dados-perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        text-align: start;
+        width: 184%;
+        height: auto;
+        margin-top: 0;
+        margin-right: 15px;
+        padding: 0;
+    }
+
+    .dados-perfil p {
+        display: flex;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        padding: 2px 0 2px 15px;
+        background-color: rgb(219, 218, 218);
+        width: 100%;
+        margin: 0;
+    }
+
+    .dados-perfil span {
+        padding-left: 15px;
+        width: 100%;
+        padding: 2px 0 2px 15px;
+    }
+
+    #dados-veiculo-principal {
+        margin-top: 25px;
+        width: 100%;
+    }
+
+
+
+    /* --- CONFIGURAÇÕES MOBILE--- */
+
+    .logout-mobile {
+        display: flex;
+        background-color: var(--color-background-perfil3);
+        color: red;
+        justify-content: center;
+        align-content: center;
+        font-size: large;
+        cursor: pointer;
+    }
 }
