@@ -156,20 +156,22 @@ async function loadHistorico() {
     }
 
     try {
-        const xhr = await request("GET", `${serverURL}/service/closed`);
-        if (xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
-            data.forEach(element => {
-                const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
-                $(".data", novoHistorico).html(new Date(element.date).toLocaleString("pt-BR"));
-                $(".origem", novoHistorico).html(getAddressFromAddressDto(element.address));
-                $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
-                $(".valor", novoHistorico).html(`R$ ${element.price}`);
-                $("#dados-historico").append(novoHistorico);
-            });
-        } else {
-            $("#not-add-historic").show();
-        }
+        const xhr = await request("GET", `${serverURL}/service/closed`, () =>{
+
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                data.forEach(element => {
+                    const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
+                    $(".data", novoHistorico).html(new Date(element.date).toLocaleString("pt-BR"));
+                    $(".origem", novoHistorico).html(getAddressFromAddressDto(element.address));
+                    $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
+                    $(".valor", novoHistorico).html(`R$ ${element.price}`);
+                    $("#dados-historico").append(novoHistorico);
+                })
+            } else {
+                $("#not-add-historic").show();
+            }
+        }, null, null, true)
     } catch (error) {
         console.error("Erro ao carregar o histórico:", error);
         $("#not-add-historic").show();
