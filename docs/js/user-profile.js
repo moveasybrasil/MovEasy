@@ -129,7 +129,7 @@ async function loadProfileInfo() {
     document.getElementById("email-perfil").innerHTML = userEmail
     document.getElementById("id-perfil").innerHTML = userId
     document.getElementById("telefone1-perfil").innerHTML = userTel1
-    document.getElementById("telefone2-perfil").innerHTML = userTel2
+    //document.getElementById("telefone2-perfil").innerHTML = userTel2
     document.getElementById("sobre-perfil").innerHTML = userAbout
     document.getElementById("tipo-perfil").innerHTML = userType;
 }
