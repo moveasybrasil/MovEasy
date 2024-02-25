@@ -156,8 +156,7 @@ async function loadHistorico() {
     }
 
     try {
-        const xhr = await request("GET", `${serverURL}/service/closed`, () =>{
-
+        await request("GET", `${serverURL}/service/closed`, (xhr) =>{
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
                 data.forEach(element => {
