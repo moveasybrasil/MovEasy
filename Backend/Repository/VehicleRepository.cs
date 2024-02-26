@@ -57,7 +57,7 @@ namespace Backend.Repository
                               SET Name = @Name,
                                   LicensePlate = @licenseplate,
                                   Year = @year,
-                                  Capacity = @capacity
+                                  Capacity = @capacity,
                                   Colour = @colour
                               WHERE
                                    Id = @Id
