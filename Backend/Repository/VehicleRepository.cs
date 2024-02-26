@@ -58,6 +58,7 @@ namespace Backend.Repository
                                   LicensePlate = @licenseplate,
                                   Year = @year,
                                   Capacity = @capacity
+                                  Colour = @colour
                               WHERE
                                    Id = @Id
                           ";
