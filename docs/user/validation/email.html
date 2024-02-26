@@ -12,7 +12,10 @@
   <script src="../../js/common.js"></script>
 
   <link rel="stylesheet" href="../../css/header.css">
-  <link rel="stylesheet" href="../../css/user-recovery.css">
+  <link rel="stylesheet" href="../../css/validation-email.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
   <script>
     tailwind.config = {
       theme: {
@@ -56,6 +59,40 @@
       </header>
 
       <div id="content">
+        <form action="">
+          <div class="corpo">
+
+            <div class="menu-validation">
+
+              <div class="titulo-validation">
+                <h1 class="title-box text-center">Confirmação de E-mail</h1>
+              </div>
+
+              <div class="texto-validation" style="margin-top: 50px;">
+                <p>
+                  Seu e-mail foi confirmado! Por favor, clique no botão abaixo para voltar para o login.
+                </p>
+              </div>
+
+              <div class="img-validation" style="margin-top: 90px">
+                <img id="validation-img" src="../" onerror="this.setAttribute('src', getUrl('assets/images/icon-validation-email.webp'))"
+                alt="movEasy">
+              </div>
+
+              <div style="margin-top: 105px">
+                <div class="botao-login" onclick="goTo('user/login')">
+                  <button type="button" id="btn-EnviarEmail" class="rounded-[10px] font-bold text-lg shadow">Voltar para
+                    o login</button>
+                </div>
+              </div>
+
+            </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- <div id="content">
         <div class="banner2">
           <form action="">
             <div class="corpo">
@@ -80,11 +117,9 @@
 
             </div>
         </div>
-      </div>
-    </div>
-
-    </form>
+      </div> -->
   </div>
+
   <script src="../../js/header.js"></script>
   <script src="../../js/user-validation.js"></script>
 </body>
