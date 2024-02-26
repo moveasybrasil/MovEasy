@@ -89,23 +89,19 @@
 }
 
 #button-continuar {
-    margin-top: 45px;
+    margin-top: 55px;
     position: relative;
-    bottom: 20px;
+    bottom: 25px;
 }
 
-#button-voltar {
+#botao-voltar {
     width: 15%;
-    margin-top: 45px;
-    position: relative;
-    bottom: 20px;
+    margin-top: 30px;
 }
 
-#button-cadastrar {
+#botao-cadastrar {
     width: 83%;
-    margin-top: 45px;
-    position: relative;
-    bottom: 20px;
+    margin-top: 30px;
 }
 
 #box2 {

@@ -19,7 +19,7 @@
 
 .content {
     display: flex;
-    height: 86vh;
+    height: 89vh;
     overflow: hidden;
 }
 
@@ -32,10 +32,14 @@
     align-items: center;
     flex-direction: column;
     width: 550px;
-    height: 101%;
+    height: auto;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
     padding: 4% 0;
+    -webkit-box-shadow: 10px 0px 15px 0px rgba(0, 0, 0, 0.085);
+    -moz-box-shadow: 10px 0px 15px 0px (0, 0, 0, 0.085);
+    box-shadow: 10px 0px 15px 0px (0, 0, 0, 0.085);
+    z-index: 5;
 }
 
 #img-perfil {
@@ -74,7 +78,7 @@
     padding-top: 20px;
     flex-direction: column;
     gap: 35px;
-    height: 450px;
+    height: 60%;
     align-items: center;
     width: 250px;
     text-align: center;
@@ -199,9 +203,6 @@
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
     padding: 4% 2% 0 2%;
-    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
-    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.25) inset;
-    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.38) inset;
 }
 
 
@@ -447,14 +448,15 @@
 
 /* --- PERFIL MOBILE --- */
 
-@media (max-width: 1125px) {
+@media (max-width: 1125px){
     
     .content {
         display: flex;
+        height: 100vh;
+        overflow: hidden;
         flex-direction: column;
-        height: auto;
-        overflow-y: auto;
     }
+    
 
 
     /* --- BARRA LATERAL MOBILE --- */
@@ -533,6 +535,7 @@
         color: var(--color-text-perfil2);
         padding: 4% 4% 0 4%;
         box-shadow: none;
+        overflow: auto;
     }
 
     .nome-usuario-perfil {
@@ -581,6 +584,7 @@
         border-bottom: none;
         padding-bottom: none;
         cursor: pointer;
+        filter: opacity(99%);
     }
 
     #sobre-perfil {

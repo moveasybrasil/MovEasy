@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovEasy</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <script src="./js/saved_resource"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/common.js"></script>
+
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/termos-de-uso.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner bg-local">
+        <header>
+            <div class="header" id="header">
+                <div class="btn-container">
+                    <button class="btn-icon-header" id="btn-icon" onclick="toggleSidebar()">|||</button>
+                </div>
+                <div class="logo-header">
+                    <img id="logo-img" src="../"
+                        onerror="this.setAttribute('src', getUrl('assets/images/logo_moveasy.png'))" alt="movEasy">
+                </div>
+                <div class="navigation-header" id="navigation-header">
+                    <div class="btn-icon-x btn-container">
+                        <button class="btn-icon-header-x" id="btn-icon" onclick="toggleSidebar()"> <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/XHEADER.png'))" alt=""></button>
+                    </div>
+                    <a class="header-home" href="javascript:goTo('index')">HOME</a>
+                    <a class="header-about" href="javascript:goTo('sobre')">SOBRE</a>
+                    <a class="header-faq" href="javascript:goTo('faq')">FAQ</a>
+                    <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
+                    <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
+                    <a class="header-login"
+                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="content" id="content">
+
+            <section id="section-termos-de-uso">
+                <div class="termos-de-uso">
+
+                    <div id="termos-de-uso-title">
+                        <h1>Termos de Uso da movEasy</h1>
+                    </div>
+
+                    <div id="termos-de-uso-text-body">
+                        <pre>
+
+                        </pre>
+                        <p>
+                            Bem-vindo a movEasy! Ao utilizar este site, você concorda com os seguintes termos e
+                            condições:
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Aceitação dos Termos:</b> Ao acessar ou usar o site movEasy, você concorda em ficar
+                            vinculado a estes termos de uso e a todas as leis e regulamentos aplicáveis. Se você não
+                            concordar com estes termos, por favor, não use este site.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Uso Autorizado:</b> Você concorda em usar o site movEasy apenas para fins legais e de
+                            acordo com estes termos de uso. Você não pode usar este site de qualquer forma que possa
+                            prejudicar, desabilitar, sobrecarregar ou comprometer o funcionamento do site.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Cadastro:</b> Para acessar determinadas áreas do site movEasy ou utilizar determinados
+                            recursos, você pode ser solicitado a se cadastrar fornecendo informações pessoais. Você
+                            concorda em fornecer informações precisas, atualizadas e completas durante o processo de
+                            cadastro e a manter suas informações de contato atualizadas.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Propriedade Intelectual:</b> Todo o conteúdo do site movEasy, incluindo texto, gráficos,
+                            logotipos, ícones, imagens, áudio e vídeo, é de propriedade exclusiva da movEasy ou
+                            de seus licenciadores e está protegido por leis de direitos autorais e outras leis de
+                            propriedade intelectual aplicáveis.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Seguros e Proteção contra Roubos:</b> Ao agendar uma mudança através do site movEasy,
+                            você reconhece e concorda que a movEasy não é responsável por danos, perdas ou roubos
+                            de seus pertences durante o processo de mudança. Recomendamos que você adquira um seguro
+                            adequado para proteger seus bens durante o transporte.</p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Links para Outros Sites:</b> O site movEasy pode conter links para sites de terceiros que
+                            não são controlados ou operados por nós. Não nos responsabilizamos pelo conteúdo, políticas
+                            de privacidade ou práticas de qualquer site de terceiros.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Alterações nos Termos de Uso:</b> Reservamo-nos o direito de modificar estes termos de uso a
+                            qualquer momento, sem aviso prévio. É sua responsabilidade revisar periodicamente estes
+                            termos para estar ciente de quaisquer alterações. O uso continuado do site após a publicação
+                            de alterações constitui sua aceitação dessas alterações.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            <b>Limitação de Responsabilidade:</b> Em nenhuma circunstância a movEasy, seus afiliados,
+                            diretores, funcionários ou agentes serão responsáveis por quaisquer danos diretos,
+                            indiretos, incidentais, especiais, consequentes ou punitivos decorrentes do seu uso ou
+                            incapacidade de usar este site.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p> 
+                            Ao marcar uma caixa de seleção a respeito de concordar com os nossos Termos de Uso, você confirma que leu, compreendeu e concorda em ficar
+                            vinculado a estes Termos de Uso.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            Se você tiver alguma dúvida sobre estes termos de uso, entre em contato conosco em:
+                            contato.moveasybrasil@gmail.com.br.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            Atenciosamente. Grupo movEasy.
+                        </p>
+                        <pre>
+                        </pre>
+                        <p>
+                            Data da última atualização: 26/02/2023.
+                        </p>
+                        <pre>
+                        </pre>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <script src="./js/header.js"></script>
+    <script src="./js/termos-de-uso.js"></script>
+</body>
+
+</html>

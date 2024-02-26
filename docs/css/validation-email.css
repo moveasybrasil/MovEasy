@@ -1,0 +1,117 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
+}
+
+* {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.banner {
+    background-image: url(../assets/images/Imagem-login.jpeg);
+    width: 100vw;
+    height: 100dvh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .4);
+    overflow: hidden;
+    background-color: #FFF;
+    background-image: url(../assets/images/Imagem-login.jpeg);
+    background-size: cover;
+}
+
+.title-box {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.menu-validation {
+    width: 422px;
+    height: 531px;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 20px 50px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    justify-content: space-between;
+}
+
+.botao-login {
+    display: flex;
+    width: 322px;
+    height: 50px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0 auto;
+    padding-top: 10px;
+    background-color: #e4321e;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btn-EnviarEmail {
+    position: relative;
+    bottom: 5px;
+}
+
+.mensagem-validation {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: rgb(43, 9, 235);
+}
+
+.img-validation {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.img-validation img{
+    width: 80px;
+    height: 80px;
+}
+
+.texto-validation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+.corpo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #content {
+        background-image: none;
+        background-color: #FFF;
+    }
+
+    .menu-validation {
+        box-shadow: none
+    }
+}

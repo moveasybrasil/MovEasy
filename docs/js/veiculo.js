@@ -137,6 +137,32 @@ async function sendData(nome, placa, cor, ano, capacidade) {
   alert('OK!')
 }
 
+// async function sendData(nome, placa, cor, ano, capacidade){
+
+//   let req = new Request(
+//     baseURL + `/vehicle/register`,{
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         "licensePlate": placa,
+//         "year": ano,
+//         "capacity": capacidade,
+//         "name": nome,
+//         "colour": cor,
+//       }),
+//       mode: `cors`,      
+//     }
+//   )
+
+//   let res = await fetch(req);
+
+//   alert('OK!')
+// }
+
+//Validação
+
 $(() => {
 
   $("#button-continuar").click(() => {
@@ -189,21 +215,32 @@ $(() => {
     }
   });
 
-  $("#button-voltar").click(() => {
+  $("#botao-voltar").click(() => {
     $("#box1").show();
     $("#box2").hide();
   });
 
-  $("#button-cadastrar").click(() => {
+  $("#botao-cadastrar").click(() => {
     const values = {
       ano: $("#Ano")[0].value,
-      capacidade: $("#Capacidade")[0].value
+      capacidade: $("#Capacidade")[0].value,
     }
 
     console.log(values)
 
     let camposInvalidos = false
     let msg = "Os campos em vermelho estão incorretos!"
+
+    
+    if (!values.capacidade) {
+      $('input[id="Capacidade"]').css("border", "2px solid red");
+      camposInvalidos = true
+      $("#Capacidade").addClass("invalid");
+      msg = "Os campos em vermelho estão inválidos!"
+    } else {
+      $("#Capacidade").removeClass("invalid");
+      $('input[id="Capacidade"]').css("border", "1px solid #bbb");
+    }
 
     if (!values.ano) {
       $('input[id="Ano"]').css("border", "2px solid red");
@@ -215,16 +252,6 @@ $(() => {
       $('input[id="Ano"]').css("border", "1px solid #bbb");
     }
 
-    if (!values.capacidade) {
-      $('input[id="Capacidade"]').css("border", "2px solid red");
-      camposInvalidos = true
-      $("#Capacidade").addClass("invalid");
-      msg = "Os campos em vermelho estão inválidos!"
-    } else {
-      $("#Capacidade").removeClass("invalid");
-      $('input[id="Capacidade"]').css("border", "1px solid #bbb");
-    }
-
     if (camposInvalidos) {
       alert(msg);
     } else {
@@ -234,27 +261,3 @@ $(() => {
 
   });
 })
-
-// async function sendData(nome, placa, cor, ano, capacidade){
-
-//   let req = new Request(
-//     baseURL + `/vehicle/register`,{
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         "licensePlate": placa,
-//         "year": ano,
-//         "capacity": capacidade,
-//         "name": nome,
-//         "colour": cor,
-//       }),
-//       mode: `cors`,      
-//     }
-//   )
-
-//   let res = await fetch(req);
-
-//   alert('OK!')
-// }
