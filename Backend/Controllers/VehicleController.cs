@@ -28,12 +28,12 @@ namespace Backend.Controllers
             return Ok(await _vehicleRepository.Get());
         }
 
-        [HttpGet("placa/{licensePlate}")]
-        [Authorize(Roles = "client, admin, driver")]
-        public async Task<IActionResult> GetByLicensePlate(string licensePlate)
-        {
-            return Ok(await _vehicleRepository.GetByLicensePlate(licensePlate));
-        }
+        //[HttpGet("placa/{licensePlate}")]
+        //[Authorize(Roles = "client, admin, driver")]
+        //public async Task<IActionResult> GetByLicensePlate(string licensePlate)
+        //{
+        //    return Ok(await _vehicleRepository.GetByLicensePlate(licensePlate));
+        //}
 
         [HttpDelete]
         [Authorize(Roles = "client, admin, driver")]

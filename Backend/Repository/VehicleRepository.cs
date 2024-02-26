@@ -10,8 +10,8 @@ namespace Backend.Repository
     {
         public async Task Create(VehicleDTO vehicle, string email)
         {
-            string sql = @" INSERT INTO Vehicle (LicensePlate, Year, Capacity, Name)
-                                          VALUE (@licensePlate, @year, @capacity, @name)
+            string sql = @" INSERT INTO Vehicle (LicensePlate, Year, Capacity, Name, Colour)
+                                          VALUE (@licensePlate, @year, @capacity, @name, @colour)
                           ; SELECT LAST_INSERT_ID();";
             int vehicleId = await GetConnection().QueryFirstAsync<int>(sql, vehicle);
 
