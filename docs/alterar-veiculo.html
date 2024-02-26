@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,11 +51,13 @@
       </div>
     </header>
   </div>
+
   <div class="content">
     <div class="container-solicitacao">
       <form method="get" id="veiculoForm" onsubmit="return validateForm()">
-        <div class="form-cadastro">
-          <h1 id="title-form">Alterar Veículo</h1>
+        <div class="form-cadastro" id="box1">
+          <h1 id="title-form">Editar Veículo</h1>
+
           <div class="info-cadastro">
 
             <label for="formulario-solicitacao-descricao">Veiculo:</label>
@@ -65,9 +68,21 @@
             <label for="formulario-solicitacao-descricao">Placa:</label>
             <input type="text" placeholder="Digite a placa do seu veículo" id="Placa"></input>
 
-            <label for="formulario-solicitacao-descricao">Nome:</label>
+            <label for="formulario-solicitacao-descricao">Modelo:</label>
             <input type="text" placeholder="Digite o nome do seu veículo." id="Nome"></input>
 
+            <div class="botao" id="button-continuar">
+              <div class="button-form" id="button-continuar">
+                <button id="botaoContinuar" type="button">Continuar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-cadastro" id="box2" style="display: none;">
+          <h2 id="title-form">Editar Veículo</h2>
+
+          <div class="info-cadastro">
             <label for="formulario-solicitacao-observacao">Ano:</label>
             <input type="text" placeholder="Digite o ano do seu veículo." id="Ano"></input>
 
@@ -77,17 +92,25 @@
             <label for="formulario-solicitacao-contratante">Capacidade:</label>
             <input type="text" placeholder="Digite a capacidade do seu veículo." id="Capacidade"></input>
 
-            <div class="botao">
-              <div class="button-form" id="button-cadastrar">
-                <button type="button" onclick="alterarVeiculo()">Alterar</button>
+            <div style="display: flex; width: 100%; height: 50px;">
+              <div class="botao" id="botao-voltar">
+                <div id="button-voltar">
+                  <button type="button">
+                    < </button>
+                </div>
+              </div>
+              <div class="botao" id="botao-cadastrar">
+                <div class="button-form">
+                  <button type="button" onclick="alterarVeiculo()">Alterar</button>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </form>
     </div>
   </div>
+
   <div id="poplinkedin" popover>
     <span>Clique no nome do integrante que gostaria de conhecer:</span>
     <div>
