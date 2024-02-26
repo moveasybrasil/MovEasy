@@ -85,27 +85,34 @@ var selectedValues = [];
 // Inicialize um array para armazenar os textos das tags selecionadas
 var selectedValues = [];
 
+
+let valorTotal = 0;
+
 function toggleTag(tagName) {
     var tagElement = document.querySelector('.tag-' + tagName);
     if (!tagElement) return; // Verifica se a tag existe
 
     // Obtém o texto da tag
     var tagText = tagElement.textContent.trim();
-
+    const valor = 150;
     // Alterna a classe 'selected' na tag
     tagElement.classList.toggle('selected');
 
     // Se a tag estiver selecionada, adicione seu texto à lista de valores selecionados
     if (tagElement.classList.contains('selected')) {
         selectedValues.push(tagText);
+        valorTotal += valor;
+
     } else {
         // Se a tag estiver sendo desselecionada, remova seu texto da lista de valores selecionados
         var index = selectedValues.indexOf(tagText);
         if (index !== -1) {
             selectedValues.splice(index, 1);
+            valorTotal -= valor;
         }
+        
     }
-
+    localStorage.setItem('valorTotal', valorTotal);
     // Exibe os valores selecionados no console (você pode fazer o que quiser com esses valores)
     console.log('Valores selecionados:', selectedValues);
 }
@@ -153,35 +160,12 @@ function ConsultarCepDestino() {
 
 /* GUARDA AS INFORMAÇÕES EM LOCAL STORAGE */
 function enviarFormulario() {
-    // if (verificarInputs()) {
-        salvarDadosLocalmente();
-        redirecionarParaPaginaOrcamento()};
-    // } else {
-//         alert('Por favor, preencha todos os campos corretamente.');
-//     }
-// }
+    salvarDadosLocalmente();
+    redirecionarParaPaginaOrcamento(
 
-// function verificarInputs() {
-//     const campos = ['CepOrigem', 'EnderecoOrig', 'DistritoOrig', 'CidadeOrig', 'SiglaOrig', 'NumeroOrig', 'CepDest', 'EnderecoDest', 'DistritoDest', 'CidadeDest', 'SiglaDest', 'NumeroDest'];
-//     let todosPreenchidos = true;
+    )
+};
 
-//     campos.forEach(campo => {
-//         const valor = document.getElementById(campo).value;
-//         const elemento = document.getElementById(campo);
-//         if (!valor) {
-//             elemento.classList.add('campo-vazio');
-//             todosPreenchidos = false;
-//         } else {
-//             elemento.classList.remove('campo-vazio');
-//         }
-//     });
-
-//     if (!todosPreenchidos) {
-//         alert('Por favor, preencha todos os campos obrigatórios antes de enviar o formulário.');
-//     }   
-
-//     return todosPreenchidos;
-// }
 
 function salvarDadosLocalmente() {
     const campos = {
@@ -192,13 +176,13 @@ function salvarDadosLocalmente() {
         'SiglaOrig': 'siglaOrig',
         'NumeroOrig': 'numeroOrig',
         'ComplementoOrig': 'complementoOrig',
-        'CepDest': 'cepDest',
+        'CepDestino': 'cepDest',
         'EnderecoDest': 'enderecoDest',
         'DistritoDest': 'distritoDest',
         'CidadeDest': 'cidadeDest',
         'SiglaDest': 'siglaDest',
         'NumeroDest': 'numeroDest',
-        'ComplementoDest': 'complementoDest'
+        'ComplementoDest': 'complementoDest',
     };
 
     let dadosOrigem = {}, dadosDestino = {};
@@ -226,5 +210,5 @@ function salvarDadosLocalmente() {
 }
 
 function redirecionarParaPaginaOrcamento() {
-    //window.location.href = 'orcamento.html';
+    window.location.href = 'orcamento.html';
 }

@@ -23,36 +23,29 @@ async function sendPhoto() {
     await setProfilePhoto()
 }
 
-const modalPhoto = $('#modal-photo');
-$('#photo').click((e) => {
-    modalPhoto.removeClass("modal");
-    modalPhoto.toggleClass("show");
-});
 
-const closeModal = $('#fecha-modal')
-closeModal.click((e) => {
-    modalPhoto.removeClass("show");
-    modalPhoto.toggleClass("modal");
-
-    // Volta a foto para o default
-    document.getElementById("photo-change").setAttribute('src', getUrl('assets/images/default.jpg'))
-
-    // Limpa a seleção de foto
-    var $el = $('#photo-input');
-    $el.wrap('<form>').closest('form').get(0).reset();
-    $el.unwrap();
-})
-
-function fileChanged() {
-    let selectedFile = document.getElementById('photo-input').files[0];
-    let img = document.getElementById('photo-change')
-
-    let reader = new FileReader();
-    reader.onload = function () {
-        img.src = this.result
+    // Simula um clique no elemento de input de arquivo
+    function choosePhoto() {
+        document.getElementById('file-input').click();
     }
-    reader.readAsDataURL(selectedFile);
-}
+
+    function fileChanged() {
+
+        // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
+        // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
+        var fileInput = document.getElementById('photo-input');
+        var selectedFile = fileInput.files[0];
+
+        if (selectedFile) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // Exemplo de como exibir a imagem carregada
+                var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(selectedFile);
+        }
+    }
 
 function updateInfo() {
     const data = {
@@ -156,7 +149,7 @@ async function loadHistorico() {
     }
 
     try {
-        await request("GET", `${serverURL}/service/closed`, (xhr) =>{
+        await request("GET", `${serverURL}/service/closed`, (xhr) => {
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
                 data.forEach(element => {

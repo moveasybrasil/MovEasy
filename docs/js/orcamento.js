@@ -17,47 +17,36 @@
         alert("Orçamento enviado!");
     }
 
-
-// Recupera os valores armazenados na localStorage
-var termos = localStorage.getItem('termos');
-var observacao = localStorage.getItem('observacao');
-var descricaoOrigem = localStorage.getItem('descricaoOrigem');
-var descricaoDestino = localStorage.getItem('descricaoDestino');
-var data = localStorage.getItem('data');
-
-// Use os valores conforme necessário
-console.log("Termos:", termos);
-console.log("Observação:", observacao);
-console.log("Descrição de origem:", descricaoOrigem);
-console.log("Descrição de destino:", descricaoDestino);
-console.log("Data:", data);
-
+var valorTotal;
 
 function exibirDadosNaPaginaOrcamento() {
-
-    // Recupera os dados salvos no localStorage    const dadosOrigem = JSON.parse(localStorage.getItem('dadosOrigem'));
-
+    const dadosOrigem = JSON.parse(localStorage.getItem('dadosOrigem'));
     const dadosDestino = JSON.parse(localStorage.getItem('dadosDestino'));
+    console.log(dadosOrigem)
+    console.log(dadosDestino)
+    if (dadosOrigem && dadosDestino) {
+        // Exibe os dados de origem
+        const origemDiv = document.getElementById('origem');
+        for (const chave in dadosOrigem) {
+            origem.innerHTML += `<p>${chave}: ${dadosOrigem[chave]}</p>`;
+        }
 
+        // Exibe os dados de destino
+        const destinoDiv = document.getElementById('final');
 
-    // Verifica se os dados foram encontrados no localStorage   
-    
-        if (dadosOrigem && dadosDestino) {
+        for (const chave in dadosDestino) {
+            destinoDiv.innerHTML += `<p>${chave}: ${dadosDestino[chave]}</p>`;
+        }
 
-        // Exibe os dados na página de destino        
-        document.getElementById('dados-origem').textContent = JSON.stringify(dadosOrigem);
-
-        document.getElementById('dados-destino').textContent = JSON.stringify(dadosDestino);
-
-        document.getElementById('origem').textContent = `${dadosOrigem.enderecoOrig} + ' ' + ${cidadeOrig}`;
-
-
-
+        const valorDiv = document.getElementById('orcamentoTotal');
+        valorDiv.innerHTML = `<h2>R$ ${valorTotal},00</h2>`;
+        
     } else {
-
-        // Caso os dados não sejam encontrados, exibe uma mensagem de erro
-
         console.error('Dados de origem e/ou destino não encontrados no localStorage.');
     }
+}
 
-    }
+$(() => {
+    valorTotal = localStorage.getItem('valorTotal');
+    exibirDadosNaPaginaOrcamento()
+});
