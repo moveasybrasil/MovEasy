@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../assets/font/Montserrat/static/Montserrat-Regular.ttf);
+}
+
+* {
+    font-family: Montserrat, sans-serif;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #eee;
+}
+
+.termos-de-uso {
+    width: 50vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2% 6%;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    background-color: #fff;
+}
+
+#termos-de-uso-title {
+    font-size: x-large;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+@media (max-width: 1125px) {
+
+    .termos-de-uso {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2% 6%;
+        text-align: justify;
+        text-justify: distribute-all-lines;
+        background-color: #fff;
+    }
+}
