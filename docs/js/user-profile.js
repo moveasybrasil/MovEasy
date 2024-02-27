@@ -49,17 +49,17 @@ document.getElementById('photo-input-span').addEventListener('click', function()
 
 
 function fileChanged() {
-    var input = document.getElementById('photo-input');
+ input = document.getElementById('photo-input');
     if (input.files && input.files[0]) {
         var formData = new FormData();
-        formData.append('profilePicture', input.files[0]);
+        formData.append('image', input.files[0]);
 
         fetch(`${serverURL}/user/photo`, { // A URL do seu endpoint no servidor
-            headers: { Authorization: `Bearer ${localstorage.getItem("token")}`},
+            headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}`},
             method: 'PUT',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => response.text())
         .then(data => {
             console.log('Success:', data);
             // Atualize a imagem do perfil aqui se o upload for bem-sucedido
@@ -75,16 +75,35 @@ function fileChanged() {
     }
 }
 
-// function fileChanged() {
-//     let selectedFile = document.getElementById('photo-input').files[0];
-//     let img = document.getElementById('photo-change')
+async function ChangeProfilePhoto() {
+    let url;
+    try {
+        await request("PUT", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
+            console.log(url);
+            document.getElementById('photo').setAttribute('src', url);
+        }, null, null, true)
+        } catch {
+            url = `${r2URL}/user/default.jpg`
+            document.getElementById("photo").setAttribute("src", url)
+        }
+    };
 
-//     let reader = new FileReader();
-//     reader.onload = function () {
-//         img.src = this.result
-//     }
-//     reader.readAsDataURL(selectedFile);
-// }
+
+async function loadProfilePhoto() {
+
+    let url;
+    try {
+        await request("GET", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
+            console.log(url)
+            document.getElementById("photo").setAttribute('src', url)
+        }, null, null, true)
+    } catch {
+        url = `${r2URL}/user/default.jpg`
+        document.getElementById("photo").setAttribute('src', url)
+    }
+}
 
 function updateInfo() {
     const data = {
@@ -167,20 +186,6 @@ async function loadProfileInfo() {
 }
 
 // Foto de Perfil
-async function loadProfilePhoto() {
-
-    let url;
-    try {
-        await request("GET", `${serverURL}/user/photo`, (xhr) => {
-            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
-            console.log(url)
-            document.getElementById("photo").setAttribute('src', url)
-        }, null, null, true)
-    } catch {
-        url = `${r2URL}/user/default.jpg`
-        document.getElementById("photo").setAttribute('src', url)
-    }
-}
 
 async function loadHistorico() {
     function getAddressFromAddressDto(address) {
