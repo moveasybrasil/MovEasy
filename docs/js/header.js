@@ -21,17 +21,17 @@ $(() => {
     const popGit = $('#popgithub')
     $('#git-icon').on('click', (e) => {
         popGit.toggleClass("flex active");
-    
+
     });
     $('#insta-icon').click((e) => {
         window.location.href = "https://www.instagram.com/moveasybrasil/";
     });
-    
+
     $(document).click(function (e) {
         if (!$(e.target).closest('#poplinkedin').length && !$(e.target).is('#in-icon')) {
             $('#poplinkedin').removeClass("flex active");
         }
-    }); 
+    });
     $(document).click(function (e) {
         if (!$(e.target).closest('#popgithub').length && !$(e.target).is('#git-icon')) {
             $('#popgithub').removeClass("flex active");
@@ -52,38 +52,40 @@ var animationBtnburguer = false;
 
 function toggleSidebar() {
     animationSidebar1 = !animationSidebar1;
-    if(animationSidebar1) {
+    if (animationSidebar1) {
         btn.style.animationName = "animationBtnburguer"
         btn.style.marginLeft = "-100vw"
         navigation.style.marginLeft = "-10vw"
         navigation.style.animationName = "animationSidebar1"
         content.style.filter = "blur(2px)"
         content.style.pointerEvents = "none";
-        }
+        document.body.style.overflow = "hidden";
+    }
     else {
         navigation.style.marginLeft = "-100vw"
         navigation.style.animationName = "animationSidebar2"
         content.style.filter = ""
         btn.style.marginLeft = ""
         content.style.pointerEvents = "auto";
+        document.body.style.overflow = "auto";
     }
 }
 
-window.addEventListener('resize', function(event) {
-        if(window.innerWidth <= 968 && animationSidebar1) {
-            toggleSidebar();
-        }
+window.addEventListener('resize', function (event) {
+    if (window.innerWidth <= 968 && animationSidebar1) {
+        toggleSidebar();
+    }
 });
 
 
-if(isTokenValid()) { 
-    document.querySelectorAll(".header-login").forEach( (e) => {
+if (isTokenValid()) {
+    document.querySelectorAll(".header-login").forEach((e) => {
         e.innerHTML = "PERFIL"
     })
 }
 
 // click logo header //
 
-document.querySelector('#logo-img').addEventListener('click', function() {
+document.querySelector('#logo-img').addEventListener('click', function () {
     goTo('index')
 });
