@@ -84,9 +84,9 @@
                                     onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))"> -->
                                 <div class="photo-select-archive">
                                     <label id="photo-input-label">
-                                        <img src="../"
+                                        <!-- <img src="../"
                                             onerror="this.setAttribute('src', getUrl('assets/images/camera-trocar-foto.png'))"
-                                            alt="">
+                                            alt=""> -->
                                         <input style="display: none" id="photo-input" type="file" name="file"
                                             onchange="fileChanged()">
                                 </div>
@@ -287,20 +287,44 @@
                         <div class="info-dados-perfil add-veiculo" onclick="goTo('veiculo')">
                             <img src="../"
                                 onerror="this.setAttribute('src', getUrl('assets/images/adicionar-veiculo.png'))"
-                                alt="">
+                                alt="Icone para adicionar veículo">
                             <p>Adicionar Veículo</p>
                         </div>
 
                         <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="">
+                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="Icone para editar veículo">
                             <p>Editar Veículo</p>
                         </div>
 
-                        <div class="info-dados-perfil add-veiculo">
+                        <div class="info-dados-perfil add-veiculo" onclick="removerVeiculo()">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                                onerror="this.setAttribute('src', getUrl('assets/images/icon-remover-veiculo.png'))" alt="Icone para excluir veículo">
+                            <p>Excluir Veículo</p>
+                        </div>
+
+                        <div class="modal-veiculo" id="modal-remover-veiculo">
+                            <div class="box-veiculo">
+                                <label for="formulario-solicitacao-descricao">Remover Veículo</label>
+                                <input list="Veiculos" placeholder="Selecione o veículo para ser excluido" name="Veiculo" id="Veiculo">
+                                <datalist id="Veiculos">
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="info-dados-perfil add-veiculo" onclick="veiculoPrincipal()"> 
+                            <img src="../"
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone para selecionar veículo principal">
                             <p>Selecionar Veículo Principal</p>
+                        </div>
+
+                        <div class="modal-veiculo" id="modal-veiculo-principal">
+                            <div class="box-veiculo">
+                                <label for="formulario-solicitacao-descricao">Remover Veículo</label>
+                                <input list="Veiculos" placeholder="Selecione o veículo para ser o principal" name="Veiculo" id="Veiculo">
+                                <datalist id="Veiculos">
+                                </datalist>
+                            </div>
                         </div>
 
                         <div class="info-perfil" style="display: block; padding-bottom: 20px;">
@@ -309,7 +333,7 @@
 
                         <div class="info-dados-perfil add-veiculo" id="not-add-vehicle">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="">
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone de nenhum veículo adicionado">
                             <p>Você ainda não adicionou nenhum Veículo!</p>
                         </div>
 
