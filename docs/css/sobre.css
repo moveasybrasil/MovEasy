@@ -8,8 +8,8 @@
 }
 
 .banner {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 
@@ -410,6 +410,11 @@
 
 @media (max-width: 1125px) {
 
+    body {
+        width: 100%;
+        height: auto;
+    }   
+
     /* --- BANNER --- */
 
     .banner-inicial {
@@ -420,7 +425,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        top: -25px;
+        top: -10px;
     }
 
     .texto-inicial {
