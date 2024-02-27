@@ -13,7 +13,7 @@
     <script src="../js/common.js"></script>
 
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/perfil-usuario.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -65,11 +65,15 @@
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
 
                     <div class="edited-photo-perfil">
-                        <span class="material-symbols-outlined" id="photo-input-span"> edit
-                            <input style="display: none" id="photo-input" type="file" name="file" onchange="fileChanged()">
+                        <!-- <span class="material-symbols-outlined" id="photo-input" onclick="fileChanged()">
+                            edit
+                        </span> -->
+                        <span class="material-symbols-outlined" onclick="choosePhoto()">
+                            edit
                         </span>
+                            
                     </div>
-
+                    <input type="file" id="file-input" style="display: none;" onchange="fileChanged()">
                     <!-- <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
@@ -77,19 +81,20 @@
                         <!-- <div>
                             <div class="photo-change">
                                 <img id="photo-change" src="../assets/images/default.jpg"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
+                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))"> -->
                                 <div class="photo-select-archive">
                                     <label id="photo-input-label">
-                                        <!-- <img src="../"
+                                        <img src="../"
                                             onerror="this.setAttribute('src', getUrl('assets/images/camera-trocar-foto.png'))"
-                                            alt=""> -->
+                                            alt="">
                                         <input style="display: none" id="photo-input" type="file" name="file"
                                             onchange="fileChanged()">
                                 </div>
-                            </div>
                             </label>
-                        </div>
-                        <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                            <!-- </div> -->
+                            
+                        <!-- </div> -->
+                        <!-- <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
                     </div> -->
                 </div>
                 <div id="rating-conquistas-usuario">
@@ -145,29 +150,15 @@
 
                     </div>
 
-
-                    <div id="sections-perfil-veiculos" id="sections-perfil-informacoes">
-                        <div class="sections-perfil-desktop">
-                            <span onclick="mostrarDiv('container-dados-veiculos', 2)">
-                                Veículos
-                            </span>
-                            <div class="img-section-color">
-                                <img src="../"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/perfil-veiculo-mobile.png'))"
-                                    alt="" class="" onclick="mostrarDiv('container-dados-veiculos', 2)">
-                            </div>
-                        </div>
-                    </div>
-
                     <div id="sections-perfil-configuracoes" id="sections-perfil-informacoes">
                         <div class="sections-perfil-desktop">
-                            <span onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                            <span onclick="mostrarDiv('container-dados-configuracoes', 2)">
                                 Configurações
                             </span>
                             <div class="img-section-color">
                                 <img src="../"
                                     onerror="this.setAttribute('src', getUrl('assets/images/config-perfil.png'))" alt=""
-                                    onclick="mostrarDiv('container-dados-configuracoes', 3)">
+                                    onclick="mostrarDiv('container-dados-configuracoes', 2)">
                             </div>
                         </div>
                     </div>
@@ -180,9 +171,8 @@
                         <div class="info-perfil-for-motorista">
                             <div class="info-perfil" id="sobre-perfil" style="padding-bottom: 20px;">
                                 <p>Sobre: </p>
-                                <span id="sobre-perfil">Sou um prestador de serviço certificado pela MovEasy,
-                                    compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui
-                                    para garantir uma experiência tranquila e sem complicações durante a sua mudança!
+                                <span id="sobre-perfil">
+                                    Sou um cliente da MovEasy e estou aqui para solicitar mudanças!
                                 </span>
                             </div>
                         </div>
@@ -220,14 +210,6 @@
                                         <span id="id-perfil">Não definido</span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="info-perfil-for-motorista info-dados-perfil dados-perfil"
-                            id="dados-veiculo-principal">
-                            <p>Veículo Principal: </p>
-                            <div>
-                                <span id="main-vehicle-perfil-motorista">Nenhum veículo principal</span>
                             </div>
                         </div>
 
@@ -272,92 +254,6 @@
                     </div>
                 </div>
 
-                <div class="container-dados-veiculos mostrar-div" id="container-dados-veiculos">
-                    <div class="info-perfil" style="display: block; padding-bottom: 20px;">
-                        <p style="padding-top: 50px;">Analise e adicione novos Veículos aqui:</p>
-                    </div>
-
-                    <div id="dados-veiculos">
-
-                        <div class="info-dados-perfil add-veiculo" onclick="goTo('veiculo')">
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/adicionar-veiculo.png'))"
-                                alt="Icone para adicionar veículo">
-                            <p>Adicionar Veículo</p>
-                        </div>
-
-                        <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="Icone para editar veículo">
-                            <p>Editar Veículo</p>
-                        </div>
-
-                        <div class="info-dados-perfil add-veiculo" onclick="removerVeiculo()">
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/icon-remover-veiculo.png'))" alt="Icone para excluir veículo">
-                            <p>Excluir Veículo</p>
-                        </div>
-
-                        <div class="modal-veiculo" id="modal-remover-veiculo">
-                            <div class="box-veiculo">
-                                <label for="formulario-solicitacao-descricao">Remover Veículo</label>
-                                <input list="Veiculos" placeholder="Selecione o veículo para ser excluido" name="Veiculo" id="Veiculo">
-                                <datalist id="Veiculos">
-                                </datalist>
-                            </div>
-                        </div>
-
-                        <div class="info-dados-perfil add-veiculo" onclick="veiculoPrincipal()"> 
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone para selecionar veículo principal">
-                            <p>Selecionar Veículo Principal</p>
-                        </div>
-
-                        <div class="modal-veiculo" id="modal-veiculo-principal">
-                            <div class="box-veiculo">
-                                <label for="formulario-solicitacao-descricao">Remover Veículo</label>
-                                <input list="Veiculos" placeholder="Selecione o veículo para ser o principal" name="Veiculo" id="Veiculo">
-                                <datalist id="Veiculos">
-                                </datalist>
-                            </div>
-                        </div>
-
-                        <div class="info-perfil" style="display: block; padding-bottom: 20px;">
-                            <p style="padding-top: 20px;">Todos os seus veículos:</p>
-                        </div>
-
-                        <div class="info-dados-perfil add-veiculo" id="not-add-vehicle">
-                            <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone de nenhum veículo adicionado">
-                            <p>Você ainda não adicionou nenhum Veículo!</p>
-                        </div>
-
-                        <div id="modelo-veiculo" class="item hidden">
-
-                            <div class="info-dados-perfil info-dados-veiculo">
-                                <p>Modelo:</p><a class="modelo">Informações...</a>
-                            </div>
-
-                            <div class="info-dados-perfil info-dados-veiculo">
-                                <p>Ano:</p><a class="ano">Informações...</a>
-                            </div>
-
-                            <div class="info-dados-perfil info-dados-veiculo">
-                                <p>Cor:</p><a class="cor">Informações...</a>
-                            </div>
-
-                            <div class="info-dados-perfil info-dados-veiculo">
-                                <p>Placa:</p><a class="placa">Informações...</a>
-                            </div>
-
-                            <div class="info-dados-perfil info-dados-veiculo">
-                                <p>Fotos:</p><a class="images">Informações...</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
                 <div class="container-dados-configuracoes mostrar-div" id="container-dados-configuracoes">
                     <div class="info-perfil" style="display: block; padding-bottom: 20px;">
                         <p style="padding-top: 47px;">Edite, adicione e visualize as informações da sua conta aqui:
@@ -366,7 +262,7 @@
 
                     <div class="info-perfil">
                         <p>Tipo de Conta:</p>
-                        <span id="tipo-perfil">Prestador de Serviço</span>
+                        <span id="tipo-perfil">Usuário</span>
                     </div>
 
                     <div class="info-dados-perfil config-perfil">
@@ -384,10 +280,7 @@
                     <div class="logout-mobile">
                         <p class="" onclick="logOut()">Sair da Conta</p>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
 
@@ -395,7 +288,7 @@
     </div>
 
     <script src="../js/header.js"></script>
-    <script src="../js/user-profile.js"></script>
+    <script src="../js/perfil-usuario.js"></script>
 </body>
 
 </html>

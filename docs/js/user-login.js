@@ -5,6 +5,20 @@ document.querySelectorAll(".header-login").forEach((e) => {
 
 if (sessionStorage.getItem(`token`) && window.location.origin != "file://") { goTo(`user/perfil`) }
 
+$("#senha-login").keyup(function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("#btn-logar").click();
+    };
+});
+
+$("#email-login").keyup(function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("#btn-logar").click();
+    };
+});
+
 $(() => {
     $("#btn-logar").click(() => {
         const values = {
