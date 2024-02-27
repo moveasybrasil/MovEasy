@@ -18,14 +18,13 @@
 }
 
 body {
-    overflow: hidden;
+overflow-x: hidden ;
 }
 
 .content {
     display: flex;
-    width: 100vw;
-    height: 92vh;
-    overflow-y: scroll;
+    height: 100vh;
+    overflow: hidden;
 }
 
 
@@ -203,7 +202,7 @@ body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: auto;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
