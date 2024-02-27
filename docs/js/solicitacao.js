@@ -169,20 +169,20 @@ function enviarFormulario() {
 
 function salvarDadosLocalmente() {
     const campos = {
-        'CepOrigem': 'cepOrigem',
-        'EnderecoOrig': 'enderecoOrig',
-        'DistritoOrig': 'distritoOrig',
-        'CidadeOrig': 'cidadeOrig',
-        'SiglaOrig': 'siglaOrig',
-        'NumeroOrig': 'numeroOrig',
-        'ComplementoOrig': 'complementoOrig',
-        'CepDestino': 'cepDest',
-        'EnderecoDest': 'enderecoDest',
-        'DistritoDest': 'distritoDest',
-        'CidadeDest': 'cidadeDest',
-        'SiglaDest': 'siglaDest',
-        'NumeroDest': 'numeroDest',
-        'ComplementoDest': 'complementoDest',
+        'CepOrigem': 'CEP de origem',
+        'EnderecoOrig': 'Endereço de origem',
+        'DistritoOrig': 'Bairro de origem',
+        'CidadeOrig': 'Cidade de origem',
+        'SiglaOrig': 'Sigla de origem',
+        'NumeroOrig': 'Número de origem',
+        'ComplementoOrig': 'Complemento de origem',
+        'CepDestino': 'CEP do destino',
+        'EnderecoDest': 'Endereço do destino',
+        'DistritoDest': 'Bairro do destino',
+        'CidadeDest': 'Cidade do destino',
+        'SiglaDest': 'Sigla do destino',
+        'NumeroDest': 'Número do destino',
+        'ComplementoDest': 'Complemento do destino',
     };
 
     let dadosOrigem = {}, dadosDestino = {};
