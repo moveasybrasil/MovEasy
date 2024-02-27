@@ -12,6 +12,13 @@ $("#senha-login").keyup(function(event) {
     };
 });
 
+$("#email-login").keyup(function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("#btn-logar").click();
+    };
+});
+
 $(() => {
     $("#btn-logar").click(() => {
         const values = {
