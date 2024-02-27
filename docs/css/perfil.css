@@ -17,10 +17,15 @@
     font-family: Montserrat, sans-serif;
 }
 
+body {
+    overflow: hidden;
+}
+
 .content {
     display: flex;
-    height: 89vh;
-    overflow: hidden;
+    width: 100vw;
+    height: 92vh;
+    overflow-y: scroll;
 }
 
 
@@ -198,7 +203,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
