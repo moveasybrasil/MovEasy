@@ -65,15 +65,11 @@
                         onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
 
                     <div class="edited-photo-perfil">
-                        <!-- <span class="material-symbols-outlined" id="photo-input" onclick="fileChanged()">
-                            edit
-                        </span> -->
-                        <span class="material-symbols-outlined" onclick="choosePhoto()">
-                            edit
+                        <span class="material-symbols-outlined" id="photo-input-span"> edit
+                            <input style="display: none" id="photo-input" type="file" name="file" onchange="fileChanged()">
                         </span>
-                            
                     </div>
-                    <input type="file" id="file-input" style="display: none;" onchange="fileChanged()">
+
                     <!-- <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
@@ -81,7 +77,7 @@
                         <!-- <div>
                             <div class="photo-change">
                                 <img id="photo-change" src="../assets/images/default.jpg"
-                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))"> -->
+                                    onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))">
                                 <div class="photo-select-archive">
                                     <label id="photo-input-label">
                                         <!-- <img src="../"
@@ -90,11 +86,10 @@
                                         <input style="display: none" id="photo-input" type="file" name="file"
                                             onchange="fileChanged()">
                                 </div>
+                            </div>
                             </label>
-                            <!-- </div> -->
-                            
-                        <!-- </div> -->
-                        <!-- <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                        </div>
+                        <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
                     </div> -->
                 </div>
                 <div id="rating-conquistas-usuario">
