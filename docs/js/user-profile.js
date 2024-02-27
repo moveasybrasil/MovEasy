@@ -23,29 +23,68 @@ async function sendPhoto() {
     await setProfilePhoto()
 }
 
+const modalPhoto = $('#modal-photo');
+$('#photo').click((e) => {
+    modalPhoto.removeClass("modal");
+    modalPhoto.toggleClass("show");
+});
 
-    // Simula um clique no elemento de input de arquivo
-    function choosePhoto() {
-        document.getElementById('file-input').click();
-    }
+const closeModal = $('#fecha-modal')
+closeModal.click((e) => {
+    modalPhoto.removeClass("show");
+    modalPhoto.toggleClass("modal");
 
-    function fileChanged() {
+    // Volta a foto para o default
+    document.getElementById("photo-change").setAttribute('src', getUrl('assets/images/default.jpg'))
 
-        // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
-        // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
-        var fileInput = document.getElementById('photo-input');
-        var selectedFile = fileInput.files[0];
+    // Limpa a seleção de foto
+    var $el = $('#photo-input');
+    $el.wrap('<form>').closest('form').get(0).reset();
+    $el.unwrap();
+})
 
-        if (selectedFile) {
+document.getElementById('photo-input-span').addEventListener('click', function() {
+    document.getElementById('photo-input').click();
+});
+
+
+function fileChanged() {
+    var input = document.getElementById('photo-input');
+    if (input.files && input.files[0]) {
+        var formData = new FormData();
+        formData.append('profilePicture', input.files[0]);
+
+        fetch(`${serverURL}/user/photo`, { // A URL do seu endpoint no servidor
+            headers: { Authorization: `Bearer ${localstorage.getItem("token")}`},
+            method: 'PUT',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Atualize a imagem do perfil aqui se o upload for bem-sucedido
             var reader = new FileReader();
-            reader.onload = function (e) {
-                // Exemplo de como exibir a imagem carregada
-                var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
-                imagePreview.src = e.target.result;
-            };
-            reader.readAsDataURL(selectedFile);
-        }
+            reader.onload = function(e) {
+                document.getElementById('photo').setAttribute('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
+}
+
+// function fileChanged() {
+//     let selectedFile = document.getElementById('photo-input').files[0];
+//     let img = document.getElementById('photo-change')
+
+//     let reader = new FileReader();
+//     reader.onload = function () {
+//         img.src = this.result
+//     }
+//     reader.readAsDataURL(selectedFile);
+// }
 
 function updateInfo() {
     const data = {
@@ -149,7 +188,7 @@ async function loadHistorico() {
     }
 
     try {
-        await request("GET", `${serverURL}/service/closed`, (xhr) => {
+        await request("GET", `${serverURL}/service/closed`, (xhr) =>{
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
                 data.forEach(element => {

@@ -169,7 +169,7 @@ function enviarFormulario() {
 
 function salvarDadosLocalmente() {
     const campos = {
-        'CepOrigem': 'cepOrigem',
+        'CepOrigem': 'cep',
         'EnderecoOrig': 'enderecoOrig',
         'DistritoOrig': 'distritoOrig',
         'CidadeOrig': 'cidadeOrig',
