@@ -18,13 +18,14 @@
 }
 
 body {
-overflow-x: hidden ;
+    overflow-x: hidden ;
 }
 
 .content {
     display: flex;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 
@@ -36,7 +37,7 @@ overflow-x: hidden ;
     align-items: center;
     flex-direction: column;
     width: 550px;
-    height: auto;
+    height: 100%;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
     padding: 4% 0;
@@ -202,7 +203,7 @@ overflow-x: hidden ;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
@@ -453,11 +454,14 @@ overflow-x: hidden ;
 /* --- PERFIL MOBILE --- */
 
 @media (max-width: 1125px){
+    body {
+        overflow-x: hidden ;
+    }
     
     .content {
         display: flex;
-        height: 100vh;
-        overflow: hidden;
+        height: 100%;
+        overflow: auto;
         flex-direction: column;
     }
     
@@ -468,7 +472,6 @@ overflow-x: hidden ;
     .barra-lateral {
         display: flex;
         align-items: center;
-        justify-content: center;
         flex-direction: column;
         width: 100%;
         height: 220px;
@@ -476,6 +479,7 @@ overflow-x: hidden ;
         color: var(--color-text-perfil2);
         margin: 5% 0 0 0;
         padding: 0;
+        box-shadow: none;
     }
 
     #img-perfil {
@@ -533,13 +537,12 @@ overflow-x: hidden ;
     .container-dados {
         display: flex;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         background-color: var(--color-background-perfil3);
         color: var(--color-text-perfil2);
         padding: 4% 4% 0 4%;
         box-shadow: none;
-        overflow: auto;
     }
 
     .nome-usuario-perfil {
@@ -570,7 +573,7 @@ overflow-x: hidden ;
     .sections-perfil span {
         padding-right: 0;
         font-size: 0;
-        width: 0px;
+        width: 0;
         height: 0;
     }
 
@@ -678,7 +681,7 @@ overflow-x: hidden ;
         flex-direction: column;
         align-items: normal;
         text-align: start;
-        width: 184%;
+        width: 100%;
         height: auto;
         margin-top: 0;
         margin-right: 15px;
@@ -692,7 +695,7 @@ overflow-x: hidden ;
         font-weight: bold;
         padding: 2px 0 2px 15px;
         background-color: rgb(219, 218, 218);
-        width: 100%;
+        width: 184%;
         margin: 0;
     }
 
