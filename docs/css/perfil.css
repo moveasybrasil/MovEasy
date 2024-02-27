@@ -107,11 +107,11 @@
     justify-content: center;
     align-content: center;
     font-size: large;
+    color: red;
 }
 
 .btn-logout:hover {
     cursor: pointer;
-    color: var(--color-hover-perfil);
 }
 
 
