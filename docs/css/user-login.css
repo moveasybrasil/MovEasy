@@ -108,6 +108,15 @@
 }
 
 .texto-cadastro {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #000;
+}
+
+.texto-cadastro {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,6 +141,17 @@
     flex-direction: column;
     color: #000;
     margin-top: 10px;
+    position: relative;
+}
+
+.logar-senha img {
+    width: 20px;
+    cursor: pointer;
+    top: 55px;
+    left: 290px;
+    position: absolute;
+    user-select: none;
+    opacity: 0.5;
 }
 
 .logar-email {
@@ -139,6 +159,25 @@
     flex-direction: column;
     color: #000;
 }
+
+/* Para ocultar o ícone em navegadores baseados em WebKit (Chrome, Safari) */
+input::-webkit-contacts-auto-fill-button {
+    display: none !important;
+}
+
+/* Para ocultar o ícone em navegadores baseados em Mozilla (Firefox) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none !important;
+}
+
+/* Para ocultar o ícone em navegadores baseados em Blink (Chrome, Opera, Edge) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+}
+
 
 @media only screen and (max-width: 768px) {
 
