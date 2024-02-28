@@ -12,10 +12,18 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+#content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .banner {
     background: url(../assets/images/Imagem-login.jpeg);
     width: 100vw;
-    height: 100dvh;
+    height: 100vh;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -33,8 +41,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px 50px 20px 50px;
-    margin-top: 140px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -98,10 +105,10 @@ button {
 #button-enviar {
     background-color: #e4321e;
     color: #FFF;
-    font-weight:bold;
-    border:none;
-    border-radius:5px;
-    font-size:20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
     margin-top: 27px;
 }
 
@@ -116,7 +123,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    color:rgb(43, 9, 235);
+    color: rgb(43, 9, 235);
 }
 
 
@@ -124,4 +131,24 @@ button:hover {
     border: 2px solid rgb(255, 0, 0);
 }
 
+@media only screen and (max-width: 768px) {
 
+    #content {
+        width: 100vw;
+        height: 100vh;
+        background-image: none;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-login {
+        box-shadow: none
+    }
+
+    .box {
+        box-shadow: none;
+    }
+    
+}
