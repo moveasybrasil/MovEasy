@@ -1,4 +1,5 @@
-
+// Adiciona a classe 'active' ao header para o item específico
+document.querySelector(".header-moving").classList.add("active");
 
 /*--- Função que tira o hidden e começa o countdown do pix ---*/
 
