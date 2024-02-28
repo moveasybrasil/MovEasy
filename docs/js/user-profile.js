@@ -23,7 +23,6 @@ async function sendPhoto() {
     await setProfilePhoto()
 }
 
-
 // Simula um clique no elemento de input de arquivo
 function choosePhoto() {
     document.getElementById('file-input').click();
@@ -44,6 +43,75 @@ function fileChanged() {
             imagePreview.src = e.target.result;
         };
         reader.readAsDataURL(selectedFile);
+
+    // Volta a foto para o default
+    document.getElementById("photo-change").setAttribute('src', getUrl('assets/images/default.jpg'))
+
+    // Limpa a seleção de foto
+    var $el = $('#photo-input');
+    $el.wrap('<form>').closest('form').get(0).reset();
+    $el.unwrap();
+
+
+document.getElementById('photo-input-span').addEventListener('click', function() {
+    document.getElementById('photo-input').click();
+});
+
+
+function fileChanged() {
+ input = document.getElementById('photo-input');
+    if (input.files && input.files[0]) {
+        var formData = new FormData();
+        formData.append('image', input.files[0]);
+
+        fetch(`${serverURL}/user/photo`, { // A URL do seu endpoint no servidor
+            headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}`},
+            method: 'PUT',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+            // Atualize a imagem do perfil aqui se o upload for bem-sucedido
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('photo').setAttribute('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+async function ChangeProfilePhoto() {
+    let url;
+    try {
+        await request("PUT", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
+            console.log(url);
+            document.getElementById('photo').setAttribute('src', url);
+        }, null, null, true)
+        } catch {
+            url = `${r2URL}/user/default.jpg`
+            document.getElementById("photo").setAttribute("src", url)
+        }
+    };
+
+
+async function loadProfilePhoto() {
+
+    let url;
+    try {
+        await request("GET", `${serverURL}/user/photo`, (xhr) => {
+            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
+            console.log(url)
+            document.getElementById("photo").setAttribute('src', url)
+        }, null, null, true)
+    } catch {
+        url = `${r2URL}/user/default.jpg`
+        document.getElementById("photo").setAttribute('src', url)
     }
 }
 
@@ -128,20 +196,6 @@ async function loadProfileInfo() {
 }
 
 // Foto de Perfil
-async function loadProfilePhoto() {
-
-    let url;
-    try {
-        await request("GET", `${serverURL}/user/photo`, (xhr) => {
-            url = `${r2URL}/${xhr.responseText}?${Date.now().toString()}`;
-            console.log(url)
-            document.getElementById("photo").setAttribute('src', url)
-        }, null, null, true)
-    } catch {
-        url = `${r2URL}/user/default.jpg`
-        document.getElementById("photo").setAttribute('src', url)
-    }
-}
 
 async function loadHistorico() {
     function getAddressFromAddressDto(address) {
@@ -149,7 +203,7 @@ async function loadHistorico() {
     }
 
     try {
-        await request("GET", `${serverURL}/service/closed`, (xhr) => {
+        await request("GET", `${serverURL}/service/closed`, (xhr) =>{
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
                 data.forEach(element => {
