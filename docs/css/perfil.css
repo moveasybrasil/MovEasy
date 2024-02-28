@@ -18,7 +18,7 @@
 }
 
 body {
-    overflow-x: hidden ;
+    overflow-x: hidden;
 }
 
 .content {
@@ -37,7 +37,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 550px;
-    height: 100%;
+    height: 100vh;
     background-color: var(--color-background-perfil3);
     color: var(--color-text-perfil2);
     padding: 4% 0;
@@ -449,22 +449,121 @@ body {
     display: none;
 }
 
+.modal-veiculo {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    left: 50%;
+    top: 40%;
+    width: 422px;
+    height: 230px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+#modal-veiculo-principal {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.modal-veiculo-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-veiculo-principal input {
+    width: 322px;
+    height: 50px;
+    position: relative;
+    left: 150px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 1px solid #bbb;
+}
+
+.modal-veiculo-principal p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    position: relative;
+    left: 150px;
+    bottom: 20px;
+}
+
+.modal-veiculo-principal {
+    width: 20%;
+}
+
+#close-modal {
+    display: flex;
+    background-color: #FFF;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 385px;
+    bottom: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-box {
+    width: 322px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4321e;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+    position: relative;
+    left: 28px;
+    top: 30px;
+}
 
 
 /* --- PERFIL MOBILE --- */
 
-@media (max-width: 1125px){
+@media (max-width: 1125px) {
     body {
-        overflow-x: hidden ;
+        overflow-x: hidden;
     }
-    
+
     .content {
         display: flex;
         height: 100%;
         overflow: auto;
         flex-direction: column;
     }
-    
+
 
 
     /* --- BARRA LATERAL MOBILE --- */
