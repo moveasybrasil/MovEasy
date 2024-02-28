@@ -2,11 +2,202 @@
 document.querySelector(".header-moving").classList.add("active");
 
 $(function () {
+
     $("#button-continuar").click(() => {
-        $("#form-continuar-solicitacao").hide();
-        $("#form-continuar2-solicitacao").show();
-        $("#form-finalizar-solicitacao").hide();
+        const values = {
+            data: $("#Data")[0].value,
+        }
+
+        console.log(values)
+
+        let camposInvalidos = false
+        let msg = "Os campos em vermelho estão incorretos!"
+
+        if (!values.data) {
+            $('input[id="Data"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#Data").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#Data").removeClass("invalid");
+            $('input[id="Data"]').css("border", "1px solid #bbb");
+        }
+
+        if (camposInvalidos) {
+            alert(msg);
+        } else {
+            $("#form-continuar-solicitacao").hide();
+            $("#form-continuar2-solicitacao").show();
+            $("#form-finalizar-solicitacao").hide();
+        }
     });
+
+    $("#button-continuar2").click(() => {
+        const values = {
+            cepOrig: $("#CepOrigem")[0].value,
+            endOrig: $("#EnderecoOrig")[0].value,
+            disOrig: $("#DistritoOrig")[0].value,
+            cidOrig: $("#CidadeOrig")[0].value,
+            sigOrig: $("#SiglaOrig")[0].value,
+            numOrig: $("#NumeroOrig")[0].value,
+        }
+
+        console.log(values)
+
+        let camposInvalidos = false
+        let msg = "Os campos em vermelho estão incorretos!"
+
+        if (!values.numOrig) {
+            $('input[id="NumeroOrig"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#NumeroOrig").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#NumeroOrig").removeClass("invalid");
+            $('input[id="NumeroOrig"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.sigOrig) {
+            $('input[id="SiglaOrig"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#SiglaOrig").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#SiglaOrig").removeClass("invalid");
+            $('input[id="SiglaOrig"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.cidOrig) {
+            $('input[id="CidadeOrig"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#DCidadeOrigata").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#CidadeOrig").removeClass("invalid");
+            $('input[id="CidadeOrig"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.disOrig) {
+            $('input[id="DistritoOrig"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#DistritoOrig").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#DistritoOrig").removeClass("invalid");
+            $('input[id="DistritoOrig"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.endOrig) {
+            $('input[id="EnderecoOrig"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#EnderecoOrig").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#EnderecoOrig").removeClass("invalid");
+            $('input[id="EnderecoOrig"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.cepOrig) {
+            $('input[id="CepOrigem"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#CepOrigem").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#CepOrigem").removeClass("invalid");
+            $('input[id="CepOrigem"]').css("border", "1px solid #bbb");
+        }
+
+        if (camposInvalidos) {
+            alert(msg);
+        } else {
+            $("#form-continuar-solicitacao").hide();
+            $("#form-continuar2-solicitacao").hide();
+            $("#form-finalizar-solicitacao").show();
+        }
+    });
+
+    $("#Enviar").click(() => {
+        const values = {
+            cepDest: $("#CepDestino")[0].value,
+            endDest: $("#EnderecoDest")[0].value,
+            disDest: $("#DistritoDest")[0].value,
+            cidDest: $("#CidadeDest")[0].value,
+            sigDest: $("#SiglaDest")[0].value,
+            numDest: $("#NumeroDest")[0].value,
+        }
+
+        console.log(values)
+
+        let camposInvalidos = false
+        let msg = "Os campos em vermelho estão incorretos!"
+
+        if (!values.numDest) {
+            $('input[id="NumeroDest"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#NumeroDest").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#NumeroDest").removeClass("invalid");
+            $('input[id="NumeroDest"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.sigDest) {
+            $('input[id="SiglaDest"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#SiglaDest").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#SiglaDest").removeClass("invalid");
+            $('input[id="SiglaDest"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.cidDest) {
+            $('input[id="CidadeDest"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#CidadeDest").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#CidadeDest").removeClass("invalid");
+            $('input[id="CidadeDest"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.disDest) {
+            $('input[id="DistritoDest"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#DistritoDest").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#DistritoDest").removeClass("invalid");
+            $('input[id="DistritoDest"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.endDest) {
+            $('input[id="EnderecoDest"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#EnderecoDest").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#EnderecoDest").removeClass("invalid");
+            $('input[id="EnderecoDest"]').css("border", "1px solid #bbb");
+        }
+
+        if (!values.cepDest) {
+            $('input[id="CepDestino"]').css("border", "2px solid red");
+            camposInvalidos = true
+            $("#CepDestino").addClass("invalid");
+            msg = "Os campos em vermelho estão inválidos!"
+        } else {
+            $("#CepDestino").removeClass("invalid");
+            $('input[id="CepDestino"]').css("border", "1px solid #bbb");
+        }
+
+        if (camposInvalidos) {
+            alert(msg);
+        } else {
+            enviarFormulario()
+        }
+    });
+
 
     $("#button-voltar").click(() => {
         $("#form-continuar-solicitacao").show();
@@ -14,11 +205,6 @@ $(function () {
         $("#form-finalizar-solicitacao").hide();
     });
 
-    $("#button-continuar2").click(() => {
-        $("#form-continuar-solicitacao").hide();
-        $("#form-continuar2-solicitacao").hide();
-        $("#form-finalizar-solicitacao").show();
-    });
 
     $("#button-voltar2").click(() => {
         $("#form-continuar-solicitacao").hide();
@@ -41,7 +227,7 @@ $(function () {
 async function enviarDadosParaBanco(formData) {
     try {
         const response = await fetch(`${serverURL}/services/open`, {
-            headers: {Authorization: `Bearer ${sessionStorage.getItem('token')}`},
+            headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` },
             method: 'POST',
             body: formData
         });
@@ -83,7 +269,7 @@ function toggleTag(tagName) {
             selectedValues.splice(index, 1);
             valorTotal -= valor;
         }
-        
+
     }
     localStorage.setItem('valorTotal', valorTotal);
     // Exibe os valores selecionados no console (você pode fazer o que quiser com esses valores)
