@@ -7,12 +7,17 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.background-img {
+body {
     background: url(../assets/images/Fundo-orcamento.jpg);
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: multiply;
-    padding: 30px;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.background-img {
+    padding: 30px;  
 }
 
 .container {
@@ -21,7 +26,11 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #0f0000;
+
+}
+
+.banner {
+    overflow: hidden;
 }
 
 h1 {
