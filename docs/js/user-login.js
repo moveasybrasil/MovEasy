@@ -115,3 +115,25 @@ $(() => {
             })
     });
 })
+
+// Visualizar Senha
+
+var passwordInput = document.getElementById('senha-login');
+var eyePasswordSpy1 = document.getElementById('eye-password-spy1');
+
+
+eyePasswordSpy1.addEventListener('mousedown', function () {
+    passwordInput.type = 'text';
+});
+
+eyePasswordSpy1.addEventListener('mouseup', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('mouseout', function () {
+    passwordInput.type = 'password';
+});
+
+eyePasswordSpy1.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
