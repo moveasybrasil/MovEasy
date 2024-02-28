@@ -24,28 +24,28 @@ async function sendPhoto() {
 }
 
 
-    // Simula um clique no elemento de input de arquivo
-    function choosePhoto() {
-        document.getElementById('file-input').click();
+// Simula um clique no elemento de input de arquivo
+function choosePhoto() {
+    document.getElementById('file-input').click();
+}
+
+function fileChanged() {
+
+    // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
+    // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
+    var fileInput = document.getElementById('photo-input');
+    var selectedFile = fileInput.files[0];
+
+    if (selectedFile) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            // Exemplo de como exibir a imagem carregada
+            var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
+            imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(selectedFile);
     }
-
-    function fileChanged() {
-
-        // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
-        // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
-        var fileInput = document.getElementById('photo-input');
-        var selectedFile = fileInput.files[0];
-
-        if (selectedFile) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                // Exemplo de como exibir a imagem carregada
-                var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
-                imagePreview.src = e.target.result;
-            };
-            reader.readAsDataURL(selectedFile);
-        }
-    }
+}
 
 function updateInfo() {
     const data = {
@@ -159,6 +159,8 @@ async function loadHistorico() {
                     $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
                     $(".valor", novoHistorico).html(`R$ ${element.price}`);
                     $("#dados-historico").append(novoHistorico);
+
+                    $("#not-add-historic").hide()
                 })
             } else {
                 $("#not-add-historic").show();
@@ -209,3 +211,31 @@ function logOut() {
 }
 
 LoadProfile()
+
+function modalVeiculo() {
+    var content = document.getElementById('content');
+    var modalVeiculo = document.getElementById('modal-veiculo-principal');
+    var btnModal = document.getElementById('selecionar-veiculo-principal');
+    var spanClose = document.getElementsByClassName('close-modal');
+
+    btnModal.onclick = function () {
+        modalVeiculo.style.display = "block";
+        content.style.pointerEvents = "none";
+        content.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+    }
+
+    spanClose.onclick = function () {
+        modalVeiculo.style.display = "none";
+        content.style.pointerEvents = "auto";
+        content.style.backgroundColor = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modalVeiculo) {
+            modalVeiculo.style.display = "none";
+            content.style.pointerEvents = "auto";
+            content.style.backgroundColor = "#FFF";
+        }
+    }
+};
+

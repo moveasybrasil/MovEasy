@@ -71,34 +71,34 @@
                         <span class="material-symbols-outlined" onclick="choosePhoto()">
                             edit
                         </span>
-                            
+
                     </div>
                     <input type="file" id="file-input" style="display: none;" onchange="fileChanged()">
                     <!-- <div id="modal-photo" class="modal" style="position: absolute;">
                         <div class="fechar-modal">
                             <span id="fecha-modal">X</span>
                         </div> -->
-                        <!-- <div>
+                    <!-- <div>
                             <div class="photo-change">
                                 <img id="photo-change" src="../assets/images/default.jpg"
                                     onerror="this.setAttribute('src', getUrl('assets/images/default.jpg'))"> -->
-                                <div class="photo-select-archive">
-                                    <label id="photo-input-label">
-                                        <!-- <img src="../"
+                    <div class="photo-select-archive">
+                        <label id="photo-input-label">
+                            <!-- <img src="../"
                                             onerror="this.setAttribute('src', getUrl('assets/images/camera-trocar-foto.png'))"
                                             alt=""> -->
-                                        <input style="display: none" id="photo-input" type="file" name="file"
-                                            onchange="fileChanged()">
-                                </div>
-                            </label>
-                            <!-- </div> -->
-                            
-                        <!-- </div> -->
-                        <!-- <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
+                            <input style="display: none" id="photo-input" type="file" name="file"
+                                onchange="fileChanged()">
+                    </div>
+                    </label>
+                    <!-- </div> -->
+
+                    <!-- </div> -->
+                    <!-- <button id="btn-photo-send" type="button" role="button" onclick="sendPhoto()">Enviar</button>
                     </div> -->
                 </div>
                 <div id="rating-conquistas-usuario">
-                    <p id="nome-usuario">★ 4.98</p>
+                    <p id="nome-usuario">★ 5.00</p>
                     <div id="conquistas-usuario">
                         <p id="conquista-txt-usuario">———— Conquistas ————</p>
                         <div id="icons-conquistas-usuario">
@@ -293,38 +293,34 @@
 
                         <div class="info-dados-perfil add-veiculo" onclick="goTo('alterar-veiculo')">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))" alt="Icone para editar veículo">
+                                onerror="this.setAttribute('src', getUrl('assets/images/editar-veiculo.png'))"
+                                alt="Icone para editar veículo">
                             <p>Editar Veículo</p>
                         </div>
 
-                        <div class="info-dados-perfil add-veiculo" onclick="removerVeiculo()">
+                        <div class="info-dados-perfil add-veiculo">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/icon-remover-veiculo.png'))" alt="Icone para excluir veículo">
+                                onerror="this.setAttribute('src', getUrl('assets/images/icon-remover-veiculo.png'))"
+                                alt="Icone para excluir veículo">
                             <p>Excluir Veículo</p>
                         </div>
 
                         <div class="modal-veiculo" id="modal-remover-veiculo">
-                            <div class="box-veiculo">
+                            <div class="modal-veiculo">
                                 <label for="formulario-solicitacao-descricao">Remover Veículo</label>
-                                <input list="Veiculos" placeholder="Selecione o veículo para ser excluido" name="Veiculo" id="Veiculo">
+                                <input list="Veiculos" placeholder="Selecione o veículo para ser excluido"
+                                    name="Veiculo" id="Veiculo">
                                 <datalist id="Veiculos">
                                 </datalist>
                             </div>
                         </div>
 
-                        <div class="info-dados-perfil add-veiculo" onclick="veiculoPrincipal()"> 
+                        <div class="info-dados-perfil add-veiculo" id="selecionar-veiculo-principal"
+                            onclick="modalVeiculo()">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone para selecionar veículo principal">
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))"
+                                alt="Icone para selecionar veículo principal">
                             <p>Selecionar Veículo Principal</p>
-                        </div>
-
-                        <div class="modal-veiculo" id="modal-veiculo-principal">
-                            <div class="box-veiculo">
-                                <label for="formulario-solicitacao-descricao">Remover Veículo</label>
-                                <input list="Veiculos" placeholder="Selecione o veículo para ser o principal" name="Veiculo" id="Veiculo">
-                                <datalist id="Veiculos">
-                                </datalist>
-                            </div>
                         </div>
 
                         <div class="info-perfil" style="display: block; padding-bottom: 20px;">
@@ -333,7 +329,8 @@
 
                         <div class="info-dados-perfil add-veiculo" id="not-add-vehicle">
                             <img src="../"
-                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))" alt="Icone de nenhum veículo adicionado">
+                                onerror="this.setAttribute('src', getUrl('assets/images/primeiro-veiculo.png'))"
+                                alt="Icone de nenhum veículo adicionado">
                             <p>Você ainda não adicionou nenhum Veículo!</p>
                         </div>
 
@@ -374,11 +371,11 @@
                         <span id="tipo-perfil">Prestador de Serviço</span>
                     </div>
 
-                    <div class="info-dados-perfil config-perfil">
+                    <!-- <div class="info-dados-perfil config-perfil">
                         <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/alterar-dados.png'))"
                             alt="">
                         <p>Alterar suas Informações</p>
-                    </div>
+                    </div> -->
 
                     <div class="info-dados-perfil config-perfil">
                         <img src="../" onerror="this.setAttribute('src', getUrl('assets/images/trocar-usuario.png'))"
@@ -396,7 +393,24 @@
             </div>
         </div>
 
+        <div class="modal-veiculo" id="modal-veiculo-principal">
+            <div id="close-modal">
+                <span class="close-modal">X</span>
+            </div>
+            <div class="modal-veiculo-principal">
+                <p>Remover Veículo</p>
+                <label for="formulario-solicitacao-descricao"></label>
+                <input list="Veiculos" placeholder="Selecione o veículo para ser o principal" name="Veiculo"
+                    id="Veiculo">
+                <datalist id="Veiculos">
+                </datalist>
+            </div>
+            <div class="button-box" id="button-excluir">
+                <button type="button">Excluir</button>
+            </div>
+        </div>
     </div>
+
     </div>
 
     <script src="../js/header.js"></script>

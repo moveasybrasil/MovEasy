@@ -24,28 +24,28 @@ async function sendPhoto() {
 }
 
 
-    // Simula um clique no elemento de input de arquivo
-    function choosePhoto() {
-        document.getElementById('file-input').click();
+// Simula um clique no elemento de input de arquivo
+function choosePhoto() {
+    document.getElementById('file-input').click();
+}
+
+function fileChanged() {
+
+    // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
+    // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
+    var fileInput = document.getElementById('photo-input');
+    var selectedFile = fileInput.files[0];
+
+    if (selectedFile) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            // Exemplo de como exibir a imagem carregada
+            var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
+            imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(selectedFile);
     }
-
-    function fileChanged() {
-
-        // Você pode adicionar lógica aqui para carregar a foto de perfil selecionada
-        // Por exemplo, você pode ler a URL do arquivo selecionado e atribuí-la à imagem de perfil
-        var fileInput = document.getElementById('photo-input');
-        var selectedFile = fileInput.files[0];
-
-        if (selectedFile) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                // Exemplo de como exibir a imagem carregada
-                var imagePreview = document.getElementById('photo-input-label').getElementsByTagName('img')[0];
-                imagePreview.src = e.target.result;
-            };
-            reader.readAsDataURL(selectedFile);
-        }
-    }
+}
 
 function updateInfo() {
     const data = {
@@ -110,13 +110,13 @@ async function loadProfileInfo() {
     userTel1 = JSON.parse(sessionStorage.getItem("user")).telephone1 ?? "Não Informado"
     userTel2 = JSON.parse(sessionStorage.getItem("user")).telephone2 ?? "Não Informado"
     userAbout = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
-        "Sou um cliente da MovEasy e estou aqui para solicitar mudanças!"
-        :
         "Sou um motorista certificado pela MovEasy, compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!"
-    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
-        "Cliente"
         :
-        "Prestador de Serviço";
+        "Sou um cliente da MovEasy e estou aqui para solicitar mudanças!";
+    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
+        "Prestador de Serviço"
+        :
+        "Cliente";
 
     document.getElementById("nome-usuario-perfil").innerHTML = userName
     document.getElementById("email-perfil").innerHTML = userEmail
