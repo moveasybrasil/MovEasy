@@ -89,6 +89,12 @@ h1 {
 
 @media only screen and (max-width: 768px) {
 
+    body {
+        background: none;
+        background-color: #fff;
+        height: 100vh;
+    }
+    
     .background-img {
         padding-top: 0;
     }
