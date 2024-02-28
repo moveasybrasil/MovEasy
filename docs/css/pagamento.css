@@ -60,6 +60,10 @@ textarea:focus {
     transition: left 0.25s;
 }
 
+.btn-copia {
+    text-transform: uppercase;
+}
+
 .toggle:hover .toggle-switch:before {
     background: linear-gradient(to bottom, #fff 0%, #fff 100%);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
@@ -693,6 +697,10 @@ Credit Card
 
     }
 
+    .form fieldset {
+        padding: 8px !important;
+    }
+
     .credit-card-box {
         position:unset;
         width: auto;
@@ -747,7 +755,9 @@ Credit Card
         justify-content: center;
     }
 
-
+    #btn-enviar {
+        margin-top: 10px !important;
+    }
 }
 
 
