@@ -89,76 +89,99 @@
               <input type="date" placeholder="Qual a data" id="Data"></input>
 
               <div class="button-container" id="button-continuar">
-                <button type="button" class="button-form"><b>CONTINUAR</b></button>
+                <button type="button" class="button-form"><b>Continuar</b></button>
               </div>
             </div>
           </div>
 
           <div class="form" id="form-continuar2-solicitacao" style="display: none">
-            <h1 class="title-form">Dados de origem</h1>
+            <h2 class="title-form">Dados de Origem</h2>
 
             <div class="info-formes-solicitacao">
               <div class="consulta-form">
-              <label for="formulario-solicitacao-cep">CEP:</label>
-              <input type="text" placeholder="CEP" id="CepOrigem"></input>
-              <img onclick="ConsultarCepOrigem()" class="consultar-cep" src="./assets/images/magnifying-glass-solid.svg"></img>
-            </div>
+                <label for="formulario-solicitacao-cep">CEP:</label>
+                <input type="text" placeholder="Digite seu CEP" id="CepOrigem"></input>
+                <img onclick="ConsultarCepOrigem()" class="consultar-cep"
+                  src="./assets/images/magnifying-glass-solid.svg"></img>
+              </div>
+              <div id="info-formes-solicitacao2">
+                <div class="info-formes-coluna">
+                  <label for="formulario-solicitacao-endereco">Endereço:</label>
+                  <input type="text" placeholder="Digite o nome da Rua" id="EnderecoOrig"></input>
 
-              <label for="formulario-solicitacao-endereco">Endereço:</label>
-              <input type="text" placeholder="Seu endereço aqui" id="EnderecoOrig"></input>
+                  <label for="formulario-solicitacao-distrito">Bairro:</label>
+                  <input type="text" placeholder="Digite o nome do Bairro" id="DistritoOrig"></input>
 
-              <label for="formulario-solicitacao-distrito">Bairro:</label>
-              <input type="text" placeholder="Digite o Bairro aqui" id="DistritoOrig"></input>
+                  <label for="formulario-solicitacao-cidade">Cidade:</label>
+                  <input type="text" placeholder="Digite o nome da Cidade" id="CidadeOrig"></input>
+                </div>
 
-              <label for="formulario-solicitacao-cidade">Cidade:</label>
-              <input type="text" placeholder="Digite a Cidade aqui" id="CidadeOrig"></input>
+                <div class="info-forme-espaco">
 
-              <label for="formulario-solicitacao-sigla">UF:</label>
-              <input type="text" placeholder="Qual seu estado?" id="SiglaOrig"></input>
+                </div>
 
-              <label for="formulario-solicitacao-numero">Número:</label>
-              <input type="text" placeholder="Digite aqui o número da residência" id="NumeroOrig"></input>
+                <div class="info-formes-coluna">
+                  <label for="formulario-solicitacao-sigla">UF:</label>
+                  <input type="text" placeholder="Digite o nome do Estado" id="SiglaOrig"></input>
 
-              <label for="formulario-solicitacao-numero">Complemento</label>
-              <input type="text" placeholder="Apartamento, Bloco, Referência" id="ComplementoOrig"></input>
+                  <label for="formulario-solicitacao-numero">Número:</label>
+                  <input type="text" placeholder="Digite o número da residência" id="NumeroOrig"></input>
+
+                  <label for="formulario-solicitacao-numero">Complemento</label>
+                  <input type="text" placeholder="Apartamento, Bloco, Referência" id="ComplementoOrig"></input>
+                </div>
+              </div>
 
               <div class="button-container">
                 <button type="button" class="button-form button-voltar" id="button-voltar"> Voltar </button>
-                <button type="button" class="button-form" id="button-continuar2"><b>CONTINUAR</b></button>
+                <button type="button" class="button-form" id="button-continuar2"><b>Continuar</b></button>
               </div>
             </div>
           </div>
+
           <div class="form" id="form-finalizar-solicitacao" style="display: none">
-            <h1 class="title-form">Dados de destino</h1>
+            <h2 class="title-form">Dados de Destino</h2>
 
             <div class="info-formes-solicitacao">
               <div class="consulta-form">
-              <label for="formulario-solicitacao-cep">CEP:</label>
-              <input type="text" placeholder="CEP" id="CepDestino"></input>
-              <img src="./assets/images/magnifying-glass-solid.svg" class="consultar-cep" onclick="ConsultarCepDestino()" alt="lupa">
-            </div>
+                <label for="formulario-solicitacao-cep">CEP:</label>
+                <input type="text" placeholder="Digite seu CEP" id="CepDestino"></input>
+                <img src="./assets/images/magnifying-glass-solid.svg" class="consultar-cep"
+                  onclick="ConsultarCepDestino()" alt="lupa">
+              </div>
 
-              <label for="formulario-solicitacao-endereco">Endereço:</label>
-              <input type="text" placeholder="Digite o nome da Rua" id="EnderecoDest"></input>
+              <div id="info-formes-solicitacao2">
+                <div class="info-formes-coluna">
+                  <label for="formulario-solicitacao-endereco">Endereço:</label>
+                  <input type="text" placeholder="Digite o nome da Rua" id="EnderecoDest"></input>
 
-              <label for="formulario-solicitacao-distrito">Bairro:</label>
-              <input type="text" placeholder="Digite aqui o Bairro" id="DistritoDest"></input>
+                  <label for="formulario-solicitacao-distrito">Bairro:</label>
+                  <input type="text" placeholder="Digite o nome do Bairro" id="DistritoDest"></input>
 
-              <label for="formulario-solicitacao-cidade">Cidade:</label>
-              <input type="text" placeholder="Digite aqui a Cidade" id="CidadeDest"></input>
+                  <label for="formulario-solicitacao-cidade">Cidade:</label>
+                  <input type="text" placeholder="Digite o nome da Cidade" id="CidadeDest"></input>
+                </div>
 
-              <label for="formulario-solicitacao-sigla">UF:</label>
-              <input type="text" placeholder="Qual seu estado?" id="SiglaDest"></input>
+                <div class="info-forme-espaco">
 
-              <label for="formulario-solicitacao-numero">Número:</label>
-              <input type="text" placeholder="Digite aqui o número da residência" id="NumeroDest"></input>
+                </div>
 
-              <label for="formulario-solicitacao-numero">Complemento</label>
-              <input type="text" placeholder="Apartamento, Bloco, Referência" id="ComplementoDest"></input>
+                <div class="info-formes-coluna">
+                  <label for="formulario-solicitacao-sigla">UF:</label>
+                  <input type="text" placeholder="Digite o nome do Estado" id="SiglaDest"></input>
+
+                  <label for="formulario-solicitacao-numero">Número:</label>
+                  <input type="text" placeholder="Digite o número da residência" id="NumeroDest"></input>
+
+                  <label for="formulario-solicitacao-numero">Complemento</label>
+                  <input type="text" placeholder="Apartamento, Bloco, Referência" id="ComplementoDest"></input>
+                </div>
+              </div>
 
               <div class="button-container">
                 <button type="button" class="button-form button-voltar" id="button-voltar2"> Voltar </button>
-                <button type="button" class="button-form" id="Enviar" onclick="enviarFormulario()"><b>ENVIAR</b></button>
+                <button type="button" class="button-form" id="Enviar"
+                  onclick="enviarFormulario()"><b>Enviar</b></button>
               </div>
             </div>
           </div>
