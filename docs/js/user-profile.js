@@ -22,18 +22,6 @@ async function sendPhoto() {
 
     await setProfilePhoto()
 }
-
-const modalPhoto = $('#modal-photo');
-$('#photo').click((e) => {
-    modalPhoto.removeClass("modal");
-    modalPhoto.toggleClass("show");
-});
-
-const closeModal = $('#fecha-modal')
-closeModal.click((e) => {
-    modalPhoto.removeClass("show");
-    modalPhoto.toggleClass("modal");
-
     // Volta a foto para o default
     document.getElementById("photo-change").setAttribute('src', getUrl('assets/images/default.jpg'))
 
@@ -41,7 +29,7 @@ closeModal.click((e) => {
     var $el = $('#photo-input');
     $el.wrap('<form>').closest('form').get(0).reset();
     $el.unwrap();
-})
+
 
 document.getElementById('photo-input-span').addEventListener('click', function() {
     document.getElementById('photo-input').click();
