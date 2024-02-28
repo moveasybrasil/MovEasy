@@ -40,11 +40,9 @@ $(function () {
 
 async function enviarDadosParaBanco(formData) {
     try {
-        const response = await fetch('url_do_seu_servidor_csharp', {
+        const response = await fetch(`${serverURL}/services/open`, {
+            headers: {Authorization: `Bearer ${sessionStorage.getItem('token')}`},
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
             body: formData
         });
 
@@ -59,32 +57,7 @@ async function enviarDadosParaBanco(formData) {
     }
 }
 
-$(function () {
-    // Função para buscar dados do banco de dados quando a página carregar
-    async function buscarDadosDoBanco() {
-        try {
-            const response = await fetch('url_do_seu_servidor_csharp');
-            if (!response.ok) {
-                throw new Error('Erro ao buscar dados do banco de dados');
-            }
-            const data = await response.json();
-            // Manipule os dados recebidos aqui (por exemplo, exibindo-os em uma tabela HTML)
-            console.log('Dados do banco de dados:', data);
-        } catch (error) {
-            console.error('Erro ao buscar dados do banco de dados:', error);
-        }
-    }
-
-    // Chame a função para buscar os dados do banco de dados quando a página carregar
-    buscarDadosDoBanco();
-});
-
-// Inicialize um array para armazenar os valores das tags selecionadas
 var selectedValues = [];
-
-// Inicialize um array para armazenar os textos das tags selecionadas
-var selectedValues = [];
-
 
 let valorTotal = 0;
 
@@ -212,30 +185,3 @@ function salvarDadosLocalmente() {
 function redirecionarParaPaginaOrcamento() {
     window.location.href = 'orcamento.html';
 }
-
-
-function PostAddress(address) {
-    return `${address.street} ${address.number}, ${address.district}, ${address.city}-${address.fu}`;
-}
-
-try {
-    await request("POST", `${serverURL}/service/open`, (xhr) =>{
-        if (xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
-            data.forEach(element => {
-                const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
-                $(".data", novoHistorico).html(new Date(element.date).toLocaleString("pt-BR"));
-                $(".origem", novoHistorico).html(getAddressFromAddressDto(element.address));
-                $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
-                $(".valor", novoHistorico).html(`R$ ${element.price}`);
-                $("#dados-historico").append(novoHistorico);
-            })
-        } else {
-            $("#not-add-historic").show();
-        }
-    }, null, null, true)
-} catch (error) {
-    console.error("Erro ao carregar o histórico:", error);
-    $("#not-add-historic").show();
-}
-
