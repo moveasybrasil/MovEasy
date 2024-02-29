@@ -1,3 +1,14 @@
+$("#trocar-perfil").click(() => {
+    if ($("#sections-perfil-veiculos").is(":visible")) {
+        $("#sections-perfil-veiculos").hide();
+    } else {
+        $("#sections-perfil-veiculos").show();
+    }
+});
+
+
+
+
 // Adiciona a tag 'active' ao header para o item especifico
 document.querySelectorAll(".header-login").forEach((e) => {
     e.classList.add("active")
@@ -53,7 +64,7 @@ function fileChanged() {
 
 
 
-        
+
     }
 }
 
@@ -181,14 +192,14 @@ async function loadProfileInfo() {
     userEmail = JSON.parse(sessionStorage.getItem("user")).email ?? "Não Informado"
     userTel1 = JSON.parse(sessionStorage.getItem("user")).telephone1 ?? "Não Informado"
     userTel2 = JSON.parse(sessionStorage.getItem("user")).telephone2 ?? "Não Informado"
-    userAbout = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
-        "Sou um cliente da MovEasy e estou aqui para solicitar mudanças!"
-        :
-        "Sou um motorista certificado pela MovEasy, compremetido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!"
-    userType = JSON.parse(sessionStorage.getItem("user")).type == 0 ?
-        "Cliente"
-        :
-        "Prestador de Serviço";
+    const isVeiculosHidden = $("#sections-perfil-veiculos").is(":hidden");
+
+    const userAbout = isVeiculosHidden ?
+        "Sou um cliente da MovEasy e estou aqui para solicitar mudanças!" :
+    "Sou um motorista certificado pela MovEasy, comprometido em fornecer um serviço de mudança confiável e eficiente. Estou aqui para garantir uma experiência tranquila e sem complicações durante a sua mudança!";
+
+
+    const userType = isVeiculosHidden ? "Cliente" : "Prestador de Serviço";
 
     document.getElementById("nome-usuario-perfil").innerHTML = userName
     document.getElementById("email-perfil").innerHTML = userEmail
@@ -307,7 +318,7 @@ function ShowPending() {
         const savedMovingOrig = JSON.parse(savedMovingOrigin);
         const savedMovingDest = JSON.parse(savedMovingDestination);
         const savedTotalValor = JSON.parse(savedTotal);
-console.log(savedMovingDest);
+        console.log(savedMovingDest);
         // Atualiza as informações da mudança pendente
         document.getElementById('dataMudanca').innerHTML = `<b>Data da mudança:</b><pre> </pre> ${savedMovingDest['Data da mudança']}`;
         document.getElementById('origem').innerHTML = `<b>Endereço de origem:</b><pre> </pre> ${savedMovingOrig['Endereço de origem']}, ${savedMovingOrig["Cidade de origem"]}`;
