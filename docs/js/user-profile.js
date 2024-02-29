@@ -201,34 +201,34 @@ async function loadProfileInfo() {
 
 // Foto de Perfil
 
-async function loadHistorico() {
-    function getAddressFromAddressDto(address) {
-        return `${address.street} ${address.number}, ${address.district}, ${address.city}-${address.fu}`;
-    }
+// async function loadHistorico() {
+//     function getAddressFromAddressDto(address) {
+//         return `${address.street} ${address.number}, ${address.district}, ${address.city}-${address.fu}`;
+//     }
 
-    try {
-        await request("GET", `${serverURL}/service/closed`, (xhr) => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                data.forEach(element => {
-                    const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
-                    $(".data", novoHistorico).html(new Date(element.date).toLocaleString("pt-BR"));
-                    $(".origem", novoHistorico).html(getAddressFromAddressDto(element.address));
-                    $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
-                    $(".valor", novoHistorico).html(`R$ ${element.price}`);
-                    $("#dados-historico").append(novoHistorico);
+//     try {
+//         await request("GET", `${serverURL}/service/closed`, (xhr) => {
+//             if (xhr.status === 200) {
+//                 const data = JSON.parse(xhr.responseText);
+//                 data.forEach(element => {
+//                     const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
+//                     $(".data", novoHistorico).html(new Date(element.date).toLocaleString("pt-BR"));
+//                     $(".origem", novoHistorico).html(getAddressFromAddressDto(element.address));
+//                     $(".destino", novoHistorico).html(getAddressFromAddressDto(element.address1));
+//                     $(".valor", novoHistorico).html(`R$ ${element.price}`);
+//                     $("#dados-historico").append(novoHistorico);
 
-                    $("#not-add-historic").hide()
-                })
-            } else {
-                $("#not-add-historic").show();
-            }
-        }, null, null, true)
-    } catch (error) {
-        console.error("Erro ao carregar o histórico:", error);
-        $("#not-add-historic").show();
-    }
-}
+//                     $("#not-add-historic").hide()
+//                 })
+//             } else {
+//                 $("#not-add-historic").show();
+//             }
+//         }, null, null, true)
+//     } catch (error) {
+//         console.error("Erro ao carregar o histórico:", error);
+//         $("#not-add-historic").show();
+//     }
+// }
 
 //Objeto Veículo
 async function loadVehicle() {
@@ -257,7 +257,7 @@ async function loadVehicle() {
 async function LoadProfile() {
     await loadProfileInfo()
     await loadProfilePhoto()
-    await loadHistorico()
+    // await loadHistorico()
     await loadVehicle()
     mostrarDiv('container-dados-informacoes', 0)
 }
@@ -296,3 +296,37 @@ function modalVeiculo() {
         }
     }
 };
+
+function ShowPending() {
+    const savedMovingOrigin = localStorage.getItem('dadosOrigem');
+    const savedMovingDestination = localStorage.getItem('dadosDestino');
+    const savedTotal = localStorage.getItem('valorTotal');
+    // Verifica se há informações salvas
+    if (savedMovingOrigin && savedMovingDestination && savedTotal) {
+        // Converte a string JSON de volta para um objeto
+        const savedMovingOrig = JSON.parse(savedMovingOrigin);
+        const savedMovingDest = JSON.parse(savedMovingDestination);
+        const savedTotalValor = JSON.parse(savedTotal);
+console.log(savedMovingDest);
+        // Atualiza as informações da mudança pendente
+        document.getElementById('dataMudanca').innerText = savedMovingDest['Data da mudança'];
+        document.getElementById('origem').innerText = `${savedMovingOrig['Endereço de origem']}, ${savedMovingOrig["Cidade de origem"]}`;
+        document.getElementById('destino').innerText = `${savedMovingDest['Endereço do destino']}, ${savedMovingDest["Cidade do destino"]}`;
+        document.getElementById('money').innerText = `R$${savedTotalValor},00`;
+
+        // Calcula e atualiza o valor total
+        const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
+        $(".data", novoHistorico).html(new Date(savedMovingDest['Data da mudança']).toLocaleString("pt-BR"));
+        $(".origem", novoHistorico).html(savedMovingOrig.address);
+        $(".destino", novoHistorico).html(savedMovingDest.destination);
+        $(".valor", novoHistorico).html(`R$${savedTotalValor.money}`);
+        $("#dados-historico").append(novoHistorico);
+        // Esconde a mensagem de "Nenhum histórico adicionado"
+        $("#not-add-historic").hide();
+    } else {
+        // Se não houver dadosDestino, mostra a mensagem de "Nenhum histórico adicionado"
+        $("#not-add-historic").show();
+    }
+}
+// Chama a função para mostrar os dados pendentes
+ShowPending();
