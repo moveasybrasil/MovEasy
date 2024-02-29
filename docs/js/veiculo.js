@@ -54,7 +54,7 @@ async function register() {
 
 $(() => {
 
-  $("#button-continuar").click(() => {
+  $("#botao-continuar").click(() => {
     const values = {
       placa: $("#Placa")[0].value,
       modelo: $("#Nome")[0].value,

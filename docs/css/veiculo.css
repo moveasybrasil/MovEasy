@@ -92,6 +92,10 @@ body {
     cursor: pointer;
 }
 
+#botao-continuar {
+    margin-top: 40px;
+}
+
 #button-continuar {
     margin-top: 55px;
     position: relative;
