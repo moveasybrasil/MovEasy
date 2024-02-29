@@ -89,7 +89,7 @@ textarea:focus {
 }
 
 
-  /*--------------------Pix-Checkout box-------------------*/
+/*--------------------Pix-Checkout box-------------------*/
 
 
 .background-checkout {
@@ -133,6 +133,12 @@ textarea:focus {
 /*----------------Copia/cola Pix----------------*/
 
 
+#btn-enviar {
+    position: relative;
+    top: 210px;
+    left: 26px;
+}
+
 .pix-copia-cola {
     width: 100%;
     height: 90%;
@@ -165,7 +171,6 @@ textarea:focus {
     color: white;
     border-radius: 5px;
     border: 0px;
-
     cursor: pointer;
     padding: 20px;
     font-weight: 700;
@@ -219,8 +224,25 @@ textarea:focus {
     width: 82%;
     height: 6%;
     text-transform: uppercase;
-    
+}
 
+#limpa-campos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 20px;
+    background-color: #e4321e;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    padding: 20px;
+    font-weight: 700;
+    position: relative;
+    top: 230px;
+    left: 45px;
+    text-transform: uppercase;
 }
 
 /*--------------------
@@ -228,7 +250,7 @@ Form
 --------------------*/
 .form {
     position: relative;
-    top: 200px;
+    top: 230px;
     margin: 8px;
 
     fieldset {
@@ -387,8 +409,7 @@ Credit Card
         transform: rotateY(180deg);
     }
 
-    .front
-    {
+    .front {
         width: 18rem;
         height: 11rem;
         border-radius: 15px;
@@ -398,7 +419,7 @@ Credit Card
         color: #fff;
         font-family: Inconsolata;
         top: 15px;
-        left: 35px;
+        left: 55px;
         text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
         box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
 
@@ -566,53 +587,49 @@ Credit Card
 }
 
 .bottom-menu {
-        flex-direction: column !important;
-    }
+    flex-direction: column !important;
+}
 
-    #span-bottom {
+#span-bottom {
 
-        text-align: center;
-    }
+    text-align: center;
+}
 
-    .bottom-menu {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+.bottom-menu {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-    .timer-menu {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+.timer-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-    #limpa_campos {
-        top: 0;
-        margin-top: 0;
-    }
+.btn-bottom {
+    height: 15%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
 
-    .btn-bottom {
-        height: 15%;
-        display: flex;
-        align-items: center;
-    }
-
-    #btn-submit {
-        margin-top: 0;
-    }
+#btn-submit {
+    margin-top: 0;
+}
 
 /* Estilos para o modal */
 .modal {
     display: none;
     position: fixed;
-    z-index: 10; 
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4);
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -622,26 +639,34 @@ Credit Card
     justify-content: space-evenly;
     text-align: center;
     font-size: larger;
-    background-color: #fefefe; /* Cor de fundo do modal */
-    margin: 15% auto; /* Margem para centralizar o modal verticalmente */
+    background-color: #fefefe;
+    /* Cor de fundo do modal */
+    margin: 15% auto;
+    /* Margem para centralizar o modal verticalmente */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura do modal */
-    max-width: 600px; /* Largura máxima do modal */
-    position: relative; /* Posição relativa para alinhar o botão de fechar */
+    width: 80%;
+    /* Largura do modal */
+    max-width: 600px;
+    /* Largura máxima do modal */
+    position: relative;
+    /* Posição relativa para alinhar o botão de fechar */
 }
 
 /* Estilos para o botão de fechar */
 .close {
-    color: #aaaaaa; /* Cor do botão de fechar */
-    float: right; /* Alinhar o botão de fechar à direita */
+    color: #aaaaaa;
+    /* Cor do botão de fechar */
+    float: right;
+    /* Alinhar o botão de fechar à direita */
     font-size: 28px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #000; /* Mudar a cor do botão de fechar quando hover ou focado */
+    color: #000;
+    /* Mudar a cor do botão de fechar quando hover ou focado */
     text-decoration: none;
     cursor: pointer;
 }
@@ -652,10 +677,6 @@ Credit Card
 
     #btn-submit {
         margin-top: 90px !important;
-    }
-
-    .btn-copia {
-        width: 30%;
     }
 
     .checkout-box {
@@ -675,6 +696,7 @@ Credit Card
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
     }
 
     .form {
@@ -702,7 +724,7 @@ Credit Card
     }
 
     .credit-card-box {
-        position:unset;
+        position: unset;
         width: auto;
     }
 
@@ -716,7 +738,7 @@ Credit Card
         height: 12rem !important;
         top: 0 !important;
         left: 0 !important;
- 
+
     }
 
     .back .logo {
@@ -735,6 +757,8 @@ Credit Card
     .pix-copia-cola {
         height: 100%;
         justify-content: space-evenly;
+        height: auto;
+
     }
 
     #btn-copiar {
@@ -758,7 +782,11 @@ Credit Card
     #btn-enviar {
         margin-top: 10px !important;
     }
+
+    #limpa-campos {
+        position: initial;
+        top: 0 !important;
+        margin-top: 0 !important;
+        left: 0 !important;
+    }
 }
-
-
-
