@@ -1,3 +1,13 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
 function checkInputLength() {
   let inputValue = document.getElementById("Placa").value;
   let maxCaracteres = 7;
