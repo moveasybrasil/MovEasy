@@ -1,3 +1,8 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
 function validateForm() {
   var veiculo = document.getElementById("Veiculo").value;
   var placa = document.getElementById("Placa").value;
@@ -52,6 +57,11 @@ function alterarVeiculo() {
     name: nome,
     colour: cor
   }, null, true)
+
+  $("#box2").hide();
+  $("#box3").show();
+
+  setTimeout( ()=>{goTo("user/perfil")}, 4 * 1000)
 
   // fetch('/url-do-backend', {
   //   method: 'POST',
@@ -171,7 +181,7 @@ $(() => {
     }
   });
 
-  $("#button-voltar").click(() => {
+  $("#botao-voltar").click(() => {
     $("#box1").show();
     $("#box2").hide();
   });

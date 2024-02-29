@@ -1,3 +1,6 @@
+// Adiciona a classe 'active' ao header para o item específico
+document.querySelector(".header-moving").classList.add("active");
+
 $(() => {
 
     function criarListaMudanca(item) {

@@ -1,3 +1,13 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
 function checkInputLength() {
   let inputValue = document.getElementById("Placa").value;
   let maxCaracteres = 7;
@@ -50,11 +60,15 @@ async function register() {
     Colour: valorCor
   }, null, true)
 
+  $("#box2").hide();
+  $("#box3").show();
+
+  setTimeout( ()=>{goTo("user/perfil")}, 4 * 1000)
 }
 
 $(() => {
 
-  $("#button-continuar").click(() => {
+  $("#botao-continuar").click(() => {
     const values = {
       placa: $("#Placa")[0].value,
       modelo: $("#Nome")[0].value,
@@ -145,7 +159,6 @@ $(() => {
       alert(msg);
     } else {
       register
-      $(location).attr('href', 'https://moveasybrasil.github.io/MovEasy/user/perfil');
     }
 
   });

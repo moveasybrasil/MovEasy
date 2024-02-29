@@ -48,14 +48,13 @@
                     <a class="header-support" href="javascript:goTo('suporte')">SUPORTE</a>
                     <a class="header-moving" href="javascript:goTo('solicitacao')">MUDANÇAS</a>
                     <a class="header-login"
-                        href="javascript:goTo(isTokenValid() ? 'user/persil' : 'user/login')">LOGIN</a>
-
+                        href="javascript:goTo(isTokenValid() ? 'user/perfil' : 'user/login')">LOGIN</a>
                 </div>
             </div>
         </header>
         <main>
             <section>
-                <div class="content">
+                <div class="content" id="content">
                     <div id="toggle-menu">
                         <p id="mudanca-aberta" class="active-perfil">Aberto</p>
                         <p id="mudanca-aguardando" class="">Pendente</p>
@@ -147,5 +146,6 @@
     </div>
 </body>
 <script src="./js/lista-mudanca.js"></script>
+<script src="./js/header.js"></script>
 
 </html>

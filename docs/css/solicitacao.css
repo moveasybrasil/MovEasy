@@ -34,22 +34,57 @@
     color: #000;
 }
 
-form {
-    max-width: 500px;
-    height: auto;
+.form {
+    width: 500px;
+    height: 530px;
     background-color: #fff;
     border-radius: 10px;
-    flex-direction: column;
     padding: 20px 50px;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     /* Adiciona uma sombra suave */
 }
 
+#form-continuar-solicitacao {
+    flex-direction: column;
+}
+
+.info-forme-espaco {
+    width: 10%;
+    height: auto;
+}
+
+#form-continuar2-solicitacao {
+    width: 1000px;
+    height: 530px;
+    flex-direction: column;
+}
+
+#form-finalizar-solicitacao {
+    width: 1000px;
+    height: 530px;
+    flex-direction: column;
+}
+
 .info-formes-solicitacao label,
 .title-form {
     color: #000;
     font-weight: bold;
+}
+
+#info-formes-solicitacao2 {
+    display: flex;
+}
+
+.info-formes-coluna {
+    width: 45%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-formes-coluna label {
+    margin: 10px 0;
 }
 
 .title-form {
@@ -60,11 +95,11 @@ form {
 
 .info-formes-solicitacao input {
     width: 100%;
-    height: 40px;
+    height: 50px;
     /* Reduz a altura dos campos de entrada */
     border-radius: 5px;
     border: 1px solid #bbb;
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
     padding: 0 10px;
     margin: 5px 0;
 }
@@ -73,13 +108,24 @@ form {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    height: 50px;
+    font-size: 20px;
     /* Espaçamento entre os botões e o resto do formulário */
 }
 
 .button-voltar {
-    width: 45%;
+    width: 50%;
     /* Ajusta a largura dos botões */
     margin-right: 10px;
+    font-weight: bold;
+}
+
+#button-continuar2 {
+    width: 50%;
+}
+
+#Enviar {
+    width: 50%;
 }
 
 .button-form {
@@ -130,15 +176,16 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .consulta-form>label {
-    margin-right: 10px;
+    margin-right: 25px;
 }
 
 .consultar-cep {
     width: 20px;
-    height: 20px;
+    height: 50px;
     cursor: pointer;
     margin: 5px;
 }
@@ -146,14 +193,15 @@ form {
 .consulta-form input[type="text"] {
     padding-right: 40px;
     /* Ajuste conforme necessário para dar espaço ao botão */
-    width: 200px;
+    width: 400px;
     /* Ajuste conforme necessário */
-    height: 30px;
+    height: 50px;
     /* Ajuste conforme necessário */
     border: 1px solid #ccc;
     /* Adicione estilos de borda conforme necessário */
     border-radius: 4px;
     /* Adicione bordas arredondadas conforme necessário */
+    margin-right: 25px;
 }
 
 .consulta-form button {
@@ -187,16 +235,124 @@ form {
     border: 1px solid red;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1025px) {
     .content {
         display: flex;
         background: none;
         background-color: #fff;
         justify-content: center;
         align-items: center;
+        filter: none;
+        overflow-y: auto;
     }
 
-    form {
+    .form {
         box-shadow: none;
+        width: 400px;
+        height: auto;
+    }
+
+    #form-continuar-solicitacao {
+        flex-direction: column;
+        padding: 20px 50px;
+    }
+
+    .info-forme-espaco {
+        display: none;
+    }
+
+    #form-continuar2-solicitacao {
+        width: 400px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 200px;
+    }
+
+    #info-formes-solicitacao2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #form-finalizar-solicitacao {
+        width: 400px;
+        height: auto;
+        flex-direction: column;
+        margin-top: 200px;
+    }
+
+    .info-formes-solicitacao label,
+    .title-form {
+        color: #000;
+        font-weight: bold;
+    }
+
+    #info-formes-solicitacao2 {
+        display: flex;
+    }
+
+    .info-formes-coluna {
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .info-formes-coluna label {
+        margin: 8px 0;
+    }
+
+    .title-form {
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    .info-formes-solicitacao input {
+        width: 100%;
+        height: 50px;
+        /* Reduz a altura dos campos de entrada */
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        background-color: #F5F5F5;
+        padding: 0 10px;
+        margin: 5px 0;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        height: 50px;
+        font-size: 20px;
+        /* Espaçamento entre os botões e o resto do formulário */
+    }
+
+    .button-voltar {
+        width: 50%;
+        /* Ajusta a largura dos botões */
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    #button-continuar2 {
+        width: 50%;
+    }
+
+    #Enviar {
+        width: 50%;
+    }
+
+    .consulta-form input[type="text"] {
+        padding-right: 40px;
+        /* Ajuste conforme necessário para dar espaço ao botão */
+        width: 60%;
+        /* Ajuste conforme necessário */
+        height: 50px;
+        /* Ajuste conforme necessário */
+        border: 1px solid #ccc;
+        /* Adicione estilos de borda conforme necessário */
+        border-radius: 4px;
+        /* Adicione bordas arredondadas conforme necessário */
+        margin-right: 25px;
     }
 }

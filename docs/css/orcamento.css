@@ -17,12 +17,13 @@ body {
 }
 
 .background-img {
-    padding: 30px;  
+    padding-top: 5%;
 }
 
 .container {
     margin: 0 auto;
-    padding: 20px;
+    width: 80%;
+    padding: 20px 50px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -35,12 +36,9 @@ body {
 
 h1 {
     text-align: center;
-   
-}
-.container {
 
-    width: 80%;
 }
+
 .container h1 {
     font-size: 25px;
     font-weight: bold;
@@ -89,9 +87,21 @@ h1 {
 }
 
 
- @media only screen and (max-width: 768px)  {
+@media only screen and (max-width: 768px) {
 
+    body {
+        background: none;
+        background-color: #fff;
+        height: 100vh;
+    }
     
+    .background-img {
+        padding-top: 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px 50px;
+    }
+
 }
-
-    
