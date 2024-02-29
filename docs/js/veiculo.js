@@ -50,6 +50,10 @@ async function register() {
     Colour: valorCor
   }, null, true)
 
+  $("#box2").hide();
+  $("#box3").show();
+
+  setTimeout( ()=>{goTo("user/perfil")}, 10 * 1000)
 }
 
 $(() => {
