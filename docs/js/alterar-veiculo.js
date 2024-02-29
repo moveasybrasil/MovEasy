@@ -58,6 +58,11 @@ function alterarVeiculo() {
     colour: cor
   }, null, true)
 
+  $("#box2").hide();
+  $("#box3").show();
+
+  setTimeout( ()=>{goTo("user/perfil")}, 5 * 1000)
+
   // fetch('/url-do-backend', {
   //   method: 'POST',
   //   headers: {
