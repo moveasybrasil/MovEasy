@@ -63,7 +63,7 @@ async function register() {
   $("#box2").hide();
   $("#box3").show();
 
-  setTimeout( ()=>{goTo("user/perfil")}, 5 * 1000)
+  setTimeout( ()=>{goTo("user/perfil")}, 4 * 1000)
 }
 
 $(() => {
@@ -159,7 +159,6 @@ $(() => {
       alert(msg);
     } else {
       register
-      $(location).attr('href', 'https://moveasybrasil.github.io/MovEasy/user/perfil');
     }
 
   });
