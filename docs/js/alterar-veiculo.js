@@ -176,7 +176,7 @@ $(() => {
     }
   });
 
-  $("#button-voltar").click(() => {
+  $("#botao-voltar").click(() => {
     $("#box1").show();
     $("#box2").hide();
   });
