@@ -53,7 +53,7 @@ async function register() {
   $("#box2").hide();
   $("#box3").show();
 
-  setTimeout( ()=>{goTo("user/perfil")}, 10 * 1000)
+  setTimeout( ()=>{goTo("user/perfil")}, 5 * 1000)
 }
 
 $(() => {
