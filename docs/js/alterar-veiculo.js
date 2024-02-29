@@ -1,3 +1,8 @@
+// Adiciona a tag 'active' ao header para o item especifico
+document.querySelectorAll(".header-login").forEach((e) => {
+  e.classList.add("active")
+})
+
 function validateForm() {
   var veiculo = document.getElementById("Veiculo").value;
   var placa = document.getElementById("Placa").value;
