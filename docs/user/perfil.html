@@ -66,7 +66,7 @@
 
                     <div class="edited-photo-perfil">
                         <span class="material-symbols-outlined" id="photo-input-span"> edit
-                            <input style="display: none" id="photo-input" type="file" name="file" onchange="fileChanged()">
+                            <input style="display: none" id="photo-input" type="file" name="file" onchange="FileChange()">
                         </span>
                     </div>
 
@@ -252,19 +252,19 @@
 
                         <div id="modelo-historico" class="item hidden">
 
-                            <div class="info-dados-perfil info-dados-historico">
+                            <div class="info-dados-perfil info-dados-historico" id="dataMudanca">
                                 <p>Data:</p><a class="data">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil info-dados-historico">
+                            <div class="info-dados-perfil info-dados-historico" id="origem">
                                 <p>Origem:</p><a class="origem">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil info-dados-historico">
+                            <div class="info-dados-perfil info-dados-historico" id="destino">
                                 <p>Destino:</p><a class="destino">Informações...</a>
                             </div>
 
-                            <div class="info-dados-perfil info-dados-historico">
+                            <div class="info-dados-perfil info-dados-historico" id="money">
                                 <p>Valor:</p><a class="valor">Informações...</a>
                             </div>
 
