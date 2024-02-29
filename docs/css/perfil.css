@@ -440,6 +440,13 @@ body {
     width: 94%;
 }
 
+#dataMudanca,
+#destino,
+#money,
+#origem{
+    padding: 2px 0 2px 15px;
+}
+
 #dados-veiculo-principal {
     margin-top: -20px;
     width: 97%;
@@ -730,7 +737,6 @@ body {
         border-left: #e4321e;
         background-color: rgb(245, 243, 243);
         border-style: solid;
-        padding: 0;
     }
 
     .info-dados-historico {

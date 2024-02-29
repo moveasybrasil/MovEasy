@@ -309,10 +309,10 @@ function ShowPending() {
         const savedTotalValor = JSON.parse(savedTotal);
 console.log(savedMovingDest);
         // Atualiza as informações da mudança pendente
-        document.getElementById('dataMudanca').innerText = savedMovingDest['Data da mudança'];
-        document.getElementById('origem').innerText = `${savedMovingOrig['Endereço de origem']}, ${savedMovingOrig["Cidade de origem"]}`;
-        document.getElementById('destino').innerText = `${savedMovingDest['Endereço do destino']}, ${savedMovingDest["Cidade do destino"]}`;
-        document.getElementById('money').innerText = `R$${savedTotalValor},00`;
+        document.getElementById('dataMudanca').innerHTML = `<b>Data da mudança:</b><pre> </pre> ${savedMovingDest['Data da mudança']}`;
+        document.getElementById('origem').innerHTML = `<b>Endereço de origem:</b><pre> </pre> ${savedMovingOrig['Endereço de origem']}, ${savedMovingOrig["Cidade de origem"]}`;
+        document.getElementById('destino').innerHTML = `<b>Endereço de destino:</b><pre> </pre> ${savedMovingDest['Endereço do destino']}, ${savedMovingDest["Cidade do destino"]}`;
+        document.getElementById('money').innerHTML = `<b>Valor:</b><pre> </pre> R$${savedTotalValor},00`;
 
         // Calcula e atualiza o valor total
         const novoHistorico = $("#modelo-historico").clone().removeAttr("id").removeClass("hidden");
