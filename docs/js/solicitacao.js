@@ -342,6 +342,7 @@ function salvarDadosLocalmente() {
         'SiglaDest': 'Sigla do destino',
         'NumeroDest': 'Número do destino',
         'ComplementoDest': 'Complemento do destino',
+        'Data': 'Data da mudança'
     };
 
     let dadosOrigem = {}, dadosDestino = {};
